@@ -1,24 +1,32 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TextField, Button, IconButton, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
+import { getAllProducts, createProduct, updateProduct, deleteProduct } from '@/services/admin/service.product';
+import 'dotenv/config'
 
 export default function ProductManager() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
   const [openModal, setOpenModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
+  useEffect(() => {
+    const fetchAllProduct = async () => {
+      const data = await getAllProducts()
+      setProducts(data)
+    }
+    fetchAllProduct()
+  }, [])
 
   // Product form state
   const [form, setForm] = useState({
-    name: '',
-    price: '',
-    description: '',
-    category: ''
+    product_name: '',
+    product_price: '',
+    product_description: '',
+    product_category: ''
   });
 
   const categories = ['Electronics', 'Books', 'Clothing', 'Accessories'];
-
   // Handle modal open/close
   const handleOpen = () => setOpenModal(true);
   const handleClose = () => {
@@ -40,9 +48,12 @@ export default function ProductManager() {
   };
 
   // Add new product
-  const addProduct = () => {
-    setProducts([...products, { ...form, id: Date.now() }]);
-    handleClose();
+  const addProduct = async () => {
+    const res = await createProduct(form)
+    if (res.status === 201) {
+      setProducts([...products, res.metadata])
+      handleClose();
+    }
   };
 
   // Edit existing product
@@ -54,14 +65,21 @@ export default function ProductManager() {
   };
 
   // Update product
-  const updateProduct = () => {
-    setProducts(products.map(p => (p.id === currentProduct.id ? { ...form, id: p.id } : p)));
-    handleClose();
+  const handleUpdateProduct = async () => {
+    const res = await updateProduct(form, currentProduct._id)
+    if (res.status === 200) {
+      setProducts(products.map(p => (p._id === currentProduct._id ? res.metadata : p)));
+      handleClose();
+    }
   };
 
   // Delete product
-  const deleteProduct = (id) => {
-    setProducts(products.filter(product => product.id !== id));
+  const handleDeleteProduct = async (id) => {
+    const res = await deleteProduct(id)
+    if (res.status === 200) {
+      setProducts(products.filter(p => p._id !== id))
+      handleClose();
+    }
   };
 
   return (
@@ -78,16 +96,16 @@ export default function ProductManager() {
         {products.length > 0 ? (
           <ul className="space-y-2">
             {products.map(product => (
-              <li key={product.id} className="flex justify-between items-center p-2 bg-gray-100 rounded">
+              <li key={product._id} className="flex justify-between items-center p-2 bg-gray-100 rounded">
                 <div>
-                  <span className="font-semibold">{product.name}</span> - ${product.price} ({product.category})
-                  <p>{product.description}</p>
+                  <span className="font-semibold">{product.product_name}</span> - ${product.product_price} ({product.product_category})
+                  <p>{product.product_description}</p>
                 </div>
                 <div className="space-x-2">
                   <IconButton onClick={() => editProduct(product)}>
                     <Edit />
                   </IconButton>
-                  <IconButton onClick={() => deleteProduct(product.id)}>
+                  <IconButton onClick={() => handleDeleteProduct(product._id)}>
                     <Delete />
                   </IconButton>
                 </div>
@@ -109,8 +127,8 @@ export default function ProductManager() {
             variant="outlined"
             fullWidth
             margin="normal"
-            name="name"
-            value={form.name}
+            name="product_name"
+            value={form.product_name}
             onChange={handleChange}
           />
           {/* Price Input */}
@@ -119,8 +137,8 @@ export default function ProductManager() {
             variant="outlined"
             fullWidth
             margin="normal"
-            name="price"
-            value={form.price}
+            name="product_price"
+            value={form.product_price}
             onChange={handleChange}
             type="number"
           />
@@ -130,8 +148,8 @@ export default function ProductManager() {
             variant="outlined"
             fullWidth
             margin="normal"
-            name="description"
-            value={form.description}
+            name="product_description"
+            value={form.product_description}
             onChange={handleChange}
             multiline
             rows={4}
@@ -142,9 +160,9 @@ export default function ProductManager() {
             variant="outlined"
             fullWidth
             margin="normal"
-            name="category"
+            name="product_category"
             select
-            value={form.category}
+            value={form.product_category}
             onChange={handleChange}
           >
             {categories.map((category) => (
@@ -159,7 +177,7 @@ export default function ProductManager() {
             Cancel
           </Button>
           <Button
-            onClick={isEditing ? updateProduct : addProduct}
+            onClick={isEditing ? handleUpdateProduct : addProduct}
             color="primary"
             variant="contained"
           >

@@ -19,12 +19,12 @@ export default function Navigate() {
             <ListItemText primary="Products" />
           </ListItem>
         </Link>
-        <Link href="/account" passHref>
+        <Link href="/admin/category" passHref>
           <ListItem className="hover:bg-gray-200 rounded-lg">
             <ListItemIcon>
               <AccountCircleIcon />
             </ListItemIcon>
-            <ListItemText primary="Account" />
+            <ListItemText primary="Category" />
           </ListItem>
         </Link>
         <Link href="/settings" passHref>
