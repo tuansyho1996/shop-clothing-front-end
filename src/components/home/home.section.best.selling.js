@@ -1,31 +1,82 @@
 // pages / index.js
+'use client'
+
 import { getProduct } from "@/services/service.product";
 import ProductCard from "../app.product.cart";
+import Slider from 'react-slick';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import { useEffect, useState } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-export default async function BestSelling() {
-  const res = await getProduct()
-  let products = []
-  if (res.status === 200) {
-    products = res.metadata
-  }
+export default function BestSelling({ products }) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 3,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToScroll: 2,
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToScroll: 1,
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <section className="container max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">Best-Selling Products</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <div className="max-w-6xl w-screen mx-auto px-4 relative">
+      <Slider {...settings}>
         {products.length > 0 ? (
           products.map((product) => (
             <ProductCard key={product._id} product={product} />
-            // <div>{product.title}</div>
           ))
         ) : (
           <p>Loading best-selling products...</p>
         )}
-      </div>
-    </section>
+      </Slider>
+    </div>
   );
 }
 
+// Custom Arrow components for Next and Previous
+const NextArrow = ({ onClick }) => {
+  return (
+    <div
+      className="absolute right-0 xl:right-[-30px] top-1/2 transform -translate-y-1/2 z-10"
+      onClick={onClick}
+    >
+      <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+        <ChevronRight />
+      </button>
+    </div>
+  );
+};
 
+const PrevArrow = ({ onClick }) => {
+  return (
+    <div
+      className="absolute left-0 xl:left-[-30px] top-1/2 transform -translate-y-1/2 z-10"
+      onClick={onClick}
+    >
+      <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+        <ChevronLeft />
+      </button>
+    </div>
+  );
+};
 
 
 

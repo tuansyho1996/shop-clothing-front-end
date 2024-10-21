@@ -1,31 +1,39 @@
-import React from 'react';
-import Image from 'next/image';
-import { Box, Typography } from '@mui/material'; // Material-UI components
-
+// components/Banner.js
+import { Button, Typography } from '@mui/material';
 
 const Banner = () => {
-
   return (
-    <Box className="relative w-full h-[150px] sm:h-[200px] md:h-[300px] lg:h-[400px]">
-      {/* Background Image */}
-      <Image
+    <div className="relative bg-gray-900 text-white h-[50vh] h-[75vh] w-full">
+      <img
         src="https://d2jfx0w9sp915a.cloudfront.net/banner-1.png"
-        alt="Banner"
-        fill
-        style={{ objectFit: 'cover' }}
-        className="absolute inset-0 z-0"
+        alt="Clothing Shop Banner"
+        className=" inset-0 absolute z-0 w-full h-full object-cover opacity-50"
       />
-
-      {/* Text content */}
-      <Box className="absolute inset-0 flex items-center justify-center z-10">
+      <div className="relative z-0 flex flex-col justify-center items-center h-full space-y-4 px-4 text-center">
+        {/* Mobile First Approach */}
         <Typography
-          variant="h1"
-          className="text-white text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+          variant="h2"
+          component="h1"
+          className="font-bold text-3xl md:text-5xl lg:text-6xl"
         >
-          High-Quality Clothing for Every Style <br /> Raw-Fashion
+          Discover Our Latest Collection
         </Typography>
-      </Box>
-    </Box>
+        <Typography
+          variant="h5"
+          className="font-light text-base md:text-lg lg:text-xl"
+        >
+          Fashion that defines you.
+        </Typography>
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          className="mt-4 px-6 py-2 text-sm md:text-base"
+        >
+          Shop Now
+        </Button>
+      </div>
+    </div>
   );
 };
 
