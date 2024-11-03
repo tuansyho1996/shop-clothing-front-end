@@ -1,16 +1,17 @@
-import { Search, ShoppingCart } from '@mui/icons-material';
+import Search from '@mui/icons-material/Search';
 import Link from 'next/link';
-import DropdownMenu from '@/context/text';
 import Image from 'next/image';
-import PersonIcon from '@mui/icons-material/Person';
-import { Avatar } from '@mui/material';
+import MenuDesktop from './header.menu.desktop';
+import MenuMobile from './header.menu.mobile';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import CartHeader from './header.cart';
 
 const Header = () => {
 
   return (
     <header className="w-full bg-white shadow">
       {/* Top Section */}
-      <div className="flex !text-header-color justify-between items-center p-4 gap-4 lg:gap-6 ">
+      <div className="flex !text-back justify-between items-center p-1 gap-4 lg:gap-6 ">
         {/* Left Section: Logo */}
         <div className="flex items-center space-x-4">
           <Link href="/" className="text-3xl font-bold ">
@@ -19,11 +20,13 @@ const Header = () => {
               alt="Logo"
               width={70}
               height={70}
+              style={{ width: 'auto', height: 'auto' }}
+              loading='lazy'
             />
           </Link>
         </div>
-        {/* Menu */}
-        <DropdownMenu />
+        {/* Menu for mobile */}
+        <MenuMobile />
 
         {/* Center Section: Search Bar */}
         <div className="flex-grow mx-4 relative">
@@ -39,17 +42,14 @@ const Header = () => {
 
         {/* Right Section: Icons */}
         <div className="flex items-center space-x-4">
-          <Link href="/account" className="">
-            <Avatar sx={{ color: 'var(--header-color)' }} />
+          <Link href="/account" className="" aria-label='User Account'>
+            <AccountCircleIcon fontSize='large' />
           </Link>
-          <Link href="/cart" className="relative">
-            <ShoppingCart fontSize='large' />
-            <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">0</span>
-          </Link>
+          <CartHeader />
         </div>
       </div>
-
-
+      {/* Menu for desktop */}
+      <MenuDesktop />
     </header>
   );
 };

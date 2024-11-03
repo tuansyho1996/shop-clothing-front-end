@@ -1,11 +1,9 @@
 // pages / index.js
 'use client'
 
-import { getProduct } from "@/services/service.product";
-import ProductCard from "../app.product.cart";
+import ProductCard from "../app.product.card";
 import Slider from 'react-slick';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
-import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -37,10 +35,10 @@ export default function BestSelling({ products }) {
   };
 
   return (
-    <div className="max-w-6xl w-screen mx-auto px-4 relative">
+    <div className="w-full px-4 relative">
       <Slider {...settings}>
-        {products.length > 0 ? (
-          products.map((product) => (
+        {products?.length > 0 ? (
+          products?.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))
         ) : (

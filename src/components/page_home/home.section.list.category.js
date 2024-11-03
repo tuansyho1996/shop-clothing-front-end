@@ -16,33 +16,29 @@ const categories = [
 const ListCategory = () => {
   return (
     <section className="container mx-auto p-4">
-      <Typography variant="h5" gutterBottom className="mb-4">
+      <h5 variant="h5" className="mb-4">
         Top danh mục
-      </Typography>
-      <Grid container spacing={2}>
+      </h5>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {categories.map((category, index) => (
-          <Grid
-            item
-            xs={6} // 2 items per row on mobile
-            sm={4} // 3 items per row on small screens
-            md={3} // 4 items per row on medium screens
-            lg={2.4} // 5 items per row on large screens
+          <div
             key={index}
+            className="p-2"
           >
-            <Card>
-              <CardActionArea className="flex flex-col items-center p-4">
+            <div className="border rounded-lg shadow-md hover:shadow-lg transition-shadow p-4">
+              <button className="flex flex-col items-center p-4 w-full">
                 <div className="mb-2 h-10 w-10 bg-gray-300 rounded-full"></div> {/* Placeholder for icon */}
-                <Typography variant="body1" align="center">
+                <p className="text-base font-medium text-center">
                   {category.name}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" align="center">
-                  {category.count} sản phẩm
-                </Typography>
-              </CardActionArea>
-            </Card>
-          </Grid>
+                </p>
+                <p className="text-sm text-gray-500 text-center">
+                  {category.count}
+                </p>
+              </button>
+            </div>
+          </div>
         ))}
-      </Grid>
+      </div>
     </section>
   );
 };
