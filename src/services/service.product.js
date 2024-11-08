@@ -9,9 +9,9 @@ const fetcher = async (endpoint, options = {}) => {
 };
 
 
-const getProduct = async (id = 'all') => {
+const getAllProducts = async () => {
   try {
-    const response = await fetcher(`/api/product/${id}`);
+    const response = await fetcher(`/api/product/all`, { cache: "no-cache" });
     if (!response.status === 200) {
       return null
     }
@@ -20,6 +20,44 @@ const getProduct = async (id = 'all') => {
     console.error(error)
   }
 }
+
+const getProduct = async (slug = 'all') => {
+  try {
+    const response = await fetcher(`/api/product/${slug}`);
+    if (!response.status === 200) {
+      return null
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+const getProductsOfCategory = async (slug) => {
+  try {
+    const response = await fetcher(`/api/product-category/${slug}`, { cache: 'no-cache' });
+    if (!response.status === 200) {
+      return null
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
+const getCategory = async (slug) => {
+  try {
+    const response = await fetcher(`/api/product/${slug}`);
+    if (!response.status === 200) {
+      return null
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export {
-  getProduct
+  getAllProducts,
+  getProduct,
+  getProductsOfCategory
 }

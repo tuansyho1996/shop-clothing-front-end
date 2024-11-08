@@ -7,24 +7,7 @@ import { AppContext } from '@/context/context.app';
 
 
 export default function CartHeader() {
-  const { isDrawerOpen, setDrawerOpen, productInCart, setProductInCart } = useContext(AppContext)
-
-  const cartItems = [
-    {
-      image: '/path/to/image1.jpg',
-      name: 'Corvette Evolution',
-      color: 'Black Heather',
-      size: 'XS',
-      price: '$24.95 USD',
-    },
-    {
-      image: '/path/to/image2.jpg',
-      name: 'Porsche 911 Carrera',
-      color: 'Olive',
-      size: 'M',
-      price: '$29.95 USD',
-    },
-  ];
+  const { isDrawerOpen, setDrawerOpen, productsInCart, setProductsInCart } = useContext(AppContext)
 
   return (
     <div className="relative">
@@ -35,7 +18,7 @@ export default function CartHeader() {
       <Drawer
         isOpen={isDrawerOpen}
         onClose={() => setDrawerOpen(false)}
-        items={productInCart}
+        items={productsInCart}
       />
     </div>
   );

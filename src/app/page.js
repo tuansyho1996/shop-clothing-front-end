@@ -1,7 +1,7 @@
 import Banner from "@/components/page_home/home.banner";
 import BestSelling from "@/components/page_home/home.section.best.selling"
 import ListCategory from "@/components/page_home/home.section.list.category";
-import { getProduct } from "@/services/service.product";
+import { getAllProducts } from "@/services/service.product";
 import NewProducts from "@/components/page_home/home.new.products";
 
 export const metadata = {
@@ -10,7 +10,7 @@ export const metadata = {
 }
 
 export default async function Page() {
-  const data = await getProduct()
+  const data = await getAllProducts()
   const products = data
   return (
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full">

@@ -32,7 +32,7 @@ const Header = () => {
         <div className="flex-grow mx-4 relative">
           <input
             type="text"
-            placeholder="Hoàn 200% nếu hàng giả"
+            placeholder="sss"
             className="w-full border border-gray-300 rounded-full px-4 py-2 outline-none"
           />
           <button className="absolute right-2 top-2">

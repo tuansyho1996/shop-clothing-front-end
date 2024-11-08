@@ -20,7 +20,7 @@ const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
 const ProductAttribute = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
-  const { currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productInCart, setProductInCart, setDrawerOpen } = useContext(AppContext)
+  const { currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, setDrawerOpen } = useContext(AppContext)
 
   useEffect(() => {
     setCurrentColor(product.product_colors[0])
@@ -42,12 +42,28 @@ const ProductAttribute = ({ product }) => {
     }
   }
   const handleAddToCart = () => {
-    const copyPruduct = { ...product }
-    copyPruduct.product_size = selectedSize
-    copyPruduct.product_color = colorsObject.find(el => el.hex === currentColor).name
-    copyPruduct.product_image = product.product_color_images[product.product_colors.findIndex(el => el === currentColor)]
-    setProductInCart([...productInCart, copyPruduct])
-    setDrawerOpen(true)
+    const isProductInCart = productsInCart.find(el => el.product_slug === product.product_slug)
+    if (isProductInCart && isProductInCart.product_size === selectedSize && isProductInCart.product_color === colorsObject.find(el => el.hex === currentColor).name) {
+      const mutateProductsInCart = productsInCart.map(el => {
+        if (el.product_slug === product.product_slug) {
+          el.product_count += 1
+        }
+        return el
+      })
+      setProductsInCart(mutateProductsInCart)
+      setDrawerOpen(true)
+    }
+    else {
+      const copyProduct = { ...product }
+      copyProduct.product_count = 1
+      copyProduct.product_size = selectedSize
+      copyProduct.product_color = colorsObject.find(el => el.hex === currentColor).name
+      copyProduct.product_image = product.product_color_images[product.product_colors.findIndex(el => el === currentColor)]
+      setProductsInCart([...productsInCart, copyProduct])
+      setDrawerOpen(true)
+    }
+
+
   }
   return (
     <>

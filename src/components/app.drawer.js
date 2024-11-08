@@ -1,11 +1,39 @@
 // components/Drawer.js
+'use client'
 import DeleteIcon from '@mui/icons-material/Delete';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from 'next/image';
+import { AppContext } from '@/context/context.app';
+import { useContext, useEffect, useState } from 'react';
+import Link from 'next/link';
+
 
 export default function Drawer({ isOpen, onClose, items }) {
+  const { productsInCart, setProductsInCart, setDrawerOpen } = useContext(AppContext)
+  const [subtotal, setSubtotal] = useState(0)
+  useEffect(() => {
+    const newSubTotal = productsInCart.reduce((acc, el) => acc + (el.product_count * el.product_price), 0)
+    setSubtotal(newSubTotal)
+  }, [productsInCart])
+  const handleMinusItem = (index) => {
+    let copyItems = [...items]
+    copyItems[index].product_count -= 1
+    copyItems = copyItems.filter(el => el.product_count !== 0)
+    setProductsInCart(copyItems)
+  }
+  const handlePlusItem = (index) => {
+    const copyItems = [...items]
+    copyItems[index].product_count += 1
+    setProductsInCart(copyItems)
+  }
+  const handleRemoveItem = (index) => {
+    const copyItems = [...items]
+    copyItems.splice(index, 1)
+    setProductsInCart(copyItems)
+
+  }
   return (
     <>
       {isOpen && (
@@ -14,38 +42,41 @@ export default function Drawer({ isOpen, onClose, items }) {
           onClick={onClose}
         ></div>
       )}
+
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-[640px] transform bg-white transition-transform ${isOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed inset-y-0 right-0 z-50 w-[75vw] md:w-[50vw] transform bg-white transition-transform ${isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
       >
         <div className="p-4">
           <div className="flex justify-between items-center border-b pb-4">
-            <p className="text-xl font-bold">Cart</p>
+            <p className="text-4xl p-5 font-bold">Cart</p>
             <button onClick={onClose}>
               <CloseIcon className="w-6 h-6" />
             </button>
           </div>
-          <div className="mt-4 space-y-4">
+          <div className="max-h-[50vh] overflow-y-auto mt-4 space-y-4">
             {items.map((item, index) => (
-              <div key={index} className="flex space-x-4">
-                <Image
-                  src={item.product_image}
-                  alt=''
-                  width={140}
-                  height={140}
-                  style={{ objectFit: 'cover', width: 'auto', height: 'auto' }}
-                  loadding='lazy'
-                />
-                <div className="flex-1 text-lg">
-                  <p className="font-semibold">{item.product_name}</p>
-                  <p className="">{item.product_price}</p>
+              <div key={index} className=" flex justify-between">
+                <div className=' w-full basis-40'>
+                  <Image
+                    src={item.product_image}
+                    alt=''
+                    width={160}
+                    height={160}
+                    style={{ objectFit: 'cover', width: 'auto', height: 'auto' }}
+                    loadding='lazy'
+                  />
+                </div>
+                <div className="basis-1/2 text-lg overflow-hidden">
+                  <p className="font-semibold truncate-2-lines">{item.product_name}</p>
+                  <p className="">{item.product_price}<span style={{ color: '#999' }}> X {item.product_count}</span></p>
                   <p className=" ">Color: {item.product_color}</p>
                   <p className=" ">Size: {item.product_size}</p>
                 </div>
-                <div className='flex cursor-pointer'>
-                  <RemoveIcon sx={{ color: '#999999' }} fontSize='large' />
-                  <AddIcon sx={{ color: '#999999' }} fontSize='large' />
-                  <DeleteIcon sx={{ color: '#999999' }} fontSize='large' />
+                <div className='flex flex-col 2xl:flex-row cursor-pointer justify-center'>
+                  <AddIcon sx={{ color: '#999999', fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handlePlusItem(index)} />
+                  <RemoveIcon sx={{ color: '#999999', fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleMinusItem(index)} />
+                  <DeleteIcon sx={{ color: '#999999', fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleRemoveItem(index)} />
                 </div>
               </div>
             ))}
@@ -53,14 +84,18 @@ export default function Drawer({ isOpen, onClose, items }) {
           <div className="mt-4 border-t pt-4">
             <div className="flex justify-between text-lg font-bold">
               <span>Subtotal</span>
-              <span>$54.90 USD</span>
+              <span>${subtotal} USD</span>
             </div>
-            <button className="mt-4 w-full bg-black text-white py-2 rounded">
-              Go to Cart
-            </button>
-            <button className="mt-2 w-full bg-black text-white py-2 rounded">
-              Checkout
-            </button>
+            <Link href='/cart'>
+              <button className="mt-4 w-full bg-black text-white py-2 rounded" onClick={() => setDrawerOpen(false)}>
+                Go to Cart
+              </button>
+            </Link>
+            <Link href='/checkout'>
+              <button className="mt-2 w-full bg-black text-white py-2 rounded" onClick={() => setDrawerOpen(false)}>
+                Checkout
+              </button>
+            </Link>
           </div>
         </div>
       </div>

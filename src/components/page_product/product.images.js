@@ -22,13 +22,13 @@ export default function ImagesProduct({ product }) {
     }
     return (
         <div className="flex flex-col w-full md:w-1/2 gap-1">
-            <div className='relative pt-[100%] flex-1 shadow-2xl'>
+            <div className='relative w-full pt-[100%] flex-1 shadow-2xl'>
                 <Image
                     src={currentImageDetail ? currentImageDetail : product?.product_images[0]}
                     alt={product?.product_name}
                     fill
                     style={{ objectFit: 'cover' }}
-                    sizes="(min-width: 768px) 50vw, 100vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     // loading="lazy"
                     priority={true}
                 />
@@ -36,7 +36,7 @@ export default function ImagesProduct({ product }) {
             <div className="grid grid-cols-7 sm:grid-cols-9 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-1">
                 {
                     imagesProduct.length > 0 && imagesProduct.map((image, index) => (
-                        <div className=" sm:w-[60px]" key={index}>
+                        <div className="sm:w-[60px]" key={index}>
                             <Image
                                 onClick={() => handleClickMultipleImages(image)}
                                 key={index}

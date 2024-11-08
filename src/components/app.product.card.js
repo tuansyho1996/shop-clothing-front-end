@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }} className="p-4 hover:shadow-2xl transition-shadow duration-300 shadow-md m-[10px] bg-[#f9f9f9] space-y-4">
-      <Link href={`product/${product?.product_slug}`} >
+      <Link href={`/product/${product?.product_slug}`} >
         <div className="rounded-lg flex flex-col items-center">
           <div className="relative h-96 lg:h-80 w-full">
             <Image
@@ -14,10 +14,11 @@ const ProductCard = ({ product }) => {
               alt={product?.product_name}
               fill
               style={{ objectFit: 'cover' }}
+              sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 25vw"
               loading="lazy"
             />
           </div>
-          <h3 className="text-lg font-semibold">{product?.product_name}</h3>
+          <h3 className="text-lg font-semibold truncate-3-lines">{product?.product_name}</h3>
           <p className="text-gray-500">${product?.product_price.toFixed(2)}</p>
         </div>
       </Link>

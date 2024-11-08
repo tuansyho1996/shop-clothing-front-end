@@ -1,14 +1,10 @@
 // components/Navbar.tsx
 'use client'
 import { useState } from 'react';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 import CustomLink from '../ui/ui.custom.link';
-
 const menu = [
     {
         name: 'Norse Legends',
@@ -222,7 +218,9 @@ const menu = [
     }
 ]
 
+
 const MenuMobile = () => {
+
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const toggleDrawer = (open) => {
@@ -246,78 +244,84 @@ const MenuMobile = () => {
             setNameChild2Open(name)
         }
     }
-    console.log(nameChild2Open)
     return (
         <div className="lg:hidden">
             {/* Menu icon for mobile */}
             <div >
-                <IconButton onClick={() => toggleDrawer(true)}>
-                    <MenuIcon fontSize='large' className='hover:text-accent-color text-black' />
-                </IconButton>
+                <MenuIcon fontSize='large' className='hover:text-accent-color text-black cursor-pointer' onClick={() => toggleDrawer(true)} />
             </div>
             {/* Mobile Drawer */}
-            <Drawer sx={{ '& .MuiDrawer-paper': { width: '50vw' } }} anchor="left" open={isDrawerOpen} onClose={() => toggleDrawer(false)} >
-                <div className="flex justify-between items-center p-4 border-b">
-                    <h2 className="text-xl font-bold">CATEGORIES</h2>
-                    <IconButton onClick={() => toggleDrawer(false)}>
-                        <CloseIcon />
-                    </IconButton>
-                </div>
-                <nav className="w-full" role onKeyDown={() => toggleDrawer(false)}>
-                    <ul>
-                        {
-                            menu.map((el, index) => (
-                                <li key={index}>
-                                    <CustomLink href="#el.name">
-                                        <div className={`cursor-pointer flex justify-between uppercase items-center px-3 py-1 border-y border-gray-200 ${el.name === nameOpen ? 'text-accent-color' : ''}`}
-                                            onClick={() => handleClick(el.name)}>
-                                            {el.name}
-                                            <KeyboardArrowDownIcon />
-                                        </div>
-                                    </CustomLink>
+            {isDrawerOpen && (
+                <div
+                    className="fixed inset-0 z-40 bg-black bg-opacity-50"
+                    onClick={() => toggleDrawer(false)}
+                ></div>
+            )}
+            <div
+                className={`fixed inset-y-0 left-0 z-50 w-[70vw] transform bg-white transition-transform ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'
+                    }`}
+            >
+                <div className='p-4'>
+                    <div className="flex justify-between items-center py-4 border-b">
+                        <h2 className="text-xl font-bold">CATEGORIES</h2>
+                        <CloseIcon onClick={() => toggleDrawer(false)} />
+                    </div>
+                    <nav className="w-full" role="navigation" onKeyDown={() => toggleDrawer(false)}>
+                        <ul>
+                            {
+                                menu.map((el, index) => (
+                                    <li key={index}>
+                                        <CustomLink href="#el.name">
+                                            <div className={`cursor-pointer flex justify-between uppercase items-center px-3 py-1 border-y border-gray-200 ${el.name === nameOpen ? 'text-accent-color' : ''}`}
+                                                onClick={() => handleClick(el.name)}>
+                                                {el.name}
+                                                <KeyboardArrowDownIcon />
+                                            </div>
+                                        </CustomLink>
 
-                                    <div style={{ minWidth: '200px' }} className={`${el.name === nameOpen ? 'inline' : 'hidden'}`}>
-                                        <ul style={{ width: '100%' }}>
-                                            {
-                                                el.child.length > 0 &&
-                                                el.child.map((item, index) =>
-                                                (
-                                                    <li key={index} className='font-semibold '>
-                                                        <CustomLink href="#el.name">
-                                                            <div className={`flex gap-4 items-center px-8 cursor-pointer py-2 ${item.name === nameChild2Open ? 'text-accent-color' : ''}`}
-                                                                onClick={() => handleClick2(item.name)}>
-                                                                {item.name}
-                                                                <KeyboardArrowDownIcon />
+                                        <div style={{ minWidth: '200px' }} className={`${el.name === nameOpen ? 'inline' : 'hidden'}`}>
+                                            <ul style={{ width: '100%' }}>
+                                                {
+                                                    el.child.length > 0 &&
+                                                    el.child.map((item, index) =>
+                                                    (
+                                                        <li key={index} className='font-semibold '>
+                                                            <CustomLink href="#el.name">
+                                                                <div className={`flex gap-4 items-center justify-between px-8 cursor-pointer py-2 ${item.name === nameChild2Open ? 'text-accent-color' : ''}`}
+                                                                    onClick={() => handleClick2(item.name)}>
+                                                                    {item.name}
+                                                                    <KeyboardArrowDownIcon />
+                                                                </div>
+                                                            </CustomLink>
+                                                            <div style={{ minWidth: '200px' }} className={`${item.name === nameChild2Open ? 'inline' : 'hidden'}`}>
+                                                                <ul style={{ width: '100%' }}>
+                                                                    {
+                                                                        item.child.length > 0 &&
+                                                                        item.child.map((it, index) =>
+                                                                        (
+                                                                            <li key={index} className='font-semibold px-11 py-1'>
+                                                                                <CustomLink href="#el.name" textTransform='capitalize'>
+                                                                                    {it.name}
+                                                                                </CustomLink>
+                                                                            </li>
+                                                                        )
+                                                                        )
+                                                                    }
+                                                                </ul>
                                                             </div>
-                                                        </CustomLink>
-                                                        <div style={{ minWidth: '200px' }} className={`${item.name === nameChild2Open ? 'inline' : 'hidden'}`}>
-                                                            <ul style={{ width: '100%' }}>
-                                                                {
-                                                                    item.child.length > 0 &&
-                                                                    item.child.map((it, index) =>
-                                                                    (
-                                                                        <li key={index} className='font-semibold px-11 py-1'>
-                                                                            <CustomLink href="#el.name" textTransform='capitalize'>
-                                                                                {it.name}
-                                                                            </CustomLink>
-                                                                        </li>
-                                                                    )
-                                                                    )
-                                                                }
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                )
-                                                )
-                                            }
-                                        </ul>
-                                    </div>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </nav>
-            </Drawer>
+                                                        </li>
+                                                    )
+                                                    )
+                                                }
+                                            </ul>
+                                        </div>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
     );
 };
