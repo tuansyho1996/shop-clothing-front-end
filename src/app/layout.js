@@ -3,6 +3,8 @@ import "./globals.css";
 import Footer from "@/components/app.footer";
 import Header from "@/components/app.header";
 import { AppProvider } from '@/context/context.app';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -18,6 +20,7 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <Footer />
+          <ToastContainer autoClose={1000} theme="colored" />
         </body>
       </html>
     </AppProvider>

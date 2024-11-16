@@ -3,7 +3,7 @@ import { Container, Grid, Typography } from '@mui/material';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-10 mt-10">
+    <footer className="bg-gray-100 py-10 border-t">
       <Container maxWidth="lg">
         <Grid container spacing={4} className="text-center sm:text-left">
           {/* Help Column */}

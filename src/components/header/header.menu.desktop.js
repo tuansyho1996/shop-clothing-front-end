@@ -1,7 +1,7 @@
 // components/MenDropdown.js
 'use client'
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import CustomLink from "../ui/ui.custom.link";
 const menu = [
     {
@@ -232,15 +232,11 @@ const menu = [
 ]
 const MenuDesktop = () => {
     const [nameOpen, setNameOpen] = useState('')
-    const timeoutRef = useRef(null)
     const handleOpen = (name) => {
-        clearTimeout(timeoutRef.current);
         setNameOpen(name)
     }
     const handleClose = () => {
-        timeoutRef.current = setTimeout(() => {
-            setNameOpen('')
-        }, 100);
+        setNameOpen('')
     }
     return (
         <nav className="hidden lg:flex  bg-gray-200">
@@ -255,11 +251,13 @@ const MenuDesktop = () => {
                                 key={index}
                             >
                                 <div className="relative" >
-                                    <div onClick={() => setNameOpen('')}>
+                                    <div >
                                         <CustomLink href={el?.href || ''} fs='text-lg' fontWeight="font-semibold">
                                             {el.name}
                                         </CustomLink>
                                     </div>
+                                    <span className={`absolute top-full left-1/2 transform -translate-x-1/2 z-30 bg-gray-200 h-3 w-full`}>
+                                    </span>
                                     <span className={`absolute top-full left-1/2 transform -translate-x-1/2 z-30 ${nameOpen === el.name ? 'visible' : 'hidden'}`}>
                                         <div className="w-[0.75rem] h-[0.75rem] bg-gray-200 rotate-45 transform origin-center translate-y-1/2"></div>
                                     </span>
@@ -269,13 +267,13 @@ const MenuDesktop = () => {
                                         {
                                             el.child.map((item, id) => (
                                                 <div key={id}>
-                                                    <div onClick={() => setNameOpen('')}>
+                                                    <div >
                                                         <CustomLink href={item?.href || ''} fontWeight="font-semibold">{item.name}</CustomLink>
                                                     </div>
                                                     <ul className="space-y-2 text-sm text-gray-600 border-t pt-2 mt-3">
                                                         {
                                                             item.child.map((it, number) => (
-                                                                <li key={number} onClick={() => setNameOpen('')}>
+                                                                <li key={number} >
                                                                     <CustomLink href={it?.href || ''} fontWeight="font-medium" textTransform='capitalize' className="text-sm font-semibold border-b pb-2 mb-3">{it.name}</CustomLink>
                                                                 </li>
                                                             ))

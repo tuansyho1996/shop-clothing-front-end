@@ -3,8 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MenuDesktop from './header.menu.desktop';
 import MenuMobile from './header.menu.mobile';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CartHeader from './header.cart';
+import AccountMenu from '../ui/account.menu.destop';
+
 
 const Header = () => {
 
@@ -42,9 +43,7 @@ const Header = () => {
 
         {/* Right Section: Icons */}
         <div className="flex items-center space-x-4">
-          <Link href="/account" className="" aria-label='User Account'>
-            <AccountCircleIcon fontSize='large' />
-          </Link>
+          <AccountMenu />
           <CartHeader />
         </div>
       </div>

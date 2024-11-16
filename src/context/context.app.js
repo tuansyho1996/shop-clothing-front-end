@@ -3,17 +3,25 @@ import { createContext, useState, useEffect, useRef } from 'react';
 
 export const AppContext = createContext();
 
+
 export function AppProvider({ children }) {
   const [currentImageDetail, setCurrentImageDetail] = useState('');
   const [currentColor, setCurrentColor] = useState('')
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [productsInCart, setProductsInCart] = useState([])
   const [subtotal, setSubtotal] = useState(0)
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
+    //set cart
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
       setProductsInCart(JSON.parse(savedCart));
+    }
+    //set user
+    const userLocal = localStorage.getItem('user');
+    if (userLocal) {
+      setUser(JSON.parse(userLocal));
     }
   }, []);
   useEffect(() => {
@@ -30,7 +38,7 @@ export function AppProvider({ children }) {
     localStorage.setItem('cart', JSON.stringify(productsInCart));
   }, [productsInCart]);
   return (
-    <AppContext.Provider value={{ currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, isDrawerOpen, setDrawerOpen, subtotal }}>
+    <AppContext.Provider value={{ user, setUser, currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, isDrawerOpen, setDrawerOpen, subtotal }}>
       {children}
     </AppContext.Provider>
   );
