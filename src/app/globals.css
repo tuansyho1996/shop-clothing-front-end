@@ -64,3 +64,39 @@
   min-height: 4.5em;
   /* 2 lines * line-height */
 }
+
+.button-debit {
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+@media only screen and (min-width: 363px) {
+  .button-debit {
+    padding: 10.5px 0;
+    font-size: 16px;
+
+  }
+}
+
+
+@media only screen and (min-width: 564px) {
+  .button-debit {
+    padding: 15.5px 0;
+    font-size: 16px;
+
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .button-debit {
+    padding: 6px 0;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 895px) {
+  .button-debit {
+    font-size: 16px;
+    padding: 10.5px 0;
+  }
+}

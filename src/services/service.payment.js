@@ -7,22 +7,18 @@ const fetcher = async (endpoint, options = {}) => {
   return res.json();
 };
 
-const createPayment = async () => {
+const fetchOrder = async (id = 'all') => {
   try {
-    const response = await fetcher('/api/payment/create-payment', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: '10.00' }), // Set your amount here
-    });
+    const response = await fetcher(`/api/payment/fetch-order/${id}`);
     if (!response.status === 200) {
       return null
     }
-    return response.metadata
+    return response?.metadata
   } catch (error) {
-    console.error(error)
+    console.log(error)
   }
 }
 
 export {
-  createPayment
+  fetchOrder
 }

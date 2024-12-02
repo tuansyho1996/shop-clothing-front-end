@@ -10,7 +10,11 @@ export function AppProvider({ children }) {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [productsInCart, setProductsInCart] = useState([])
   const [subtotal, setSubtotal] = useState(0)
+  const [shipping, setShipping] = useState(4.96)
   const [user, setUser] = useState(null)
+  const subtotaltRef = useRef(subtotal);
+  const shippingRef = useRef(shipping);
+  const productsInCartRef = useRef(productsInCart)
 
   useEffect(() => {
     //set cart
@@ -28,6 +32,15 @@ export function AppProvider({ children }) {
     const newSubTotal = productsInCart.reduce((acc, el) => acc + (el.product_count * el.product_price), 0)
     setSubtotal(newSubTotal)
   }, [productsInCart])
+  useEffect(() => {
+    subtotaltRef.current = subtotal;
+  }, [subtotal]);
+  useEffect(() => {
+    shippingRef.current = shipping;
+  }, [shipping]);
+  useEffect(() => {
+    productsInCartRef.current = productsInCart;
+  }, [productsInCart]);
 
   const isInitialRender = useRef(true);
   useEffect(() => {
@@ -38,7 +51,10 @@ export function AppProvider({ children }) {
     localStorage.setItem('cart', JSON.stringify(productsInCart));
   }, [productsInCart]);
   return (
-    <AppContext.Provider value={{ user, setUser, currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, isDrawerOpen, setDrawerOpen, subtotal }}>
+    <AppContext.Provider value={{
+      user, setUser, currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, productsInCartRef,
+      isDrawerOpen, setDrawerOpen, subtotal, subtotaltRef, shippingRef, shipping
+    }}>
       {children}
     </AppContext.Provider>
   );

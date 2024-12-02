@@ -1,8 +1,6 @@
-
-
 const CustomInput = ({ value, handleChangeValue, label, placeholder }) => {
   return (
-    <div className="relative rounded-md border border-gray-200 flex">
+    <div className="relative rounded-sm border border-gray-200 flex focus-within:shadow-md">
       <label className={`${value ? 'block' : 'hidden'} text-sm pl-3 text-light text-gray-500 absolute top-0 left-0`}>{label}</label>
       <input
         type="text"
