@@ -44,12 +44,7 @@ function App({ setLoading }) {
     email, emailRef,
     formErrors, setFormErrors, flagCurrentRef, } = useContext(FormCheckoutContext)
   const { subtotaltRef, shippingRef, productsInCartRef } = useContext(AppContext)
-  const billDetails = {
-    givenName: firstNameRef.current, surname: lastNameRef.current, addressLine1: addressRef.current, addressLine2: apartmentSuiteRef.current, adminArea2: cityRef.current, adminArea1: stateRef.current,
-    postalCode: zipRef.current, countryCode: flagCurrentRef.current, nationalNumber: phoneRef.current, emailAddress: emailRef.current,
-    itemTotal: subtotaltRef.current, shipping: shippingRef.current, items: productsInCartRef.current
-  }
-  console.log(productsInCart)
+
 
   const validateForm = () => {
     const errors = {};
@@ -136,6 +131,11 @@ function App({ setLoading }) {
     } catch (error) {
       console.error(error)
     }
+  }
+  const billDetails = {
+    givenName: firstNameRef.current, surname: lastNameRef.current, addressLine1: addressRef.current, addressLine2: apartmentSuiteRef.current, adminArea2: cityRef.current, adminArea1: stateRef.current,
+    postalCode: zipRef.current, countryCode: flagCurrentRef.current, nationalNumber: phoneRef.current, emailAddress: emailRef.current,
+    itemTotal: subtotaltRef.current, shipping: shippingRef.current, items: productsInCartRef.current
   }
   return (
     <div className="App">
@@ -286,6 +286,11 @@ function App({ setLoading }) {
                     //   JSON.stringify(orderData?.metadata?.jsonResponse, null, 2)
                     // );
                     if (orderData?.metadata?.jsonResponse?.status === "COMPLETED") {
+                      const billDetails = {
+                        givenName: firstNameRef.current, surname: lastNameRef.current, addressLine1: addressRef.current, addressLine2: apartmentSuiteRef.current, adminArea2: cityRef.current, adminArea1: stateRef.current,
+                        postalCode: zipRef.current, countryCode: flagCurrentRef.current, nationalNumber: phoneRef.current, emailAddress: emailRef.current,
+                        itemTotal: subtotaltRef.current, shipping: shippingRef.current, items: productsInCartRef.current
+                      }
                       setLoading(false)
                       completeOrder({ infoOrder: orderData?.metadata?.jsonResponse, infoCustomer: billDetails })
                     }
