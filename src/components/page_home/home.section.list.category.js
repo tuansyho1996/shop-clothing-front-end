@@ -1,16 +1,13 @@
 import { Grid, Card, CardActionArea, Typography } from "@mui/material";
 
 const categories = [
-  { name: "Quần", count: 5866 },
-  { name: "Áo Sweater", count: 1189 },
-  { name: "Áo Hoodie", count: 2966 },
-  { name: "Áo Sơ Mi", count: 4284 },
-  { name: "Áo Cổ Trụ", count: 491 },
-  { name: "Áo Khoác", count: 2289 },
-  { name: "Ba lô, Túi Xách", count: 4505 },
-  { name: "Váy", count: 250 },
-  { name: "Áo Thun", count: 18760 },
-  { name: "Áo Dây", count: 127 },
+  { name: "Men's Sweater", count: 1189 },
+  { name: "Men's Hoodies", count: 2966 },
+  { name: "Men's T-Shirt", count: 4284 },
+  { name: "Men's Polo", count: 491 },
+  { name: "Women's T-Shirt", count: 2289 },
+  { name: "Men's Tank Tops", count: 4505 },
+  { name: "Men's Pants", count: 5866 },
 ];
 
 const ListCategory = () => {
