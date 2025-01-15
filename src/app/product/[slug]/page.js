@@ -7,6 +7,7 @@ import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import GrassIcon from "@mui/icons-material/Grass";
 // import EcoIcon from "@mui/icons-material/Eco";
 import LoopIcon from "@mui/icons-material/Loop";
+import Link from 'next/link';
 
 export async function generateMetadata({ params }) {
     const data = await getProduct(params.slug) // Fetch your data here, e.g., from an API
@@ -27,14 +28,26 @@ export default async function Page({ params }) {
     return (
         <main>
             <div className="container mx-auto py-8 px-4 sm:px-6">
+                <div className="flex items-center justify-center mb-6">
+                    {/* Breadcrumbs */}
+                    {product?.product_list_categories && product?.product_list_categories_name.map((category, index) => (
+                        <div key={index}>
+                            <Link href={`/category/${product?.product_list_categories.slice(0, index + 1).join('&')}`} className="text-sm text-gray-600 cursor-pointer">
+                                <span className="text-sm text-gray-600 cursor-pointer">{category}</span>
+                            </Link>
+                            {index < product?.product_list_categories_name.length - 1 && (
+                                <span className="mx-1 text-gray-400">{">"}</span>
+                            )}
+                        </div>
+                    ))}
+                </div>
                 <div className="flex flex-col md:flex-row gap-6">
                     {/* Product Image */}
                     <ImagesProduct product={product} />
-
                     {/* Product Info */}
                     <div className="flex-1 w-full lg:w-1/2">
                         <div className="max-w-mdshadow-lg">
-                            <h2 className="text-lg font-semibold">Unisex - Lamassu - Tshirt</h2>
+                            <h2 className="text-lg font-semibold">{product.product_name}</h2>
                             <ProductAttribute product={product} />
                             <div className="flex justify-around mt-6">
                                 <div className="relative group">

@@ -19,7 +19,18 @@ const getCategory = async (slug) => {
     console.error(error)
   }
 }
-
+const getTopCategory = async () => {
+  try {
+    const response = await fetcher('/api/category/top-category');
+    if (!response.status === 200) {
+      return []
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
 export {
-  getCategory
+  getCategory,
+  getTopCategory
 }

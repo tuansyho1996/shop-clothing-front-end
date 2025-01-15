@@ -73,8 +73,6 @@ export default function Cart() {
             :
             <span>Your cart is currently empty.</span>
         }
-
-
         <hr className="my-4" />
 
         <div className="flex justify-between items-center mt-4">
