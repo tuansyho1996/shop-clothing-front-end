@@ -24,7 +24,7 @@ export default async function Page({ params }) {
 
     // Mock Product Data (Replace with actual data fetching)
 
-
+    console.log(product)
     return (
         <main>
             <div className="container mx-auto py-8 px-4 sm:px-6">

@@ -25,11 +25,13 @@ export default async function Page({ params }) {
   const categories = await getCategory(params.slug)
   let title = ''
   let description = ''
+  const isUnisex = categories.some(element => element.category_name === 'Unisex')
   categories.forEach(element => {
-    title += ` ${element.category_name}`
-    description += ` ${element.category_description}`
+    if (!(isUnisex && (element.category_name === 'Men' || element.category_name === 'Women'))) {
+      title += ` ${element.category_name}`
+      description += ` ${element.category_description}`
+    }
   });
-  console.log(categories)
   return (
     <main>
       <section className="container mx-auto">

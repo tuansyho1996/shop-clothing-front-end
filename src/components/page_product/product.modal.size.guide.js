@@ -10,7 +10,6 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
             onClose();
         }
     };
-    console.log(category, category_2);
     return (
         <div
             id="modal-overlay"

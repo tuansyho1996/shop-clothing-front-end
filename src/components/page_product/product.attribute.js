@@ -8,7 +8,7 @@ const colorsObject = [
   { name: "Charcoal", hex: "#333333" },
   { name: "Midnight Blue", hex: "#2C3E50" }, //
   { name: "Deep Olive", hex: "#3B5323" },
-  { name: "Steel Blue", hex: "#4682B4" },
+  { name: "Steel Blue", hex: "#4682B4" }, //
   { name: "Dark Slate", hex: "#2F4F4F" }, //
   { name: "Burnt Umber", hex: "#8A3324" },
   { name: "Wine", hex: "#722F37" }, //
@@ -74,7 +74,6 @@ const ProductAttribute = ({ product }) => {
       setQuantity(quantity - 1)
     }
   }
-  console.log(product)
   return (
     <>
       <div className="text-orange-600 text-xl font-bold">$23</div>

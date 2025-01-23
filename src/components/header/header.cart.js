@@ -10,7 +10,6 @@ import { AppContext } from '@/context/context.app';
 export default function CartHeader() {
   const { isDrawerOpen, setDrawerOpen, productsInCart } = useContext(AppContext)
   const countItem = productsInCart?.reduce((sum, el) => sum + el.product_count, 0)
-  console.log(productsInCart)
   return (
     <div className="relative">
       <button className="relative" onClick={() => setDrawerOpen(true)}>
