@@ -17,7 +17,7 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           <Link href="/" className="text-3xl font-bold ">
             <Image
-              src="https://d2jfx0w9sp915a.cloudfront.net/cdd25bf65b1c7596d72633acc248d520"
+              src="https://d2jfx0w9sp915a.cloudfront.net/eeaec0c4327d5ad05c88b170b8e81665"
               alt="Logo"
               width={70}
               height={70}

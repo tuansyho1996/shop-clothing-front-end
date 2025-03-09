@@ -1,5 +1,5 @@
 import { fetchOrder } from "@/services/service.payment";
-export default async function ({ params }) {
+export default async function OrderRecieved({ params }) {
   const res = await fetchOrder(params.id)
   const subtotal = res?.order_info_customer?.items.reduce((sum, el) => el.product_price * el.product_count + sum, 0)
   return (

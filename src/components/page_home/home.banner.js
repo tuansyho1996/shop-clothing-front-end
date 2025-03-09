@@ -7,7 +7,7 @@ const Banner = () => {
       <div className='items-center justify-start flex pl-5 lg:pl-20 absolute w-full h-full'>
         <div className="relative w-[30vw] h-[30vw] inset-0 flex z-0">
           <Image
-            src='https://d2jfx0w9sp915a.cloudfront.net/ecb063494ab8249808a14b1797914d3c'
+            src='https://d2jfx0w9sp915a.cloudfront.net/ae2389ff8fc965fa25b2af9f583596c7'
             alt="Banner Image"
             fill
             style={{ objectFit: 'cover' }}
@@ -15,17 +15,7 @@ const Banner = () => {
           />
         </div>
       </div>
-      <div className='items-center justify-end flex pr-5 lg:pr-20 absolute w-full h-full'>
-        <div className="relative w-[30vw] h-[30vw] inset-0 flex z-0">
-          <Image
-            src='https://d2jfx0w9sp915a.cloudfront.net/aef3060a93e06fb2f6478ee55e06470a'
-            alt="Banner Image"
-            fill
-            style={{ objectFit: 'cover' }}
-            loading='lazy'
-          />
-        </div>
-      </div>
+
 
       <div className="relative z-0 flex flex-col justify-center items-center h-full space-y-4 px-4 text-center">
         {/* Mobile First Approach */}
