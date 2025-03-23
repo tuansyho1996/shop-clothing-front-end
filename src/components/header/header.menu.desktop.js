@@ -5,85 +5,84 @@ import { useState } from "react";
 import CustomLink from "../ui/ui.custom.link";
 const menu = [
     {
-        name: 'Norse Legends',
-        href: '/category/norse-legends',
+        name: 'Asgardian Elegance',
+        href: '/category/asgardian-elegance',
         child: [
             {
                 name: 'Men',
-                href: '/category/norse-legends&men',
+                href: '/category/asgardian-elegance&men',
                 child: [
-                    { name: "Hoodie", href: '/category/norse-legends&men&hoodie' },
-                    { name: "Zip Hoodie", href: '/category/norse-legends&men&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/norse-legends&men&t-shirt' },
-                    { name: "Pant", href: '/category/norse-legends&men&pant' },
-                    { name: "Sweatshirt", href: '/category/norse-legends&men&sweatshirt' },
-                    { name: "Short Pant", href: '/category/norse-legends&men&short-pant' },
-                    { name: "Tank Top", href: '/category/norse-legends&men&tank-top' },
-                    { name: "Jacket", href: '/category/norse-legends&men&jacket' }
+                    { name: "Hoodie", href: '/category/asgardian-elegance&men&hoodie' },
+                    { name: "Zip Hoodie", href: '/category/asgardian-elegance&men&zip-hoodie' },
+                    { name: "T-Shirt", href: '/category/asgardian-elegance&men&t-shirt' },
+                    { name: "Sweatshirt", href: '/category/asgardian-elegance&men&sweatshirt' },
+                    { name: "Short Pant", href: '/category/asgardian-elegance&men&short-pant' },
+                    { name: "Hooded Vest", href: '/category/asgardian-elegance&men&hooded-vest' },
+                    { name: "Jacket", href: '/category/asgardian-elegance&men&jacket' }
                 ]
             },
             {
                 name: 'Women',
-                href: '/category/norse-legends&women',
+                href: '/category/asgardian-elegance&women',
                 child: [
-                    { name: "Hoodie", href: '/category/norse-legends&women&hoodie' },
-                    { name: "Zip Hoodie", href: '/category/norse-legends&women&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/norse-legends&women&t-shirt' },
-                    { name: "Pant", href: '/category/norse-legends&women&pant' },
-                    { name: "Sweatshirt", href: '/category/norse-legends&women&sweatshirt' },
-                    { name: "Jacket", href: '/category/norse-legends&women&jacket' },
-                    { name: "Women's Pajama", href: '/category/norse-legends&women&women-pajama' },
-                    { name: "Dress", href: '/category/norse-legends&women&dress' }
+                    { name: "Hoodie", href: '/category/asgardian-elegance&women&hoodie' },
+                    { name: "Zip Hoodie", href: '/category/asgardian-elegance&women&zip-hoodie' },
+                    { name: "T-Shirt", href: '/category/asgardian-elegance&women&t-shirt' },
+                    { name: "Pant", href: '/category/asgardian-elegance&women&pant' },
+                    { name: "Sweatshirt", href: '/category/asgardian-elegance&women&sweatshirt' },
+                    { name: "Jacket", href: '/category/asgardian-elegance&women&jacket' },
+                    { name: "Women's Pajama", href: '/category/asgardian-elegance&women&women-pajama' },
+                    { name: "Dress", href: '/category/asgardian-elegance&women&dress' }
                 ]
             },
             {
                 name: 'Unisex',
-                href: '/category/norse-legends&unisex',
+                href: '/category/asgardian-elegance&unisex',
                 child: [
-                    { name: "Hoodie", href: '/category/norse-legends&unisex&hoodie' },
-                    { name: "Zip Hoodie", href: '/category/norse-legends&unisex&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/norse-legends&unisex&t-shirt' },
-                    { name: "Pant", href: '/category/norse-legends&unisex&pant' },
-                    { name: "Sweatshirt", href: '/category/norse-legends&unisex&sweatshirt' },
-                    { name: "Jacket", href: '/category/norse-legends&unisex&jacket' }
+                    { name: "Hoodie", href: '/category/asgardian-elegance&unisex&hoodie' },
+                    { name: "Zip Hoodie", href: '/category/asgardian-elegance&unisex&zip-hoodie' },
+                    { name: "T-Shirt", href: '/category/asgardian-elegance&unisex&t-shirt' },
+                    { name: "Pant", href: '/category/asgardian-elegance&unisex&pant' },
+                    { name: "Sweatshirt", href: '/category/asgardian-elegance&unisex&sweatshirt' },
+                    { name: "Jacket", href: '/category/asgardian-elegance&unisex&jacket' }
                 ]
             },
             {
                 name: 'Children',
-                href: '/category/norse-legends&children',
+                href: '/category/asgardian-elegance&children',
                 child: [
-                    { name: "Hoodie", href: '/category/norse-legends&children&hoodie' },
-                    { name: "T-Shirt", href: '/category/norse-legends&children&t-shirt' },
-                    { name: "Sweatpant", href: '/category/norse-legends&children&sweatpant' },
-                    { name: "Sweatshirt", href: '/category/norse-legends&children&sweatshirt' },
-                    { name: "Zip hoodie", href: '/category/norse-legends&children&zip-hoodie' }
+                    { name: "Hoodie", href: '/category/asgardian-elegance&children&hoodie' },
+                    { name: "T-Shirt", href: '/category/asgardian-elegance&children&t-shirt' },
+                    { name: "Sweatpant", href: '/category/asgardian-elegance&children&sweatpant' },
+                    { name: "Sweatshirt", href: '/category/asgardian-elegance&children&sweatshirt' },
+                    { name: "Zip hoodie", href: '/category/asgardian-elegance&children&zip-hoodie' }
                 ]
             },
             {
                 name: 'Accessories',
-                href: '/category/norse-legends&accessories',
+                href: '/category/asgardian-elegance&accessories',
                 child: [
-                    { name: "curved brim cap", href: '/category/norse-legends&accessories&' },
-                    { name: "Unisex Tie", href: '/category/norse-legends&accessories&' },
-                    { name: "Bucket Hat", href: '/category/norse-legends&accessories&' },
-                    { name: "Car Seat Cover", href: '/category/norse-legends&accessories&' },
-                    { name: "Tumbler", href: '/category/norse-legends&accessories&' },
-                    { name: "Silk Bandana", href: '/category/norse-legends&accessories&' },
-                    { name: "car mats", href: '/category/norse-legends&accessories&' },
-                    { name: "Car Stickers", href: '/category/norse-legends&accessories&' },
-                    { name: "Steering Wheel Cover", href: '/category/norse-legends&accessories&' },
-                    { name: "Windshield Sunshade", href: '/category/norse-legends&accessories&' }
+                    { name: "curved brim cap", href: '/category/asgardian-elegance&accessories&' },
+                    { name: "Unisex Tie", href: '/category/asgardian-elegance&accessories&' },
+                    { name: "Bucket Hat", href: '/category/asgardian-elegance&accessories&' },
+                    { name: "Car Seat Cover", href: '/category/asgardian-elegance&accessories&' },
+                    { name: "Tumbler", href: '/category/asgardian-elegance&accessories&' },
+                    { name: "Silk Bandana", href: '/category/asgardian-elegance&accessories&' },
+                    { name: "car mats", href: '/category/asgardian-elegance&accessories&' },
+                    { name: "Car Stickers", href: '/category/asgardian-elegance&accessories&' },
+                    { name: "Steering Wheel Cover", href: '/category/asgardian-elegance&accessories&' },
+                    { name: "Windshield Sunshade", href: '/category/asgardian-elegance&accessories&' }
                 ]
             }
         ]
     },
     {
-        name: 'Egyptian Mystique',
-        href: 'egyptian-mystique',
+        name: `Pharaoh's Legacy`,
+        href: 'pharaoh-legacy',
         child: [
             {
                 name: 'Men',
-                href: 'egyptian-mystique&men',
+                href: 'pharaoh-legacy&men',
                 child: [
                     { name: "Hoodie" },
                     { name: "Zip Up Hoodie" },
@@ -98,7 +97,7 @@ const menu = [
             },
             {
                 name: 'Women',
-                href: 'egyptian-mystique&women',
+                href: 'pharaoh-legacy&women',
                 child: [
                     { name: "Hoodie" },
                     { name: "Zip Up Hoodie" },
@@ -113,7 +112,7 @@ const menu = [
             },
             {
                 name: 'Unisex',
-                href: 'egyptian-mystique&unisex',
+                href: 'pharaoh-legacy&unisex',
                 child: [
                     { name: "Hoodie" },
                     { name: "Zip Up Hoodie" },
@@ -126,7 +125,7 @@ const menu = [
             },
             {
                 name: 'Children',
-                href: 'egyptian-mystique&children',
+                href: 'pharaoh-legacy&children',
                 child: [
                     { name: "Pullover Hoodie" },
                     { name: "T-Shirt" },
@@ -137,7 +136,7 @@ const menu = [
             },
             {
                 name: 'Accessories',
-                href: 'egyptian-mystique&accessories',
+                href: 'pharaoh-legacy&accessories',
                 child: [
                     { name: "curved brim cap" },
                     { name: "Unisex Tie" },
@@ -249,6 +248,7 @@ const MenuDesktop = () => {
                                 onMouseEnter={() => handleOpen(el.name)}
                                 onMouseLeave={handleClose}
                                 key={index}
+                                onClick={() => handleClose()}
                             >
                                 <div className="relative" >
                                     <div >

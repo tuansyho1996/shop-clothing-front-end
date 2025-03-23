@@ -10,7 +10,7 @@ export default function Home() {
           content="Explore clothing inspired by Egyptian, Norse, and Greek mythology. Rediscover legends and redefine your style with Mythic Threads."
         />
       </Head> */}
-            <main className="bg-gray-100 min-h-screen">
+            <main className="bg-gray-100 min-h-[50vh]">
                 <div className="container mx-auto px-4 py-10">
                     <header className="text-center mb-10">
                         <h1 className="text-4xl font-bold text-gray-800">Welcome to Mythic Threads</h1>

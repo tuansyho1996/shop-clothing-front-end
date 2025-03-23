@@ -1,7 +1,7 @@
 
 const ShippingPolicy = () => {
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 min-h-[50vh]">
             <h1 className="text-3xl font-bold mb-6">Shipping & Refund Policy</h1>
 
             <section className="mb-8">

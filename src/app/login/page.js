@@ -57,7 +57,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex justify-center items-center py-24 bg-gray-100">
+    <div className="flex justify-center items-center py-24 bg-gray-100 min-h-[50vh]">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded shadow-md w-96 space-y-4"

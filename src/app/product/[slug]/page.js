@@ -11,6 +11,7 @@ import Link from 'next/link';
 
 export async function generateMetadata({ params }) {
     const data = await getProduct(params.slug) // Fetch your data here, e.g., from an API
+
     return {
         title: data?.product_name, // Metadata fields
         description: data?.product_description,
@@ -20,13 +21,13 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
     const data = await getProduct(params.slug)
+    console.log(data.product_list_categories_name)
     const product = data
 
     // Mock Product Data (Replace with actual data fetching)
 
-    console.log(product)
     return (
-        <main>
+        <main className='min-h-[50vh]'>
             <div className="container mx-auto py-8 px-4 sm:px-6">
                 <div className="flex items-center justify-center mb-6">
                     {/* Breadcrumbs */}

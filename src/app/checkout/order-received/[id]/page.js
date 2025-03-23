@@ -3,7 +3,7 @@ export default async function OrderRecieved({ params }) {
   const res = await fetchOrder(params.id)
   const subtotal = res?.order_info_customer?.items.reduce((sum, el) => el.product_price * el.product_count + sum, 0)
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 min-h-[50vh]">
       <h2 className="text-2xl font-bold mb-4">Order details</h2>
       {/* Order Details Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

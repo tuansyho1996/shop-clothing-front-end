@@ -15,7 +15,7 @@ const FAQ = () => {
         { question: "Can I change my order or part of its information?", answer: "Yes, you might be able to change the entire order or information such as address, name, receiver and so on as long as your order hasn't been shipped yet. Contact our support team and make sure you include the order number in your message." }
     ];
     return (
-        <div className="max-w-4xl mx-auto p-6">
+        <div className="max-w-4xl mx-auto p-6 min-h-[50vh]">
             <h1 className="text-3xl font-bold text-center mb-6">FREQUENTLY ASKED QUESTIONS</h1>
             <div className="bg-white shadow-md rounded-lg p-4">
                 <ul className="divide-y divide-gray-200">

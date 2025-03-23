@@ -51,7 +51,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="flex items-center justify-center py-24 px-4 ">
+    <div className="flex items-center justify-center py-24 px-4 min-h-[50vh]">
       <div
         className="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md w-full max-w-sm"
       >

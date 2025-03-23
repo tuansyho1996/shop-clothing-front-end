@@ -14,10 +14,10 @@ const Header = () => {
       {/* Top Section */}
       <div className="flex !text-back justify-between items-center p-1 gap-4 lg:gap-6 ">
         {/* Left Section: Logo */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center ml-4">
           <Link href="/" className="text-3xl font-bold ">
             <Image
-              src="https://d2jfx0w9sp915a.cloudfront.net/eeaec0c4327d5ad05c88b170b8e81665"
+              src="https://d2jfx0w9sp915a.cloudfront.net/81903dd807b3da23afdac8b8378f40d3"
               alt="Logo"
               width={70}
               height={70}
@@ -30,7 +30,7 @@ const Header = () => {
         <MenuMobile />
 
         {/* Center Section: Search Bar */}
-        <div className="flex-grow mx-4 relative">
+        <div className="flex-grow relative">
           <input
             type="text"
             placeholder="sss"

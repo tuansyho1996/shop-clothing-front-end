@@ -34,7 +34,7 @@ export default async function Page({ params }) {
   });
   return (
     <main>
-      <section className="container mx-auto">
+      <section className="container mx-auto min-h-[50vh]">
         <div className="text-center my-6 md:my-8 px-4">
           <h2 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-wide uppercase">{title}</h2>
           <div className="flex justify-center mt-2 md:mt-3">
