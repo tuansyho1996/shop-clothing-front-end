@@ -21,7 +21,6 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
     const data = await getProduct(params.slug)
-    console.log(data.product_list_categories_name)
     const product = data
 
     // Mock Product Data (Replace with actual data fetching)
@@ -90,10 +89,7 @@ export default async function Page({ params }) {
                 <div className="mb-6 md:mb-8">
                     <h2 className="text-lg font-bold mb-2 md:text-xl">Details</h2>
                     <p className="text-gray-700 text-sm md:text-base">
-                        Certified Organic Cotton t-shirt, 155g/m2. Wash cool, hang dry. GM free. Not tested on animals.
-                        Does not contain animal-derived products. Printed with low waste printing tech. Made in a renewable
-                        energy powered factory audited for a wide range of social and sustainability criteria. Available in
-                        black, navy blue, purple, and denim blue.
+                        {product.product_description}
                     </p>
                 </div>
 

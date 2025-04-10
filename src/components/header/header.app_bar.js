@@ -5,6 +5,7 @@ import MenuDesktop from './header.menu.desktop';
 import MenuMobile from './header.menu.mobile';
 import CartHeader from './header.cart';
 import AccountMenu from '../ui/account.menu.destop';
+import SearchAppBar from '../search/search.products';
 
 
 const Header = () => {
@@ -12,12 +13,12 @@ const Header = () => {
   return (
     <header className="w-full bg-white shadow">
       {/* Top Section */}
-      <div className="flex !text-back justify-between items-center p-1 gap-4 lg:gap-6 ">
+      <div className="flex !text-back justify-between items-center p-1 gap-4 lg:gap-6">
         {/* Left Section: Logo */}
         <div className="flex items-center ml-4">
           <Link href="/" className="text-3xl font-bold ">
             <Image
-              src="https://d2jfx0w9sp915a.cloudfront.net/81903dd807b3da23afdac8b8378f40d3"
+              src="https://d2jfx0w9sp915a.cloudfront.net/b09ccccc0558098469fa99ebd30e2d60"
               alt="Logo"
               width={70}
               height={70}
@@ -30,17 +31,7 @@ const Header = () => {
         <MenuMobile />
 
         {/* Center Section: Search Bar */}
-        <div className="flex-grow relative">
-          <input
-            type="text"
-            placeholder="sss"
-            className="w-full border border-gray-300 rounded-full px-4 py-2 outline-none"
-          />
-          <button className="absolute right-2 top-2">
-            <Search className="text-gray-500" />
-          </button>
-        </div>
-
+        <SearchAppBar />
         {/* Right Section: Icons */}
         <div className="flex items-center space-x-4">
           <AccountMenu />

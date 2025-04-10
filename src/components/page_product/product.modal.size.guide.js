@@ -3,6 +3,11 @@ import Hooded from "./modal_size_guide/size.hooded";
 import WomenTShirt from "./modal_size_guide/size.women.t.shirt";
 import MenTShirt from "./modal_size_guide/size.men.t.shirt";
 import Hoodie from "./modal_size_guide/size.hoodie.unisex";
+import UnisexPant from "./modal_size_guide/size.unisex.pant";
+import UnisexSweatshirt from "./modal_size_guide/size.unisex.sweatshirt";
+import UnisexShortPant from "./modal_size_guide/size.men.short.pant";
+import KidZipUpHoodie from "./modal_size_guide/size.kid.zip.up.hoodie";
+import UnisexZipUpHoodie from "./modal_size_guide/size.unisex.zip.up.hoodie";
 const Modal = ({ isOpen, onClose, category, category_2 }) => {
     if (!isOpen) return null;
     const handleOverlayClick = (e) => {
@@ -28,7 +33,7 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
                 </div>
 
                 <div className="p-4">
-                    {category === 'Hooded Vest' &&
+                    {category === 'Hooded Vest' && category_2 === 'Unisex' &&
                         <Hooded />
                     }
                     {category === 'T-Shirt' && category_2 === 'Women' &&
@@ -37,8 +42,20 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
                     {category === 'T-Shirt' && category_2 === 'Men' &&
                         <MenTShirt />
                     }
-                    {category === 'Hoodie' &&
+                    {category === 'Hoodie' && category_2 === 'Unisex' &&
                         <Hoodie />
+                    }
+                    {category === 'Pant' && category_2 === 'Unisex' &&
+                        <UnisexPant />
+                    }
+                    {category === 'Sweatshirt' && category_2 === 'Unisex' &&
+                        <UnisexSweatshirt />
+                    }
+                    {category === 'Zip Hoodie' && category_2 === 'Kid' &&
+                        <KidZipUpHoodie />
+                    }
+                    {category === 'Zip Hoodie' && category_2 === 'Unisex' &&
+                        <UnisexZipUpHoodie />
                     }
                 </div>
             </div>

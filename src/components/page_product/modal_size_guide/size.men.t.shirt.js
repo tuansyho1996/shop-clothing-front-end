@@ -4,7 +4,7 @@ const MenTShirt = () => {
     return (
         <div className="overflow-x-auto">
             <Image
-                src='https://d2jfx0w9sp915a.cloudfront.net/2322b304bc7dff7d6f2b1ade18aa7878'
+                src='https://d2jfx0w9sp915a.cloudfront.net/c84e76b73a186dae3c7998704ed99498'
                 alt=''
                 width={160}
                 height={160}

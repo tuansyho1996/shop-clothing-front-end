@@ -172,7 +172,6 @@ export default function App() {
 
 const SubmitPayment = ({ isPaying, setIsPaying, billingAddress }) => {
   const { cardFieldsForm, fields } = usePayPalCardFields();
-  console.log('check is paying', isPaying)
 
   const handleClick = async () => {
     if (!cardFieldsForm) {

@@ -4,7 +4,7 @@ const Hoodie = () => {
     return (
         <div className="overflow-x-auto">
             <Image
-                src='https://d2jfx0w9sp915a.cloudfront.net/ad34f4cf401317c51346083ab60888f3'
+                src='https://d2jfx0w9sp915a.cloudfront.net/a1072c9db1d07f2a8640f324981f1d63'
                 alt='hoodie size guide'
                 width={160}
                 height={160}

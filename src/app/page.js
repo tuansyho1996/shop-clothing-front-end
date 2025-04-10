@@ -5,7 +5,7 @@ import { getAllProducts } from "@/services/service.product";
 import NewProducts from "@/components/page_home/home.new.products";
 
 export const metadata = {
-  title: '...',
+  title: 'Mythology Store',
   description: '...',
 }
 

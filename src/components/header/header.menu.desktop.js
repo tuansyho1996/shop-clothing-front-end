@@ -13,12 +13,12 @@ const menu = [
                 href: '/category/asgardian-elegance&men',
                 child: [
                     { name: "Hoodie", href: '/category/asgardian-elegance&men&hoodie' },
-                    { name: "Zip Hoodie", href: '/category/asgardian-elegance&men&zip-hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&men&zip-hoodie' },
                     { name: "T-Shirt", href: '/category/asgardian-elegance&men&t-shirt' },
+                    { name: "Pant", href: '/category/asgardian-elegance&men&pant' },
                     { name: "Sweatshirt", href: '/category/asgardian-elegance&men&sweatshirt' },
-                    { name: "Short Pant", href: '/category/asgardian-elegance&men&short-pant' },
                     { name: "Hooded Vest", href: '/category/asgardian-elegance&men&hooded-vest' },
-                    { name: "Jacket", href: '/category/asgardian-elegance&men&jacket' }
+                    { name: "Short Pant", href: '/category/asgardian-elegance&men&short-pant' },
                 ]
             },
             {
@@ -26,13 +26,12 @@ const menu = [
                 href: '/category/asgardian-elegance&women',
                 child: [
                     { name: "Hoodie", href: '/category/asgardian-elegance&women&hoodie' },
-                    { name: "Zip Hoodie", href: '/category/asgardian-elegance&women&zip-hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&women&zip-hoodie' },
                     { name: "T-Shirt", href: '/category/asgardian-elegance&women&t-shirt' },
                     { name: "Pant", href: '/category/asgardian-elegance&women&pant' },
                     { name: "Sweatshirt", href: '/category/asgardian-elegance&women&sweatshirt' },
-                    { name: "Jacket", href: '/category/asgardian-elegance&women&jacket' },
-                    { name: "Women's Pajama", href: '/category/asgardian-elegance&women&women-pajama' },
-                    { name: "Dress", href: '/category/asgardian-elegance&women&dress' }
+                    { name: "Hooded Vest", href: '/category/asgardian-elegance&men&hooded-vest' },
+                    { name: "Short Pant", href: '/category/asgardian-elegance&women&short-pant' },
                 ]
             },
             {
@@ -40,192 +39,182 @@ const menu = [
                 href: '/category/asgardian-elegance&unisex',
                 child: [
                     { name: "Hoodie", href: '/category/asgardian-elegance&unisex&hoodie' },
-                    { name: "Zip Hoodie", href: '/category/asgardian-elegance&unisex&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/asgardian-elegance&unisex&t-shirt' },
+                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&unisex&zip-hoodie' },
                     { name: "Pant", href: '/category/asgardian-elegance&unisex&pant' },
                     { name: "Sweatshirt", href: '/category/asgardian-elegance&unisex&sweatshirt' },
-                    { name: "Jacket", href: '/category/asgardian-elegance&unisex&jacket' }
+                    { name: "Hooded Vest", href: '/category/asgardian-elegance&unisex&hooded-vest' },
+                    { name: "Short Pant", href: '/category/asgardian-elegance&unisex&short-pant' },
                 ]
             },
             {
-                name: 'Children',
-                href: '/category/asgardian-elegance&children',
+                name: 'Kid',
+                href: '/category/asgardian-elegance&kid',
                 child: [
-                    { name: "Hoodie", href: '/category/asgardian-elegance&children&hoodie' },
-                    { name: "T-Shirt", href: '/category/asgardian-elegance&children&t-shirt' },
-                    { name: "Sweatpant", href: '/category/asgardian-elegance&children&sweatpant' },
-                    { name: "Sweatshirt", href: '/category/asgardian-elegance&children&sweatshirt' },
-                    { name: "Zip hoodie", href: '/category/asgardian-elegance&children&zip-hoodie' }
+                    { name: "Hoodie", href: '/category/asgardian-elegance&kid&hoodie' },
+                    { name: "T-Shirt", href: '/category/asgardian-elegance&kid&t-shirt' },
+                    { name: "Sweatpant", href: '/category/asgardian-elegance&kid&sweatpant' },
+                    { name: "Sweatshirt", href: '/category/asgardian-elegance&kid&sweatshirt' },
+                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&kid&zip-hoodie' }
                 ]
             },
-            {
-                name: 'Accessories',
-                href: '/category/asgardian-elegance&accessories',
-                child: [
-                    { name: "curved brim cap", href: '/category/asgardian-elegance&accessories&' },
-                    { name: "Unisex Tie", href: '/category/asgardian-elegance&accessories&' },
-                    { name: "Bucket Hat", href: '/category/asgardian-elegance&accessories&' },
-                    { name: "Car Seat Cover", href: '/category/asgardian-elegance&accessories&' },
-                    { name: "Tumbler", href: '/category/asgardian-elegance&accessories&' },
-                    { name: "Silk Bandana", href: '/category/asgardian-elegance&accessories&' },
-                    { name: "car mats", href: '/category/asgardian-elegance&accessories&' },
-                    { name: "Car Stickers", href: '/category/asgardian-elegance&accessories&' },
-                    { name: "Steering Wheel Cover", href: '/category/asgardian-elegance&accessories&' },
-                    { name: "Windshield Sunshade", href: '/category/asgardian-elegance&accessories&' }
-                ]
-            }
+            // {
+            //     name: 'Accessory',
+            //     href: '/category/asgardian-elegance&accessory',
+            //     child: [
+            //         { name: "curved brim cap", href: '/category/asgardian-elegance&accessory&' },
+            //         { name: "Unisex Tie", href: '/category/asgardian-elegance&accessory&' },
+            //         { name: "Bucket Hat", href: '/category/asgardian-elegance&accessory&' },
+            //         { name: "Car Seat Cover", href: '/category/asgardian-elegance&accessory&' },
+            //         { name: "Tumbler", href: '/category/asgardian-elegance&accessory&' },
+            //         { name: "Silk Bandana", href: '/category/asgardian-elegance&accessory&' },
+            //         { name: "car mats", href: '/category/asgardian-elegance&accessory&' },
+            //         { name: "Car Stickers", href: '/category/asgardian-elegance&accessory&' },
+            //         { name: "Steering Wheel Cover", href: '/category/asgardian-elegance&accessory&' },
+            //         { name: "Windshield Sunshade", href: '/category/asgardian-elegance&accessory&' }
+            //     ]
+            // }
         ]
     },
     {
         name: `Pharaoh's Legacy`,
-        href: 'pharaoh-legacy',
+        href: '/category/pharaoh-legacy',
         child: [
             {
                 name: 'Men',
-                href: 'pharaoh-legacy&men',
+                href: '/category/pharaoh-legacy&men',
                 child: [
-                    { name: "Hoodie" },
-                    { name: "Zip Up Hoodie" },
-                    { name: "T-Shirt" },
-                    { name: "Pants" },
-                    { name: "Sweatshirt" },
-                    { name: "Short Pants" },
-                    { name: "Tank Top" },
-                    { name: "Hooded Vest" },
-                    { name: "Jacket" }
+                    { href: '/category/pharaoh-legacy&men&hoodie', name: "Hoodie" },
+                    { href: '/category/pharaoh-legacy&men&zip-hoodie', name: "Zip Up Hoodie" },
+                    { href: '/category/pharaoh-legacy&men&t-shirt', name: "T-Shirt" },
+                    { href: '/category/pharaoh-legacy&men&pant', name: "Pant" },
+                    { href: '/category/pharaoh-legacy&men&sweat-shirt', name: "Sweatshirt" },
+                    { href: '/category/pharaoh-legacy&men&hooded-vest', name: "Hooded Vest" },
+                    { href: '/category/pharaoh-legacy&men&short-pant', name: "Short Pant" },
                 ]
             },
             {
                 name: 'Women',
-                href: 'pharaoh-legacy&women',
+                href: '/category/pharaoh-legacy&women',
                 child: [
-                    { name: "Hoodie" },
-                    { name: "Zip Up Hoodie" },
-                    { name: "T-Shirt" },
-                    { name: "Pants" },
-                    { name: "Sweatshirt" },
-                    { name: "Hooded Vest" },
-                    { name: "Jacket" },
-                    { name: "Women's Pajamas" },
-                    { name: "Dress" }
+                    { href: '/category/pharaoh-legacy&women&hoodie', name: "Hoodie" },
+                    { href: '/category/pharaoh-legacy&women&zip-hoodie', name: "Zip Up Hoodie" },
+                    { href: '/category/pharaoh-legacy&women&t-shirt', name: "T-Shirt" },
+                    { href: '/category/pharaoh-legacy&women&pant', name: "Pant" },
+                    { href: '/category/pharaoh-legacy&women&sweat-shirt', name: "Sweatshirt" },
+                    { href: '/category/pharaoh-legacy&women&hooded-vest', name: "Hooded Vest" },
+                    { href: '/category/pharaoh-legacy&women&short-pant', name: "Short Pant" },
                 ]
             },
             {
                 name: 'Unisex',
-                href: 'pharaoh-legacy&unisex',
+                href: '/category/pharaoh-legacy&unisex',
                 child: [
-                    { name: "Hoodie" },
-                    { name: "Zip Up Hoodie" },
-                    { name: "T-Shirt" },
-                    { name: "Pants" },
-                    { name: "Sweatshirt" },
-                    { name: "Hooded Vest" },
-                    { name: "Jacket " }
+                    { href: '/category/pharaoh-legacy&unisex&hoodie', name: "Hoodie" },
+                    { href: '/category/pharaoh-legacy&unisex&zip-hoodie', name: "Zip Up Hoodie" },
+                    { href: '/category/pharaoh-legacy&unisex&pant', name: "Pant" },
+                    { href: '/category/pharaoh-legacy&unisex&sweat-shirt', name: "Sweatshirt" },
+                    { href: '/category/pharaoh-legacy&unisex&hooded-vest', name: "Hooded Vest" },
+                    { href: '/category/pharaoh-legacy&unisex&short-pant', name: "Short Pant" },
                 ]
             },
             {
-                name: 'Children',
-                href: 'pharaoh-legacy&children',
+                name: 'Kid',
+                href: '/category/pharaoh-legacy&kid',
                 child: [
-                    { name: "Pullover Hoodie" },
-                    { name: "T-Shirt" },
-                    { name: "Sweatpants" },
-                    { name: "Sweatshirt" },
-                    { name: "Zip Up hoodie" }
+                    { href: '/category/pharaoh-legacy&kid&hoodie', name: "Hoodie" },
+                    { href: '/category/pharaoh-legacy&kid&t-shirt', name: "T-Shirt" },
+                    { href: '/category/pharaoh-legacy&kid&pant', name: "Pant" },
+                    { href: '/category/pharaoh-legacy&kid&sweatshirt', name: "Sweatshirt" },
+                    { href: '/category/pharaoh-legacy&kid&zip-hoodie', name: "Zip Up hoodie" }
                 ]
             },
-            {
-                name: 'Accessories',
-                href: 'pharaoh-legacy&accessories',
-                child: [
-                    { name: "curved brim cap" },
-                    { name: "Unisex Tie" },
-                    { name: "Bucket Hat" },
-                    { name: "Car Seat Cover" },
-                    { name: "Tumbler" },
-                    { name: "Silk Bandana" },
-                    { name: "car mats" },
-                    { name: "Car Stickers" },
-                    { name: "Steering Wheel Cover" },
-                    { name: "Windshield Sunshade" }
-                ]
-            }
+            // {
+            //     name: 'Accessory',
+            //     href: '/category/pharaoh-legacy&accessory',
+            //     child: [
+            //         { href: '/category/pharaoh-legacy', name: "curved brim cap" },
+            //         { href: '/category/pharaoh-legacy', name: "Unisex Tie" },
+            //         { href: '/category/pharaoh-legacy', name: "Bucket Hat" },
+            //         { href: '/category/pharaoh-legacy', name: "Car Seat Cover" },
+            //         { href: '/category/pharaoh-legacy', name: "Tumbler" },
+            //         { href: '/category/pharaoh-legacy', name: "Silk Bandana" },
+            //         { href: '/category/pharaoh-legacy', name: "car mats" },
+            //         { href: '/category/pharaoh-legacy', name: "Car Stickers" },
+            //         { href: '/category/pharaoh-legacy', name: "Steering Wheel Cover" },
+            //         { href: '/category/pharaoh-legacy', name: "Windshield Sunshade" }
+            //     ]
+            // }
         ]
     },
     {
-        name: 'Greek Epics',
-        href: 'greek-epics',
+        name: 'Greek Epic',
+        href: 'greek-epic',
         child: [
             {
                 name: 'Men',
-                href: 'greek-epics&men',
+                href: '/category/greek-epic&men',
                 child: [
-                    { name: "Hoodie" },
-                    { name: "Zip Up Hoodie" },
-                    { name: "T-Shirt" },
-                    { name: "Pants" },
-                    { name: "Sweatshirt" },
-                    { name: "Short Pants" },
-                    { name: "Tank Top" },
-                    { name: "Hooded Vest" },
-                    { name: "Jacket" }
+                    { name: "Hoodie", href: '/category/greek-epic&men&hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/greek-epic&men&zip-hoodie' },
+                    { name: "T-Shirt", href: '/category/greek-epic&men&t-shirt' },
+                    { name: "Pant", href: '/category/greek-epic&men&pant' },
+                    { name: "Sweatshirt", href: '/category/greek-epic&men&sweatshirt' },
+                    { name: "Hooded Vest", href: '/category/greek-epic&men&hooded-vest' },
+                    { name: "Short Pant", href: '/category/greek-epic&men&short-pant' },
                 ]
             },
             {
                 name: 'Women',
-                href: 'greek-epics&women',
+                href: 'greek-epic&women',
                 child: [
-                    { name: "Hoodie" },
-                    { name: "Zip Up Hoodie" },
-                    { name: "T-Shirt" },
-                    { name: "Pants" },
-                    { name: "Sweatshirt" },
-                    { name: "Hooded Vest" },
-                    { name: "Jacket" },
-                    { name: "Women's Pajamas" },
-                    { name: "Dress" }
+                    { name: "Hoodie", href: '/category/greek-epic&women&hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/greek-epic&women&zip-hoodie' },
+                    { name: "T-Shirt", href: '/category/greek-epic&women&t-shirt' },
+                    { name: "Pant", href: '/category/greek-epic&women&pant' },
+                    { name: "Sweatshirt", href: '/category/greek-epic&women&sweatshirt' },
+                    { name: "Hooded Vest", href: '/category/greek-epic&women&hooded-vest' },
+                    { name: "Short Pant", href: '/category/greek-epic&women&short-pant' },
                 ]
             },
             {
                 name: 'Unisex',
-                href: 'greek-epics&unisex',
+                href: 'greek-epic&unisex',
                 child: [
-                    { name: "Hoodie" },
-                    { name: "Zip Up Hoodie" },
-                    { name: "T-Shirt" },
-                    { name: "Pants" },
-                    { name: "Sweatshirt" },
-                    { name: "Hooded Vest" },
-                    { name: "Jacket" }
+                    { name: "Hoodie", href: '/category/greek-epic&unisex&hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/greek-epic&unisex&zip-hoodie' },
+                    { name: "Pant", href: '/category/greek-epic&unisex&pant' },
+                    { name: "Sweatshirt", href: '/category/greek-epic&unisex&sweatshirt' },
+                    { name: "Hooded Vest", href: '/category/greek-epic&unisex&hooded-vest' },
+                    { name: "Short Pant", href: '/category/greek-epic&unisex&short-pant' },
                 ]
             },
             {
-                name: 'Children',
-                href: 'greek-epics&children',
+                name: 'Kid',
+                href: 'greek-epic&kid',
                 child: [
-                    { name: "Pullover Hoodie" },
-                    { name: "T-Shirt" },
-                    { name: "Sweatpants" },
-                    { name: "Sweatshirt" },
-                    { name: "Zip up hoodie" }
+                    { name: "Hoodie", href: '/category/greek-epic&kid&hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/greek-epic&kid&zip-hoodie' },
+                    { name: "T-Shirt", href: '/category/greek-epic&kid&t-shirt' },
+                    { name: "Pant", href: '/category/greek-epic&kid&pant' },
+                    { name: "Sweatshirt", href: '/category/greek-epic&kid&sweatshirt' },
                 ]
             },
-            {
-                name: 'Accessories',
-                href: 'greek-epics&accessories',
-                child: [
-                    { name: "curved brim cap" },
-                    { name: "Unisex Tie" },
-                    { name: "Bucket Hat" },
-                    { name: "Car Seat Cover" },
-                    { name: "Tumbler" },
-                    { name: "Silk Bandana" },
-                    { name: "car mats" },
-                    { name: "Car Stickers" },
-                    { name: "Steering Wheel Cover" },
-                    { name: "Windshield Sunshade" }
-                ]
-            }
+            // {
+            //     name: 'Accessory',
+            //     href: 'greek-epic&accessory',
+            //     child: [
+            //         { href: '/category/greek-epic&accessory', name: "curved brim cap" },
+            //         { href: '/category/greek-epic&accessory', name: "Unisex Tie" },
+            //         { href: '/category/greek-epic&accessory', name: "Bucket Hat" },
+            //         { href: '/category/greek-epic&accessory', name: "Car Seat Cover" },
+            //         { href: '/category/greek-epic&accessory', name: "Tumbler" },
+            //         { href: '/category/greek-epic&accessory', name: "Silk Bandana" },
+            //         { href: '/category/greek-epic&accessory', name: "car mats" },
+            //         { href: '/category/greek-epic&accessory', name: "Car Stickers" },
+            //         { href: '/category/greek-epic&accessory', name: "Steering Wheel Cover" },
+            //         { href: '/category/greek-epic&accessory', name: "Windshield Sunshade" }
+            //     ]
+            // }
         ]
     }
 ]
@@ -263,14 +252,14 @@ const MenuDesktop = () => {
                                     </span>
                                 </div>
                                 <div className={` ${nameOpen === el.name ? 'visible' : 'hidden'} w-screen absolute top-full left-0 bg-white text-black shadow-lg p-6 z-20 flex justify-center`}>
-                                    <div className="grid grid grid-cols-5 gap-2 place-content-center w-full max-w-5xl">
+                                    <div className="grid grid grid-cols-4 gap-2 place-content-center w-full max-w-5xl">
                                         {
                                             el.child.map((item, id) => (
                                                 <div key={id}>
-                                                    <div >
+                                                    <div className="text-center">
                                                         <CustomLink href={item?.href || ''} fontWeight="font-semibold">{item.name}</CustomLink>
                                                     </div>
-                                                    <ul className="space-y-2 text-sm text-gray-600 border-t pt-2 mt-3">
+                                                    <ul className="space-y-2 text-sm text-gray-600 border-t pt-2 mt-3 text-center">4
                                                         {
                                                             item.child.map((it, number) => (
                                                                 <li key={number} >

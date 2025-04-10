@@ -4,7 +4,7 @@ const Hooded = () => {
     return (
         <div className="overflow-x-auto">
             <Image
-                src='https://d2jfx0w9sp915a.cloudfront.net/01b919006c93b819fd263faaa0cbced8'
+                src='https://d2jfx0w9sp915a.cloudfront.net/b01d62806412ed0c10b5354e5c3657fe'
                 alt=''
                 width={160}
                 height={160}
