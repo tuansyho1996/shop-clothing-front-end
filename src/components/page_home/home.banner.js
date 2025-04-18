@@ -10,9 +10,9 @@ const Banner = () => {
             src='https://d2jfx0w9sp915a.cloudfront.net/094ce9c37b9199910b6c649f81104fd5'
             alt="Banner Image"
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="100vh"
             style={{ objectFit: 'cover' }}
-            loading='lazy'
+            priority
           />
         </div>
       </div>

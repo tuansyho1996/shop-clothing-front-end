@@ -13,7 +13,7 @@ export default function CartHeader() {
   return (
     <div className="relative">
       <button className="relative" onClick={() => setDrawerOpen(true)}>
-        <ShoppingCart className='hover:text-accent-color' fontSize='large' />
+        <ShoppingCart className='text-[var(--primary-color)] hover:text-[var(--accent-color)]' fontSize='large' />
         <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">{countItem}</span>
       </button>
       <Drawer

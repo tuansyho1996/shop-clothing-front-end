@@ -36,7 +36,7 @@ export default function AccountMenu() {
     >
       <div className="flex flex-col gap-2 text-xl">
         <AccountCircleIcon fontSize='large'
-          className="cursor-pointer text-primary-color hover:text-accent-color"
+          className="cursor-pointer text-[var(--primary-color)] hover:text-[var(--accent-color)]"
           onClick={() => setIsShow(!isShow)}
 
         />
@@ -48,16 +48,16 @@ export default function AccountMenu() {
         {
           user ?
             <>
-              <Link href='/account' ><div className="text-primary-color hover:text-accent-color font-semibold ">{user.usr_first_name}{' '}{user.usr_last_name}</div></Link>
-              <div className="cursor-pointer text-primary-color hover:text-accent-color text-xs" onClick={handleLogOut}>Log out</div>
+              <Link href='/account' ><div className="text-[var(--primary-color)] hover:text-[var(--accent-color)] font-semibold ">{user.usr_first_name}{' '}{user.usr_last_name}</div></Link>
+              <div className="cursor-pointer text-[var(--primary-color)] hover:text-[var(--accent-color)] text-xs" onClick={handleLogOut}>Log out</div>
             </>
             :
             <>
               <Link href='/login'>
-                <div onClick={() => setIsShow(false)} className="text-primary-color hover:text-accent-color cursor-pointer">Login</div>
+                <div onClick={() => setIsShow(false)} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] cursor-pointer">Login</div>
               </Link>
               <Link href='/sign-up'>
-                <div onClick={() => setIsShow(false)} className="text-primary-color hover:text-accent-color cursor-pointer">Sign up</div>
+                <div onClick={() => setIsShow(false)} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] cursor-pointer">Sign up</div>
               </Link>
 
             </>
