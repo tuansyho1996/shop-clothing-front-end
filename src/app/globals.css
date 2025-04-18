@@ -6,7 +6,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --accent-background: #f9f9f9;
-  --accent-color: "#B57EDC"
+  --accent-color: "#B57EDC";
+  --primary-color: #4682B4
 }
 
 .open-sans {

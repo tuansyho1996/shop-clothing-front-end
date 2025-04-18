@@ -10,7 +10,7 @@ const ListCategory = async () => {
         Top danh mục
       </h5>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-        {topCategories.map((category, index) => (
+        {topCategories?.map((category, index) => (
           <div
             key={index}
             className="p-2"

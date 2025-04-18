@@ -259,7 +259,7 @@ const MenuDesktop = () => {
                                                     <div className="text-center">
                                                         <CustomLink href={item?.href || ''} fontWeight="font-semibold">{item.name}</CustomLink>
                                                     </div>
-                                                    <ul className="space-y-2 text-sm text-gray-600 border-t pt-2 mt-3 text-center">4
+                                                    <ul className="space-y-2 text-sm text-gray-600 border-t pt-2 mt-3 text-center">
                                                         {
                                                             item.child.map((it, number) => (
                                                                 <li key={number} >

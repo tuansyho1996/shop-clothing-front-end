@@ -7,6 +7,7 @@ import NewProducts from "@/components/page_home/home.new.products";
 export const metadata = {
   title: 'Mythology Store',
   description: '...',
+
 }
 
 export default async function Page() {
