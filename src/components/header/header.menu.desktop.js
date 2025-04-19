@@ -240,7 +240,7 @@ const MenuDesktop = () => {
                                 onClick={() => handleClose()}
                             >
                                 <div className="relative" >
-                                    <div >
+                                    <div onClick={handleClose}>
                                         <CustomLink href={el?.href || ''} fs='text-lg' fontWeight="font-semibold">
                                             {el.name}
                                         </CustomLink>

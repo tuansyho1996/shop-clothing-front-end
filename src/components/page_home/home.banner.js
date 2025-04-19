@@ -4,19 +4,15 @@ import Image from 'next/image';
 const Banner = () => {
   return (
     <div className="relative bg-gradient-to-r from-black to-gray-900 text-white h-[30vh] md:h-[50vh] lg:h-[75vh] w-full">
-      <div className='items-center justify-start flex pl-5 lg:pl-20 absolute w-full h-full'>
-        <div className="relative w-[40vw] h-[40vw] md:w-[30vw] md:h-[30vw] inset-0 flex z-0">
-          <Image
-            src='https://d2jfx0w9sp915a.cloudfront.net/094ce9c37b9199910b6c649f81104fd5'
-            alt="Banner Image"
-            fill
-            sizes="100vh"
-            style={{ objectFit: 'cover' }}
-            priority
-          />
-        </div>
-      </div>
-
+      <Image
+        src="https://d2jfx0w9sp915a.cloudfront.net/094ce9c37b9199910b6c649f81104fd5"
+        alt="Banner Image"
+        fill
+        style={{ objectFit: 'contain' }}
+        sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 25vw"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-0 flex flex-col justify-center items-center h-full space-y-4 px-4 text-center">
         {/* Mobile First Approach */}
         <h1 className="font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
