@@ -40,4 +40,5 @@ next-env.d.ts
 .firebaserc
 firebase.json
 firebase.js
+bfg-1.14.0.jar
 

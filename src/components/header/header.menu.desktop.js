@@ -147,72 +147,72 @@ const menu = [
         ]
     },
     {
-        name: 'Greek Epic',
-        href: 'greek-epic',
+        name: 'Olympian Thread',
+        href: '/category/olympian-thread',
         child: [
             {
                 name: 'Men',
-                href: '/category/greek-epic&men',
+                href: '/category/olympian-thread&men',
                 child: [
-                    { name: "Hoodie", href: '/category/greek-epic&men&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/greek-epic&men&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/greek-epic&men&t-shirt' },
-                    { name: "Pant", href: '/category/greek-epic&men&pant' },
-                    { name: "Sweatshirt", href: '/category/greek-epic&men&sweatshirt' },
-                    { name: "Hooded Vest", href: '/category/greek-epic&men&hooded-vest' },
-                    { name: "Short Pant", href: '/category/greek-epic&men&short-pant' },
+                    { name: "Hoodie", href: '/category/olympian-thread&men&hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/olympian-thread&men&zip-hoodie' },
+                    { name: "T-Shirt", href: '/category/olympian-thread&men&t-shirt' },
+                    { name: "Pant", href: '/category/olympian-thread&men&pant' },
+                    { name: "Sweatshirt", href: '/category/olympian-thread&men&sweatshirt' },
+                    { name: "Hooded Vest", href: '/category/olympian-thread&men&hooded-vest' },
+                    { name: "Short Pant", href: '/category/olympian-thread&men&short-pant' },
                 ]
             },
             {
                 name: 'Women',
-                href: 'greek-epic&women',
+                href: '/category/olympian-thread&women',
                 child: [
-                    { name: "Hoodie", href: '/category/greek-epic&women&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/greek-epic&women&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/greek-epic&women&t-shirt' },
-                    { name: "Pant", href: '/category/greek-epic&women&pant' },
-                    { name: "Sweatshirt", href: '/category/greek-epic&women&sweatshirt' },
-                    { name: "Hooded Vest", href: '/category/greek-epic&women&hooded-vest' },
-                    { name: "Short Pant", href: '/category/greek-epic&women&short-pant' },
+                    { name: "Hoodie", href: '/category/olympian-thread&women&hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/olympian-thread&women&zip-hoodie' },
+                    { name: "T-Shirt", href: '/category/olympian-thread&women&t-shirt' },
+                    { name: "Pant", href: '/category/olympian-thread&women&pant' },
+                    { name: "Sweatshirt", href: '/category/olympian-thread&women&sweatshirt' },
+                    { name: "Hooded Vest", href: '/category/olympian-thread&women&hooded-vest' },
+                    { name: "Short Pant", href: '/category/olympian-thread&women&short-pant' },
                 ]
             },
             {
                 name: 'Unisex',
-                href: 'greek-epic&unisex',
+                href: '/category/olympian-thread&unisex',
                 child: [
-                    { name: "Hoodie", href: '/category/greek-epic&unisex&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/greek-epic&unisex&zip-hoodie' },
-                    { name: "Pant", href: '/category/greek-epic&unisex&pant' },
-                    { name: "Sweatshirt", href: '/category/greek-epic&unisex&sweatshirt' },
-                    { name: "Hooded Vest", href: '/category/greek-epic&unisex&hooded-vest' },
-                    { name: "Short Pant", href: '/category/greek-epic&unisex&short-pant' },
+                    { name: "Hoodie", href: '/category/olympian-thread&unisex&hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/olympian-thread&unisex&zip-hoodie' },
+                    { name: "Pant", href: '/category/olympian-thread&unisex&pant' },
+                    { name: "Sweatshirt", href: '/category/olympian-thread&unisex&sweatshirt' },
+                    { name: "Hooded Vest", href: '/category/olympian-thread&unisex&hooded-vest' },
+                    { name: "Short Pant", href: '/category/olympian-thread&unisex&short-pant' },
                 ]
             },
             {
                 name: 'Kid',
-                href: 'greek-epic&kid',
+                href: '/category/olympian-thread&kid',
                 child: [
-                    { name: "Hoodie", href: '/category/greek-epic&kid&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/greek-epic&kid&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/greek-epic&kid&t-shirt' },
-                    { name: "Pant", href: '/category/greek-epic&kid&pant' },
-                    { name: "Sweatshirt", href: '/category/greek-epic&kid&sweatshirt' },
+                    { name: "Hoodie", href: '/category/olympian-thread&kid&hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/olympian-thread&kid&zip-hoodie' },
+                    { name: "T-Shirt", href: '/category/olympian-thread&kid&t-shirt' },
+                    { name: "Pant", href: '/category/olympian-thread&kid&pant' },
+                    { name: "Sweatshirt", href: '/category/olympian-thread&kid&sweatshirt' },
                 ]
             },
             // {
             //     name: 'Accessory',
-            //     href: 'greek-epic&accessory',
+            //     href: 'olympian-thread&accessory',
             //     child: [
-            //         { href: '/category/greek-epic&accessory', name: "curved brim cap" },
-            //         { href: '/category/greek-epic&accessory', name: "Unisex Tie" },
-            //         { href: '/category/greek-epic&accessory', name: "Bucket Hat" },
-            //         { href: '/category/greek-epic&accessory', name: "Car Seat Cover" },
-            //         { href: '/category/greek-epic&accessory', name: "Tumbler" },
-            //         { href: '/category/greek-epic&accessory', name: "Silk Bandana" },
-            //         { href: '/category/greek-epic&accessory', name: "car mats" },
-            //         { href: '/category/greek-epic&accessory', name: "Car Stickers" },
-            //         { href: '/category/greek-epic&accessory', name: "Steering Wheel Cover" },
-            //         { href: '/category/greek-epic&accessory', name: "Windshield Sunshade" }
+            //         { href: '/category/olympian-thread&accessory', name: "curved brim cap" },
+            //         { href: '/category/olympian-thread&accessory', name: "Unisex Tie" },
+            //         { href: '/category/olympian-thread&accessory', name: "Bucket Hat" },
+            //         { href: '/category/olympian-thread&accessory', name: "Car Seat Cover" },
+            //         { href: '/category/olympian-thread&accessory', name: "Tumbler" },
+            //         { href: '/category/olympian-thread&accessory', name: "Silk Bandana" },
+            //         { href: '/category/olympian-thread&accessory', name: "car mats" },
+            //         { href: '/category/olympian-thread&accessory', name: "Car Stickers" },
+            //         { href: '/category/olympian-thread&accessory', name: "Steering Wheel Cover" },
+            //         { href: '/category/olympian-thread&accessory', name: "Windshield Sunshade" }
             //     ]
             // }
         ]

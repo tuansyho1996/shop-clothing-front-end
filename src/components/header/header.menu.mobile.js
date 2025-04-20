@@ -295,7 +295,7 @@ const MenuMobile = () => {
                                                         <li key={index} className='font-semibold '>
                                                             <div className={`flex gap-4 items-center justify-between px-8 cursor-pointer py-2 ${item.name === nameChild2Open ? 'text-accent-color' : ''}`}
                                                                 onClick={() => handleClick2(item.name)}>
-                                                                <CustomLink href={item.href}>
+                                                                <CustomLink href={item.href} setIsDrawerOpen={setIsDrawerOpen}>
                                                                     {item.name}
                                                                 </CustomLink>
                                                                 <div className='ml-auto'>

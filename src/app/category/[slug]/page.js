@@ -23,15 +23,16 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const data = await getProductsOfCategory(params.slug)
   const categories = await getCategory(params.slug)
-  let title = ''
-  let description = ''
-  const isUnisex = categories.some(element => element.category_name === 'Unisex')
-  categories.forEach(element => {
-    if (!(isUnisex && (element.category_name === 'Men' || element.category_name === 'Women'))) {
-      title += ` ${element.category_name}`
-      description += ` ${element.category_description}`
+  let arrCategories = categories.map((category) => category.category_name)
+  const cleanUnisex = (arr)=>{
+    if (arr.includes("Unisex") && (arr.includes("Men") || arr.includes("Women"))) {
+      return ["Unisex"];
     }
-  });
+    return arr.map(e => e.trim()).filter(e => e); 
+  }
+  let title = cleanUnisex(arrCategories).join(' | ')
+  let description = ''
+  
   return (
     <main>
       <section className="container mx-auto min-h-[50vh]">
