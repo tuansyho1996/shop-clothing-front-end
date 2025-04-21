@@ -37,7 +37,6 @@ const ProductAttribute = ({ product }) => {
     }
   }, [currentColor])
 
-
   const handleSelectColor = (color) => {
     setCurrentColor(color)
     const indexColor = product.product_colors.findIndex(el => el === color)

@@ -24,7 +24,7 @@ export default async function Page({ params }) {
     const product = data
 
     // Mock Product Data (Replace with actual data fetching)
-
+    console.log(product.product_list_categories_name)
     return (
         <main className='min-h-[50vh]'>
             <div className="container mx-auto py-8 px-4 sm:px-6">
@@ -35,9 +35,13 @@ export default async function Page({ params }) {
                             <Link href={`/category/${product?.product_list_categories.slice(0, index + 1).join('&')}`} className="text-sm text-gray-600 cursor-pointer">
                                 <span className="text-sm text-gray-600 cursor-pointer">{category}</span>
                             </Link>
-                            {index < product?.product_list_categories_name.length - 1 && (
-                                <span className="mx-1 text-gray-400">{">"}</span>
-                            )}
+                            {index < product?.product_list_categories_name.length - 1 &&
+                                (['Unisex', 'Men', 'Women'].every(gender => product?.product_list_categories_name.includes(gender)) &&
+                                    ['Unisex', 'Men'].includes(product?.product_list_categories_name[index]) ?
+                                    <span className="mx-1 text-gray-400">{"|"}</span>
+                                    :
+                                    <span className="mx-1 text-gray-400">{">"}</span>)
+                            }
                         </div>
                     ))}
                 </div>
