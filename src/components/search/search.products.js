@@ -22,6 +22,7 @@ const SearchAppBar = () => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
+        handleKeyDown()
     }, []);
     useEffect(() => {
         const fetchProducts = async () => {
@@ -87,7 +88,7 @@ const SearchAppBar = () => {
                     placeholder="Search..."
                     value={textSearch}
                     onChange={(e) => handleChange(e)}
-                    onKeyDown={handleKeyDown}
+                    onKeyDown={(event) => handleKeyDown(event)}
                     autoComplete="off"
                     // onClick={handleClick}
                     // onFocus={handleFocus}
@@ -102,7 +103,7 @@ const SearchAppBar = () => {
                     <button
                         type="button"
                         onClick={() => setTextSearch("")}
-                        className="absolute right-8 top-[10px] z-50"
+                        className="absolute right-8 top-[10px] "
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +120,7 @@ const SearchAppBar = () => {
                     </button>
                 }
 
-                <button type="button" className="absolute right-2 top-2 z-50" onClick={() => searching()}>
+                <button type="button" className="absolute right-2 top-2 " onClick={() => searching()}>
                     <Search className="text-gray-500" />
                 </button>
                 {

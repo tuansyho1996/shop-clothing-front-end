@@ -151,7 +151,7 @@ const menu = [
     },
     {
         name: 'Greek Epic',
-        href: 'greek-epic',
+        href: '/category/greek-epic',
         child: [
             {
                 name: 'Men',
@@ -249,7 +249,7 @@ const MenuMobile = () => {
         }
     }
     return (
-        <div className="lg:hidden">
+        <div className="lg:hidden z-40">
             {/* Menu icon for mobile */}
             <div >
                 <MenuIcon fontSize='large' className='hover:text-accent-color text-black cursor-pointer' onClick={() => setIsDrawerOpen(true)} />
@@ -309,7 +309,7 @@ const MenuMobile = () => {
                                                                         item.child.map((it, index) =>
                                                                         (
                                                                             <li key={index} className='font-semibold px-11 py-1'>
-                                                                                <CustomLink href={it.href} textTransform='capitalize'>
+                                                                                <CustomLink href={it.href} setIsDrawerOpen={setIsDrawerOpen} textTransform='capitalize'>
                                                                                     {it.name}
                                                                                 </CustomLink>
                                                                             </li>

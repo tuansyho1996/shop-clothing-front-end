@@ -28,6 +28,7 @@ export default function AccountMenu() {
     localStorage.removeItem("user");
     setUser(null)
     router.push('/login')
+    setIsShow(false)
   }
   return (
     <div
@@ -48,7 +49,7 @@ export default function AccountMenu() {
         {
           user ?
             <>
-              <Link href='/account' ><div className="text-[var(--primary-color)] hover:text-[var(--accent-color)] font-semibold ">{user.usr_first_name}{' '}{user.usr_last_name}</div></Link>
+              <Link href='/account' onClick={() => setIsShow(false)}><div className="text-[var(--primary-color)] hover:text-[var(--accent-color)] font-semibold ">{user.usr_first_name}{' '}{user.usr_last_name}</div></Link>
               <div className="cursor-pointer text-[var(--primary-color)] hover:text-[var(--accent-color)] text-xs" onClick={handleLogOut}>Log out</div>
             </>
             :

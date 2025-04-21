@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 py-10 border-t">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center text-center md:text-left">
           {/* About Column */}
           <div>
             <h2 className="mb-4 text-lg text-gray-800 font-semibold">General</h2>
@@ -66,23 +66,23 @@ const Footer = () => {
             <h2 className="mb-4 text-lg text-gray-800 font-semibold">Quick shop</h2>
             <ul className="space-y-2">
               <li>
-                <Link href="/category/norse-legends">
+                <Link href="/category/asgardian-elegance">
                   <button className="text-gray-600 hover:text-gray-800">
-                    Norse Legends
+                    Asgardian Elegance
                   </button>
                 </Link>
               </li>
               <li>
-                <Link href="/category/egyptian-mystique">
+                <Link href="/category/pharaoh-legacy">
                   <button className="text-gray-600 hover:text-gray-800">
-                    Egyptian Mystique
+                    Pharaoh's Legacy
                   </button>
                 </Link>
               </li>
               <li>
-                <Link href="/category/greek-epics">
+                <Link href="/category/olympian-thread">
                   <button className="text-gray-600 hover:text-gray-800">
-                    Greek Epics
+                    Olympian Thread
                   </button>
                 </Link>
               </li>

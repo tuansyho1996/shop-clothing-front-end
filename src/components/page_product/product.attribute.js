@@ -108,7 +108,7 @@ const ProductAttribute = ({ product }) => {
           category_2={product.product_list_categories_name[product.product_list_categories_name.length - 2]}
         />
       </div>
-      <div className="flex flex-col md:flex-row justify-between items-center mt-2 md:mt-4">
+      <div className="flex flex-col md:flex-row justify-between md:items-center mt-2 md:mt-4">
         <span className="mb-2 font-medium">Quantity:</span>
         <div className="flex gap-2">
           <button className="border rounded-sm px-4 py-2 " onClick={handleMinusQuantity}>
