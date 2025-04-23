@@ -25,7 +25,6 @@ export default async function Page({ params }) {
     const product = data
 
     // Mock Product Data (Replace with actual data fetching)
-    console.log(product.product_list_categories_name)
     return (
         <main className='min-h-[50vh] container mx-auto py-8 px-4 sm:px-6'>
             <div className="product">
@@ -99,7 +98,6 @@ export default async function Page({ params }) {
                     <p className='text-sm text-gray-500'>
                         Let us know what you think
                     </p>
-
                     <ReviewModal />
                 </div>
 

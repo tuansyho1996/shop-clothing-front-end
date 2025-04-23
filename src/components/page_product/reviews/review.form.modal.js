@@ -1,10 +1,16 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 export default function ReviewModal() {
     const [showModal, setShowModal] = useState(false);
     const [rating, setRating] = useState(0);
+    const [review, setReview] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [media, setMedia] = useState(null);
+
     const ModalRef = useRef(null);
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -24,7 +30,51 @@ export default function ReviewModal() {
             document.removeEventListener('keydown', handleKeyDown);
         };
     }, []);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
+        if (!review || !name || !rating || !email) {
+            toast.error('Please fill in all required fields.');
+            return;
+        }
+
+        if (!media || media.length === 0) {
+            toast.error('Please upload at least one image or video.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('review', review);
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('rating', rating);
+
+        Array.from(media).forEach((file, index) => {
+            formData.append('media', file);
+        });
+
+        try {
+            const res = await fetch('/api/reviews', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!res.ok) {
+                throw new Error('Failed to submit review');
+            }
+
+            toast.success('Review submitted successfully!');
+            setShowModal(false);
+            setReview('');
+            setName('');
+            setEmail('');
+            setRating(0);
+            setMedia(null);
+        } catch (err) {
+            console.error(err);
+            toast.error('Something went wrong. Please try again later.');
+        }
+    };
 
 
     return (
@@ -52,7 +102,7 @@ export default function ReviewModal() {
                                             key={i}
                                             type="button"
                                             onClick={() => setRating(i)}
-                                            className={`text-2xl ${i <= rating ? 'text-orange-500' : 'text-gray-300'
+                                            className={`text-2xl ${i <= rating ? 'text-[var(--accent-color)]' : 'text-gray-300'
                                                 }`}
                                         >
                                             ★
@@ -67,29 +117,29 @@ export default function ReviewModal() {
                                     className="w-full border p-2 rounded resize-none"
                                     rows={4}
                                     placeholder="Tell us what you like or dislike"
+                                    value={review}
+                                    onChange={(e) => setReview(e.target.value)}
                                 />
                             </div>
 
-                            <div>
-                                <label className="block font-medium">Add a headline *</label>
-                                <input
-                                    type="text"
-                                    className="w-full border p-2 rounded"
-                                    placeholder="Summarize your experience"
-                                />
-                            </div>
+
 
                             <div className="flex space-x-4">
                                 <div className="w-1/2">
                                     <label className="block font-medium">Your name *</label>
-                                    <input type="text" className="w-full border p-2 rounded" />
+                                    <input type="text" className="w-full border p-2 rounded"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        placeholder="Your name"
+                                    />
                                 </div>
                                 <div className="w-1/2">
                                     <label className="block font-medium">Your email address *</label>
-                                    <input type="email" className="w-full border p-2 rounded" />
-                                    <p className="text-xs text-gray-500">
-                                        We'll send you an email to verify this review came from you.
-                                    </p>
+                                    <input type="email" className="w-full border p-2 rounded"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Your email address"
+                                    />
                                 </div>
                             </div>
 
@@ -97,9 +147,9 @@ export default function ReviewModal() {
                                 <label className="block font-medium">Add media</label>
                                 <input
                                     type="file"
-                                    multiple
                                     accept="image/*,video/*"
                                     className="mt-1"
+                                    onChange={(e) => setMedia(e.target.files)}
                                 />
                                 <p className="text-xs text-gray-500">
                                     Upload up to 10 images and 3 videos (max. file size 2 GB)
@@ -107,8 +157,8 @@ export default function ReviewModal() {
                             </div>
 
                             <button
-                                type="submit"
-                                className="w-full bg-orange-500 text-white py-2 rounded mt-4"
+                                className="w-full bg-[var(--accent-color)] text-white py-2 rounded mt-4"
+                                onClick={handleSubmit}
                             >
                                 Submit Review
                             </button>
