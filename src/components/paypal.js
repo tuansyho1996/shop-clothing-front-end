@@ -219,14 +219,6 @@ function App({ setLoading }) {
         <button className="flex items-center justify-center w-full button-debit text-white bg-gray-800 rounded-sm hover:bg-gray-700 focus:outline-none"
           onClick={() => setIsDebitCard(true)}
         >
-          <Image
-            src="https://d2jfx0w9sp915a.cloudfront.net/3861d6acc2d27d821b71b0b3e2a6d5f8"
-            alt=''
-            width={30}
-            height={30}
-            style={{ objectFit: 'cover', width: 'auto', height: 'auto' }}
-            loading="lazy"
-          />
           <span className="ml-2 ">Debit or Credit Card</span>
         </button>
         {

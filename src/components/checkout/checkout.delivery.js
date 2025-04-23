@@ -157,14 +157,16 @@ export default function Delivery({ isPhone = true }) {
             </span>
             <div className='w-[70px] relative '>
               <div className='flex'>
-                <Image
-                  src={`https://flagcdn.com/w40/${flagCurrent.toLowerCase()}.png`}
-                  width={40}
-                  height={40}
-                  style={{ width: 'auto', height: '100%' }} // Ensure width is auto to maintain aspect ratio
-                  loading='lazy'
-                  alt=''
-                />
+                <div style={{ width: 40, height: 'auto', position: 'relative' }}>
+                  <Image
+                    src={`https://flagcdn.com/w40/${flagCurrent.toLowerCase()}.png`}
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    alt=""
+                    sizes='40px'
+                    loading="lazy"
+                  />
+                </div>
                 <KeyboardArrowDownIcon fontSize='small' />
               </div>
               <select

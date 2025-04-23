@@ -21,8 +21,8 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
             onClick={handleOverlayClick}
         >
-            <div className="bg-white rounded-lg p-6">
-                <div className="flex justify-between items-center px-5">
+            <div className="bg-white rounded-lg py-5 px-1 w-full">
+                <div className="flex justify-between items-center">
                     <h2 className="text-xl font-semibold ">Size Guide {`${category_2}'s ${category}`}</h2>
                     <button
                         onClick={onClose}
@@ -32,7 +32,7 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
                     </button>
                 </div>
 
-                <div className="p-4">
+                <div className="mt-4">
                     {category === 'Hooded Vest' && category_2 === 'Unisex' &&
                         <Hooded />
                     }
