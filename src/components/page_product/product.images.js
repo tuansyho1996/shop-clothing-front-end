@@ -28,7 +28,7 @@ export default function ImagesProduct({ product }) {
                     alt={product?.product_name}
                     fill
                     style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100w, 50w"
                     // loading="lazy"
                     priority={true}
                 />

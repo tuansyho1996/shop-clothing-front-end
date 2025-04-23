@@ -18,7 +18,7 @@ const Header = () => {
         <div className="flex items-center ml-4">
           <Link href="/" className="text-3xl font-bold ">
             <Image
-              src="https://d2jfx0w9sp915a.cloudfront.net/b09ccccc0558098469fa99ebd30e2d60"
+              src="https://d2jfx0w9sp915a.cloudfront.net/4a8453e070e98ed66000346d73aa38ac "
               alt="Logo"
               width={70}
               height={70}

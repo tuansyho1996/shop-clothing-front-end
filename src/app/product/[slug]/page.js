@@ -8,6 +8,7 @@ import GrassIcon from "@mui/icons-material/Grass";
 // import EcoIcon from "@mui/icons-material/Eco";
 import LoopIcon from "@mui/icons-material/Loop";
 import Link from 'next/link';
+import ReviewModal from '@/components/page_product/reviews/review.form.modal';
 
 export async function generateMetadata({ params }) {
     const data = await getProduct(params.slug) // Fetch your data here, e.g., from an API
@@ -26,14 +27,14 @@ export default async function Page({ params }) {
     // Mock Product Data (Replace with actual data fetching)
 
     return (
-        <main className='min-h-[50vh]'>
-            <div className="container mx-auto py-8 px-4 sm:px-6">
+        <main className='min-h-[50vh] container mx-auto py-8 px-4 sm:px-6'>
+            <div className="product">
                 <div className="flex items-center justify-center mb-6">
                     {/* Breadcrumbs */}
                     {product?.product_list_categories && product?.product_list_categories_name.map((category, index) => (
                         <div key={index}>
-                            <Link href={`/category/${product?.product_list_categories.slice(0, index + 1).join('&')}`} className="text-sm text-gray-600 cursor-pointer">
-                                <span className="text-sm text-gray-600 cursor-pointer">{category}</span>
+                            <Link href={`/category/${product?.product_list_categories[index]}`} className="text-sm text-gray-600 cursor-pointer">
+                                <span className="text-xs text-gray-600 cursor-pointer sm:text-sm">{category}</span>
                             </Link>
                             {index < product?.product_list_categories_name.length - 1 && (
                                 <span className="mx-1 text-gray-400">{">"}</span>
@@ -47,14 +48,14 @@ export default async function Page({ params }) {
                     {/* Product Info */}
                     <div className="flex-1 w-full lg:w-1/2">
                         <div className="max-w-mdshadow-lg">
-                            <h2 className="text-lg font-semibold">{product.product_name}</h2>
+                            <h2 className="text-lg font-semibold">{product?.product_name}</h2>
                             <ProductAttribute product={product} />
                             <div className="flex justify-around mt-6">
                                 <div className="relative group">
                                     <button className="p-2 rounded-full hover:bg-gray-200">
                                         <GrassIcon fontSize="large" className="text-gray-700" />
                                     </button>
-                                    <span className="absolute top-full mt-2 hidden group-hover:flex items-center p-2 text-xs font-medium text-white bg-gray-800 rounded shadow-lg">
+                                    <span className="absolute left-1/2 -translate-x-1/2 top-full mt-2 hidden group-hover:flex items-center p-2 text-xs font-medium text-white bg-gray-800 rounded shadow-lg">
                                         Organic
                                     </span>
                                 </div>
@@ -62,45 +63,42 @@ export default async function Page({ params }) {
                                     <button className="p-2 rounded-full hover:bg-gray-200" aria-label=''>
                                         <LoopIcon fontSize="large" className="text-gray-700" />
                                     </button>
-                                    <span className="absolute top-full mt-2 hidden group-hover:flex items-center p-2 text-xs font-medium text-white bg-gray-800 rounded shadow-lg">
-                                        Organic
+                                    <span className="absolute left-1/2 -translate-x-1/2 top-full  mt-2 hidden group-hover:flex items-center p-2 text-xs font-medium text-white bg-gray-800 rounded shadow-lg">
+                                        Compostable
                                     </span>
                                 </div>
                             </div>
 
-                            <div className="mt-4 text-gray-600">
-                                <p className="flex items-center gap-2">
-                                    <SwapHorizIcon fontSize="small" /> Easy Returns and Exchanges
-                                </p>
-                                <p className="flex items-center gap-2">
-                                    <LocalShippingIcon fontSize="small" /> Next Day Delivery Available
-                                </p>
-                            </div>
+
                             <p className="mt-4 text-sm text-gray-600">
-                                Lamassu t-shirt, made from organic natural fibres, printed in the UK in
-                                a renewable energy-powered factory.
+                                Our cotton is sourced responsibly, promoting biodegradable, eco-friendly fashion that’s kind to your skin and the planet. Support local craftsmanship while making a positive impact on the environment. Choose comfort, choose quality, choose style – all made in Vietnam.
                             </p>
                         </div>
                     </div>
                 </div>
+                {/* Product detail */}
+                <div className="mt-5">
+                    <div className="mb-6 md:mb-8">
+                        <h2 className="text-lg font-bold mb-2 md:text-xl">Details</h2>
+                        <p className="text-gray-700 text-sm md:text-base">
+                            {product.product_description}
+                        </p>
+                    </div>
+                </div>
             </div>
-            {/* Product detail */}
-            <div className="container mx-auto px-4 py-8 md:px-6 md:py-12 ">
-                <div className="mb-6 md:mb-8">
-                    <h2 className="text-lg font-bold mb-2 md:text-xl">Details</h2>
-                    <p className="text-gray-700 text-sm md:text-base">
-                        {product.product_description}
+
+            <div className="py-6 md:py-8 border-t border-gray-300 reviews">
+                <div className='warp-header-reviews flex flex-col items-center justify-center'>
+                    <p className="text-base font-semibold mb-4 md:text-lg">
+                        Customer Reviews
                     </p>
+                    <p className='text-sm text-gray-500'>
+                        Let us know what you think
+                    </p>
+
+                    <ReviewModal />
                 </div>
 
-                <div className="py-6 md:py-8 border-t border-gray-300">
-                    <p className="text-base font-semibold mb-4 md:text-lg">
-                        Our Unisex - Anubis 8 - T-Shirt hasn't had any reviews yet
-                    </p>
-                    <button className="px-4 py-2 border border-gray-700 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition text-sm md:text-base">
-                        Submit Review
-                    </button>
-                </div>
             </div>
         </main>
 

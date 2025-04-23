@@ -105,7 +105,7 @@ const ProductAttribute = ({ product }) => {
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
           category={product.product_list_categories_name[product.product_list_categories_name.length - 1]}
-          category_2={product.product_list_categories_name[product.product_list_categories_name.length - 2]}
+          category_2={product.product_list_categories_name[1]}
         />
       </div>
       <div className="flex flex-col md:flex-row justify-between md:items-center mt-2 md:mt-4">
@@ -114,7 +114,7 @@ const ProductAttribute = ({ product }) => {
           <button className="border rounded-sm px-4 py-2 " onClick={handleMinusQuantity}>
             <RemoveIcon sx={{ color: '#999' }} />
           </button>
-          <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="w-10 text-center border rounded-sm pl-3 text-lg" />
+          <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="w-10 text-center border rounded-sm w-12 text-lg" />
           <button className="border rounded-sm px-4 py-2 " onClick={() => setQuantity(quantity + 1)}>
             <AddIcon sx={{ color: '#999' }} />
           </button>
