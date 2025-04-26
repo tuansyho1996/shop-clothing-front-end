@@ -27,7 +27,7 @@ const ProductAttribute = ({ product }) => {
   const { currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, setDrawerOpen } = useContext(AppContext)
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
-    setCurrentColor(product.product_colors[0])
+    setCurrentColor(product?.product_colors[0])
     setSelectedSize(sizes[0])
   }, [])
   useEffect(() => {
@@ -39,16 +39,16 @@ const ProductAttribute = ({ product }) => {
 
   const handleSelectColor = (color) => {
     setCurrentColor(color)
-    const indexColor = product.product_colors.findIndex(el => el === color)
+    const indexColor = product?.product_colors.findIndex(el => el === color)
     if (indexColor !== -1) {
-      setCurrentImageDetail(product.product_color_images[indexColor])
+      setCurrentImageDetail(product?.product_color_images[indexColor])
     }
   }
   const handleAddToCart = () => {
-    const isProductInCart = productsInCart.find(el => el.product_slug === product.product_slug)
+    const isProductInCart = productsInCart.find(el => el.product_slug === product?.product_slug)
     if (isProductInCart && isProductInCart.product_size === selectedSize && isProductInCart.product_color === colorsObject.find(el => el.hex === currentColor).name) {
       const mutateProductsInCart = productsInCart.map(el => {
-        if (el.product_slug === product.product_slug) {
+        if (el.product_slug === product?.product_slug) {
           el.product_count += quantity
         }
         return el
@@ -61,7 +61,7 @@ const ProductAttribute = ({ product }) => {
       copyProduct.product_count = quantity
       copyProduct.product_size = selectedSize
       copyProduct.product_color = colorsObject.find(el => el.hex === currentColor).name
-      copyProduct.product_image = product.product_color_images[product.product_colors.findIndex(el => el === currentColor)]
+      copyProduct.product_image = product?.product_color_images[product?.product_colors.findIndex(el => el === currentColor)]
       setProductsInCart([...productsInCart, copyProduct])
       setDrawerOpen(true)
     }
@@ -103,8 +103,8 @@ const ProductAttribute = ({ product }) => {
         <Modal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          category={product.product_list_categories_name[product.product_list_categories_name.length - 1]}
-          category_2={product.product_list_categories_name[1]}
+          category={product?.product_list_categories_name[product?.product_list_categories_name.length - 1]}
+          category_2={product?.product_list_categories_name[1]}
         />
       </div>
       <div className="flex flex-col md:flex-row justify-between md:items-center mt-2 md:mt-4">

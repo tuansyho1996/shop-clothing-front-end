@@ -2,14 +2,12 @@
 import ProductAttribute from '@/components/page_product/product.attribute';
 import ImagesProduct from '@/components/page_product/product.images';
 import { getProduct } from '@/services/service.product';
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import GrassIcon from "@mui/icons-material/Grass";
 // import EcoIcon from "@mui/icons-material/Eco";
 import LoopIcon from "@mui/icons-material/Loop";
 import Link from 'next/link';
 import ReviewModal from '@/components/page_product/reviews/review.form.modal';
-
+import ReviewDisplay from '@/components/page_product/reviews/review.display';
 export async function generateMetadata({ params }) {
     const data = await getProduct(params.slug) // Fetch your data here, e.g., from an API
 
@@ -23,7 +21,6 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
     const data = await getProduct(params.slug)
     const product = data
-
     // Mock Product Data (Replace with actual data fetching)
     return (
         <main className='min-h-[50vh] container mx-auto py-8 px-4 sm:px-6'>
@@ -84,7 +81,7 @@ export default async function Page({ params }) {
                     <div className="mb-6 md:mb-8">
                         <h2 className="text-lg font-bold mb-2 md:text-xl">Details</h2>
                         <p className="text-gray-700 text-sm md:text-base">
-                            {product.product_description}
+                            {product?.product_description}
                         </p>
                     </div>
                 </div>
@@ -98,9 +95,9 @@ export default async function Page({ params }) {
                     <p className='text-sm text-gray-500'>
                         Let us know what you think
                     </p>
-                    <ReviewModal />
+                    <ReviewModal product_id={product?._id} reviews_length={product?.product_reviews?.length} />
                 </div>
-
+                <ReviewDisplay product_reviews={product?.product_reviews} />
             </div>
         </main>
 

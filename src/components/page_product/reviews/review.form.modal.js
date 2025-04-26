@@ -1,15 +1,18 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { postReview } from '@/services/service.review';
+import { useState, useRef, useEffect, useContext } from 'react';
 import { toast } from 'react-toastify';
+import { AppContext } from '@/context/context.app';
 
-export default function ReviewModal() {
+export default function ReviewModal({ product_id, reviews_length }) {
     const [showModal, setShowModal] = useState(false);
     const [rating, setRating] = useState(0);
     const [review, setReview] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [media, setMedia] = useState(null);
+    const { user } = useContext(AppContext)
 
     const ModalRef = useRef(null);
     useEffect(() => {
@@ -44,25 +47,24 @@ export default function ReviewModal() {
         }
 
         const formData = new FormData();
-        formData.append('review', review);
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('rating', rating);
+        if (user) {
+            formData.append('review_usr_id', user._id);
+        }
+        else {
+            formData.append('review_usr_id', 'none');
+        }
+        formData.append('review_product_id', product_id);
+        formData.append('review_content', review);
+        formData.append('review_usr_name', name);
+        formData.append('review_usr_email', email);
+        formData.append('review_rating', rating);
 
         Array.from(media).forEach((file, index) => {
             formData.append('media', file);
         });
 
-        try {
-            const res = await fetch('/api/reviews', {
-                method: 'POST',
-                body: formData,
-            });
-
-            if (!res.ok) {
-                throw new Error('Failed to submit review');
-            }
-
+        const response = await postReview(formData);
+        if (response.status === 201) {
             toast.success('Review submitted successfully!');
             setShowModal(false);
             setReview('');
@@ -70,19 +72,21 @@ export default function ReviewModal() {
             setEmail('');
             setRating(0);
             setMedia(null);
-        } catch (err) {
-            console.error(err);
-            toast.error('Something went wrong. Please try again later.');
-        }
-    };
 
+        }
+
+    };
 
     return (
         <>
             <button
                 onClick={() => setShowModal(true)}
                 className="px-4 py-2 my-5 text-gray-700 rounded bg-[var(--primary-color)] hover:bg-accent-color hover:text-white transition text-sm md:text-base text-white">
-                Be the first to write a review!
+                {
+                    reviews_length > 0 ?
+                        'Write a review' :
+                        'Be the first to write a review!'
+                }
             </button>
 
             {showModal && (
