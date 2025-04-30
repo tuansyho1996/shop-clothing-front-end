@@ -58,7 +58,6 @@ export default function Checkout() {
     <>
       {loading && <SpinnerOverlay />}
       <FormCheckoutProvider>
-
         <div className="max-w-5xl 2xl:max-w-7xl mx-auto md:px-4 py-8 flex flex-col md:flex-row gap-4">
           {/* Left Column */}
           <div className="md:basis-7/12 md:order-first px-6 md:px-0 space-y-6 ">

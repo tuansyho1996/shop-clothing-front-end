@@ -43,7 +43,7 @@ function App({ setLoading }) {
     phone, phoneRef,
     email, emailRef,
     formErrors, setFormErrors, flagCurrentRef, } = useContext(FormCheckoutContext)
-  const { subtotaltRef, shippingRef, productsInCartRef } = useContext(AppContext)
+  const { subtotaltRef, shippingRef, productsInCartRef, user, setProductsInCart } = useContext(AppContext)
 
 
   const validateForm = () => {
@@ -114,6 +114,9 @@ function App({ setLoading }) {
   }
   const completeOrder = async ({ infoOrder, infoCustomer }) => {
     try {
+      if (user) {
+        infoCustomer.user_id = user._id
+      }
       const response = await fetch(
         `http://localhost:5000/api/payment/checkout/order-received`,
         {
@@ -126,6 +129,7 @@ function App({ setLoading }) {
       );
       const res = await response.json();
       if (res?.status === 201) {
+        setProductsInCart([])
         router.push(`/checkout/order-received/${res?.metadata?._id}`)
       }
     } catch (error) {

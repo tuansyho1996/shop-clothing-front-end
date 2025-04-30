@@ -1,10 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
+import { AppContext } from '@/context/context.app';
 
 const ReviewDisplay = ({ product_reviews }) => {
-    const [reviews, setReviews] = useState([]);
+    const { reviews, setReviews } = useContext(AppContext);
+
     useEffect(() => {
         if (product_reviews) {
             setReviews(product_reviews);

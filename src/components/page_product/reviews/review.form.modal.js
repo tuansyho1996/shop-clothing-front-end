@@ -12,7 +12,7 @@ export default function ReviewModal({ product_id, reviews_length }) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [media, setMedia] = useState(null);
-    const { user } = useContext(AppContext)
+    const { user, setReviews, reviews } = useContext(AppContext)
 
     const ModalRef = useRef(null);
     useEffect(() => {
@@ -72,9 +72,8 @@ export default function ReviewModal({ product_id, reviews_length }) {
             setEmail('');
             setRating(0);
             setMedia(null);
-
+            setReviews([...reviews, response.metadata])
         }
-
     };
 
     return (

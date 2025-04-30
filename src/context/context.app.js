@@ -15,6 +15,7 @@ export function AppProvider({ children }) {
   const subtotaltRef = useRef(subtotal);
   const shippingRef = useRef(shipping);
   const productsInCartRef = useRef(productsInCart)
+  const [reviews, setReviews] = useState('')
 
   useEffect(() => {
     //set cart
@@ -53,7 +54,7 @@ export function AppProvider({ children }) {
   return (
     <AppContext.Provider value={{
       user, setUser, currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, productsInCartRef,
-      isDrawerOpen, setDrawerOpen, subtotal, subtotaltRef, shippingRef, shipping
+      isDrawerOpen, setDrawerOpen, subtotal, subtotaltRef, shippingRef, shipping, reviews, setReviews
     }}>
       {children}
     </AppContext.Provider>

@@ -4,12 +4,12 @@ const fetcher = async (endpoint, options = {}) => {
     throw new Error('Network response was not ok');
   }
   const data = await res.json();
-  return data.metadata;
+  return data;
 };
 
 const postReview = async (formData) => {
   try {
-    const response = await fetcher(/api/review, {
+    const response = await fetcher('/api/review', {
       method: 'POST',
       body: formData,
       cache: "no-cache"
