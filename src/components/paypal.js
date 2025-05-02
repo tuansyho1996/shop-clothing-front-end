@@ -114,9 +114,6 @@ function App({ setLoading }) {
   }
   const completeOrder = async ({ infoOrder, infoCustomer }) => {
     try {
-      if (user) {
-        infoCustomer.user_id = user._id
-      }
       const response = await fetch(
         `http://localhost:5000/api/payment/checkout/order-received`,
         {

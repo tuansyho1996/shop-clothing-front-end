@@ -19,6 +19,7 @@ export default function AccountPage() {
     setUser(null)
     router.push('/login')
   };
+  console.log('user', user)
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 min-h-[50vh]">

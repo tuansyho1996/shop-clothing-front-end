@@ -28,7 +28,6 @@ export default function LoginForm() {
     setError(null);
     return true;
   };
-  console.log(error)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -38,6 +37,7 @@ export default function LoginForm() {
     try {
       // Mock API request (replace with your actual API endpoint)
       const res = await login({ usr_email, usr_password })
+      console.log('res', res?.metadata)
       // Handle successful login (e.g., redirect)
       setUser(res?.metadata?.user)
       localStorage.setItem('user', JSON.stringify(res?.metadata?.user));
