@@ -23,14 +23,14 @@ const Shop = async ({ params }) => {
             <section id='new-products' className="mb-12">
                 <h2 className="text-2xl font-semibold mb-4">Sản phẩm mới</h2>
                 <NewProducts products={paginatedProducts} />
-                <div className="flex justify-between mt-6">
+                <div className="flex justify-end mt-6">
                     {hasPrevPage && (
-                        <Link href={`/shop/${currentPage - 1}#new-products`} className="text-blue-500 hover:underline">
+                        <Link href={`/shop/${currentPage - 1}#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] hover:underline">
                             Previous
                         </Link>
                     )}
                     {hasNextPage && (
-                        <Link href={`/shop/${currentPage + 1}/#new-products`} className="text-blue-500 hover:underline">
+                        <Link href={`/shop/${currentPage + 1}/#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] hover:underline">
                             Next
                         </Link>
                     )}

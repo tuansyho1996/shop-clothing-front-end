@@ -1,5 +1,6 @@
 // components/Banner.js
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Banner = () => {
   return (
@@ -21,11 +22,13 @@ const Banner = () => {
         <h2 className="font-light text-base md:text-lg lg:text-xl">
           Fashion that defines you.
         </h2>
+        <Link href="/shop/1">
         <button
           className="mt-4 px-4 pt-1 pb-2 md:px-8 md:pt-2 md:pb-3 font-bold text-md rounded-md md:text-xl bg-accent-color hover:text-black"
         >
           Shop Now
         </button>
+        </Link>
       </div>
     </div>
   );

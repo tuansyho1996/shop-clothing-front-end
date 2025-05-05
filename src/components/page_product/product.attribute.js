@@ -131,8 +131,8 @@ const ProductAttribute = ({ product }) => {
           </button>
         ))}
       </div>
-      <button className="w-full p-3 mt-4 bg-accent-color rounded-sm" onClick={handleAddToCart}>
-        <span className="text-xl font-bold text-white capitalize ">Add To Cart</span>
+      <button className="w-full p-3 mt-4 bg-[var(--primary-color)] rounded-sm text-white hover:text-[var(--accent-color)]" onClick={handleAddToCart}>
+        <span className="text-xl font-bold capitalize ">Add To Cart</span>
       </button>
     </>
 

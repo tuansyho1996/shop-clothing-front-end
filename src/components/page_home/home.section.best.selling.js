@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function BestSelling({ products }) {
+  const bestProducts = products.slice(0, 8);
   const settings = {
     dots: true,
     infinite: true,
@@ -37,8 +38,8 @@ export default function BestSelling({ products }) {
   return (
     <div className="w-full px-4 relative">
       <Slider {...settings}>
-        {products?.length > 0 ? (
-          products?.map((product) => (
+        {bestProducts?.length > 0 ? (
+          bestProducts?.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))
         ) : (

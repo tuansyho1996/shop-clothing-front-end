@@ -84,10 +84,10 @@ export default function Drawer({ isOpen, onClose, items }) {
                       <p className=" ">Color: {item.product_color}</p>
                       <p className=" ">Size: {item.product_size}</p>
                     </div>
-                    <div className='flex flex-col 2xl:flex-row cursor-pointer justify-center'>
-                      <AddIcon sx={{ color: '#999999', fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handlePlusItem(index)} />
-                      <RemoveIcon sx={{ color: '#999999', fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleMinusItem(index)} />
-                      <DeleteIcon sx={{ color: '#999999', fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleRemoveItem(index)} />
+                    <div className='flex flex-col 2xl:flex-row cursor-pointer justify-center '>
+                      <AddIcon sx={{ color: '#999999','&:hover': {color: 'var(--accent-color)',}, fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handlePlusItem(index)} />
+                      <RemoveIcon sx={{ color: '#999999','&:hover': {color: 'var(--accent-color)',}, fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleMinusItem(index)} />
+                      <DeleteIcon sx={{ color: '#999999','&:hover': {color: 'var(--accent-color)',}, fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleRemoveItem(index)} />
                     </div>
                   </div>
                 ))}
@@ -98,12 +98,12 @@ export default function Drawer({ isOpen, onClose, items }) {
                   <span>${subtotal} USD</span>
                 </div>
                 <Link href='/cart'>
-                  <button className="mt-4 w-full bg-black text-white py-2 rounded" onClick={() => setDrawerOpen(false)}>
+                  <button className="mt-4 w-full bg-[var(--primary-color)] hover:text-black text-white py-2 rounded" onClick={() => setDrawerOpen(false)}>
                     Go to Cart
                   </button>
                 </Link>
                 <Link href='/checkout'>
-                  <button className="mt-2 w-full bg-black text-white py-2 rounded" onClick={() => setDrawerOpen(false)}>
+                  <button className="mt-2 w-full bg-[var(--accent-color)] hover:text-black text-white py-2 rounded" onClick={() => setDrawerOpen(false)}>
                     Checkout
                   </button>
                 </Link>

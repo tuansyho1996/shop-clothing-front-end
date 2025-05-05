@@ -44,7 +44,17 @@ export default function AccountPage() {
       <div>
         <h2 className="text-xl font-semibold mb-2">Order History</h2>
         <hr className="border-gray-300 mb-3" />
-        <p className="text-gray-600">You haven't placed any orders yet.</p>
+          {
+            user?.usr_orders?.length > 0 ? (
+              user.usr_orders.map((order, index) => (
+                <div key={index} className="mb-4">
+                  <p className="text-lg font-semibold">Order ID: {order._id}</p>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-600">You haven't placed any orders yet.</p>
+            )
+          }
         <hr className="border-gray-300 mt-3" />
       </div>
     </div>
