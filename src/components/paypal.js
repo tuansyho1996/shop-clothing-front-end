@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, use } from "react";
 import { FormCheckoutContext } from '@/context/context.form.checkout';
 import {
   PayPalScriptProvider, PayPalButtons,
@@ -9,7 +9,6 @@ import {
   PayPalExpiryField,
   PayPalCVVField,
 } from "@paypal/react-paypal-js";
-import Image from "next/image";
 import { useRouter } from 'next/navigation'
 import CloseIcon from '@mui/icons-material/Close';
 import { AppContext } from "@/context/context.app";
@@ -43,7 +42,7 @@ function App({ setLoading }) {
     phone, phoneRef,
     email, emailRef,
     formErrors, setFormErrors, flagCurrentRef, } = useContext(FormCheckoutContext)
-  const { subtotaltRef, shippingRef, productsInCartRef, user, setProductsInCart } = useContext(AppContext)
+  const { subtotaltRef, shippingRef, productsInCartRef, setProductsInCart } = useContext(AppContext)
 
 
   const validateForm = () => {
@@ -114,6 +113,7 @@ function App({ setLoading }) {
   }
   const completeOrder = async ({ infoOrder, infoCustomer }) => {
     try {
+      const user = JSON.parse(localStorage.getItem('user'))
       const response = await fetch(
         `http://localhost:5000/api/payment/checkout/order-received`,
         {
@@ -121,7 +121,7 @@ function App({ setLoading }) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ infoOrder, infoCustomer }),
+          body: JSON.stringify({ infoOrder, infoCustomer, userId: user?._id }),
         }
       );
       const res = await response.json();
@@ -140,6 +140,7 @@ function App({ setLoading }) {
   }
   return (
     <div className="App">
+      <span className="text-2xl font-bold text-gray-800">Payment</span>
       <PayPalScriptProvider options={initialOptions}>
         <PayPalButtons
           style={{

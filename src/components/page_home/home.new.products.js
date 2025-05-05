@@ -11,7 +11,7 @@ export default function NewProducts({ products }) {
           <ProductCard key={product._id} product={product} />
         ))
       ) : (
-        <p>Loading best-selling products...</p>
+        <p>Loading new products...</p>
       )}
     </div>
   );
