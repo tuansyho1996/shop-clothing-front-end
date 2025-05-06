@@ -36,6 +36,16 @@ const ProductAttribute = ({ product }) => {
       setSelectedColor(colorOject.name)
     }
   }, [currentColor])
+  useEffect(() => {
+    if(isModalOpen){
+      document.body.classList.add("overflow-hidden");
+    }else{
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [isModalOpen])
 
   const handleSelectColor = (color) => {
     setCurrentColor(color)

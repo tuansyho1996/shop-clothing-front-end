@@ -5,9 +5,9 @@ const KidHoodie = () => {
         <div className="overflow-x-auto">
             <Image
                 src='https://d2jfx0w9sp915a.cloudfront.net/66106f519894e53a4f0481e58ccda0ac'
-                alt='zip up hoodie size guide'
-                width={160}
-                height={160}
+                alt=''
+                width={140}
+                height={140}
                 style={{ objectFit: 'cover', width: 'auto', height: 'auto' }}
                 loadding='lazy'
             />

@@ -9,6 +9,7 @@ import UnisexShortPant from "./modal_size_guide/size.men.short.pant";
 import KidZipUpHoodie from "./modal_size_guide/size.kid.zip.up.hoodie";
 import UnisexZipUpHoodie from "./modal_size_guide/size.unisex.zip.up.hoodie";
 import KidHoodie from "./modal_size_guide/size.kid.hoodie";
+import CloseIcon from '@mui/icons-material/Close';
 const Modal = ({ isOpen, onClose, category, category_2 }) => {
     if (!isOpen) return null;
     const handleOverlayClick = (e) => {
@@ -19,21 +20,21 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
     return (
         <div
             id="modal-overlay"
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto"
             onClick={handleOverlayClick}
         >
-            <div className="bg-white rounded-lg py-5 px-1 w-full">
-                <div className="flex justify-between items-center">
+            <div className="bg-white rounded-lg pb-5 px-1 w-full m-2">
+                <div className="flex justify-between items-center mt-10">
                     <h2 className="text-xl font-semibold ">Size Guide {`${category_2}'s ${category}`}</h2>
                     <button
                         onClick={onClose}
                         className="text-gray-500 hover:text-gray-700 focus:outline-none"
                     >
-                        ✕
+                        <CloseIcon />
                     </button>
                 </div>
 
-                <div className="mt-4">
+                <div className="">
                     {category === 'Hooded Vest' && category_2 === 'Unisex' &&
                         <Hooded />
                     }
