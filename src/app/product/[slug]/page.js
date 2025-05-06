@@ -29,8 +29,8 @@ export default async function Page({ params }) {
                     {/* Breadcrumbs */}
                     {product?.product_list_categories && product?.product_list_categories_name.map((category, index) => (
                         <div key={index}>
-                            <Link href={`/category/${product?.product_list_categories[index]}`} className="text-sm text-gray-600 cursor-pointer">
-                                <span className="text-xs text-gray-600 cursor-pointer sm:text-sm">{category}</span>
+                            <Link href={`/category/${product?.product_list_categories[index]}`} className="">
+                                <span className="text-xs text-gray-600 hover:text-[var(--accent-color)] cursor-pointer sm:text-sm">{category}</span>
                             </Link>
                             {index < product?.product_list_categories_name.length - 1 &&
                                 (['Unisex', 'Men', 'Women'].every(gender => product?.product_list_categories_name.includes(gender)) &&

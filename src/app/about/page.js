@@ -15,7 +15,7 @@ export default function Home() {
                     <header className="text-center mb-10">
                         <h1 className="text-4xl font-bold text-gray-800">Welcome to Mythic Threads</h1>
                         <p className="text-lg text-gray-600 mt-4">
-                            Dive into a world where history, culture, and style collide. Rediscover legends. Redefine your style.
+                            Dive into a world where history, culture, and style collide. Rediscover legends.
                         </p>
                     </header>
                     <section className="grid md:grid-cols-3 gap-8">

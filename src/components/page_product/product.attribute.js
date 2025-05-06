@@ -73,6 +73,7 @@ const ProductAttribute = ({ product }) => {
       setQuantity(quantity - 1)
     }
   }
+  //
   return (
     <>
       <div className="text-orange-600 text-xl font-bold">$23</div>
@@ -96,7 +97,7 @@ const ProductAttribute = ({ product }) => {
         <span className="font-medium">Select size:</span>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="py-2 px-4 underline text-accent-color ml-2"
+          className="py-2 px-4 underline hover:text-accent-color ml-2 text-gray-700"
         >
           Size Guide
         </button>
@@ -107,29 +108,30 @@ const ProductAttribute = ({ product }) => {
           category_2={product?.product_list_categories_name[1]}
         />
       </div>
-      <div className="flex flex-col md:flex-row justify-between md:items-center mt-2 md:mt-4">
-        <span className="mb-2 font-medium">Quantity:</span>
-        <div className="flex gap-2">
-          <button className="border rounded-sm px-4 py-2 " onClick={handleMinusQuantity}>
-            <RemoveIcon sx={{ color: '#999' }} />
-          </button>
-          <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="w-10 text-center border rounded-sm w-12 text-lg" />
-          <button className="border rounded-sm px-4 py-2 " onClick={() => setQuantity(quantity + 1)}>
-            <AddIcon sx={{ color: '#999' }} />
-          </button>
-        </div>
-      </div>
+      {/* Size selection */}
       <div className="grid grid-cols-5 gap-2 mt-4">
         {sizes.map((size, index) => (
           <button
             key={index}
             onClick={() => setSelectedSize(size)}
-            className={`border-2 rounded-sm py-1 ${selectedSize === size ? "bg-gray-200 border-black" : "border-gray-200"
+            className={`border-2 rounded-sm py-1 hover:text-[var(--accent-color)] ${selectedSize === size ? "bg-gray-200 border-black" : "border-gray-200"
               }`}
           >
             {size}
           </button>
         ))}
+      </div>
+      <div className="flex flex-col md:flex-row justify-between md:items-center mt-2 md:mt-4">
+        <span className="mb-2 font-medium">Quantity:</span>
+        <div className="flex gap-2">
+          <button className="border rounded-sm px-4 py-2 " onClick={handleMinusQuantity}>
+            <RemoveIcon sx={{ color: '#999', '&:hover': { color: 'var(--accent-color)' } }} />
+          </button>
+          <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="w-10 text-center border rounded-sm w-12 text-lg" />
+          <button className="border rounded-sm px-4 py-2 " onClick={() => setQuantity(quantity + 1)}>
+            <AddIcon sx={{ color: '#999', '&:hover': { color: 'var(--accent-color)' } }} />
+          </button>
+        </div>
       </div>
       <button className="w-full p-3 mt-4 bg-[var(--primary-color)] rounded-sm text-white hover:text-[var(--accent-color)]" onClick={handleAddToCart}>
         <span className="text-xl font-bold capitalize ">Add To Cart</span>

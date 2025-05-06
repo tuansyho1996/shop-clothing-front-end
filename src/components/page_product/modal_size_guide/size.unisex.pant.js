@@ -4,7 +4,7 @@ const UnisexPant = () => {
     return (
         <div className="overflow-x-auto">
             <Image
-                src='https://d2jfx0w9sp915a.cloudfront.net/6ec4aadf94f6d48c9dd8a4dc8b4ad7e5'
+                src='https://d2jfx0w9sp915a.cloudfront.net/069c64be81a189cf83523237bd938fd9'
                 alt=''
                 width={160}
                 height={160}

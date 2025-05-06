@@ -8,6 +8,7 @@ import UnisexSweatshirt from "./modal_size_guide/size.unisex.sweatshirt";
 import UnisexShortPant from "./modal_size_guide/size.men.short.pant";
 import KidZipUpHoodie from "./modal_size_guide/size.kid.zip.up.hoodie";
 import UnisexZipUpHoodie from "./modal_size_guide/size.unisex.zip.up.hoodie";
+import KidHoodie from "./modal_size_guide/size.kid.hoodie";
 const Modal = ({ isOpen, onClose, category, category_2 }) => {
     if (!isOpen) return null;
     const handleOverlayClick = (e) => {
@@ -56,6 +57,9 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
                     }
                     {category === 'Zip Hoodie' && category_2 === 'Unisex' &&
                         <UnisexZipUpHoodie />
+                    }
+                    {category === 'Hoodie' && category_2 === 'Kid' &&
+                        <KidHoodie />
                     }
                 </div>
             </div>

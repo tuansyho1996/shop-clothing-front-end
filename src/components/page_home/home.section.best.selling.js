@@ -32,6 +32,13 @@ export default function BestSelling({ products }) {
           slidesToShow: 1,
         },
       },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToScroll: 3,
+          slidesToShow: 3,
+        },
+      },
     ],
   };
 

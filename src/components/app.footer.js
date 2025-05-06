@@ -1,5 +1,9 @@
 // components/Footer.js
 import Link from 'next/link';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import XIcon from '@mui/icons-material/X';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer = () => {
   return (
@@ -94,12 +98,25 @@ const Footer = () => {
             <h2 className="mb-4 text-lg text-gray-800 font-semibold">
               Contact us
             </h2>
-            <ul className="space-y-2">
+            <ul className="flex gap-4">
               <li>
-                <Link href="/info/contact">
-                  <button className="text-gray-600 hover:text-gray-800">
-                    Contact Us
-                  </button>
+                <Link href="/#">
+                  <FacebookIcon className="text-gray-600 hover:text-gray-800" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/#">
+                  <XIcon className="text-gray-600 hover:text-gray-800" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/#">
+                  <YouTubeIcon className="text-gray-600 hover:text-gray-800" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/#">
+                  <InstagramIcon className="text-gray-600 hover:text-gray-800" />
                 </Link>
               </li>
             </ul>

@@ -51,7 +51,7 @@ export default function Drawer({ isOpen, onClose, items }) {
           <div className="flex justify-between items-center border-b pb-4">
             <p className="text-4xl p-5 font-bold">Cart</p>
             <button onClick={onClose}>
-              <CloseIcon className="w-6 h-6" />
+              <CloseIcon sx={{ '&:hover': { color: 'var(--accent-color)' } }} className="w-6 h-6" />
             </button>
           </div>
           {items.length === 0 ?
@@ -85,9 +85,9 @@ export default function Drawer({ isOpen, onClose, items }) {
                       <p className=" ">Size: {item.product_size}</p>
                     </div>
                     <div className='flex flex-col 2xl:flex-row cursor-pointer justify-center '>
-                      <AddIcon sx={{ color: '#999999','&:hover': {color: 'var(--accent-color)',}, fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handlePlusItem(index)} />
-                      <RemoveIcon sx={{ color: '#999999','&:hover': {color: 'var(--accent-color)',}, fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleMinusItem(index)} />
-                      <DeleteIcon sx={{ color: '#999999','&:hover': {color: 'var(--accent-color)',}, fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleRemoveItem(index)} />
+                      <AddIcon sx={{ color: '#999999', '&:hover': { color: 'var(--accent-color)', }, fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handlePlusItem(index)} />
+                      <RemoveIcon sx={{ color: '#999999', '&:hover': { color: 'var(--accent-color)', }, fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleMinusItem(index)} />
+                      <DeleteIcon sx={{ color: '#999999', '&:hover': { color: 'var(--accent-color)', }, fontSize: { xs: 24, sm: 30, md: 36 } }} onClick={() => handleRemoveItem(index)} />
                     </div>
                   </div>
                 ))}
