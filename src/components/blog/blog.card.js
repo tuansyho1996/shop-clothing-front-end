@@ -1,8 +1,6 @@
 // components/BlogCard.tsx
 import Link from 'next/link';
 
-
-
 export default function BlogCard({ post }) {
     return (
         <Link href={`/blog/${post.slug}`} className="group">
