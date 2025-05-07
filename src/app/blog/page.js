@@ -1,5 +1,5 @@
 // app/blog/page.tsx
-import BlogCard from "@/components/blog/blog.card";
+import BlogCard from "@/components/blog/blog.card"
 const blogPosts = [
   {
     slug: 'norse-style-in-modern-fashion',
@@ -7,6 +7,7 @@ const blogPosts = [
     description: 'Discover how Norse mythology inspires today’s streetwear and luxury clothing.',
     image: '/images/norse-fashion.jpg',
     date: '2025-05-01',
+
   },
   {
     slug: 'egyptian-gods-on-tshirts',
