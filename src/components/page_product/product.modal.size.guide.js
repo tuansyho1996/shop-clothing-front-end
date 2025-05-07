@@ -1,15 +1,18 @@
 import Image from "next/image";
-import Hooded from "./modal_size_guide/size.hooded";
+import Hooded from "./modal_size_guide/size.unisex.hooded";
 import WomenTShirt from "./modal_size_guide/size.women.t.shirt";
 import MenTShirt from "./modal_size_guide/size.men.t.shirt";
-import Hoodie from "./modal_size_guide/size.hoodie.unisex";
+import Hoodie from "./modal_size_guide/size.unisex.hoodie";
 import UnisexPant from "./modal_size_guide/size.unisex.pant";
 import UnisexSweatshirt from "./modal_size_guide/size.unisex.sweatshirt";
-import UnisexShortPant from "./modal_size_guide/size.men.short.pant";
+import MenShortPant from "./modal_size_guide/size.men.short.pant";
 import KidZipUpHoodie from "./modal_size_guide/size.kid.zip.up.hoodie";
 import UnisexZipUpHoodie from "./modal_size_guide/size.unisex.zip.up.hoodie";
 import KidHoodie from "./modal_size_guide/size.kid.hoodie";
 import CloseIcon from '@mui/icons-material/Close';
+import KidSweatshirt from "./modal_size_guide/size.kid.sweatshirt";
+import KidTShirt from "./modal_size_guide/size.kid.t.shirt";
+import KidPant from "./modal_size_guide/size.kid.pant";
 const Modal = ({ isOpen, onClose, category, category_2 }) => {
     if (!isOpen) return null;
     const handleOverlayClick = (e) => {
@@ -62,6 +65,21 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
                     {category === 'Hoodie' && category_2 === 'Kid' &&
                         <KidHoodie />
                     }
+                    {category === 'Sweatshirt' && category_2 === 'Kid' &&
+                        <KidSweatshirt />
+                    }
+                    {category === 'T-Shirt' && category_2 === 'Kid' &&
+                        <KidTShirt />
+                    }
+                    {
+                        category == 'Short Pant' && category_2 === 'Men' &&
+                        <MenShortPant />
+                    }
+                    {
+                        category == 'Pant' && category_2 === 'Kid' &&
+                        <KidPant />
+                    }
+
                 </div>
             </div>
         </div>

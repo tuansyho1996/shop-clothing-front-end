@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Hooded = () => {
+const UnisexHooded = () => {
     return (
         <div className="overflow-x-auto">
             <Image
@@ -118,4 +118,4 @@ const Hooded = () => {
         </div>
     );
 }
-export default Hooded;
+export default UnisexHooded;

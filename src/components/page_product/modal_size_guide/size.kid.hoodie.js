@@ -6,8 +6,8 @@ const KidHoodie = () => {
             <Image
                 src='https://d2jfx0w9sp915a.cloudfront.net/66106f519894e53a4f0481e58ccda0ac'
                 alt=''
-                width={140}
-                height={140}
+                width={160}
+                height={160}
                 style={{ objectFit: 'cover', width: 'auto', height: 'auto' }}
                 loadding='lazy'
             />
