@@ -31,7 +31,6 @@ const menu = [
                     { name: "Pant", href: '/category/asgardian-elegance&women&pant' },
                     { name: "Sweatshirt", href: '/category/asgardian-elegance&women&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/asgardian-elegance&men&hooded-vest' },
-                    { name: "Short Pant", href: '/category/asgardian-elegance&women&short-pant' },
                 ]
             },
             {
@@ -43,7 +42,6 @@ const menu = [
                     { name: "Pant", href: '/category/asgardian-elegance&unisex&pant' },
                     { name: "Sweatshirt", href: '/category/asgardian-elegance&unisex&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/asgardian-elegance&unisex&hooded-vest' },
-                    { name: "Short Pant", href: '/category/asgardian-elegance&unisex&short-pant' },
                 ]
             },
             {
@@ -51,10 +49,10 @@ const menu = [
                 href: '/category/asgardian-elegance&kid',
                 child: [
                     { name: "Hoodie", href: '/category/asgardian-elegance&kid&hoodie' },
+                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&kid&zip-hoodie' },
                     { name: "T-Shirt", href: '/category/asgardian-elegance&kid&t-shirt' },
-                    { name: "Sweatpant", href: '/category/asgardian-elegance&kid&sweatpant' },
+                    { name: "pant", href: '/category/asgardian-elegance&kid&pant' },
                     { name: "Sweatshirt", href: '/category/asgardian-elegance&kid&sweatshirt' },
-                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&kid&zip-hoodie' }
                 ]
             },
             // {
@@ -102,7 +100,6 @@ const menu = [
                     { href: '/category/pharaoh-legacy&women&pant', name: "Pant" },
                     { href: '/category/pharaoh-legacy&women&sweat-shirt', name: "Sweatshirt" },
                     { href: '/category/pharaoh-legacy&women&hooded-vest', name: "Hooded Vest" },
-                    { href: '/category/pharaoh-legacy&women&short-pant', name: "Short Pant" },
                 ]
             },
             {
@@ -114,7 +111,6 @@ const menu = [
                     { href: '/category/pharaoh-legacy&unisex&pant', name: "Pant" },
                     { href: '/category/pharaoh-legacy&unisex&sweat-shirt', name: "Sweatshirt" },
                     { href: '/category/pharaoh-legacy&unisex&hooded-vest', name: "Hooded Vest" },
-                    { href: '/category/pharaoh-legacy&unisex&short-pant', name: "Short Pant" },
                 ]
             },
             {
@@ -122,10 +118,10 @@ const menu = [
                 href: '/category/pharaoh-legacy&kid',
                 child: [
                     { href: '/category/pharaoh-legacy&kid&hoodie', name: "Hoodie" },
+                    { href: '/category/pharaoh-legacy&kid&zip-hoodie', name: "Zip Up hoodie" },
                     { href: '/category/pharaoh-legacy&kid&t-shirt', name: "T-Shirt" },
                     { href: '/category/pharaoh-legacy&kid&pant', name: "Pant" },
                     { href: '/category/pharaoh-legacy&kid&sweatshirt', name: "Sweatshirt" },
-                    { href: '/category/pharaoh-legacy&kid&zip-hoodie', name: "Zip Up hoodie" }
                 ]
             },
             // {
@@ -173,7 +169,6 @@ const menu = [
                     { name: "Pant", href: '/category/olympian-thread&women&pant' },
                     { name: "Sweatshirt", href: '/category/olympian-thread&women&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/olympian-thread&women&hooded-vest' },
-                    { name: "Short Pant", href: '/category/olympian-thread&women&short-pant' },
                 ]
             },
             {
@@ -185,7 +180,6 @@ const menu = [
                     { name: "Pant", href: '/category/olympian-thread&unisex&pant' },
                     { name: "Sweatshirt", href: '/category/olympian-thread&unisex&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/olympian-thread&unisex&hooded-vest' },
-                    { name: "Short Pant", href: '/category/olympian-thread&unisex&short-pant' },
                 ]
             },
             {
