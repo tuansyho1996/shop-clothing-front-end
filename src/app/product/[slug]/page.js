@@ -10,7 +10,6 @@ import ReviewModal from '@/components/page_product/reviews/review.form.modal';
 import ReviewDisplay from '@/components/page_product/reviews/review.display';
 export async function generateMetadata({ params }) {
     const data = await getProduct(params.slug) // Fetch your data here, e.g., from an API
-
     return {
         title: data?.product_name, // Metadata fields
         description: data?.product_description,

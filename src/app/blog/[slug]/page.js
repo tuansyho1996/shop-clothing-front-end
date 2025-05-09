@@ -1,29 +1,35 @@
 // app/blog/[slug]/page.tsx
 
+import { getBlog } from "@/services/service.blog";
+import Image from "next/image";
 
 
-const blogContent = {
-  'norse-style-in-modern-fashion': {
-    title: 'Norse Style in Modern Fashion',
-    content: `Norse mythology continues to shape modern fashion with strong symbols like Thor’s hammer, ravens, and runes...`,
-  },
-  'egyptian-gods-on-tshirts': {
-    title: 'Egyptian Gods on T-Shirts',
-    content: `Our latest collection explores ancient Egyptian deities through bold graphic design and cultural homage...`,
-  },
-};
+export async function generateMetadata({ params }) {
+  const blog = await getBlog(params.slug);
+  return {
+    title: blog?.blog_title,
+    description: blog?.blog_content,
+  };
+}
 
-export default function BlogPostPage({ params }) {
-  const post = blogContent[params.slug];
-
-  if (!post) return <div className="p-10 text-center">Blog post not found.</div>;
+export default async function BlogPostPage({ params }) {
+  const blog = await getBlog(params.slug);
+  if (!blog) return <div className="p-10 text-center">Blog post not found.</div>;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
-      <article className="text-lg leading-7 text-gray-800 whitespace-pre-line">
-        {post.content}
-      </article>
+      <h1 className="text-3xl font-bold mb-6">{blog.blog_title}</h1>
+      <Image
+        src={blog.blog_image}
+        alt={blog.blog_title}
+        height={600}
+        width={800}
+        className="w-full h-auto object-cover rounded-lg mb-6"
+      />
+      <p className="text-sm text-gray-500 mb-4">
+        {new Date(blog.createdAt).toLocaleDateString()}
+      </p>
+      <article dangerouslySetInnerHTML={{ __html: blog.blog_content }} />
     </div>
   );
 }

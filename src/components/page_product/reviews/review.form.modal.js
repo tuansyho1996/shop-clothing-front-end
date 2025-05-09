@@ -50,9 +50,6 @@ export default function ReviewModal({ product_id, reviews_length }) {
         if (user) {
             formData.append('review_usr_id', user._id);
         }
-        else {
-            formData.append('review_usr_id', 'none');
-        }
         formData.append('review_product_id', product_id);
         formData.append('review_content', review);
         formData.append('review_usr_name', name);
