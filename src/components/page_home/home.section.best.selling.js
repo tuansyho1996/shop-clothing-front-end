@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function BestSelling({ products }) {
-  const bestProducts = products.slice(0, 8);
+  const bestProducts = products?.slice(0, 8);
   const settings = {
     dots: true,
     infinite: true,

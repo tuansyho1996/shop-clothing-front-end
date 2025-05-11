@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
 
             <h2 className="text-2xl font-bold mb-4">Sharing your personal information</h2>
             <p className="mb-4">
-                We share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we use Shopify to power our online store--you can read more about how Shopify uses your Personal Information here: <Link href="https://www.shopify.com/legal/privacy" className="text-blue-600 hover:underline">https://www.shopify.com/legal/privacy</Link>. We also use Google Analytics to help us understand how our customers use the Site -- you can read more about how Google uses your Personal Information here: <Link href="https://www.google.com/intl/en/policies/privacy/" className="text-blue-600 hover:underline">https://www.google.com/intl/en/policies/privacy/</Link>. You can also opt-out of Google Analytics here: <Link href="https://tools.google.com/dlpage/gaoptout" className="text-blue-600 hover:underline">https://tools.google.com/dlpage/gaoptout</Link>.
+                We also use Google Analytics to help us understand how our customers use the Site -- you can read more about how Google uses your Personal Information here: <Link href="https://www.google.com/intl/en/policies/privacy/" className="text-blue-600 hover:underline">https://www.google.com/intl/en/policies/privacy/</Link>. You can also opt-out of Google Analytics here: <Link href="https://tools.google.com/dlpage/gaoptout" className="text-blue-600 hover:underline">https://tools.google.com/dlpage/gaoptout</Link>.
             </p>
 
             <p className="mb-4">
@@ -59,10 +59,6 @@ export default function PrivacyPolicy() {
                 <li><Link href="https://www.google.com/settings/ads/anonymous" className="text-blue-600 hover:underline">Google</Link></li>
                 <li><Link href="https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads" className="text-blue-600 hover:underline">Bing</Link></li>
             </ul>
-
-            <p className="mb-4">
-                Additionally, you can opt out of some of these services by visiting the Digital Advertising Alliance’s opt-out portal at: <Link href="http://optout.aboutads.info/" className="text-blue-600 hover:underline">http://optout.aboutads.info/</Link>.
-            </p>
 
             <h2 className="text-2xl font-bold mb-4">Do not track</h2>
             <p className="mb-4">
@@ -86,11 +82,6 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-bold mb-4">Changes</h2>
             <p className="mb-4">
                 We may update this privacy policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal or regulatory reasons.
-            </p>
-
-            <h2 className="text-2xl font-bold mb-4">Minors</h2>
-            <p className="mb-4">
-                The Site is not intended for individuals under the age of 18 years old.
             </p>
 
             <h2 className="text-2xl font-bold mb-4">GDPR</h2>

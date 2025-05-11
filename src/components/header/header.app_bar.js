@@ -23,7 +23,7 @@ const Header = () => {
               width={70}
               height={70}
               style={{ width: 'auto', height: 'auto' }}
-              loading='lazy'
+              priority
             />
           </Link>
         </div>

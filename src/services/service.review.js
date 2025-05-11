@@ -27,7 +27,7 @@ const getReview = async (slug) => {
       method: 'GET',
       cache: "no-cache"
     });
-    return response
+    return response.metadata
   } catch (err) {
     console.error(err);
     toast.error('Something went wrong. Please try again later.');

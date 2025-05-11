@@ -1,6 +1,8 @@
 import CategoryList from '@/components/page_home/home.section.list.category';
 import NewProducts from '@/components/page_home/home.new.products';
 import { getAllProducts } from '@/services/service.product';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Link from 'next/link';
 const Shop = async ({ params }) => {
     const products = await getAllProducts();
@@ -25,13 +27,15 @@ const Shop = async ({ params }) => {
                 <NewProducts products={paginatedProducts} />
                 <div className="flex justify-end mt-6">
                     {hasPrevPage && (
-                        <Link href={`/shop/${currentPage - 1}#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] hover:underline">
+                        <Link href={`/shop/${currentPage - 1}#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] text-xl underline">
+                            <ArrowBackIosNewIcon className="inline-block mr-1 text-lg" />
                             Previous
                         </Link>
                     )}
                     {hasNextPage && (
-                        <Link href={`/shop/${currentPage + 1}/#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] hover:underline">
+                        <Link href={`/shop/${currentPage + 1}/#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] text-xl underline">
                             Next
+                            <NavigateNextIcon className="inline-block ml-1" />
                         </Link>
                     )}
                 </div>
