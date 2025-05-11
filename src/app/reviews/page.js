@@ -10,4 +10,4 @@ const Reviews = async () => {
         </div>
     );
 }
-export default Reviews;
+export default Reviews;                                     
