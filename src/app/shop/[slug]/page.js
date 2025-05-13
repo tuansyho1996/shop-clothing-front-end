@@ -19,11 +19,11 @@ const Shop = async ({ params }) => {
         <main className="max-w-7xl mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold mb-6">Shop Now</h1>
             <section className="mb-12">
-                <h2 className="text-2xl font-semibold mb-4">Danh mục</h2>
+                <h2 className="text-2xl font-semibold mb-4">Categories</h2>
                 <CategoryList />
             </section>
             <section id='new-products' className="mb-12">
-                <h2 className="text-2xl font-semibold mb-4">Sản phẩm mới</h2>
+                <h2 className="text-2xl font-semibold mb-4">New Products</h2>
                 <NewProducts products={paginatedProducts} />
                 <div className="flex justify-end mt-6">
                     {hasPrevPage && (

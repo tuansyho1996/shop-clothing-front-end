@@ -1,12 +1,14 @@
 // components/Banner.js
+import { getGlobal } from '@/services/service.global';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Banner = () => {
+const Banner = async () => {
+  const globalBanner = await getGlobal('banner');
   return (
     <div className="relative bg-gradient-to-r from-black to-gray-900 text-white h-[30vh] md:h-[50vh] lg:h-[75vh] w-full">
       <Image
-        src="https://d2jfx0w9sp915a.cloudfront.net/094ce9c37b9199910b6c649f81104fd5"
+        src={globalBanner?.global_value}
         alt="Banner Image"
         fill
         style={{ objectFit: 'contain' }}

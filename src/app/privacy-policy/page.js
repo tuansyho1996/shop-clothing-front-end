@@ -1,11 +1,10 @@
-import Link from 'next/link';
 
 export default function PrivacyPolicy() {
     return (
         <div className="max-w-3xl mx-auto p-6 min-h-[50vh]">
             <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
             <p className="mb-4">
-                This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from https://northlord.com (the “Site”).
+                This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from https://carnobon.com (the “Site”).
             </p>
 
             <h2 className="text-2xl font-bold mb-4">Personal information we collect</h2>
@@ -15,7 +14,7 @@ export default function PrivacyPolicy() {
             <p className="mb-4">We collect Device Information using the following technologies:</p>
             <ul className="list-disc list-inside mb-4">
                 <li>
-                    “Cookies” are data files that are placed on your device or computer and often include an anonymous unique identifier. For more information about cookies, and how to disable cookies, visit <Link href="http://www.allaboutcookies.org" className="text-blue-600 hover:underline">http://www.allaboutcookies.org</Link>.
+                    “Cookies” are data files that are placed on your device or computer and often include an anonymous unique identifier. For more information about cookies, and how to disable cookies, visit <a target='_blank' href="http://www.allaboutcookies.org" className="text-blue-600 hover:underline">http://www.allaboutcookies.org</a>.
                 </li>
                 <li>
                     “Log files” track actions occurring on the Site, and collect data including your IP address, browser type, Internet service provider, referring/exit pages, and date/time stamps.
@@ -41,7 +40,7 @@ export default function PrivacyPolicy() {
 
             <h2 className="text-2xl font-bold mb-4">Sharing your personal information</h2>
             <p className="mb-4">
-                We also use Google Analytics to help us understand how our customers use the Site -- you can read more about how Google uses your Personal Information here: <Link href="https://www.google.com/intl/en/policies/privacy/" className="text-blue-600 hover:underline">https://www.google.com/intl/en/policies/privacy/</Link>. You can also opt-out of Google Analytics here: <Link href="https://tools.google.com/dlpage/gaoptout" className="text-blue-600 hover:underline">https://tools.google.com/dlpage/gaoptout</Link>.
+                We also use Google Analytics to help us understand how our customers use the Site -- you can read more about how Google uses your Personal Information here: <a target="_blank" href="https://www.google.com/intl/en/policies/privacy/" className="text-blue-600 hover:underline">https://www.google.com/intl/en/policies/privacy/</a>. You can also opt-out of Google Analytics here: <a target="_blank" href="https://tools.google.com/dlpage/gaoptout" className="text-blue-600 hover:underline">https://tools.google.com/dlpage/gaoptout</a>.
             </p>
 
             <p className="mb-4">
@@ -50,14 +49,14 @@ export default function PrivacyPolicy() {
 
             <h2 className="text-2xl font-bold mb-4">Behavioural advertising</h2>
             <p className="mb-4">
-                As described above, we use your Personal Information to provide you with targeted advertisements or marketing communications we believe may be of interest to you. For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at <Link href="http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work" className="text-blue-600 hover:underline">http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work</Link>.
+                As described above, we use your Personal Information to provide you with targeted advertisements or marketing communications we believe may be of interest to you. For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at <a target="_blank" href="http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work" className="text-blue-600 hover:underline">http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work</a>.
             </p>
 
             <p className="mb-4">You can opt out of targeted advertising by using the links below:</p>
             <ul className="list-disc list-inside mb-4">
-                <li><Link href="https://www.facebook.com/settings/?tab=ads" className="text-blue-600 hover:underline">Facebook</Link></li>
-                <li><Link href="https://www.google.com/settings/ads/anonymous" className="text-blue-600 hover:underline">Google</Link></li>
-                <li><Link href="https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads" className="text-blue-600 hover:underline">Bing</Link></li>
+                <li><a target='_blank' href="https://www.facebook.com/settings/?tab=ads" className="text-blue-600 hover:underline">Facebook</a></li>
+                <li><a target='_blank' href="https://www.google.com/settings/ads/anonymous" className="text-blue-600 hover:underline">Google</a></li>
+                <li><a target='_blank' href="https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads" className="text-blue-600 hover:underline">Bing</a></li>
             </ul>
 
             <h2 className="text-2xl font-bold mb-4">Do not track</h2>

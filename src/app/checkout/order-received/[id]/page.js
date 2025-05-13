@@ -58,14 +58,14 @@ export default async function OrderRecieved({ params }) {
               <p>{res?.order_info_customer?.nationalNumber}</p>
               <p>{res?.order_info_customer?.emailAddress}</p>
             </div>
-            <div>
+            {/* <div>
               <h3 className="font-bold">Shipping address</h3>
               <p>John Doe</p>
               <p>1st</p>
               <p>ast</p>
               <p>San Jose, AL 22222</p>
               <p>United States (US)</p>
-            </div>
+            </div> */}
           </div>
         </div>
 

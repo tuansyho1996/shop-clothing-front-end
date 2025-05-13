@@ -14,7 +14,7 @@ export default async function BlogPage() {
       <h1 className="text-4xl font-bold mb-8 text-center">Mythology Blog</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {blogs?.map((blog) => (
-          <BlogCard key={blog.slug} blog={blog} />
+          <BlogCard key={blog.blog_slug} blog={blog} />
         ))}
       </div>
     </div>

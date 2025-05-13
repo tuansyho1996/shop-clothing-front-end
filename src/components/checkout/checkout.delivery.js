@@ -40,7 +40,7 @@ export default function Delivery({ isPhone = true }) {
     setCurrentCountry(countryState.find(el => el?.name === country))
     setFlagCurrent(countryState.find(el => el?.name === country).iso2)
     setCurrentPhoneCode(`${countryState.find(el => el?.name === country).phone_code}`)
-    setState(countryState.find(el => el?.name === country)?.states[0].name)
+    setState(countryState.find(el => el?.name === country)?.states[0]?.name)
   }, [country])
   useEffect(() => {
     setCurrentPhoneCode(`${countryState.find(el => el?.iso2 === flagCurrent).phone_code}`)

@@ -57,9 +57,9 @@ export default function Drawer({ isOpen, onClose, items }) {
           {items.length === 0 ?
             <div className="flex flex-col items-center justify-center h-full">
               <p className="text-lg font-semibold">Your cart is empty</p>
-              <Link href='/products'>
+              <Link href='/shop/1'>
                 <button className="mt-4 w-full text-white p-2 bg-[var(--primary-color)] hover:bg-[var(--accent-color)] rounded" onClick={() => setDrawerOpen(false)}>
-                  Go to Products
+                  Go Shopping
                 </button>
               </Link>
             </div>

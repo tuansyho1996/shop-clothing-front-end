@@ -25,7 +25,7 @@ export default async function Page() {
         <h2 className="font-[400] text-[1.5rem]">New Products</h2>
         <NewProducts products={products} />
         <div className="w-full flex justify-end">
-          <button className=" text-[var(--primary-color)] hover:text-[var(--accent-color)] hover:underline my-4">
+          <button className=" text-[var(--primary-color)] hover:text-[var(--accent-color)] underline my-4">
             <Link href="/shop/1">See All</Link>
           </button>
         </div>

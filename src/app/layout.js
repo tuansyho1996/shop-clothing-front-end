@@ -13,6 +13,7 @@ const openSans = Open_Sans({
 });
 
 export default function RootLayout({ children }) {
+
   return (
     <AppProvider>
       <html lang="en">
