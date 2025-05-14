@@ -10,7 +10,7 @@ export function AppProvider({ children }) {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [productsInCart, setProductsInCart] = useState([])
   const [subtotal, setSubtotal] = useState(0)
-  const [shipping, setShipping] = useState(4.96)
+  const [shipping, setShipping] = useState(0)
   const [user, setUser] = useState(null)
   const subtotaltRef = useRef(subtotal);
   const shippingRef = useRef(shipping);

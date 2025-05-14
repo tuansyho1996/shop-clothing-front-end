@@ -20,13 +20,13 @@ function Message({ content }) {
 
 function App({ setLoading }) {
   const initialOptions = {
-    "client-id": "Ab6m9VdNueWNc2rNn5FNgkkD6_N7aSElP5jfvI69aCVdbFHs8BoQbAS-jKHXmrzgBRGXja_00xeFEf3b",
+    "client-id": "AZNSEdtcVZMtSJZUMKVzPZgODxCdu2x6hKhKaDsEy0sMsax50eQAqSu0vDYMj92BVgySDSxXCrnbaZZ5",
     "enable-funding": "venmo",
     'disable-funding': '',
     currency: "USD",
     "data-page-type": "product-details",
     components: "buttons,card-fields",
-    "data-sdk-integration-source": "developer-studio",
+    "data-sdk-integration-source": "integrationbuilder",
   }
   const router = useRouter();
 

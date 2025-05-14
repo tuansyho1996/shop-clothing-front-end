@@ -37,9 +37,9 @@ const ProductAttribute = ({ product }) => {
     }
   }, [currentColor])
   useEffect(() => {
-    if(isModalOpen){
+    if (isModalOpen) {
       document.body.classList.add("overflow-hidden");
-    }else{
+    } else {
       document.body.classList.remove("overflow-hidden");
     }
     return () => {
@@ -70,8 +70,8 @@ const ProductAttribute = ({ product }) => {
       const copyProduct = { ...product }
       copyProduct.product_count = quantity
       copyProduct.product_size = selectedSize
-      copyProduct.product_color = colorsObject.find(el => el.hex === currentColor).name
-      copyProduct.product_image = product?.product_color_images[product?.product_colors.findIndex(el => el === currentColor)]
+      copyProduct.product_color = colorsObject?.find(el => el.hex === currentColor)?.name
+      copyProduct.product_image = product?.product_color_images[product?.product_colors?.findIndex(el => el === currentColor)]
       setProductsInCart([...productsInCart, copyProduct])
       setDrawerOpen(true)
     }
