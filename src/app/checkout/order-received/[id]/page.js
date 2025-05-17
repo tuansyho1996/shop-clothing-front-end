@@ -1,5 +1,8 @@
+import { getGlobal } from "@/services/service.global";
 import { fetchOrder } from "@/services/service.payment";
 export default async function OrderRecieved({ params }) {
+  const quantitySell = await getGlobal('quantity_sell')
+  const numberOrder = parseInt(quantitySell?.global_value) + 1
   const res = await fetchOrder(params.id)
   const subtotal = res?.order_info_customer?.items.reduce((sum, el) => el.product_price * el.product_count + sum, 0)
   return (
@@ -75,9 +78,14 @@ export default async function OrderRecieved({ params }) {
             Thank you. Your order has been received.
           </h3>
           <ul className="space-y-2">
-            <li>
-              <strong>Order number:</strong> 71
-            </li>
+            {
+              numberOrder && numberOrder > 0 && (
+                <li>
+                  <strong>Order number:</strong> {numberOrder}
+                </li>
+              )
+            }
+
             <li>
               <strong>Date:</strong> {res?.createdAt}
             </li>

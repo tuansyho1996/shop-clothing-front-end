@@ -83,7 +83,7 @@ function App({ setLoading }) {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/api/payment/create-payment", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_END_URL}/api/payment/create-payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ function App({ setLoading }) {
     try {
       const user = JSON.parse(localStorage.getItem('user'))
       const response = await fetch(
-        `http://localhost:5000/api/payment/checkout/order-received`,
+        `${process.env.NEXT_PUBLIC_BACK_END_URL}/api/payment/checkout/order-received`,
         {
           method: "POST",
           headers: {
@@ -168,7 +168,7 @@ function App({ setLoading }) {
             };
             try {
               const response = await fetch(
-                `http://localhost:5000/api/payment/${data.orderID}/capture`,
+                `${process.env.NEXT_PUBLIC_BACK_END_URL}/api/payment/${data.orderID}/capture`,
                 {
                   method: "POST",
                   headers: {
@@ -238,7 +238,7 @@ function App({ setLoading }) {
               onApprove={async (data, actions) => {
                 try {
                   const response = await fetch(
-                    `http://localhost:5000/api/payment/${data.orderID}/capture`,
+                    `${process.env.NEXT_PUBLIC_BACK_END_URL}/api/payment/${data.orderID}/capture`,
                     {
                       method: "POST",
                       headers: {
