@@ -9,18 +9,6 @@ const fetcher = async (endpoint, options = {}) => {
 };
 
 
-const getAllProducts = async () => {
-  try {
-    const response = await fetcher(`/api/product/all`, { cache: "no-cache" });
-    if (!response.status === 200) {
-      return null
-    }
-    return response.metadata
-  } catch (error) {
-    console.error(error)
-  }
-}
-
 const getProduct = async (slug = 'all') => {
   try {
     const response = await fetcher(`/api/product/${slug}`, { cache: "no-cache" });
@@ -32,9 +20,32 @@ const getProduct = async (slug = 'all') => {
     console.error(error)
   }
 }
+const getProductShop = async (slug) => {
+  try {
+    const response = await fetcher(`/api/product/shop/${slug}`, { cache: 'no-cache' });
+    if (!response.status === 200) {
+      return null
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
+const getProductBestSelling = async (slug) => {
+  try {
+    const response = await fetcher(`/api/product/best-seller`, { cache: 'no-cache' });
+    if (!response.status === 200) {
+      return null
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 const getProductsOfCategory = async (slug) => {
   try {
+    console.log(slug);
     const response = await fetcher(`/api/product-category/${slug}`, { cache: 'no-cache' });
     if (!response.status === 200) {
       return null
@@ -44,21 +55,12 @@ const getProductsOfCategory = async (slug) => {
     console.error(error)
   }
 }
-const getCategory = async (slug) => {
-  try {
-    const response = await fetcher(`/api/product/${slug}`);
-    if (!response.status === 200) {
-      return null
-    }
-    return response.metadata
-  } catch (error) {
-    console.error(error)
-  }
-}
+
 
 export {
-  getAllProducts,
+  getProductShop,
   getProduct,
-  getProductsOfCategory
+  getProductsOfCategory,
+  getProductBestSelling
 }
 

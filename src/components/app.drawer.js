@@ -80,7 +80,7 @@ export default function Drawer({ isOpen, onClose, items }) {
                     </div>
                     <div className="basis-1/2 text-lg overflow-hidden">
                       <p className="font-semibold truncate-2-lines">{item.product_name}</p>
-                      <p className="">{item.product_price}<span style={{ color: '#999' }}> X {item.product_count}</span></p>
+                      <p className="">${item.product_price}<span style={{ color: '#999' }}> X {item.product_count}</span></p>
                       <p className=" ">Color: {item.product_color}</p>
                       <p className=" ">Size: {item.product_size}</p>
                     </div>
@@ -95,7 +95,7 @@ export default function Drawer({ isOpen, onClose, items }) {
               <div className="mt-4 border-t pt-4">
                 <div className="flex justify-between text-lg font-bold">
                   <span>Subtotal</span>
-                  <span>${subtotal} USD</span>
+                  <span>${subtotal.toFixed(2)} USD</span>
                 </div>
                 <Link href='/cart'>
                   <button className="mt-4 w-full bg-[var(--primary-color)] hover:text-black text-white py-2 rounded" onClick={() => setDrawerOpen(false)}>

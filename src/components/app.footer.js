@@ -1,17 +1,20 @@
 // components/Footer.js
+'use client';
 import Link from 'next/link';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import { getGlobal } from '@/services/service.global';
+import { AppContext } from '@/context/context.app';
+import { useContext } from 'react';
 
-const Footer = async () => {
-  const res = await getGlobal('all')
-  const faceboolk = res?.find((item) => item.global_name === 'facebook')
-  const youtube = res?.find((item) => item.global_name === 'youtube')
-  const instagram = res?.find((item) => item.global_name === 'instagram')
-  const twitter = res?.find((item) => item.global_name === 'twitter')
+const Footer = () => {
+  const { globals } = useContext(AppContext);
+
+  const faceboolk = globals?.find((item) => item.global_name === 'facebook')
+  const youtube = globals?.find((item) => item.global_name === 'youtube')
+  const instagram = globals?.find((item) => item.global_name === 'instagram')
+  const twitter = globals?.find((item) => item.global_name === 'twitter')
   return (
     <footer className="bg-gray-100 py-10 border-t">
       <div className="container mx-auto px-4">
@@ -98,7 +101,6 @@ const Footer = async () => {
               </li>
             </ul>
           </div>
-
           {/* Contact us Column */}
           <div>
             <h2 className="mb-4 text-lg text-gray-800 font-semibold">
@@ -106,24 +108,24 @@ const Footer = async () => {
             </h2>
             <ul className="flex gap-4">
               <li>
-                <Link href={`${faceboolk?.global_value}`} target="_blank">
+                <a href={`${faceboolk?.global_value}`} target="_blank">
                   <FacebookIcon className="text-gray-600 hover:text-gray-800" />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href={`${twitter?.global_value}`} target="_blank">
+                <a href={`${twitter?.global_value}`} target="_blank">
                   <XIcon className="text-gray-600 hover:text-gray-800" />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href={`${youtube?.global_value}`} target="_blank">
+                <a href={`${youtube?.global_value}`} target="_blank">
                   <YouTubeIcon className="text-gray-600 hover:text-gray-800" />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href={`${instagram?.global_value}`} target="_blank">
+                <a href={`${instagram?.global_value}`} target="_blank">
                   <InstagramIcon className="text-gray-600 hover:text-gray-800" />
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

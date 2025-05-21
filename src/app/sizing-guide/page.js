@@ -13,7 +13,7 @@ import KidZipHoodie from "@/components/page_product/modal_size_guide/size.kid.zi
 
 const Zising = () => {
     return (
-        <div className="container w-full mx-auto mt-5">
+        <div className="container mx-auto mt-5">
             <h1 className="text-4xl font-bold mb-4 text-center">Sizing</h1>
             <p className="text-lg mb-4">Unisex Hoodie</p>
             <UnisexHoodie />
@@ -32,7 +32,7 @@ const Zising = () => {
             <hr className="border-t border-gray-300 my-5" />
             <p className="text-lg mb-4">Men's T-shirt</p>
             <MenTShirt />
-            <hr className="border-t border-gray-300 my-5" /> 
+            <hr className="border-t border-gray-300 my-5" />
             <p className="text-lg mb-4">Women's T-shirt</p>
             <WomenTShirt />
             <hr className="border-t border-gray-300 my-5" />
@@ -54,6 +54,7 @@ const Zising = () => {
 
 
         </div>
+
     );
 }
 export default Zising;

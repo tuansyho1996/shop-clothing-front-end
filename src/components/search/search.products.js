@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { getAllProducts } from '@/services/service.product';
+import { getProduct } from '@/services/service.product';
 import ModalSearch from './modal.search';
 import Search from '@mui/icons-material/Search';
 import { useRouter } from 'next/navigation';
@@ -25,25 +25,32 @@ const SearchAppBar = () => {
         handleKeyDown()
     }, []);
     useEffect(() => {
-        const fetchProducts = async () => {
-            const products = await getAllProducts();
-            setProducts(products);
-        };
-        fetchProducts();
-    }, []);
-    useEffect(() => {
         if (textSearch.length > 0) {
             setIsSearching(true);
         } else {
             setIsSearching(false);
         }
     }, [textSearch]);
-    const handleChange = (event) => {
-        setTextSearch(event.target.value);
-        const filteredProducts = products.filter((product) =>
-            product.product_name.toLowerCase().includes(event.target.value.toLowerCase())
-        );
-        setSearchResults(filteredProducts);
+    const handleChange = async (event) => {
+        const value = event.target.value;
+        setTextSearch(value);
+
+        if (products.length === 0) {
+            // Chờ fetch xong
+            const response = await getProduct('all');
+            setProducts(response);
+
+            const filtered = response.filter((product) =>
+                product.product_name.toLowerCase().includes(value.toLowerCase())
+            );
+            setSearchResults(filtered);
+        } else {
+            // Đã có product → lọc luôn
+            const filtered = products.filter((product) =>
+                product.product_name.toLowerCase().includes(value.toLowerCase())
+            );
+            setSearchResults(filtered);
+        }
     };
     const searching = () => {
         if (textSearch.trim().length > 0) {

@@ -11,18 +11,15 @@ const Banner = async () => {
         src={globalBanner?.global_value}
         alt="Banner Image"
         fill
-        style={{ objectFit: 'contain' }}
-        sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 25vw"
+        className="object-contain"
+        sizes="100vw"
         loading="lazy"
       />
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-0 flex flex-col justify-center items-center h-full space-y-4 px-4 text-center">
         {/* Mobile First Approach */}
-        <h1 className="font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
+        <h2 className="font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
           Discover Our Latest Collection
-        </h1>
-        <h2 className="font-light text-base md:text-lg lg:text-xl">
-          Fashion that defines you.
         </h2>
         <Link href="/shop/1">
           <button

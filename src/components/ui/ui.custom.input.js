@@ -6,7 +6,7 @@ const CustomInput = ({ value, handleChangeValue, label, placeholder }) => {
         type="text"
         value={value}
         onChange={(e) => handleChangeValue(e.target.value)}
-        className={`${value ? 'pt-4 pb-2 px-3' : 'p-3'} rounded-md outline-none w-full`} placeholder={placeholder} />
+        className={`${value ? 'pt-4 pb-2 px-3' : 'p-3'} rounded-sm outline-none w-full`} placeholder={placeholder} />
     </div>
   );
 };

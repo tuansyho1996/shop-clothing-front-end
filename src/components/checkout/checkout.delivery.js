@@ -51,7 +51,6 @@ export default function Delivery({ isPhone = true }) {
   return (
     <form>
       <div className='mb-4'>
-        <div className="text-lg font-semibold mb-2 uppercase">Contact</div>
         <p className="text-red-500 text-sm">{formErrors.email}</p>
         <CustomInput value={email} type="email" placeholder='Email' label='Email' handleChangeValue={(e) => setEmail(e)} />
         <hr className='mt-4' />
@@ -186,7 +185,6 @@ export default function Delivery({ isPhone = true }) {
             </div>
           </div >
         </div>
-
       }
     </form>
   );

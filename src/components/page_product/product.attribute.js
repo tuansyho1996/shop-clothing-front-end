@@ -24,7 +24,7 @@ const ProductAttribute = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1)
-  const { currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, setDrawerOpen } = useContext(AppContext)
+  const { setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, setDrawerOpen } = useContext(AppContext)
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     setCurrentColor(product?.product_colors[0])
@@ -86,7 +86,7 @@ const ProductAttribute = ({ product }) => {
   //
   return (
     <>
-      <div className="text-orange-600 text-xl font-bold">$23</div>
+      <div className="text-[var(--accent-color)] text-xl font-bold">${product?.product_price}</div>
       <div className="mt-4">
         <span className="font-medium">Color: </span>
         <span className="text-gray-700">{selectedColor}</span>

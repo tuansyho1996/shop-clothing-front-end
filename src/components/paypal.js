@@ -1,28 +1,20 @@
-import React, { useState, useContext, use } from "react";
+import React, { useContext, } from "react";
 import { FormCheckoutContext } from '@/context/context.form.checkout';
 import {
   PayPalScriptProvider, PayPalButtons,
-  usePayPalCardFields,
-  PayPalCardFieldsProvider,
-  PayPalNameField,
-  PayPalNumberField,
-  PayPalExpiryField,
-  PayPalCVVField,
+
 } from "@paypal/react-paypal-js";
 import { useRouter } from 'next/navigation'
-import CloseIcon from '@mui/icons-material/Close';
 import { AppContext } from "@/context/context.app";
 
 // Renders errors or successfull transactions on the screen.
-function Message({ content }) {
-  return <p>{content}</p>;
-}
+
 
 function App({ setLoading }) {
   const initialOptions = {
     "client-id": "AZNSEdtcVZMtSJZUMKVzPZgODxCdu2x6hKhKaDsEy0sMsax50eQAqSu0vDYMj92BVgySDSxXCrnbaZZ5",
     "enable-funding": "venmo",
-    'disable-funding': '',
+    'disable-funding': 'card',
     currency: "USD",
     "data-page-type": "product-details",
     components: "buttons,card-fields",
@@ -30,25 +22,27 @@ function App({ setLoading }) {
   }
   const router = useRouter();
 
-  const [isDebitCard, setIsDebitCard] = useState(false)
-  const { firstName,
-    lastName, firstNameRef, lastNameRef,
-    address, addressRef,
+  const {
+    firstNameRef, lastNameRef,
+    addressRef,
     apartmentSuiteRef,
-    city, cityRef,
-    state, stateRef,
-    zip, zipRef,
-    country, countryRef,
-    phone, phoneRef,
-    email, emailRef,
-    formErrors, setFormErrors, flagCurrentRef, } = useContext(FormCheckoutContext)
+    cityRef,
+    stateRef,
+    zipRef,
+    countryRef,
+    phoneRef,
+    emailRef,
+    setFormErrors, flagCurrentRef, } = useContext(FormCheckoutContext)
   const { subtotaltRef, shippingRef, productsInCartRef, setProductsInCart } = useContext(AppContext)
 
 
   const validateForm = () => {
     const errors = {};
     // if (!emailRef.current) errors.email = "Email is required.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailRef.current)) {
+    if (
+      !emailRef.current ||
+      typeof emailRef.current !== 'string' ||
+      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailRef.current)) {
       errors.email = "Please enter a valid email address.";
     }
     if (!firstNameRef.current) errors.firstName = "First name is required.";
@@ -82,6 +76,7 @@ function App({ setLoading }) {
     if (!validateForm()) {
       return;
     }
+    setLoading(true);
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_END_URL}/api/payment/create-payment`, {
         method: "POST",
@@ -110,6 +105,9 @@ function App({ setLoading }) {
       //   `Could not initiate PayPal Checkout...${error}`
       // );
     }
+    finally {
+      setLoading(false); // reset loading
+    }
   }
   const completeOrder = async ({ infoOrder, infoCustomer }) => {
     try {
@@ -133,14 +131,10 @@ function App({ setLoading }) {
       console.error(error)
     }
   }
-  const billDetails = {
-    givenName: firstNameRef.current, surname: lastNameRef.current, addressLine1: addressRef.current, addressLine2: apartmentSuiteRef.current, adminArea2: cityRef.current, adminArea1: stateRef.current,
-    postalCode: zipRef.current, countryCode: flagCurrentRef.current, nationalNumber: phoneRef.current, emailAddress: emailRef.current,
-    itemTotal: subtotaltRef.current, shipping: shippingRef.current, items: productsInCartRef.current
-  }
+
   return (
     <div className="App">
-      <span className="text-2xl font-bold text-gray-800">Payment</span>
+      <p className="text-2xl font-bold text-gray-800 mb-5">Payment</p>
       <PayPalScriptProvider options={initialOptions}>
         <PayPalButtons
           style={{
@@ -218,156 +212,10 @@ function App({ setLoading }) {
           }
           }
         />
-        <button className="flex items-center justify-center w-full button-debit text-white bg-gray-800 rounded-sm hover:bg-gray-700 focus:outline-none"
-          onClick={() => setIsDebitCard(true)}
-        >
-          <span className="ml-2 ">Debit or Credit Card</span>
-        </button>
-        {
-          isDebitCard &&
-          <>
-            <div className="w-full text-right my-3 ">
-              <CloseIcon
-                fontSize="large"
-                sx={{ color: '#888', cursor: 'pointer' }}
-                onClick={() => setIsDebitCard(false)}
-              />
-            </div>
-            <PayPalCardFieldsProvider
-              createOrder={handleCreateOrder}
-              onApprove={async (data, actions) => {
-                try {
-                  const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_BACK_END_URL}/api/payment/${data.orderID}/capture`,
-                    {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                    }
-                  );
-                  const orderData = await response.json();
-                  // Three cases to handle:
-                  //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-                  //   (2) Other non-recoverable errors -> Show a failure message
-                  //   (3) Successful transaction -> Show confirmation or thank you message
-                  let errorDetail = null
-                  if (orderData.status !== 200) {
-                    errorDetail = orderData?.metadata?.jsonResponse?.details?.[0];
-                  }
-
-                  if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
-                    // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-                    // recoverable state, per https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
-                    return actions.restart();
-                  } else if (errorDetail) {
-                    // (2) Other non-recoverable errors -> Show a failure message
-                    throw new Error(
-                      `${errorDetail.description} (${orderData?.metadata?.jsonResponse?.debug_id})`
-                    );
-                  } else {
-                    // (3) Successful transaction -> Show confirmation or thank you message
-                    // Or go to another URL:  actions.redirect('thank_you.html');
-                    const transaction =
-                      orderData?.metadata?.jsonResponse?.purchase_units[0].payments
-                        .captures[0];
-                    // setMessage(
-                    //   `Transaction ${transaction.status}: ${transaction.id}. See console for all available details`
-                    // );
-                    // console.log(
-                    //   "Capture result",
-                    //   orderData?.metadata?.jsonResponse,
-                    //   JSON.stringify(orderData?.metadata?.jsonResponse, null, 2)
-                    // );
-                    if (orderData?.metadata?.jsonResponse?.status === "COMPLETED") {
-                      const billDetails = {
-                        givenName: firstNameRef.current, surname: lastNameRef.current, addressLine1: addressRef.current, addressLine2: apartmentSuiteRef.current, adminArea2: cityRef.current, adminArea1: stateRef.current,
-                        postalCode: zipRef.current, countryCode: flagCurrentRef.current, nationalNumber: phoneRef.current, emailAddress: emailRef.current,
-                        itemTotal: subtotaltRef.current, shipping: shippingRef.current, items: productsInCartRef.current
-                      }
-                      setLoading(false)
-                      completeOrder({ infoOrder: orderData?.metadata?.jsonResponse, infoCustomer: billDetails })
-                    }
-                  }
-                } catch (error) {
-                  console.error(error);
-                  // setMessage(
-                  //   `Sorry, your transaction could not be processed...${error}`
-                  // );
-                }
-              }
-              }
-              style={{
-                input: {
-                  "font-size": "16px",
-                  "font-family": "courier, monospace",
-                  "font-weight": "lighter",
-                  padding: "0.75rem 1rem",
-                  color: "#000",
-                  outline: "none !important",           // Remove default outline
-                  boxShadow: "none !important"
-                },
-                ".invalid": {
-                  color: "purple",
-                },
-                ".focused": {
-                  outline: "none",            // Remove outline when focused
-                },
-              }}
-            >
-              <PayPalNumberField />
-              <div className="flex space-x-4">
-                {/* Expiry Field */}
-                <div className="flex-1">
-                  <PayPalExpiryField />
-                </div>
-
-                {/* CVV Field */}
-                <div className="flex-1">
-                  <PayPalCVVField />
-                </div>
-              </div>
-
-              {/* Custom client component to handle card fields submission */}
-              <SubmitPayment billingAddress={billDetails} setIsLoading={setLoading} />
-            </PayPalCardFieldsProvider>
-          </>
-        }
       </PayPalScriptProvider>
-
     </div>
   );
 }
 
-const SubmitPayment = ({ billingAddress, setIsLoading }) => {
-  const { cardFieldsForm, fields } = usePayPalCardFields();
-
-  const handleClick = async () => {
-    if (!cardFieldsForm) {
-      const childErrorMessage =
-        "Unable to find any child components in the <PayPalCardFieldsProvider />";
-      throw new Error(childErrorMessage);
-    }
-    const formState = await cardFieldsForm.getState();
-
-    if (!formState.isFormValid) {
-      return alert("The payment form is invalid");
-    }
-    setIsLoading(true)
-    cardFieldsForm.submit(billingAddress).catch((err) => {
-      setIsLoading(false)
-    });
-  };
-
-  return (
-    <button
-      className={`flex items-center justify-center w-full px-4 py-3 text-white bg-sky-600 hover:bg-sky-700 rounded-sm focus:outline-none`}
-      style={{ float: "right" }}
-      onClick={handleClick}
-    >
-      Pay
-    </button>
-  );
-};
 
 export default App; 

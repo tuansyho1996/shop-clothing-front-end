@@ -1,5 +1,5 @@
 'use client'
-import { getAllProducts } from "@/services/service.product";
+import { getProduct } from "@/services/service.product";
 import { useEffect, useState } from "react";
 import ProductCard from "@/components/app.product.card";
 
@@ -7,7 +7,7 @@ const Page = ({ params }) => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const fetchProducts = async () => {
-            const products = await getAllProducts();
+            const products = await getProduct('all');
             const filteredProducts = products.filter((product) =>
                 product.product_name.toLowerCase().includes(params.slug.toLowerCase())
             );
@@ -21,7 +21,8 @@ const Page = ({ params }) => {
     return (
         <main className='min-h-[50vh]'>
             <div className="container mx-auto py-8 px-4 sm:px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <h1 className="text-2xl font-bold mb-4">Search Results for "{params.slug}"</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     {products?.length > 0 ? (
                         products?.map((product) => (
                             <ProductCard key={product._id} product={product} />

@@ -29,7 +29,7 @@ const KidTShirt = () => {
                         <td style={{ border: '1px solid gray' }} >22.0&nbsp;</td>
                         <td style={{ border: '1px solid gray' }} >24.0&nbsp;</td>
                         <td style={{ border: '1px solid gray' }} >26.0&nbsp;</td>
-                        <td style={{ border: '1px solid gray' }} s>28.0&nbsp;</td>
+                        <td style={{ border: '1px solid gray' }} >28.0&nbsp;</td>
                     </tr>
                     <tr >
                         <td style={{ border: '1px solid gray' }} ><strong>Shoulder</strong></td>
@@ -38,7 +38,7 @@ const KidTShirt = () => {
                         <td style={{ border: '1px solid gray' }} >13.4&nbsp;</td>
                         <td style={{ border: '1px solid gray' }} >15.0&nbsp;</td>
                         <td style={{ border: '1px solid gray' }} >16.5&nbsp;</td>
-                        <td style={{ border: '1px solid gray' }} s>18.1&nbsp;</td>
+                        <td style={{ border: '1px solid gray' }} >18.1&nbsp;</td>
                     </tr>
                     <tr >
                         <td style={{ border: '1px solid gray' }} ><strong>Bust</strong></td>
@@ -47,7 +47,7 @@ const KidTShirt = () => {
                         <td style={{ border: '1px solid gray' }} >31.5&nbsp;</td>
                         <td style={{ border: '1px solid gray' }} >35.4&nbsp;</td>
                         <td style={{ border: '1px solid gray' }} >40.2&nbsp;</td>
-                        <td style={{ border: '1px solid gray' }} s>44.9&nbsp;</td>
+                        <td style={{ border: '1px solid gray' }} >44.9&nbsp;</td>
                     </tr>
                     <tr >
                         <td style={{ border: '1px solid gray' }} ><strong>Sleeve</strong></td>
@@ -56,7 +56,7 @@ const KidTShirt = () => {
                         <td style={{ border: '1px solid gray' }} >6.3&nbsp;</td>
                         <td style={{ border: '1px solid gray' }} >6.7&nbsp;</td>
                         <td style={{ border: '1px solid gray' }} >7.5&nbsp;</td>
-                        <td style={{ border: '1px solid gray' }} s>8.3&nbsp;</td>
+                        <td style={{ border: '1px solid gray' }} >8.3&nbsp;</td>
                     </tr>
                 </tbody>
             </table>

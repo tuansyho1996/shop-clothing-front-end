@@ -1,22 +1,15 @@
 import CategoryList from '@/components/page_home/home.section.list.category';
 import NewProducts from '@/components/page_home/home.new.products';
-import { getAllProducts } from '@/services/service.product';
+import { getProductShop } from '@/services/service.product';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Link from 'next/link';
 const Shop = async ({ params }) => {
-    const products = await getAllProducts();
-    const PRODUCT_PER_PAGE = 8;
-    const page = parseInt(params.slug) || 1;
-    const startIndex = (page - 1) * PRODUCT_PER_PAGE;
-    const endIndex = startIndex + PRODUCT_PER_PAGE;
-    const paginatedProducts = products.slice(startIndex, endIndex);
-    const totalPages = Math.ceil(products.length / PRODUCT_PER_PAGE);
-    const currentPage = page > totalPages ? totalPages : page;
-    const hasNextPage = currentPage < totalPages;
-    const hasPrevPage = currentPage > 1;
+    const data = await getProductShop(params.slug);
+    const { products, currentPage, hasNextPage, hasPrevPage } = data;
+
     return (
-        <main className="max-w-7xl mx-auto px-4 py-8">
+        <main className="container mx-auto py-8">
             <h1 className="text-3xl font-bold mb-6">Shop Now</h1>
             <section className="mb-12">
                 <h2 className="text-2xl font-semibold mb-4">Categories</h2>
@@ -24,7 +17,7 @@ const Shop = async ({ params }) => {
             </section>
             <section id='new-products' className="mb-12">
                 <h2 className="text-2xl font-semibold mb-4">New Products</h2>
-                <NewProducts products={paginatedProducts} />
+                <NewProducts products={products} />
                 <div className="flex justify-end mt-6">
                     {hasPrevPage && (
                         <Link href={`/shop/${currentPage - 1}#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] text-xl underline">

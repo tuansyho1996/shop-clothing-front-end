@@ -61,7 +61,7 @@ export default async function Page({ params }) {
               <ProductCard key={product._id} product={product} />
             ))
           ) : (
-            <p>Loading products...</p>
+            <p>No products available</p>
           )}
         </div>
       </section>

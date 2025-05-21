@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }} className="p-4 hover:shadow-2xl transition-shadow duration-300 shadow-md m-[10px] bg-[#f9f9f9] space-y-4">
       <Link href={`/product/${product?.product_slug}`} >
