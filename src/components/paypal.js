@@ -12,7 +12,7 @@ import { AppContext } from "@/context/context.app";
 
 function App({ setLoading }) {
   const initialOptions = {
-    "client-id": "AZNSEdtcVZMtSJZUMKVzPZgODxCdu2x6hKhKaDsEy0sMsax50eQAqSu0vDYMj92BVgySDSxXCrnbaZZ5",
+    "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
     "enable-funding": "venmo",
     'disable-funding': 'card',
     currency: "USD",
