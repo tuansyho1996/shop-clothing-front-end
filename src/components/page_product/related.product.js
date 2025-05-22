@@ -8,7 +8,6 @@ import { getProductsOfCategory } from '@/services/service.product';
 import { useState, useEffect } from 'react';
 import ProductCard from '../app.product.card';
 const RelatedProduct = ({ category }) => {
-    console.log(category);
     const [relatedProducts, setRelatedProducts] = useState([]);
     useEffect(() => {
         // Fetch related products based on the category
