@@ -29,7 +29,7 @@ export default async function OrderRecieved({ params }) {
               }
               <tr>
                 <td className="p-2">Subtotal:</td>
-                <td className="p-2 text-right font-bold">${subtotal}</td>
+                <td className="p-2 text-right font-bold">${subtotal.toFixed(2)}</td>
               </tr>
               <tr>
                 <td className="p-2">Shipping:</td>
@@ -41,7 +41,7 @@ export default async function OrderRecieved({ params }) {
               </tr>
               <tr>
                 <td className="p-2 font-bold">Total:</td>
-                <td className="p-2 text-right font-bold">${subtotal + res?.order_info_customer?.shipping}</td>
+                <td className="p-2 text-right font-bold">${(subtotal + res?.order_info_customer?.shipping).toFixed(2)}</td>
               </tr>
             </tbody>
           </table>
@@ -90,7 +90,7 @@ export default async function OrderRecieved({ params }) {
               <strong>Email:</strong> {res?.order_info_customer?.emailAddress}
             </li>
             <li>
-              <strong>Total:</strong> ${subtotal + res?.order_info_customer?.shipping}
+              <strong>Total:</strong> ${(subtotal + res?.order_info_customer?.shipping).toFixed(2)}
             </li>
             <li>
               <strong>Payment method:</strong> {res?.order_info?.payment_source?.paypal ? 'Paypal' : 'Credit card'}

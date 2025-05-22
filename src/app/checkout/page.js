@@ -76,8 +76,8 @@ export default function Checkout() {
                 {/* Order Summary */}
                 <div className={`${hiddenOrder ? 'hidden' : 'block'} md:block`}>
                   {
-                    productsInCart.length > 0 &&
-                    productsInCart.map((el, index) => (
+                    productsInCart?.length > 0 &&
+                    productsInCart?.map((el, index) => (
                       <div key={index} className="flex justify-between items-center gap-1">
                         <div className="flex items-center space-x-4">
                           <div className='basis-24 flex-none relative'>
@@ -115,15 +115,15 @@ export default function Checkout() {
                 </div>
                 <div className="flex justify-between items-center mt-4">
                   <p className="text-gray-600">Subtotal</p>
-                  <p>${subtotal.toFixed(2)} USD</p>
+                  <p>${subtotal?.toFixed(2)} USD</p>
                 </div>
                 <div className="flex justify-between items-center">
                   <p className="text-gray-600">Shipping</p>
-                  <p>${shipping.toFixed(2)} USD</p>
+                  <p>${shipping?.toFixed(2)} USD</p>
                 </div>
                 <div className="flex justify-between items-center font-semibold text-lg">
                   <p>Total</p>
-                  <p>USD $ {(subtotal + shipping).toFixed(2)}</p>
+                  <p>USD $ {(subtotal + shipping)?.toFixed(2)}</p>
                 </div>
               </div>
               <hr className="border-t border-gray-300 mx-5" />

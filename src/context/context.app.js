@@ -50,7 +50,7 @@ export function AppProvider({ children }) {
     const getGlobals = async () => {
       const res = await getGlobal('all')
       const globals_shipping = res.find((item) => item.global_name === 'shipping_fee')
-      setShipping(globals_shipping.global_value)
+      setShipping(parseFloat(globals_shipping?.global_value))
       setGlobals(res)
     }
     getGlobals()
