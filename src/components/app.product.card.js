@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
               loading="lazy"
             />
           </div>
-          <h3 className="text-lg font-semibold truncate-3-lines">{product?.product_name}</h3>
+          <h3 className="text-lg truncate-3-lines">{product?.product_name}</h3>
           <p className="text-gray-500">${product?.product_price.toFixed(2)}</p>
         </div>
       </Link>

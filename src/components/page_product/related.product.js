@@ -54,7 +54,7 @@ const RelatedProduct = ({ category }) => {
     };
     return (
         <>
-            <h2 className='my-5'>Related Products</h2>
+            <h2 className='my-5 font-bold md:text-xl'>Related Products</h2>
             <div className="  related-product">
                 <div className="related-product-list w-full relative">
                     {/* Example related products */}

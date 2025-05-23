@@ -5,10 +5,10 @@ import Link from "next/link";
 const ListCategory = async () => {
   const topCategories = await getTopCategory();
   return (
-    <section className="container mx-auto p-4">
-      <h5 variant="h5" className="mb-4 font-[400] text-[1.5rem]">
+    <section className="container mx-auto">
+      <h2 className="mb-4 font-medium text-[1.5rem] px-4">
         Top Categories
-      </h5>
+      </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {topCategories?.map((category, index) => (
           <div

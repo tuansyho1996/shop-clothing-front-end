@@ -52,7 +52,7 @@ export default async function Page({ params }) {
                                 {/* Product Info */}
                                 <div className="flex-1 w-full lg:w-1/2">
                                     <div className="max-w-mdshadow-lg">
-                                        <h2 className="text-lg font-semibold">{product?.product_name}</h2>
+                                        <h1 className="text-lg font-semibold">{product?.product_name}</h1>
                                         <ProductAttribute product={product} />
                                         <div className="flex justify-around mt-6">
                                             <div className="relative group">
@@ -83,7 +83,7 @@ export default async function Page({ params }) {
                             {/* Product detail */}
                             <div className="mt-5">
                                 <div className="mb-6 md:mb-8">
-                                    <h2 className="text-lg font-bold mb-2 md:text-xl">Details</h2>
+                                    <h2 className=" font-bold mb-2 md:text-xl">Details</h2>
                                     <p className="text-gray-700 text-sm md:text-base">
                                         {product?.product_description}
                                     </p>
@@ -94,9 +94,9 @@ export default async function Page({ params }) {
                         <div className="py-6 md:py-8 reviews">
                             <hr className="my-5" />
                             <div className='warp-header-reviews flex flex-col items-center justify-center'>
-                                <p className="text-base font-semibold mb-4 md:text-lg">
+                                <h2 className="text-base font-semibold mb-4 md:text-xl">
                                     Customer Reviews
-                                </p>
+                                </h2>
                                 <p className='text-sm text-gray-500'>
                                     Let us know what you think
                                 </p>

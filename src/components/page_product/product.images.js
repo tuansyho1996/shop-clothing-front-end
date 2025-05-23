@@ -41,7 +41,7 @@ export default function ImagesProduct({ product }) {
                                 onClick={() => handleClickMultipleImages(image)}
                                 key={index}
                                 src={image}
-                                alt=''
+                                alt={`Image view ${index + 1} of ${product?.product_name}`}
                                 width={70}
                                 height={70}
                                 style={{ objectFit: 'cover', width: 'auto', height: 'auto' }}
