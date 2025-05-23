@@ -6,6 +6,7 @@ import {
 } from "@paypal/react-paypal-js";
 import { useRouter } from 'next/navigation'
 import { AppContext } from "@/context/context.app";
+import country from "@/app/checkout/countries";
 
 // Renders errors or successfull transactions on the screen.
 
@@ -65,6 +66,7 @@ function App({ setLoading }) {
       addressLine2: apartmentSuiteRef.current,
       adminArea2: cityRef.current,
       adminArea1: stateRef.current,
+      country: countryRef.current,
       postalCode: zipRef.current,
       countryCode: flagCurrentRef.current,
       nationalNumber: phoneRef.current,
@@ -152,6 +154,7 @@ function App({ setLoading }) {
               addressLine2: apartmentSuiteRef.current,
               adminArea2: cityRef.current,
               adminArea1: stateRef.current,
+              country: countryRef.current,
               postalCode: zipRef.current,
               countryCode: flagCurrentRef.current,
               nationalNumber: phoneRef.current,
