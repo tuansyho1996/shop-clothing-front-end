@@ -45,7 +45,6 @@ const getProductBestSelling = async (slug) => {
 
 const getProductsOfCategory = async (slug) => {
   try {
-    console.log(slug);
     const response = await fetcher(`/api/product-category/${slug}`, { cache: 'no-cache' });
     if (!response.status === 200) {
       return null

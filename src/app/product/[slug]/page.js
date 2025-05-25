@@ -1,7 +1,6 @@
 // app/product/[id]/page.js
 import ProductAttribute from '@/components/page_product/product.attribute';
 import ImagesProduct from '@/components/page_product/product.images';
-import { getProduct } from '@/services/service.product';
 import GrassIcon from "@mui/icons-material/Grass";
 // import EcoIcon from "@mui/icons-material/Eco";
 import LoopIcon from "@mui/icons-material/Loop";
@@ -10,6 +9,7 @@ import ReviewModal from '@/components/page_product/reviews/review.form.modal';
 import ReviewDisplay from '@/components/page_product/reviews/review.display';
 import { getProductWithMetadata } from '@/lib/getProductWithMetadata';
 import RelatedProduct from '@/components/page_product/related.product';
+import ShareSocial from '@/components/page_product/product.share.social';
 
 export async function generateMetadata({ params }) {
     const { metadata } = await getProductWithMetadata(params.slug);
@@ -77,6 +77,7 @@ export default async function Page({ params }) {
                                         <p className="mt-4 text-sm text-gray-600">
                                             Our cotton is sourced responsibly, promoting biodegradable, eco-friendly fashion that’s kind to your skin and the planet. Support local craftsmanship while making a positive impact on the environment. Choose comfort, choose quality, choose style – all made in Vietnam.
                                         </p>
+                                        <ShareSocial product={product} />
                                     </div>
                                 </div>
                             </div>

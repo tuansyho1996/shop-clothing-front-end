@@ -39,7 +39,7 @@ export default function Cart() {
                 <div className="flex items-center w-full md:w-auto">
                   <div className='basis-40 flex-none'>
                     <Image
-                      src={el.product_image}
+                      src={el?.product_image}
                       alt=''
                       width={160}
                       height={160}
