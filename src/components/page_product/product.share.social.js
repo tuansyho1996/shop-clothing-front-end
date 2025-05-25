@@ -2,7 +2,7 @@
 import { FacebookShareButton, FacebookIcon } from "next-share";
 
 const ShareSocial = ({ product }) => {
-    const categoryHashtags = product?.product_list_categories
+    const categoryHashtags = product?.product_list_categories_name
         ?.map(cat => `#${cat.replace(/\s+/g, '')}`)
         .join(' ');
     return (
@@ -10,9 +10,9 @@ const ShareSocial = ({ product }) => {
             <h2 className="">Share this product:</h2>
             {/* Facebook Share Button */}
             <FacebookShareButton
-                url={`/${product?.product_slug}`}
+                url={`https://carnobon.com/product/${product?.product_slug}`}
                 quote={`Experience comfort with ${product?.product_name}, made from soft natural cotton.${categoryHashtags}`}
-                hashtag={'#Carnobon'}
+                hashtag={`#carnobon ${categoryHashtags}`}
             >
                 <FacebookIcon size={32} round />
             </FacebookShareButton>

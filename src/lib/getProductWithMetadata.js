@@ -2,10 +2,10 @@ import { getProduct } from '@/services/service.product';
 
 export async function getProductWithMetadata(slug) {
     const data = await getProduct(slug);
-    const url = `/${data?.product_slug}`;
+    const url = `https://carnobon.com/product/${data?.product_slug}`;
     const title = data?.product_name || 'Carnobon Product';
     const description = data?.product_description || 'High quality cotton product.';
-    const image = data?.product_images[0];
+    const image = data?.product_images?.[0] || 'https://carnobon.com/default-image.jpg';
     return {
         metadata: {
             title,
@@ -14,7 +14,6 @@ export async function getProductWithMetadata(slug) {
                 title,
                 description,
                 url,
-                type: 'website',
                 images: [
                     {
                         url: image,
