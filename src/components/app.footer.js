@@ -130,6 +130,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        <p className="text-center text-sm text-gray-500 mt-5">
+          COPYRIGHT © 2025 CARNOBOΝ™. All rights reserved.
+        </p>
       </div>
     </footer>
   );

@@ -1,5 +1,8 @@
 'use client'
-import { FacebookShareButton, FacebookIcon } from "next-share";
+import {
+    FacebookShareButton, FacebookIcon,
+    TwitterShareButton, TwitterIcon,
+} from "next-share";
 
 const ShareSocial = ({ product }) => {
     const categoryHashtags = product?.product_list_categories_name
@@ -16,6 +19,13 @@ const ShareSocial = ({ product }) => {
             >
                 <FacebookIcon size={32} round />
             </FacebookShareButton>
+            <TwitterShareButton
+                url={`https://carnobon.com/product/${product?.product_slug}`}
+                title={`Experience comfort with ${product?.product_name}, made from soft natural cotton.${categoryHashtags}`}
+                hashtag={`#carnobon ${categoryHashtags}`}
+            >
+                <TwitterIcon size={32} round />
+            </TwitterShareButton>
         </div>
     )
 }

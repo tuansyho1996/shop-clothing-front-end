@@ -64,29 +64,7 @@ const SearchAppBar = () => {
             searching();
         }
     };
-    // const handleClick = () => {
-    //     // Handle search logic here
-    //     setIsSearching(true);
-    // };
-    // const handleClear = () => {
-    //     setTextSearch('');
-    // };
-    // const handleFocus = () => {
-    //     // Handle focus logic here
-    //     console.log('Input focused');
-    // };
-    // const handleBlur = () => {
-    //     // Handle blur logic here
-    //     console.log('Input blurred');
-    // };
-    // const handleMouseEnter = () => {
-    //     // Handle mouse enter logic here
-    //     console.log('Mouse entered');
-    // };
-    // const handleMouseLeave = () => {
-    //     // Handle mouse leave logic here
-    //     console.log('Mouse left');
-    // };
+
     return (
         <>
             <div className="flex-grow relative search-bar" ref={searchBarRef}>
@@ -97,12 +75,7 @@ const SearchAppBar = () => {
                     onChange={(e) => handleChange(e)}
                     onKeyDown={(event) => handleKeyDown(event)}
                     autoComplete="off"
-                    // onClick={handleClick}
-                    // onFocus={handleFocus}
-                    // onBlur={handleBlur}
-                    // onMouseEnter={handleMouseEnter}
-                    // onMouseLeave={handleMouseLeave}
-                    // onClear={handleClear}
+
                     className="w-full border border-gray-300 rounded-full px-4 py-2 outline-none"
                 />
                 {

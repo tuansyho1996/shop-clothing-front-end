@@ -14,11 +14,13 @@ export async function getProductWithMetadata(slug) {
                 title,
                 description,
                 url,
+                siteName: 'Carnobon',
+                type: 'website',
                 images: [
                     {
                         url: image,
-                        width: 800,
-                        height: 600,
+                        width: 400,
+                        height: 400,
                         alt: title,
                     },
                 ],

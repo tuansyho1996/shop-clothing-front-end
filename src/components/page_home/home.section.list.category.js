@@ -37,6 +37,14 @@ const ListCategory = async () => {
                 </button>
               </div>
             </Link>
+            <h3 className="text-center text-gray-600 mt-2 capitalize">
+              {category?.top_ct_name_categories.map((cat, idx) => (
+                <span key={idx}>
+                  {cat}
+                  {idx < category.top_ct_name_categories.length - 1 ? ' & ' : ''}
+                </span>
+              ))}
+            </h3>
           </div>
         ))}
       </div>

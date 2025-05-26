@@ -6,7 +6,29 @@ import NewProducts from "@/components/page_home/home.new.products";
 import Link from "next/link";
 
 export const metadata = {
-  title: 'Ancient Myths, Modern Comfort',
+  openGraph: {
+    title: 'Carnobon — Ancient Myths, Modern Comfort',
+    description: 'Step into the world of ancient legends with clothing inspired by Norse, Egyptian, and Greek mythology. Crafted from soft, eco-friendly cotton, our garments blend timeless tales with everyday comfort — designed for modern heroes who value both style and sustainability.',
+    url: 'https://carnobon.com',
+    siteName: 'Carnobon',
+    type: 'website',
+    images: [
+      {
+        url: 'https://d2jfx0w9sp915a.cloudfront.net/8c4b9a0533340b84e62db527ad166b14',
+        width: 600,
+        height: 800,
+        alt: 'Carnobon — Ancient Myths, Modern Comfort',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Carnobon — Ancient Myths, Modern Comfort',
+    description: 'Step into the world of ancient legends with clothing inspired by Norse, Egyptian, and Greek mythology. Crafted from soft, eco-friendly cotton, our garments blend timeless tales with everyday comfort — designed for modern heroes who value both style and sustainability.',
+    images: ['https://d2jfx0w9sp915a.cloudfront.net/8c4b9a0533340b84e62db527ad166b14'],
+    creator: '@carnobon',
+  },
+  title: 'Carnobon — Ancient Myths, Modern Comfort',
   description: 'Step into the world of ancient legends with clothing inspired by Norse, Egyptian, and Greek mythology. Crafted from soft, eco-friendly cotton, our garments blend timeless tales with everyday comfort — designed for modern heroes who value both style and sustainability.',
 }
 

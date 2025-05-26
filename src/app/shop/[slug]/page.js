@@ -18,13 +18,17 @@ const Shop = async ({ params }) => {
             <section id='new-products' className="mb-12">
                 <h2 className="text-2xl font-semibold mb-4">New Products</h2>
                 <NewProducts products={products} />
-                <div className="flex justify-end mt-6">
-                    {hasPrevPage && (
+                <div className="flex justify-between mt-6 ">
+                    {hasPrevPage ? (
                         <Link href={`/shop/${currentPage - 1}#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] text-xl underline">
                             <ArrowBackIosNewIcon className="inline-block mr-1 text-lg" />
                             Previous
                         </Link>
-                    )}
+                    ) :
+                        (
+                            <div className="invisible text-xl w-24">Placeholder</div> // hoặc dùng w-24 để cố định chiều rộng
+                        )
+                    }
                     {hasNextPage && (
                         <Link href={`/shop/${currentPage + 1}/#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] text-xl underline">
                             Next

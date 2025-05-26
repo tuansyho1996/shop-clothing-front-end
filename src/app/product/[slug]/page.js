@@ -91,7 +91,7 @@ export default async function Page({ params }) {
                                 </div>
                             </div>
                         </div>
-                        <RelatedProduct category={product?.product_list_categories[product?.product_list_categories.length - 2]} />
+                        <RelatedProduct category={`${product?.product_list_categories[0]}&${product?.product_list_categories[1]}&${product?.product_list_categories[product?.product_list_categories.length - 1]}`} />
                         <div className="py-6 md:py-8 reviews">
                             <hr className="my-5" />
                             <div className='warp-header-reviews flex flex-col items-center justify-center'>

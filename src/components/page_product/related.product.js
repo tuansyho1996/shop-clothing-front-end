@@ -58,15 +58,22 @@ const RelatedProduct = ({ category }) => {
             <div className="  related-product">
                 <div className="related-product-list w-full relative">
                     {/* Example related products */}
-                    <Slider {...settings}>
-                        {relatedProducts?.length > 0 ? (
-                            relatedProducts?.map((product) => (
-                                <ProductCard key={product._id} product={product} />
-                            ))
-                        ) : (
-                            <p>Loading related products...</p>
-                        )}
-                    </Slider>
+                    {
+                        relatedProducts?.length > 3 ?
+                            <Slider {...settings}>
+                                {
+                                    relatedProducts?.map((product) => (
+                                        <ProductCard key={product._id} product={product} />
+                                    ))
+                                }
+
+                            </Slider>
+                            :
+                            <div className="flex items-center justify-center ">
+                                <p className="text-gray-500">No related products found.</p>
+                            </div>
+                    }
+
                 </div>
             </div>
         </>
