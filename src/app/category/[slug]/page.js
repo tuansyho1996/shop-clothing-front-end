@@ -15,6 +15,9 @@ export async function generateMetadata({ params }) {
   return {
     title,
     description,
+    alternates: {
+      canonical: `https://carnobon.com/category/${categories.map((category) => category.category_slug).join('&')}`,
+    },
     openGraph: {
       title,
       description,
