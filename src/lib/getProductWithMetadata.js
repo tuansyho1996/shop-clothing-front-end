@@ -10,6 +10,9 @@ export async function getProductWithMetadata(slug) {
         metadata: {
             title,
             description,
+            alternates: {
+                canonical: 'https://carnobon.com/product/' + data?.product_slug,
+            },
             openGraph: {
                 title,
                 description,

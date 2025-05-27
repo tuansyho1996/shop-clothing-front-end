@@ -34,6 +34,9 @@ export const metadata = {
     images: ['https://d2jfx0w9sp915a.cloudfront.net/8c4b9a0533340b84e62db527ad166b14'],
     creator: '@carnobon',
   },
+  alternates: {
+    canonical: 'https://carnobon.com/',
+  },
   title: 'Carnobon — Ancient Myths, Modern Comfort',
   description: 'Step into the world of ancient legends with clothing inspired by Norse, Egyptian, and Greek mythology. Crafted from soft, eco-friendly cotton, our garments blend timeless tales with everyday comfort — designed for modern heroes who value both style and sustainability.',
 }
