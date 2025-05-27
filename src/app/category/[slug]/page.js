@@ -1,8 +1,6 @@
 // app/product/[id]/page.js
 
-import { getProductsOfCategory } from "@/services/service.product";
 import ProductCard from "@/components/app.product.card";
-import { getCategory } from "@/services/service.category";
 import CategoryDescription from "@/components/page_category.js/category.description";
 import Link from "next/link";
 import { getProductAndCategories } from "@/lib/getCategoriesAndProductsWithMetadata";
@@ -16,7 +14,28 @@ export async function generateMetadata({ params }) {
     .join('\n');
   return {
     title,
-    description
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://carnobon.com/category/${categories.map((category) => category.category_slug).join('&')}`,
+      siteName: 'Carnobon',
+      type: 'website',
+      images: [
+        {
+          url: categories[categories.length - 1]?.category_image[0] || 'https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a',
+          width: 600,
+          height: 800,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [categories[categories.length - 1]?.category_image[0] || 'https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a'],
+    },
   };
 }
 
@@ -30,7 +49,7 @@ export default async function Page({ params }) {
     <main>
       <section className="container mx-auto min-h-[50vh]">
         <div className="text-center my-6 md:my-8 px-4">
-          <h1 className="flex justify-center flex-wrap gap-2">
+          <h1 className="flex justify-center flex-wrap">
             {categories.map((category, index) => (
               <div key={category._id} className="flex items-center">
                 <Link

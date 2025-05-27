@@ -14,6 +14,12 @@ export const metadata = {
     type: 'website',
     images: [
       {
+        url: 'https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a',
+        width: 600,
+        height: 600,
+        alt: 'Carnobon',
+      },
+      {
         url: 'https://d2jfx0w9sp915a.cloudfront.net/8c4b9a0533340b84e62db527ad166b14',
         width: 600,
         height: 800,

@@ -4,7 +4,19 @@ import { getProductShop } from '@/services/service.product';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Link from 'next/link';
+export async function generateMetadata({ params }) {
+    const pageNumber = params.slug || '1';
+
+    return {
+        title: `Shop - Page ${pageNumber}`,
+        description: `Browse our latest products - page ${pageNumber}.`,
+        alternates: {
+            canonical: `https://carnobon.com/shop/${pageNumber}`,
+        },
+    };
+}
 const Shop = async ({ params }) => {
+
     const data = await getProductShop(params.slug);
     const { products, currentPage, hasNextPage, hasPrevPage } = data;
 

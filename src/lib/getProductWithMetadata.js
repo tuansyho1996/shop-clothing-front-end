@@ -5,7 +5,7 @@ export async function getProductWithMetadata(slug) {
     const url = `https://carnobon.com/product/${data?.product_slug}`;
     const title = data?.product_name || 'Carnobon Product';
     const description = data?.product_description || 'High quality cotton product.';
-    const image = data?.product_images?.[0] || 'https://carnobon.com/default-image.jpg';
+    const image = data?.product_images?.[0] || 'https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a';
     return {
         metadata: {
             title,
@@ -19,8 +19,8 @@ export async function getProductWithMetadata(slug) {
                 images: [
                     {
                         url: image,
-                        width: 400,
-                        height: 400,
+                        width: 600,
+                        height: 800,
                         alt: title,
                     },
                 ],
@@ -30,6 +30,8 @@ export async function getProductWithMetadata(slug) {
                 title,
                 description,
                 images: [image],
+                creator: '@carnobon',
+
             },
         },
         product: data,
