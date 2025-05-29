@@ -20,9 +20,10 @@ const getProduct = async (slug = 'all') => {
     console.error(error)
   }
 }
-const getProductShop = async (slug) => {
+const getProductShop = async (page) => {
   try {
-    const response = await fetcher(`/api/product/shop/${slug}`, { cache: 'no-cache' });
+    const query = new URLSearchParams({ page }).toString();
+    const response = await fetcher(`/api/product/shop?${query}`, { cache: 'no-cache' });
     if (!response.status === 200) {
       return null
     }
@@ -43,9 +44,10 @@ const getProductBestSelling = async (slug) => {
   }
 }
 
-const getProductsOfCategory = async (slug) => {
+const getProductsOfCategory = async (slug, limit, page) => {
   try {
-    const response = await fetcher(`/api/product-category/${slug}`, { cache: 'no-cache' });
+    const query = new URLSearchParams({ limit, page }).toString();
+    const response = await fetcher(`/api/product-category/${slug}?${query}`, { cache: 'no-cache' });
     if (!response.status === 200) {
       return null
     }

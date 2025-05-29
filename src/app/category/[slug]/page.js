@@ -1,32 +1,32 @@
 // app/product/[id]/page.js
 
-import ProductCard from "@/components/app.product.card";
 import CategoryDescription from "@/components/page_category.js/category.description";
 import Link from "next/link";
-import { getProductAndCategories } from "@/lib/getCategoriesAndProductsWithMetadata";
+import { getCategories } from "@/lib/getCategoriesAndProducts";
+import ProductsListCategories from "@/components/page_category.js/product.display.list";
 
 
 export async function generateMetadata({ params }) {
-  const { categories } = await getProductAndCategories(params.slug);
-  const title = categories.map((category) => category.category_name).join(' | ')
+  const categories = await getCategories(params.slug);
+  const title = categories?.map((category) => category.category_name).join(' | ')
   const description = categories
-    .map((category) => category.category_description)
+    ?.map((category) => category.category_description)
     .join('\n');
   return {
     title,
     description,
     alternates: {
-      canonical: `https://carnobon.com/category/${categories.map((category) => category.category_slug).join('&')}`,
+      canonical: `https://carnobon.com/category/${categories?.map((category) => category.category_slug).join('&')}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://carnobon.com/category/${categories.map((category) => category.category_slug).join('&')}`,
+      url: `https://carnobon.com/category/${categories?.map((category) => category.category_slug).join('&')}`,
       siteName: 'Carnobon',
       type: 'website',
       images: [
         {
-          url: categories[categories.length - 1]?.category_image[0] || 'https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a',
+          url: categories[categories?.length - 1]?.category_image[0] || 'https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a',
           width: 600,
           height: 800,
           alt: title,
@@ -37,20 +37,20 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title,
       description,
-      images: [categories[categories.length - 1]?.category_image[0] || 'https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a'],
+      images: [categories[categories?.length - 1]?.category_image[0] || 'https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a'],
     },
   };
 }
 
 export default async function Page({ params }) {
-  const { categories, products } = await getProductAndCategories(params.slug);
+  const categories = await getCategories(params.slug);
   const description = categories
     .map((category) => category.category_description)
     .join('\n');
 
   return (
     <main>
-      <section className="container mx-auto min-h-[50vh]">
+      <section className="container mx-auto min-h-[50vh] mb-5">
         <div className="text-center my-6 md:my-8 px-4">
           <h1 className="flex justify-center flex-wrap">
             {categories.map((category, index) => (
@@ -81,15 +81,7 @@ export default async function Page({ params }) {
           </span>
         ))}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {products?.length > 0 ? (
-            products?.map((product) => (
-              <ProductCard key={product._id} product={product} />
-            ))
-          ) : (
-            <p>No products available</p>
-          )}
-        </div>
+        <ProductsListCategories slug={params.slug} />
       </section>
     </main>
 

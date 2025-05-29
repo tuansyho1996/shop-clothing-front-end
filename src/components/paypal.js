@@ -34,7 +34,7 @@ function App({ setLoading }) {
     phoneRef,
     emailRef,
     setFormErrors, flagCurrentRef, } = useContext(FormCheckoutContext)
-  const { subtotaltRef, shippingRef, productsInCartRef, setProductsInCart } = useContext(AppContext)
+  const { subtotalRef, shippingRef, productsInCartRef, setProductsInCart } = useContext(AppContext)
 
 
   const validateForm = () => {
@@ -71,7 +71,7 @@ function App({ setLoading }) {
       countryCode: flagCurrentRef.current,
       nationalNumber: phoneRef.current,
       emailAddress: emailRef.current,
-      itemTotal: subtotaltRef.current,
+      itemTotal: subtotalRef.current,
       shipping: shippingRef.current,
       items: productsInCartRef.current
     };
@@ -159,7 +159,7 @@ function App({ setLoading }) {
               countryCode: flagCurrentRef.current,
               nationalNumber: phoneRef.current,
               emailAddress: emailRef.current,
-              itemTotal: subtotaltRef.current,
+              itemTotal: subtotalRef.current,
               shipping: shippingRef.current,
               items: productsInCartRef.current
             };

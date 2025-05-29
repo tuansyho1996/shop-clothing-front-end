@@ -20,7 +20,7 @@ const Banner = async () => {
         <h1 className="font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
           Carnobon — Ancient Myths, Modern Comfort
         </h1>
-        <Link href="/shop/1">
+        <Link href="/shop">
           <button
             className="mt-4 px-4 pt-1 pb-2 md:px-8 md:pt-2 md:pb-3 font-bold text-md rounded-md md:text-xl bg-accent-color hover:text-black"
           >

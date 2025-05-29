@@ -2,7 +2,7 @@ import Banner from "@/components/page_home/home.banner";
 import BestSelling from "@/components/page_home/home.section.best.selling"
 import ListCategory from "@/components/page_home/home.section.list.category";
 import { getProduct } from "@/services/service.product";
-import NewProducts from "@/components/page_home/home.new.products";
+import ListNewProducts from "@/components/new_product/list.new.product";
 import Link from "next/link";
 
 export const metadata = {
@@ -52,14 +52,9 @@ export default async function Page() {
         <BestSelling />
       </section>
       <ListCategory />
-      <section className="container mx-auto ">
+      <section className="container mx-auto mb-5">
         <h2 className="font-medium text-[1.5rem] px-4">New Arrivals from Myth & Legend</h2>
-        <NewProducts products={products} />
-        <div className="w-full flex justify-end">
-          <button className=" text-[var(--primary-color)] hover:text-[var(--accent-color)] underline my-4">
-            <Link href="/shop/1">See All</Link>
-          </button>
-        </div>
+        <ListNewProducts />
       </section>
     </main >
   );

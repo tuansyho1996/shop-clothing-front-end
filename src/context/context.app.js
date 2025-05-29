@@ -13,7 +13,7 @@ export function AppProvider({ children }) {
   const [subtotal, setSubtotal] = useState(0.00)
   const [shipping, setShipping] = useState(0.00)
   const [user, setUser] = useState(null)
-  const subtotaltRef = useRef(subtotal);
+  const subtotalRef = useRef(subtotal);
   const shippingRef = useRef(shipping);
   const productsInCartRef = useRef(productsInCart)
   const [reviews, setReviews] = useState('')
@@ -36,9 +36,7 @@ export function AppProvider({ children }) {
     const newSubTotal = productsInCart.reduce((acc, el) => acc + (el.product_count * el.product_price), 0)
     setSubtotal(newSubTotal)
   }, [productsInCart])
-  useEffect(() => {
-    subtotaltRef.current = subtotal;
-  }, [subtotal]);
+
 
   useEffect(() => {
     shippingRef.current = shipping;
@@ -50,12 +48,22 @@ export function AppProvider({ children }) {
     const getGlobals = async () => {
       const res = await getGlobal('all')
       const globals_shipping = res.find((item) => item.global_name === 'shipping_fee')
-      setShipping(parseFloat(globals_shipping?.global_value))
+      if (subtotalRef.current < 100) {
+        setShipping(parseFloat(globals_shipping?.global_value))
+      }
       setGlobals(res)
     }
     getGlobals()
   }, [])
-
+  useEffect(() => {
+    subtotalRef.current = subtotal;
+    if (subtotal > 100) {
+      setShipping(0)
+    } else {
+      const globals_shipping = globals.find((item) => item.global_name === 'shipping_fee')
+      setShipping(parseFloat(globals_shipping?.global_value))
+    }
+  }, [subtotal]);
   const isInitialRender = useRef(true);
   useEffect(() => {
     if (isInitialRender.current) {
@@ -67,7 +75,7 @@ export function AppProvider({ children }) {
   return (
     <AppContext.Provider value={{
       user, setUser, currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, productsInCartRef,
-      isDrawerOpen, setDrawerOpen, subtotal, subtotaltRef, shippingRef, shipping, reviews, setReviews, globals, bestProducts, setBestProducts
+      isDrawerOpen, setDrawerOpen, subtotal, subtotalRef, shippingRef, shipping, reviews, setReviews, globals, bestProducts, setBestProducts
     }}>
       {children}
     </AppContext.Provider>

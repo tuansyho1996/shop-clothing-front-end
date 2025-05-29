@@ -1,9 +1,9 @@
 import CategoryList from '@/components/page_home/home.section.list.category';
-import NewProducts from '@/components/page_home/home.new.products';
 import { getProductShop } from '@/services/service.product';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Link from 'next/link';
+import ListNewProducts from '@/components/new_product/list.new.product';
 export async function generateMetadata({ params }) {
     const pageNumber = params.slug || '1';
 
@@ -29,7 +29,7 @@ const Shop = async ({ params }) => {
             </section>
             <section id='new-products' className="mb-12">
                 <h2 className="text-2xl font-semibold mb-4">New Products</h2>
-                <NewProducts products={products} />
+                <ListNewProducts />
                 <div className="flex justify-between mt-6 ">
                     {hasPrevPage ? (
                         <Link href={`/shop/${currentPage - 1}#new-products`} className="text-[var(--primary-color)] hover:text-[var(--accent-color)] text-xl underline">
