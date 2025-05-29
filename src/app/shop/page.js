@@ -8,10 +8,10 @@ export async function generateMetadata({ params }) {
     const pageNumber = params.slug || '1';
 
     return {
-        title: `Shop - Page ${pageNumber}`,
-        description: `Browse our latest products - page ${pageNumber}.`,
+        title: `Shop - Ancient Myths, Modern Comfort | Myth-Inspired Fashion for Today`,
+        description: `Discover timeless style with our mythology-inspired clothing. Fusing ancient legends with modern comfort, our apparel brings Norse, Greek, and Egyptian myths to life in everyday wear.`,
         alternates: {
-            canonical: `https://carnobon.com/shop/${pageNumber}`,
+            canonical: `https://carnobon.com/shop`,
         },
     };
 }
