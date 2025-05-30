@@ -22,8 +22,6 @@ export async function getProductWithMetadata(slug) {
                 images: [
                     {
                         url: image,
-                        width: 600,
-                        height: 800,
                         alt: title,
                     },
                 ],

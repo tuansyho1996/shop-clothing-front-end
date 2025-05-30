@@ -4,7 +4,6 @@ import { getProductsOfCategory } from "@/services/service.product";
 
 const getProductOfCategories = async (slug, limit = 12, page = 1) => {
     const res = await getProductsOfCategory(slug, limit, page);
-    console.log(res);
     return res;
 }
 const getCategories = async (slug) => {

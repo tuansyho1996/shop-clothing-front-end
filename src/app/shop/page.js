@@ -1,6 +1,6 @@
 import CategoryList from '@/components/page_home/home.section.list.category';
 import ListNewProducts from '@/components/new_product/list.new.product';
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
 
     return {
         title: `Shop - Ancient Myths, Modern Comfort | Myth-Inspired Fashion for Today`,
@@ -10,7 +10,7 @@ export async function generateMetadata({ params }) {
         },
     };
 }
-const Shop = async ({ params }) => {
+const Shop = async () => {
 
 
     return (
