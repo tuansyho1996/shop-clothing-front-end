@@ -22,14 +22,13 @@ const ProductsListCategories = ({ slug }) => {
 
     return (
         <>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {products?.length > 0 ? (
                     products?.map((product) => (
                         <ProductCard key={product._id} product={product} />
                     ))
                 ) : (
-                    <p>No products available</p>
+                    <p className="px-4">No products available</p>
                 )}
                 {/* Pagination buttons */}
 
