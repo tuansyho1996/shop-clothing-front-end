@@ -35,7 +35,8 @@ export default async function Page({ params }) {
             "url": `https://carnobon.com/product/${product.product_slug}`,
             "priceCurrency": "USD",
             "price": product?.product_price?.toFixed(2),
-            "availability": "https://schema.org/InStock"
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-12-31"
         }
     }
     // Mock Product Data (Replace with actual data fetching)
