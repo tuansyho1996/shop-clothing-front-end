@@ -31,6 +31,8 @@ const menu = [
                     { name: "Pant", href: '/category/asgardian-elegance&women&pant' },
                     { name: "Sweatshirt", href: '/category/asgardian-elegance&women&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/asgardian-elegance&men&hooded-vest' },
+                    { name: "Short Pant", href: '/category/asgardian-elegance&women&short-pant' },
+
                 ]
             },
             {
@@ -42,6 +44,8 @@ const menu = [
                     { name: "Pant", href: '/category/asgardian-elegance&unisex&pant' },
                     { name: "Sweatshirt", href: '/category/asgardian-elegance&unisex&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/asgardian-elegance&unisex&hooded-vest' },
+                    { name: "Short Pant", href: '/category/asgardian-elegance&unisex&short-pant' },
+
                 ]
             },
             {
@@ -100,6 +104,8 @@ const menu = [
                     { href: '/category/pharaoh-legacy&women&pant', name: "Pant" },
                     { href: '/category/pharaoh-legacy&women&sweat-shirt', name: "Sweatshirt" },
                     { href: '/category/pharaoh-legacy&women&hooded-vest', name: "Hooded Vest" },
+                    { href: '/category/pharaoh-legacy&women&short-pant', name: "Short Pant" },
+
                 ]
             },
             {
@@ -111,6 +117,9 @@ const menu = [
                     { href: '/category/pharaoh-legacy&unisex&pant', name: "Pant" },
                     { href: '/category/pharaoh-legacy&unisex&sweat-shirt', name: "Sweatshirt" },
                     { href: '/category/pharaoh-legacy&unisex&hooded-vest', name: "Hooded Vest" },
+                    { href: '/category/pharaoh-legacy&unisex&short-pant', name: "Short Pant" },
+
+
                 ]
             },
             {
@@ -169,6 +178,8 @@ const menu = [
                     { name: "Pant", href: '/category/olympian-thread&women&pant' },
                     { name: "Sweatshirt", href: '/category/olympian-thread&women&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/olympian-thread&women&hooded-vest' },
+                    { name: "Short Pant", href: '/category/olympian-thread&women&short-pant' },
+
                 ]
             },
             {
@@ -180,6 +191,8 @@ const menu = [
                     { name: "Pant", href: '/category/olympian-thread&unisex&pant' },
                     { name: "Sweatshirt", href: '/category/olympian-thread&unisex&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/olympian-thread&unisex&hooded-vest' },
+                    { name: "Short Pant", href: '/category/olympian-thread&unisex&short-pant' },
+
                 ]
             },
             {

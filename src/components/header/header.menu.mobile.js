@@ -176,6 +176,7 @@ const menu = [
                     { name: "Pant", href: '/category/olympian-thread&women&pant' },
                     { name: "Sweatshirt", href: '/category/olympian-thread&women&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/olympian-thread&women&hooded-vest' },
+                    { name: "Short Pant", href: '/category/olympian-thread&women&short-pant' },
                 ]
             },
             {
@@ -187,6 +188,7 @@ const menu = [
                     { name: "Pant", href: '/category/olympian-thread&unisex&pant' },
                     { name: "Sweatshirt", href: '/category/olympian-thread&unisex&sweatshirt' },
                     { name: "Hooded Vest", href: '/category/olympian-thread&unisex&hooded-vest' },
+                    { name: "Short Pant", href: '/category/olympian-thread&unisex&short-pant' },
                 ]
             },
             {

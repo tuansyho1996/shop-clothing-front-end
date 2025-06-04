@@ -40,7 +40,7 @@ const ListNewProduct = () => {
                                 section?.scrollIntoView({ behavior: "smooth" });
                             }}
                             className={`px-4 py-2 rounded ${page === i + 1
-                                ? "bg-blue-600 text-white"
+                                ? `bg-[var(--primary-color)] text-white`
                                 : "bg-gray-200 hover:bg-gray-300"
                                 }`}
                         >
