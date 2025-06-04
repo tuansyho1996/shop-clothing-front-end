@@ -10,6 +10,7 @@ import KidTShirt from "@/components/page_product/modal_size_guide/size.kid.t.shi
 import KidSweatshirt from "@/components/page_product/modal_size_guide/size.kid.sweatshirt";
 import KidPant from "@/components/page_product/modal_size_guide/size.kid.pant";
 import KidZipHoodie from "@/components/page_product/modal_size_guide/size.kid.zip.up.hoodie";
+import UnisexShortPant from "@/components/page_product/modal_size_guide/size.unisex.sort.pant";
 
 const Zising = () => {
     return (
@@ -29,6 +30,9 @@ const Zising = () => {
             <hr className="border-t border-gray-300 my-5" />
             <p className="text-lg mb-4">Unisex Pant</p>
             <UnisexPant />
+            <hr className="border-t border-gray-300 my-5" />
+            <p className="text-lg mb-4">Unisex Short Pant</p>
+            <UnisexShortPant />
             <hr className="border-t border-gray-300 my-5" />
             <p className="text-lg mb-4">Men's T-shirt</p>
             <MenTShirt />

@@ -52,7 +52,7 @@ export default async function Page() {
         <BestSelling />
       </section>
       <ListCategory />
-      <section className="container mx-auto mb-5">
+      <section id="new-products" className="container mx-auto mb-5">
         <h2 className="font-medium text-[1.5rem] px-4">New Arrivals from Myth & Legend</h2>
         <ListNewProducts />
       </section>

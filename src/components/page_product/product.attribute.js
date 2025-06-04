@@ -18,7 +18,62 @@ const colorsObject = [
   { name: "black", hex: "#000000" },
   { name: "white", hex: "#ffffff" }, //
 ]
-const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
+// const sizeDefault = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
+const listSizes = [
+  {
+    name: ['unisex', 'hoodie'],
+    values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"]
+  },
+  {
+    name: ['unisex', 'zip-hoodie'],
+    values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"]
+  },
+  {
+    name: ['unisex', 'sweatshirt'],
+    values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+  },
+  {
+    name: ['unisex', 'hooded-vest'],
+    values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+  },
+  {
+    name: ['unisex', 'pant'],
+    values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+  },
+  {
+    name: ['unisex', 'short-pant'],
+    values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+  },
+  {
+    name: ['men', 't-shirt'],
+    values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+  },
+  {
+    name: ['women', 't-shirt'],
+    values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL", "8XL", "9XL"]
+  },
+  {
+    name: ['kid', 'hoodie'],
+    values: ["S", "M", "L", "XL", "2XL", "3XL",]
+  },
+  {
+    name: ['kid', 't-shirt'],
+    values: ["XS", "S", "M", "L", "XL", "2XL",]
+  },
+  {
+    name: ['kid', 'sweatshirt'],
+    values: ["S", "M", "L", "XL", "2XL", "3XL",]
+  },
+  {
+    name: ['kid', 'zip-hoodie'],
+    values: ["S", "M", "L", "XL", "2XL", "3XL",]
+  },
+  {
+    name: ['kid', 'pant'],
+    values: ["S", "M", "L", "XL", "2XL", "3XL",]
+  },
+]
+
 
 const ProductAttribute = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState("");
@@ -26,9 +81,14 @@ const ProductAttribute = ({ product }) => {
   const [quantity, setQuantity] = useState(1)
   const { setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, setDrawerOpen } = useContext(AppContext)
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sizes, setSizes] = useState([]);
   useEffect(() => {
     setCurrentColor(product?.product_colors[0])
-    setSelectedSize(sizes[0])
+    const findSize = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))
+    if (findSize) {
+      setSizes(findSize.values)
+    }
+    // setSelectedSize(sizeDefault[0])
   }, [])
   useEffect(() => {
     const colorOject = colorsObject.find(el => el.hex === currentColor)
