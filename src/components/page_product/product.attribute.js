@@ -87,10 +87,12 @@ const ProductAttribute = ({ product }) => {
     const findSize = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))
     if (findSize) {
       setSizes(findSize.values)
+      setSelectedSize(findSize.values[0])
+
     } else {
       setSizes(["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]);
+      setSelectedSize("S");
     }
-    // setSelectedSize(sizeDefault[0])
   }, [])
   useEffect(() => {
     const colorOject = colorsObject.find(el => el.hex === currentColor)
