@@ -5,20 +5,20 @@ import Modal from "@/components/page_product/product.modal.size.guide";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 const colorsObject = [
-  { name: "Charcoal", hex: "#333333" },
   { name: "Midnight Blue", hex: "#2C3E50" }, //
-  { name: "Deep Olive", hex: "#3B5323" },
   { name: "Steel Blue", hex: "#4682B4" }, //
   { name: "Dark Slate", hex: "#2F4F4F" }, //
-  { name: "Burnt Umber", hex: "#8A3324" },
   { name: "Wine", hex: "#722F37" }, //
   { name: "Forest Green", hex: "#2E4E3F" }, //
-  { name: "Gunmetal", hex: "#2A3439" },
   { name: "Smoky Gray", hex: "#505050" }, //
   { name: "black", hex: "#000000" },
   { name: "white", hex: "#ffffff" }, //
+  { code: "Light Gray", hex: "#D3D3D3" }, // Light Gray
+  { code: "Platinum", hex: "#E5E4E2" }, // Platinum
+  { code: "Champagne", hex: "#F7E7CE" }, // Champagne
+  { code: "Lavender Gray", hex: "#C4C3D0" }, // Lavender Gray
+  { code: "Powder Blue", hex: "#B0E0E6" }, // Powder Blue
 ]
-// const sizeDefault = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
 const listSizes = [
   {
     name: ['unisex', 'hoodie'],
@@ -87,6 +87,8 @@ const ProductAttribute = ({ product }) => {
     const findSize = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))
     if (findSize) {
       setSizes(findSize.values)
+    } else {
+      setSizes(["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]);
     }
     // setSelectedSize(sizeDefault[0])
   }, [])
