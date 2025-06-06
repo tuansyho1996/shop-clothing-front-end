@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Hoodie = () => {
+const UnisexHoodie = () => {
     return (
         <div className="overflow-x-auto">
             <Image
@@ -152,4 +152,4 @@ const Hoodie = () => {
         </div>
     );
 }
-export default Hoodie;
+export default UnisexHoodie;

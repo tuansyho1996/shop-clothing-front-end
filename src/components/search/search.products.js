@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { getAllProducts } from '@/services/service.product';
+import { getProduct } from '@/services/service.product';
 import ModalSearch from './modal.search';
 import Search from '@mui/icons-material/Search';
 import { useRouter } from 'next/navigation';
@@ -22,13 +22,7 @@ const SearchAppBar = () => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, []);
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const products = await getAllProducts();
-            setProducts(products);
-        };
-        fetchProducts();
+        handleKeyDown()
     }, []);
     useEffect(() => {
         if (textSearch.length > 0) {
@@ -37,12 +31,26 @@ const SearchAppBar = () => {
             setIsSearching(false);
         }
     }, [textSearch]);
-    const handleChange = (event) => {
-        setTextSearch(event.target.value);
-        const filteredProducts = products.filter((product) =>
-            product.product_name.toLowerCase().includes(event.target.value.toLowerCase())
-        );
-        setSearchResults(filteredProducts);
+    const handleChange = async (event) => {
+        const value = event.target.value;
+        setTextSearch(value);
+
+        if (products.length === 0) {
+            // Chờ fetch xong
+            const response = await getProduct('all');
+            setProducts(response);
+
+            const filtered = response.filter((product) =>
+                product.product_name.toLowerCase().includes(value.toLowerCase())
+            );
+            setSearchResults(filtered);
+        } else {
+            // Đã có product → lọc luôn
+            const filtered = products.filter((product) =>
+                product.product_name.toLowerCase().includes(value.toLowerCase())
+            );
+            setSearchResults(filtered);
+        }
     };
     const searching = () => {
         if (textSearch.trim().length > 0) {
@@ -56,29 +64,7 @@ const SearchAppBar = () => {
             searching();
         }
     };
-    // const handleClick = () => {
-    //     // Handle search logic here
-    //     setIsSearching(true);
-    // };
-    // const handleClear = () => {
-    //     setTextSearch('');
-    // };
-    // const handleFocus = () => {
-    //     // Handle focus logic here
-    //     console.log('Input focused');
-    // };
-    // const handleBlur = () => {
-    //     // Handle blur logic here
-    //     console.log('Input blurred');
-    // };
-    // const handleMouseEnter = () => {
-    //     // Handle mouse enter logic here
-    //     console.log('Mouse entered');
-    // };
-    // const handleMouseLeave = () => {
-    //     // Handle mouse leave logic here
-    //     console.log('Mouse left');
-    // };
+
     return (
         <>
             <div className="flex-grow relative search-bar" ref={searchBarRef}>
@@ -87,14 +73,9 @@ const SearchAppBar = () => {
                     placeholder="Search..."
                     value={textSearch}
                     onChange={(e) => handleChange(e)}
-                    onKeyDown={handleKeyDown}
+                    onKeyDown={(event) => handleKeyDown(event)}
                     autoComplete="off"
-                    // onClick={handleClick}
-                    // onFocus={handleFocus}
-                    // onBlur={handleBlur}
-                    // onMouseEnter={handleMouseEnter}
-                    // onMouseLeave={handleMouseLeave}
-                    // onClear={handleClear}
+
                     className="w-full border border-gray-300 rounded-full px-4 py-2 outline-none"
                 />
                 {
@@ -102,7 +83,7 @@ const SearchAppBar = () => {
                     <button
                         type="button"
                         onClick={() => setTextSearch("")}
-                        className="absolute right-8 top-[10px] z-50"
+                        className="absolute right-8 top-[10px] "
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +100,7 @@ const SearchAppBar = () => {
                     </button>
                 }
 
-                <button type="button" className="absolute right-2 top-2 z-50" onClick={() => searching()}>
+                <button type="button" className="absolute right-2 top-2 " onClick={() => searching()}>
                     <Search className="text-gray-500" />
                 </button>
                 {

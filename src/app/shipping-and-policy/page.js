@@ -21,7 +21,7 @@ const ShippingPolicy = () => {
                 <h3 className="text-xl font-medium mb-2">Incorrect Address</h3>
                 <p>We'd be happy to send you another order to the correct address, however, it will have to be at your cost.</p>
                 <h3 className="text-xl font-medium mt-4 mb-2">Correct Address</h3>
-                <p>If your address is correct and your package is lost in the mail, please contact USPS. If USPS is unable to locate the package, get in touch with our Support Team at <a href="mailto:support@100mph.cc" className="text-blue-600 underline">support@100mph.cc</a> within 4 weeks of the expected delivery date. Let us know your order number and we'll take care of you!</p>
+                <p>If your address is correct and your package is lost in the mail, please contact USPS. If USPS is unable to locate the package, get in touch with our Support Team at <a href="mailto:carnobon.service@gmail.com" className="text-blue-600 underline">carnobon.service@gmail.com</a> within 4 weeks of the expected delivery date. Let us know your order number and we'll take care of you!</p>
 
                 <p className="mt-4"><strong>Please Note:</strong> If tracking information states your order was delivered to the correct address but you did not receive it, you will need to contact USPS directly to resolve.</p>
             </section>
@@ -38,7 +38,7 @@ const ShippingPolicy = () => {
 
                 <p className="mt-4">Once pictures of your item(s) issue are received and inspected, we will notify you of the approval or rejection of your reshipment. Then, we will send you an email to notify you that a reshipment has been processed and the replacement is on its way.</p>
 
-                <p className="mt-4">Please do not send your purchase back without talking to the 100MPH support team.</p>
+                <p className="mt-4">Please do not send your purchase back without talking to the Carnobon support team.</p>
             </section>
 
             <section className="mb-8">
@@ -52,7 +52,7 @@ const ShippingPolicy = () => {
             <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4">Late or Missing Refunds</h2>
                 <p>If you haven’t received a refund yet after receiving confirmation from our team, first check your bank account again. Next, contact your bank. There is often some processing time before a refund is posted (5-10 business days, depending on your banking institution).</p>
-                <p className="mt-4">If you’ve done all of this and you still have not received your refund yet, please contact us at <a href="mailto:support@100mph.cc" className="text-blue-600 underline">support@100mph.cc</a>.</p>
+                <p className="mt-4">If you’ve done all of this and you still have not received your refund yet, please contact us at <a href="mailto:carnobon.service@gmail.com" className="text-blue-600 underline">carnobon.service@gmail.com</a>.</p>
             </section>
         </div>
     );

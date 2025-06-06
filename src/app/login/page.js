@@ -28,7 +28,6 @@ export default function LoginForm() {
     setError(null);
     return true;
   };
-  console.log(error)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);

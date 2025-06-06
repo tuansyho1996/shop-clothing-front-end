@@ -40,7 +40,7 @@ export default function Delivery({ isPhone = true }) {
     setCurrentCountry(countryState.find(el => el?.name === country))
     setFlagCurrent(countryState.find(el => el?.name === country).iso2)
     setCurrentPhoneCode(`${countryState.find(el => el?.name === country).phone_code}`)
-    setState(countryState.find(el => el?.name === country)?.states[0].name)
+    setState(countryState.find(el => el?.name === country)?.states[0]?.name)
   }, [country])
   useEffect(() => {
     setCurrentPhoneCode(`${countryState.find(el => el?.iso2 === flagCurrent).phone_code}`)
@@ -51,7 +51,6 @@ export default function Delivery({ isPhone = true }) {
   return (
     <form>
       <div className='mb-4'>
-        <div className="text-lg font-semibold mb-2 uppercase">Contact</div>
         <p className="text-red-500 text-sm">{formErrors.email}</p>
         <CustomInput value={email} type="email" placeholder='Email' label='Email' handleChangeValue={(e) => setEmail(e)} />
         <hr className='mt-4' />
@@ -157,14 +156,16 @@ export default function Delivery({ isPhone = true }) {
             </span>
             <div className='w-[70px] relative '>
               <div className='flex'>
-                <Image
-                  src={`https://flagcdn.com/w40/${flagCurrent.toLowerCase()}.png`}
-                  width={40}
-                  height={40}
-                  style={{ width: 'auto', height: '100%' }} // Ensure width is auto to maintain aspect ratio
-                  loading='lazy'
-                  alt=''
-                />
+                <div style={{ width: 40, height: 'auto', position: 'relative' }}>
+                  <Image
+                    src={`https://flagcdn.com/w40/${flagCurrent.toLowerCase()}.png`}
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    alt=""
+                    sizes='40px'
+                    loading="lazy"
+                  />
+                </div>
                 <KeyboardArrowDownIcon fontSize='small' />
               </div>
               <select
@@ -184,7 +185,6 @@ export default function Delivery({ isPhone = true }) {
             </div>
           </div >
         </div>
-
       }
     </form>
   );

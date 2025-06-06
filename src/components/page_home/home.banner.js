@@ -1,31 +1,32 @@
 // components/Banner.js
+import { getGlobal } from '@/services/service.global';
 import Image from 'next/image';
+import Link from 'next/link';
 
-const Banner = () => {
+const Banner = async () => {
   return (
     <div className="relative bg-gradient-to-r from-black to-gray-900 text-white h-[30vh] md:h-[50vh] lg:h-[75vh] w-full">
       <Image
-        src="https://d2jfx0w9sp915a.cloudfront.net/094ce9c37b9199910b6c649f81104fd5"
-        alt="Banner Image"
+        src="https://d2jfx0w9sp915a.cloudfront.net/8c4b9a0533340b84e62db527ad166b14"
+        alt="Norse mythology inspired cotton t-shirt"
         fill
-        style={{ objectFit: 'contain' }}
-        sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 25vw"
-        loading="lazy"
+        className="object-contain"
+        sizes="100vw"
+        priority={true}
       />
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-black opacity-30"></div>
       <div className="relative z-0 flex flex-col justify-center items-center h-full space-y-4 px-4 text-center">
         {/* Mobile First Approach */}
         <h1 className="font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
-          Discover Our Latest Collection
+          Carnobon — Ancient Myths, Modern Comfort
         </h1>
-        <h2 className="font-light text-base md:text-lg lg:text-xl">
-          Fashion that defines you.
-        </h2>
-        <button
-          className="mt-4 px-4 pt-1 pb-2 md:px-8 md:pt-2 md:pb-3 font-bold text-md rounded-md md:text-xl bg-accent-color hover:text-black"
-        >
-          Shop Now
-        </button>
+        <Link href="/shop">
+          <button
+            className="mt-4 px-4 pt-1 pb-2 md:px-8 md:pt-2 md:pb-3 font-bold text-md rounded-md md:text-xl bg-accent-color hover:text-black"
+          >
+            Shop Now
+          </button>
+        </Link>
       </div>
     </div>
   );

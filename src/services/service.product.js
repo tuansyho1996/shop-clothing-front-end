@@ -9,21 +9,32 @@ const fetcher = async (endpoint, options = {}) => {
 };
 
 
-const getAllProducts = async () => {
-  try {
-    const response = await fetcher(`/api/product/all`, { cache: "no-cache" });
-    if (!response.status === 200) {
-      return null
-    }
-    return response.metadata
-  } catch (error) {
-    console.error(error)
-  }
-}
-
 const getProduct = async (slug = 'all') => {
   try {
-    const response = await fetcher(`/api/product/${slug}`);
+    const response = await fetcher(`/api/product/${slug}`, { cache: "no-cache" });
+    if (!response.status === 200) {
+      return null
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
+const getProductShop = async (page) => {
+  try {
+    const query = new URLSearchParams({ page }).toString();
+    const response = await fetcher(`/api/product/shop?${query}`, { cache: 'no-cache' });
+    if (!response.status === 200) {
+      return null
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
+const getProductBestSelling = async (slug) => {
+  try {
+    const response = await fetcher(`/api/product/best-seller`, { cache: 'no-cache' });
     if (!response.status === 200) {
       return null
     }
@@ -33,9 +44,10 @@ const getProduct = async (slug = 'all') => {
   }
 }
 
-const getProductsOfCategory = async (slug) => {
+const getProductsOfCategory = async (slug, limit, page) => {
   try {
-    const response = await fetcher(`/api/product-category/${slug}`, { cache: 'no-cache' });
+    const query = new URLSearchParams({ limit, page }).toString();
+    const response = await fetcher(`/api/product-category/${slug}?${query}`, { cache: 'no-cache' });
     if (!response.status === 200) {
       return null
     }
@@ -44,20 +56,12 @@ const getProductsOfCategory = async (slug) => {
     console.error(error)
   }
 }
-const getCategory = async (slug) => {
-  try {
-    const response = await fetcher(`/api/product/${slug}`);
-    if (!response.status === 200) {
-      return null
-    }
-    return response.metadata
-  } catch (error) {
-    console.error(error)
-  }
-}
+
 
 export {
-  getAllProducts,
+  getProductShop,
   getProduct,
-  getProductsOfCategory
+  getProductsOfCategory,
+  getProductBestSelling
 }
+

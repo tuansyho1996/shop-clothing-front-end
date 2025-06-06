@@ -1,13 +1,18 @@
 import Image from "next/image";
-import Hooded from "./modal_size_guide/size.hooded";
+import Hooded from "./modal_size_guide/size.unisex.hooded";
 import WomenTShirt from "./modal_size_guide/size.women.t.shirt";
 import MenTShirt from "./modal_size_guide/size.men.t.shirt";
-import Hoodie from "./modal_size_guide/size.hoodie.unisex";
+import Hoodie from "./modal_size_guide/size.unisex.hoodie";
 import UnisexPant from "./modal_size_guide/size.unisex.pant";
 import UnisexSweatshirt from "./modal_size_guide/size.unisex.sweatshirt";
-import UnisexShortPant from "./modal_size_guide/size.men.short.pant";
 import KidZipUpHoodie from "./modal_size_guide/size.kid.zip.up.hoodie";
 import UnisexZipUpHoodie from "./modal_size_guide/size.unisex.zip.up.hoodie";
+import KidHoodie from "./modal_size_guide/size.kid.hoodie";
+import CloseIcon from '@mui/icons-material/Close';
+import KidSweatshirt from "./modal_size_guide/size.kid.sweatshirt";
+import KidTShirt from "./modal_size_guide/size.kid.t.shirt";
+import KidPant from "./modal_size_guide/size.kid.pant";
+import UnisexShortPant from "./modal_size_guide/size.unisex.sort.pant";
 const Modal = ({ isOpen, onClose, category, category_2 }) => {
     if (!isOpen) return null;
     const handleOverlayClick = (e) => {
@@ -18,21 +23,21 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
     return (
         <div
             id="modal-overlay"
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto"
             onClick={handleOverlayClick}
         >
-            <div className="bg-white rounded-lg p-6">
-                <div className="flex justify-between items-center px-5">
+            <div className="bg-white rounded-lg pb-5 px-1 w-full m-2">
+                <div className="flex justify-between items-center mt-10">
                     <h2 className="text-xl font-semibold ">Size Guide {`${category_2}'s ${category}`}</h2>
                     <button
                         onClick={onClose}
                         className="text-gray-500 hover:text-gray-700 focus:outline-none"
                     >
-                        ✕
+                        <CloseIcon />
                     </button>
                 </div>
 
-                <div className="p-4">
+                <div className="">
                     {category === 'Hooded Vest' && category_2 === 'Unisex' &&
                         <Hooded />
                     }
@@ -56,6 +61,24 @@ const Modal = ({ isOpen, onClose, category, category_2 }) => {
                     }
                     {category === 'Zip Hoodie' && category_2 === 'Unisex' &&
                         <UnisexZipUpHoodie />
+                    }
+                    {category === 'Hoodie' && category_2 === 'Kid' &&
+                        <KidHoodie />
+                    }
+                    {category === 'Sweatshirt' && category_2 === 'Kid' &&
+                        <KidSweatshirt />
+                    }
+                    {category === 'T-Shirt' && category_2 === 'Kid' &&
+                        <KidTShirt />
+                    }
+
+                    {
+                        category == 'Pant' && category_2 === 'Kid' &&
+                        <KidPant />
+                    }
+                    {
+                        category == 'Short Pant' && category_2 === 'Unisex' &&
+                        <UnisexShortPant />
                     }
                 </div>
             </div>

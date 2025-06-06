@@ -1,4 +1,3 @@
-import Search from '@mui/icons-material/Search';
 import Link from 'next/link';
 import Image from 'next/image';
 import MenuDesktop from './header.menu.desktop';
@@ -8,8 +7,7 @@ import AccountMenu from '../ui/account.menu.destop';
 import SearchAppBar from '../search/search.products';
 
 
-const Header = () => {
-
+const Header = async () => {
   return (
     <header className="w-full bg-white shadow">
       {/* Top Section */}
@@ -18,12 +16,12 @@ const Header = () => {
         <div className="flex items-center ml-4">
           <Link href="/" className="text-3xl font-bold ">
             <Image
-              src="https://d2jfx0w9sp915a.cloudfront.net/b09ccccc0558098469fa99ebd30e2d60"
+              src='https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a'
               alt="Logo"
               width={70}
               height={70}
               style={{ width: 'auto', height: 'auto' }}
-              loading='lazy'
+              priority
             />
           </Link>
         </div>

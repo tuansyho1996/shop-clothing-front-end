@@ -7,7 +7,7 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     if (paymentId && PayerID) {
-      fetch('http://localhost:5000/api/execute-payment', {
+      fetch(`${process.env.NEXT_PUBLIC_BACK_END_URL}/api/execute-payment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ paymentId, PayerID }),

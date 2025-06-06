@@ -1,11 +1,24 @@
 // components/Footer.js
+'use client';
 import Link from 'next/link';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import XIcon from '@mui/icons-material/X';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import { AppContext } from '@/context/context.app';
+import { useContext } from 'react';
 
 const Footer = () => {
+  const { globals } = useContext(AppContext);
+
+  const faceboolk = globals?.find((item) => item.global_name === 'facebook')
+  const youtube = globals?.find((item) => item.global_name === 'youtube')
+  const instagram = globals?.find((item) => item.global_name === 'instagram')
+  const twitter = globals?.find((item) => item.global_name === 'twitter')
   return (
     <footer className="bg-gray-100 py-10 border-t">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center text-center md:text-left">
           {/* About Column */}
           <div>
             <h2 className="mb-4 text-lg text-gray-800 font-semibold">General</h2>
@@ -25,9 +38,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/blog">
+                <Link href="/blogs">
                   <button className="text-gray-600 hover:text-gray-800">
-                    Blog
+                    Blogs
                   </button>
                 </Link>
               </li>
@@ -66,45 +79,60 @@ const Footer = () => {
             <h2 className="mb-4 text-lg text-gray-800 font-semibold">Quick shop</h2>
             <ul className="space-y-2">
               <li>
-                <Link href="/category/norse-legends">
+                <Link href="/category/asgardian-elegance">
                   <button className="text-gray-600 hover:text-gray-800">
-                    Norse Legends
+                    Asgardian Elegance
                   </button>
                 </Link>
               </li>
               <li>
-                <Link href="/category/egyptian-mystique">
+                <Link href="/category/pharaoh-legacy">
                   <button className="text-gray-600 hover:text-gray-800">
-                    Egyptian Mystique
+                    Pharaoh's Legacy
                   </button>
                 </Link>
               </li>
               <li>
-                <Link href="/category/greek-epics">
+                <Link href="/category/olympian-thread">
                   <button className="text-gray-600 hover:text-gray-800">
-                    Greek Epics
+                    Olympian Thread
                   </button>
                 </Link>
               </li>
             </ul>
           </div>
-
           {/* Contact us Column */}
           <div>
             <h2 className="mb-4 text-lg text-gray-800 font-semibold">
               Contact us
             </h2>
-            <ul className="space-y-2">
+            <ul className="flex gap-4">
               <li>
-                <Link href="/info/contact">
-                  <button className="text-gray-600 hover:text-gray-800">
-                    Contact Us
-                  </button>
-                </Link>
+                <a href={`${faceboolk?.global_value}`} target="_blank">
+                  <FacebookIcon className="text-gray-600 hover:text-gray-800" />
+                </a>
+              </li>
+              <li>
+                <a href={`${twitter?.global_value}`} target="_blank">
+                  <XIcon className="text-gray-600 hover:text-gray-800" />
+                </a>
+              </li>
+              <li>
+                <a href={`${youtube?.global_value}`} target="_blank">
+                  <YouTubeIcon className="text-gray-600 hover:text-gray-800" />
+                </a>
+              </li>
+              <li>
+                <a href={`${instagram?.global_value}`} target="_blank">
+                  <InstagramIcon className="text-gray-600 hover:text-gray-800" />
+                </a>
               </li>
             </ul>
           </div>
         </div>
+        <p className="text-center text-sm text-gray-500 mt-5">
+          COPYRIGHT © 2025 CARNOBOΝ™. All rights reserved.
+        </p>
       </div>
     </footer>
   );

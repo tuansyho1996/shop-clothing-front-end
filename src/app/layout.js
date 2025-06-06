@@ -12,7 +12,9 @@ const openSans = Open_Sans({
   weight: ['300', '600', '700'],
 });
 
+
 export default function RootLayout({ children }) {
+
   return (
     <AppProvider>
       <html lang="en">

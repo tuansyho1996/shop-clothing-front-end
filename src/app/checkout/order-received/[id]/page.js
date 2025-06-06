@@ -29,7 +29,7 @@ export default async function OrderRecieved({ params }) {
               }
               <tr>
                 <td className="p-2">Subtotal:</td>
-                <td className="p-2 text-right font-bold">${subtotal}</td>
+                <td className="p-2 text-right font-bold">${subtotal.toFixed(2)}</td>
               </tr>
               <tr>
                 <td className="p-2">Shipping:</td>
@@ -41,7 +41,7 @@ export default async function OrderRecieved({ params }) {
               </tr>
               <tr>
                 <td className="p-2 font-bold">Total:</td>
-                <td className="p-2 text-right font-bold">${subtotal + res?.order_info_customer?.shipping}</td>
+                <td className="p-2 text-right font-bold">${(subtotal + res?.order_info_customer?.shipping).toFixed(2)}</td>
               </tr>
             </tbody>
           </table>
@@ -58,14 +58,14 @@ export default async function OrderRecieved({ params }) {
               <p>{res?.order_info_customer?.nationalNumber}</p>
               <p>{res?.order_info_customer?.emailAddress}</p>
             </div>
-            <div>
+            {/* <div>
               <h3 className="font-bold">Shipping address</h3>
               <p>John Doe</p>
               <p>1st</p>
               <p>ast</p>
               <p>San Jose, AL 22222</p>
               <p>United States (US)</p>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -75,9 +75,14 @@ export default async function OrderRecieved({ params }) {
             Thank you. Your order has been received.
           </h3>
           <ul className="space-y-2">
-            <li>
-              <strong>Order number:</strong> 71
-            </li>
+            {
+              res?.number_order && res?.number_order > 0 && (
+                <li>
+                  <strong>Order number:</strong> {res?.number_order}
+                </li>
+              )
+            }
+
             <li>
               <strong>Date:</strong> {res?.createdAt}
             </li>
@@ -85,10 +90,10 @@ export default async function OrderRecieved({ params }) {
               <strong>Email:</strong> {res?.order_info_customer?.emailAddress}
             </li>
             <li>
-              <strong>Total:</strong> ${subtotal + res?.order_info_customer?.shipping}
+              <strong>Total:</strong> ${(subtotal + res?.order_info_customer?.shipping).toFixed(2)}
             </li>
             <li>
-              <strong>Payment method:</strong> {res?.order_info?.payment_source?.paypal ? 'Paypala' : 'Credit card'}
+              <strong>Payment method:</strong> {res?.order_info?.payment_source?.paypal ? 'Paypal' : 'Credit card'}
             </li>
           </ul>
         </div>

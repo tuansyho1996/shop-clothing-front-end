@@ -8,15 +8,15 @@ export default function ImagesProduct({ product }) {
     const { currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor } = useContext(AppContext)
 
     useEffect(() => {
-        setCurrentImageDetail(product?.product_images[0])
+        setCurrentImageDetail(product.product_images[0])
         const copyProductColorImages = [...product.product_color_images]
         copyProductColorImages.shift()
-        setImagesProduct([...product?.product_images, ...copyProductColorImages])
+        setImagesProduct([...product.product_images, ...copyProductColorImages])
     }, [])
     const handleClickMultipleImages = (image) => {
-        const indexColorImage = product.product_color_images.findIndex(el => el === image)
+        const indexColorImage = product?.product_color_images.findIndex(el => el === image)
         if (indexColorImage !== -1) {
-            setCurrentColor(product.product_colors[indexColorImage])
+            setCurrentColor(product?.product_colors[indexColorImage])
         }
         setCurrentImageDetail(image)
     }
@@ -28,7 +28,7 @@ export default function ImagesProduct({ product }) {
                     alt={product?.product_name}
                     fill
                     style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100w, 50w"
                     // loading="lazy"
                     priority={true}
                 />
@@ -41,7 +41,7 @@ export default function ImagesProduct({ product }) {
                                 onClick={() => handleClickMultipleImages(image)}
                                 key={index}
                                 src={image}
-                                alt=''
+                                alt={`Image view ${index + 1} of ${product?.product_name}`}
                                 width={70}
                                 height={70}
                                 style={{ objectFit: 'cover', width: 'auto', height: 'auto' }}

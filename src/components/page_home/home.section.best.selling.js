@@ -6,8 +6,20 @@ import Slider from 'react-slick';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-export default function BestSelling({ products }) {
+import { useContext, useEffect } from "react";
+import { AppContext } from "@/context/context.app";
+import { getProductBestSelling } from "@/services/service.product";
+export default function BestSelling() {
+  const { bestProducts, setBestProducts } = useContext(AppContext);
+  useEffect(() => {
+    const fetchBestProducts = async () => {
+      const res = await getProductBestSelling();
+      if (res) {
+        setBestProducts(res);
+      }
+    };
+    fetchBestProducts();
+  }, [])
   const settings = {
     dots: true,
     infinite: true,
@@ -31,14 +43,26 @@ export default function BestSelling({ products }) {
           slidesToShow: 1,
         },
       },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToScroll: 3,
+          slidesToShow: 3,
+        },
+      },
     ],
   };
-
+  if (!bestProducts) {
+    return <p>Loading...</p>;
+  }
+  if (bestProducts.length === 0) {
+    return <p>No best-selling products available.</p>;
+  }
   return (
     <div className="w-full px-4 relative">
       <Slider {...settings}>
-        {products?.length > 0 ? (
-          products?.map((product) => (
+        {bestProducts?.length > 0 ? (
+          bestProducts?.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))
         ) : (
