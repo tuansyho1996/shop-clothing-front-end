@@ -14,13 +14,13 @@ const Shop = async () => {
 
 
     return (
-        <main className="container mx-auto py-8">
+        <main className="container mx-auto py-8 px-2">
             <h1 className="text-3xl font-bold mb-6">Shop Now</h1>
             <section className="mb-12">
-                <h2 className="text-2xl font-semibold mb-4">Categories</h2>
+                <h2 className="text-2xl font-semibold mb-4 ">Categories</h2>
                 <CategoryList />
             </section>
-            <section id='new-products' className="mb-12">
+            <section id='new-products' className="mb-12 ">
                 <h2 className="text-2xl font-semibold mb-4">New Products</h2>
                 <ListNewProducts />
 

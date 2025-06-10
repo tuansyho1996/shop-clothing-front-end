@@ -11,9 +11,11 @@ const ListNewProduct = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             const res = await getProductShop(page); // Assuming '1' is the page number for new products
-            const { products, totalPage } = res;
-            setProducts(products);
-            setTotalPage(totalPage);
+            if (res) {
+                const { products, totalPage } = res;
+                setProducts(products);
+                setTotalPage(totalPage);
+            }
         };
         fetchProducts();
     }
@@ -26,7 +28,7 @@ const ListNewProduct = () => {
                         <ProductCard key={product._id} product={product} />
                     ))
                 ) : (
-                    <p>No products available</p>
+                    <p className="px-4">No products available</p>
                 )}
             </div>
             {totalPage > 1 && (

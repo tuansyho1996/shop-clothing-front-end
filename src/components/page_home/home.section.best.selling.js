@@ -53,7 +53,7 @@ export default function BestSelling() {
     ],
   };
   if (!bestProducts) {
-    return <p>Loading...</p>;
+    return <p className="px-4">Loading best-selling products...</p>;
   }
   if (bestProducts.length === 0) {
     return <p>No best-selling products available.</p>;
@@ -66,7 +66,7 @@ export default function BestSelling() {
             <ProductCard key={product._id} product={product} />
           ))
         ) : (
-          <p>Loading best-selling products...</p>
+          <p className="px-4">Loading best-selling products...</p>
         )}
       </Slider>
     </div>

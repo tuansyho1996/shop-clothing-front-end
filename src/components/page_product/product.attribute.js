@@ -11,13 +11,15 @@ const colorsObject = [
   { name: "Wine", hex: "#722F37" }, //
   { name: "Forest Green", hex: "#2E4E3F" }, //
   { name: "Smoky Gray", hex: "#505050" }, //
-  { name: "black", hex: "#000000" },
   { name: "white", hex: "#ffffff" }, //
   { code: "Light Gray", hex: "#D3D3D3" }, // Light Gray
   { code: "Platinum", hex: "#E5E4E2" }, // Platinum
   { code: "Champagne", hex: "#F7E7CE" }, // Champagne
   { code: "Lavender Gray", hex: "#C4C3D0" }, // Lavender Gray
   { code: "Powder Blue", hex: "#B0E0E6" }, // Powder Blue
+  { code: "Jet Black", hex: "#000000" }, // Jet Black
+  { code: "Gunmetal", hex: "#2A3439" }, // Gunmetal
+  { code: "Onyx", hex: "#353839" }, // Onyx
 ]
 const listSizes = [
   {

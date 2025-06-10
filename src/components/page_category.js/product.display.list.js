@@ -12,9 +12,11 @@ const ProductsListCategories = ({ slug }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             const dataProducts = await getProductOfCategories(slug, limit, cPage);
-            const { products, totalPages } = dataProducts;
-            setTotalPages(totalPages);
-            setProducts(products);
+            if (dataProducts) {
+                const { products, totalPages } = dataProducts;
+                setTotalPages(totalPages);
+                setProducts(products);
+            }
         }
         fetchProducts();
     }

@@ -47,7 +47,7 @@ export function AppProvider({ children }) {
   useEffect(() => {
     const getGlobals = async () => {
       const res = await getGlobal('all')
-      const globals_shipping = res.find((item) => item.global_name === 'shipping_fee')
+      const globals_shipping = res?.find((item) => item.global_name === 'shipping_fee')
       if (subtotalRef.current < 100) {
         setShipping(parseFloat(globals_shipping?.global_value))
       }
@@ -60,7 +60,7 @@ export function AppProvider({ children }) {
     if (subtotal > 100) {
       setShipping(0)
     } else {
-      const globals_shipping = globals.find((item) => item.global_name === 'shipping_fee')
+      const globals_shipping = globals?.find((item) => item.global_name === 'shipping_fee')
       setShipping(parseFloat(globals_shipping?.global_value))
     }
   }, [subtotal]);
