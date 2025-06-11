@@ -14,7 +14,7 @@ const Page = ({ params }) => {
             setProducts(filteredProducts);
         };
         fetchProducts();
-    }, []);
+    }, [params.slug]);
 
     // Mock Product Data (Replace with actual data fetching)
 

@@ -1,5 +1,5 @@
 // pages/index.js
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, useCallback } from 'react';
 import countryState from '@/app/checkout/countries';
 import CustomInput from '../ui/ui.custom.input';
 import Image from 'next/image';
@@ -32,22 +32,22 @@ export default function Delivery({ isPhone = true }) {
         `${g1 ? g1 : ''}${g2 ? '-' + g2 : ''}${g3 ? '-' + g3 : ''}`
       ); // Format as (XXX) XXX-XXXX
   }
-  const handleChangePhone = (value) => {
-    const formatedValue = formatPhoneNumber(value)
-    setPhone(formatedValue)
-  }
+  const handleChangePhone = useCallback((value) => {
+    const formatedValue = formatPhoneNumber(value);
+    setPhone(formatedValue);
+  }, [setPhone]);
   useEffect(() => {
     setCurrentCountry(countryState.find(el => el?.name === country))
     setFlagCurrent(countryState.find(el => el?.name === country).iso2)
     setCurrentPhoneCode(`${countryState.find(el => el?.name === country).phone_code}`)
     setState(countryState.find(el => el?.name === country)?.states[0]?.name)
-  }, [country])
+  }, [country, setCurrentCountry, setCurrentPhoneCode, setFlagCurrent, setState])
   useEffect(() => {
     setCurrentPhoneCode(`${countryState.find(el => el?.iso2 === flagCurrent).phone_code}`)
-  }, [flagCurrent])
-  useEffect(() => {
-    handleChangePhone
-  }, [currentPhoneCode])
+  }, [flagCurrent, setCurrentPhoneCode])
+  // useEffect(() => {
+  //   handleChangePhone
+  // }, [currentPhoneCode])
   return (
     <form>
       <div className='mb-4'>

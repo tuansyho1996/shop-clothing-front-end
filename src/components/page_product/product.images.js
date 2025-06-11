@@ -12,7 +12,7 @@ export default function ImagesProduct({ product }) {
         const copyProductColorImages = [...product.product_color_images]
         copyProductColorImages.shift()
         setImagesProduct([...product.product_images, ...copyProductColorImages])
-    }, [])
+    }, [product.product_color_images, product.product_images, setCurrentImageDetail])
     const handleClickMultipleImages = (image) => {
         const indexColorImage = product?.product_color_images.findIndex(el => el === image)
         if (indexColorImage !== -1) {

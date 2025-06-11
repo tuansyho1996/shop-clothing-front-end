@@ -12,7 +12,7 @@ const ReviewDisplay = ({ product_reviews }) => {
             setReviews(product_reviews);
         }
     }
-        , [product_reviews]);
+        , [product_reviews, setReviews]);
     return (
         <ReviewsCard reviews={reviews} />
     );

@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useCallback } from 'react';
 import { AppContext } from '@/context/context.app';
 
 export default function AccountPage() {
@@ -12,13 +12,13 @@ export default function AccountPage() {
     if (!userLocal) {
       router.push('/login'); // Redirect to login page
     }
-  }, [])
+  }, [router])
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null)
-    router.push('/login')
-  };
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem('user');
+    setUser(null);
+    router.push('/login');
+  }, [router, setUser]);
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 min-h-[50vh]">

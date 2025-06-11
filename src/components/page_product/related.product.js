@@ -19,7 +19,7 @@ const RelatedProduct = ({ category }) => {
             // Fetch logic here
         };
         fetchRelatedProducts();
-    }, []);
+    }, [category]);
     const settings = {
         dots: true,
         infinite: true,

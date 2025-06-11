@@ -55,7 +55,7 @@ export function FormCheckoutProvider({ children }) {
   useEffect(() => {
     countryRef.current = country;
     stateRef.current = state;
-  }, [country]);
+  }, [country, state]);
   useEffect(() => {
     phoneRef.current = phone;
   }, [phone]);

@@ -22,7 +22,7 @@ const SearchAppBar = () => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-        handleKeyDown()
+
     }, []);
     useEffect(() => {
         if (textSearch.length > 0) {

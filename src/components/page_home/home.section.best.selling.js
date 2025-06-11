@@ -19,7 +19,7 @@ export default function BestSelling() {
       }
     };
     fetchBestProducts();
-  }, [])
+  }, [setBestProducts])
   const settings = {
     dots: true,
     infinite: true,

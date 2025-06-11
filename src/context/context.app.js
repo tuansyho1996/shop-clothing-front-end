@@ -63,7 +63,7 @@ export function AppProvider({ children }) {
       const globals_shipping = globals?.find((item) => item.global_name === 'shipping_fee')
       setShipping(parseFloat(globals_shipping?.global_value))
     }
-  }, [subtotal]);
+  }, [subtotal, globals]);
   const isInitialRender = useRef(true);
   useEffect(() => {
     if (isInitialRender.current) {

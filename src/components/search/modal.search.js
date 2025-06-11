@@ -1,5 +1,6 @@
 'use client';
 import Link from "next/link";
+import Image from "next/image";
 
 const ModalSearch = ({ searchResults, setIsSearching }) => {
 
@@ -11,7 +12,14 @@ const ModalSearch = ({ searchResults, setIsSearching }) => {
                         searchResults.map((product) => (
                             <Link href={`/product/${product.product_slug}`} key={product._id} onClick={() => setIsSearching(false)}>
                                 <div className='flex items-center p-2 border-b'>
-                                    <img src={product.product_images[0]} alt={product.product_name} className='w-12 h-12 mr-2' />
+                                    <Image
+                                        src={product.product_images[0]}
+                                        alt={product.product_name}
+                                        width={50}
+                                        height={50}
+                                        className='w-12 h-12 object-cover rounded mr-3'
+                                        loading="lazy"
+                                    />
                                     <div>
                                         <h2 className='text-lg font-bold'>{product.product_name}</h2>
                                     </div>

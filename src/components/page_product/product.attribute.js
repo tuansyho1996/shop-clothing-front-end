@@ -95,7 +95,7 @@ const ProductAttribute = ({ product }) => {
       setSizes(["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]);
       setSelectedSize("S");
     }
-  }, [])
+  }, [product.product_color_images, product.product_images, setCurrentImageDetail, product?.product_colors, product?.product_list_categories, setCurrentColor])
   useEffect(() => {
     const colorOject = colorsObject.find(el => el.hex === currentColor)
     if (colorOject) {
