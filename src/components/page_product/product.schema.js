@@ -16,7 +16,7 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
                     size: size,
                     offers: {
                         "@type": "Offer",
-                        price: product.product_price,
+                        price: product?.product_price?.toFixed(2),
                         priceCurrency: "USD",
                         availability: "https://schema.org/InStock"
                     }
@@ -25,19 +25,32 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
         });
 
     }
+    console.log("categories", product?.product_list_categories)
+    let valueGender;
+    if (product?.product_list_categories[1] === "kid") {
+        valueGender = "unisex";
+    } else if (product?.product_list_categories[1] === "men") {
+        valueGender = "male"
+    }
+    else if (product?.product_list_categories[1] === "women") {
+        valueGender = "female"
+    } else {
+        valueGender = "unisex";
+    }
+
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
-        "name": `MYTHOLOGY-MAIN-${variantId}`,
+        "name": product.product_name,
         "image": [product.product_images[0] || "https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a"],
         "description": product.product_description,
-        "sku": product?.product_sku,
+        "sku": `MYTHOLOGY-MAIN-${variantId}`,
         "brand": {
             "@type": "Brand",
             "name": "Carnobon"
         },
-        "gender": "unisex",
-        "ageGroup": "adult",
+        "gender": valueGender,
+        "ageGroup": product?.product_list_categories[1] === "kid" ? "kid" : "adult",
         "offers": {
             "@type": "Offer",
             "url": `https://carnobon.com/product/${product.product_slug}`,
