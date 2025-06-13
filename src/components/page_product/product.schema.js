@@ -1,6 +1,5 @@
 'use client'
 const ProductSchema = ({ colorsObject, listSizes, product }) => {
-    console.log("ProductSchema", product._id);
     const hasVariant = [];
     const findSize = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))
     const variantId = typeof product?._id === 'string'
@@ -29,7 +28,7 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
-        "name": `MYTHOLOGY-${variantId}`,
+        "name": `MYTHOLOGY-MAIN-${variantId}`,
         "image": [product.product_images[0] || "https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a"],
         "description": product.product_description,
         "sku": product?.product_sku,
