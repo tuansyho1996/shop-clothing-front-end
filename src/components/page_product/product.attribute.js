@@ -4,80 +4,10 @@ import { AppContext } from "@/context/context.app";
 import Modal from "@/components/page_product/product.modal.size.guide";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-const colorsObject = [
-  { name: "Midnight Blue", hex: "#2C3E50" }, //
-  { name: "Steel Blue", hex: "#4682B4" }, //
-  { name: "Dark Slate", hex: "#2F4F4F" }, //
-  { name: "Wine", hex: "#722F37" }, //
-  { name: "Forest Green", hex: "#2E4E3F" }, //
-  { name: "Smoky Gray", hex: "#505050" }, //
-  { name: "white", hex: "#ffffff" }, //
-  { code: "Light Gray", hex: "#D3D3D3" }, // Light Gray
-  { code: "Platinum", hex: "#E5E4E2" }, // Platinum
-  { code: "Champagne", hex: "#F7E7CE" }, // Champagne
-  { code: "Lavender Gray", hex: "#C4C3D0" }, // Lavender Gray
-  { code: "Powder Blue", hex: "#B0E0E6" }, // Powder Blue
-  { code: "Jet Black", hex: "#000000" }, // Jet Black
-  { code: "Gunmetal", hex: "#2A3439" }, // Gunmetal
-  { code: "Onyx", hex: "#353839" }, // Onyx
-]
-const listSizes = [
-  {
-    name: ['unisex', 'hoodie'],
-    values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"]
-  },
-  {
-    name: ['unisex', 'zip-hoodie'],
-    values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"]
-  },
-  {
-    name: ['unisex', 'sweatshirt'],
-    values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
-  },
-  {
-    name: ['unisex', 'hooded-vest'],
-    values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
-  },
-  {
-    name: ['unisex', 'pant'],
-    values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
-  },
-  {
-    name: ['unisex', 'short-pant'],
-    values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
-  },
-  {
-    name: ['men', 't-shirt'],
-    values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
-  },
-  {
-    name: ['women', 't-shirt'],
-    values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL", "8XL", "9XL"]
-  },
-  {
-    name: ['kid', 'hoodie'],
-    values: ["S", "M", "L", "XL", "2XL", "3XL",]
-  },
-  {
-    name: ['kid', 't-shirt'],
-    values: ["XS", "S", "M", "L", "XL", "2XL",]
-  },
-  {
-    name: ['kid', 'sweatshirt'],
-    values: ["S", "M", "L", "XL", "2XL", "3XL",]
-  },
-  {
-    name: ['kid', 'zip-hoodie'],
-    values: ["S", "M", "L", "XL", "2XL", "3XL",]
-  },
-  {
-    name: ['kid', 'pant'],
-    values: ["S", "M", "L", "XL", "2XL", "3XL",]
-  },
-]
 
 
-const ProductAttribute = ({ product }) => {
+
+const ProductAttribute = ({ product, listSizes, colorsObject }) => {
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1)
@@ -90,18 +20,17 @@ const ProductAttribute = ({ product }) => {
     if (findSize) {
       setSizes(findSize.values)
       setSelectedSize(findSize.values[0])
-
     } else {
       setSizes(["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]);
       setSelectedSize("S");
     }
-  }, [product.product_color_images, product.product_images, setCurrentImageDetail, product?.product_colors, product?.product_list_categories, setCurrentColor])
+  }, [product.product_color_images, product.product_images, setCurrentImageDetail, product?.product_colors, product?.product_list_categories, setCurrentColor, listSizes])
   useEffect(() => {
     const colorOject = colorsObject.find(el => el.hex === currentColor)
     if (colorOject) {
       setSelectedColor(colorOject.name)
     }
-  }, [currentColor])
+  }, [currentColor, colorsObject])
   useEffect(() => {
     if (isModalOpen) {
       document.body.classList.add("overflow-hidden");

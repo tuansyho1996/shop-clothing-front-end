@@ -10,7 +10,7 @@ import ReviewDisplay from '@/components/page_product/reviews/review.display';
 import { getProductWithMetadata } from '@/lib/getProductWithMetadata';
 import RelatedProduct from '@/components/page_product/related.product';
 import ShareSocial from '@/components/page_product/product.share.social';
-
+import ProductSchema from '@/components/page_product/product.schema';
 export async function generateMetadata({ params }) {
     const { metadata } = await getProductWithMetadata(params.slug);
     return metadata;
@@ -18,34 +18,210 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
     const { product } = await getProductWithMetadata(params.slug);
-
-    const productSchema = {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": product.product_name,
-        "image": [product.product_images[0] || "https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a"],
-        "description": product.product_description,
-        "sku": product?.product_sku,
-        "brand": {
-            "@type": "Brand",
-            "name": "Carnobon"
+    const colorsObject = [
+        { name: "Midnight Blue", hex: "#2C3E50" }, //
+        { name: "Steel Blue", hex: "#4682B4" }, //
+        { name: "Dark Slate", hex: "#2F4F4F" }, //
+        { name: "Wine", hex: "#722F37" }, //
+        { name: "Forest Green", hex: "#2E4E3F" }, //
+        { name: "Smoky Gray", hex: "#505050" }, //
+        { name: "white", hex: "#ffffff" }, //
+        { name: "Light Gray", hex: "#D3D3D3" }, // Light Gray
+        { name: "Platinum", hex: "#E5E4E2" }, // Platinum
+        { name: "Champagne", hex: "#F7E7CE" }, // Champagne
+        { name: "Lavender Gray", hex: "#C4C3D0" }, // Lavender Gray
+        { name: "Powder Blue", hex: "#B0E0E6" }, // Powder Blue
+        { name: "Jet Black", hex: "#000000" }, // Jet Black
+        { name: "Gunmetal", hex: "#2A3439" }, // Gunmetal
+        { name: "Onyx", hex: "#353839" }, // Onyx
+    ]
+    const listSizes = [
+        {
+            name: ['unisex', 'hoodie'],
+            values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"]
         },
-        "offers": {
-            "@type": "Offer",
-            "url": `https://carnobon.com/product/${product.product_slug}`,
-            "priceCurrency": "USD",
-            "price": product?.product_price?.toFixed(2),
-            "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2026-12-31"
-        }
-    }
+        {
+            name: ['unisex', 'zip-hoodie'],
+            values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"]
+        },
+        {
+            name: ['unisex', 'sweatshirt'],
+            values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+        },
+        {
+            name: ['unisex', 'hooded-vest'],
+            values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+        },
+        {
+            name: ['unisex', 'pant'],
+            values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+        },
+        {
+            name: ['unisex', 'short-pant'],
+            values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+        },
+        {
+            name: ['men', 't-shirt'],
+            values: ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"]
+        },
+        {
+            name: ['women', 't-shirt'],
+            values: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL", "8XL", "9XL"]
+        },
+        {
+            name: ['kid', 'hoodie'],
+            values: ["S", "M", "L", "XL", "2XL", "3XL",]
+        },
+        {
+            name: ['kid', 't-shirt'],
+            values: ["XS", "S", "M", "L", "XL", "2XL",]
+        },
+        {
+            name: ['kid', 'sweatshirt'],
+            values: ["S", "M", "L", "XL", "2XL", "3XL",]
+        },
+        {
+            name: ['kid', 'zip-hoodie'],
+            values: ["S", "M", "L", "XL", "2XL", "3XL",]
+        },
+        {
+            name: ['kid', 'pant'],
+            values: ["S", "M", "L", "XL", "2XL", "3XL",]
+        },
+    ]
+    // const hasVariant = [];
+    // const findSize = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))
+    // const variantId = product._id.toHexString().slice(-6).toUpperCase();
+    // if (findSize) {
+    //     const colors = product.product_colors.map(color => colorsObject.find(el => el.hex === color)?.name || color);
+    //     colors.forEach(color => {
+    //         findSize.values.forEach(size => {
+    //             hasVariant.push({
+    //                 "@type": "Product",
+    //                 sku: `MYTHOLOGY-${color.toUpperCase().replace(/\s+/g, '-')}-${size}-${variantId}`,
+    //                 color: color,
+    //                 size: size,
+    //                 offers: {
+    //                     "@type": "Offer",
+    //                     price: product.product_price,
+    //                     priceCurrency: "USD",
+    //                     availability: "https://schema.org/InStock"
+    //                 }
+    //             });
+    //         });
+    //     });
+
+    // }
+    // const productSchema = {
+    //     "@context": "https://schema.org/",
+    //     "@type": "Product",
+    //     "name": `MYTHOLOGY-${variantId}`,
+    //     "image": [product.product_images[0] || "https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a"],
+    //     "description": product.product_description,
+    //     "sku": product?.product_sku,
+    //     "brand": {
+    //         "@type": "Brand",
+    //         "name": "Carnobon"
+    //     },
+    //     "gender": "unisex",
+    //     "ageGroup": "adult",
+    //     "offers": {
+    //         "@type": "Offer",
+    //         "url": `https://carnobon.com/product/${product.product_slug}`,
+    //         "priceCurrency": "USD",
+    //         "price": product?.product_price?.toFixed(2),
+    //         "availability": "https://schema.org/InStock",
+    //         "priceValidUntil": "2026-12-31",
+    //         "shippingDetails": [
+    //             {
+    //                 "@type": "OfferShippingDetails",
+    //                 "shippingRate": {
+    //                     "@type": "MonetaryAmount",
+    //                     "value": 4.99,
+    //                     "currency": "USD"
+    //                 },
+    //                 "shippingLabel": "Standard Shipping (under $100)",
+    //                 "priceSpecification": {
+    //                     "@type": "PriceSpecification",
+    //                     "priceCurrency": "USD",
+    //                     "eligibleTransactionVolume": {
+    //                         "@type": "PriceSpecification",
+    //                         "minPrice": 0,
+    //                         "maxPrice": 99.99
+    //                     }
+    //                 },
+    //                 "deliveryTime": {
+    //                     "@type": "ShippingDeliveryTime",
+    //                     "handlingTime": {
+    //                         "@type": "QuantitativeValue",
+    //                         "minValue": 0,
+    //                         "maxValue": 2,
+    //                         "unitCode": "d" // days
+    //                     },
+    //                     "transitTime": {
+    //                         "@type": "QuantitativeValue",
+    //                         "minValue": 10,
+    //                         "maxValue": 15,
+    //                         "unitCode": "d"
+    //                     }
+    //                 },
+    //                 "shippingWeight": {
+    //                     "@type": "QuantitativeValue",
+    //                     "value": 0.5,
+    //                     "unitCode": "kg" // hoặc "g" nếu bạn muốn gram
+    //                 }
+    //             },
+    //             {
+    //                 "@type": "OfferShippingDetails",
+    //                 "shippingRate": {
+    //                     "@type": "MonetaryAmount",
+    //                     "value": 0,
+    //                     "currency": "USD"
+    //                 },
+    //                 "shippingLabel": "Free Shipping (over $100)",
+    //                 "priceSpecification": {
+    //                     "@type": "PriceSpecification",
+    //                     "priceCurrency": "USD",
+    //                     "eligibleTransactionVolume": {
+    //                         "@type": "PriceSpecification",
+    //                         "minPrice": 100
+    //                     }
+    //                 },
+    //                 "deliveryTime": {
+    //                     "@type": "ShippingDeliveryTime",
+    //                     "handlingTime": {
+    //                         "@type": "QuantitativeValue",
+    //                         "minValue": 0,
+    //                         "maxValue": 2,
+    //                         "unitCode": "d" // days
+    //                     },
+    //                     "transitTime": {
+    //                         "@type": "QuantitativeValue",
+    //                         "minValue": 10,
+    //                         "maxValue": 15,
+    //                         "unitCode": "d"
+    //                     }
+    //                 },
+    //                 "shippingWeight": {
+    //                     "@type": "QuantitativeValue",
+    //                     "value": 0.5,
+    //                     "unitCode": "kg" // hoặc "g" nếu bạn muốn gram
+    //                 }
+    //             },
+    //         ]
+    //     },
+    //     hasVariant: hasVariant,
+    //     "additionalProperty": {
+    //         "@type": "PropertyValue",
+    //         "name": "Material",
+    //         "value": product?.product_material || "Cotton"
+    //     }
+
+    // }
     // Mock Product Data (Replace with actual data fetching)
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-            />
+            <ProductSchema colorsObject={colorsObject} listSizes={listSizes} product={product} />
             <main className='min-h-[50vh] container mx-auto py-8 px-4 sm:px-6'>
                 {
                     (!product || Array.isArray(product)) ?
@@ -78,7 +254,7 @@ export default async function Page({ params }) {
                                     <div className="flex-1 w-full lg:w-1/2">
                                         <div className="max-w-mdshadow-lg">
                                             <h1 className="text-lg font-semibold">{product?.product_name}</h1>
-                                            <ProductAttribute product={product} />
+                                            <ProductAttribute product={product} colorsObject={colorsObject} listSizes={listSizes} />
                                             <div className="flex justify-around mt-6">
                                                 <div className="relative group">
                                                     <button className="p-2 rounded-full hover:bg-gray-200">

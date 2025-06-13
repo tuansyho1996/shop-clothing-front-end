@@ -117,11 +117,11 @@ const Footer = () => {
                   <XIcon className="text-gray-600 hover:text-gray-800" />
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href={`${youtube?.global_value}`} target="_blank">
                   <YouTubeIcon className="text-gray-600 hover:text-gray-800" />
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href={`${instagram?.global_value}`} target="_blank">
                   <InstagramIcon className="text-gray-600 hover:text-gray-800" />
