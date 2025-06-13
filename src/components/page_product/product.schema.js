@@ -3,7 +3,9 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
     console.log("ProductSchema", product._id);
     const hasVariant = [];
     const findSize = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))
-    const variantId = product?._id.slice(-6).toUpperCase();
+    const variantId = typeof product?._id === 'string'
+        ? product._id.slice(-6).toUpperCase()
+        : product._id?.toString().slice(-6).toUpperCase();
     if (findSize) {
         const colors = product.product_colors.map(color => colorsObject.find(el => el.hex === color)?.name || color);
         colors.forEach(color => {
