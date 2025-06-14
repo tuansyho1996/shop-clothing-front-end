@@ -1,30 +1,11 @@
 'use client'
 const ProductSchema = ({ colorsObject, listSizes, product }) => {
-    const hasVariant = [];
-    const findSize = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))
+    const color = colorsObject?.find(c => c.hex === product?.product_colors[0])?.name || "Unknown Color";
+    const sizes = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))?.values?.join(', ');
     const variantId = typeof product?._id === 'string'
         ? product._id.slice(-6).toUpperCase()
         : product._id?.toString().slice(-6).toUpperCase();
-    if (findSize) {
-        const colors = product.product_colors.map(color => colorsObject.find(el => el.hex === color)?.name || color);
-        colors.forEach(color => {
-            findSize.values.forEach(size => {
-                hasVariant.push({
-                    "@type": "Product",
-                    sku: `MYTHOLOGY-${color.toUpperCase().replace(/\s+/g, '-')}-${size}-${variantId}`,
-                    color: color,
-                    size: size,
-                    offers: {
-                        "@type": "Offer",
-                        price: product?.product_price?.toFixed(2),
-                        priceCurrency: "USD",
-                        availability: "https://schema.org/InStock"
-                    }
-                });
-            });
-        });
 
-    }
     let valueGender;
     if (product?.product_list_categories[1] === "kid") {
         valueGender = "unisex";
@@ -36,7 +17,6 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
     } else {
         valueGender = "unisex";
     }
-
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -49,6 +29,8 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
             "name": "Carnobon"
         },
         "gender": valueGender,
+        "color": color,
+        "size": sizes,
         "ageGroup": product?.product_list_categories[1] === "kid" ? "kid" : "adult",
         "offers": {
             "@type": "Offer",
@@ -135,7 +117,6 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
                 },
             ]
         },
-        hasVariant: hasVariant,
         "additionalProperty": {
             "@type": "PropertyValue",
             "name": "Material",
