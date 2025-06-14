@@ -15,9 +15,9 @@ const ListCategory = async () => {
             key={index}
             className="p-2"
           >
-            <Link href={`/category/${category?.top_ct_categories?.map(el => el).join('&')}`} passHref>
+            <Link aria-label={`${category?.top_ct_categories?.map(el => el).join('&')}` || 'Top category'} href={`/category/${category?.top_ct_categories?.map(el => el).join('&')}`} passHref>
               <div className="border rounded-lg shadow-md hover:shadow-lg transition-shadow p-4">
-                <button className="flex flex-col items-center p-4 w-full">
+                <button aria-label="Top category" className="flex flex-col items-center p-4 w-full">
                   <div className="mb-2 h-20 w-20 bg-gray-300 rounded-full">
                     <Image
                       src={category?.top_ct_image[0]}

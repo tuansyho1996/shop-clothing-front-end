@@ -81,6 +81,7 @@ const SearchAppBar = () => {
                 {
                     textSearch.length > 0 &&
                     <button
+                        aria-label='Clear search'
                         type="button"
                         onClick={() => setTextSearch("")}
                         className="absolute right-8 top-[10px] "
@@ -100,7 +101,7 @@ const SearchAppBar = () => {
                     </button>
                 }
 
-                <button type="button" className="absolute right-2 top-2 " onClick={() => searching()}>
+                <button aria-label='Search' type="button" className="absolute right-2 top-2 " onClick={() => searching()}>
                     <Search className="text-gray-500" />
                 </button>
                 {

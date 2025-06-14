@@ -80,7 +80,7 @@ const NextArrow = ({ onClick }) => {
       className="absolute right-0 xl:right-[-30px] top-1/2 transform -translate-y-1/2 z-10"
       onClick={onClick}
     >
-      <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+      <button aria-label="Next" className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
         <ChevronRight />
       </button>
     </div>
@@ -93,7 +93,7 @@ const PrevArrow = ({ onClick }) => {
       className="absolute left-0 xl:left-[-30px] top-1/2 transform -translate-y-1/2 z-10"
       onClick={onClick}
     >
-      <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+      <button aria-label="Prev" className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
         <ChevronLeft />
       </button>
     </div>

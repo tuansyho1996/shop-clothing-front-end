@@ -25,7 +25,6 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
         });
 
     }
-    console.log("categories", product?.product_list_categories)
     let valueGender;
     if (product?.product_list_categories[1] === "kid") {
         valueGender = "unisex";
