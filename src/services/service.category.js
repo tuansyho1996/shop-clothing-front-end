@@ -10,7 +10,7 @@ const fetcher = async (endpoint, options = {}) => {
 
 const getCategory = async (slug) => {
   try {
-    const response = await fetcher(`/api/category/${slug}`);
+    const response = await fetcher(`/api/category/${slug}`, { cache: "no-cache" });
     if (!response.status === 200) {
       return null
     }
@@ -21,7 +21,7 @@ const getCategory = async (slug) => {
 }
 const getTopCategory = async () => {
   try {
-    const response = await fetcher('/api/category/top-category');
+    const response = await fetcher('/api/category/top-category', { cache: "no-cache" });
     if (!response.status === 200) {
       return []
     }

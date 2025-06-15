@@ -1,7 +1,7 @@
 
 const fetcher = async (endpoint, options = {}) => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACK_END_URL}${endpoint}`, {
+    const res = await fetch(`${NEXT_PUBLIC_BACK_END_URL}${endpoint}`, {
       ...options,
       credentials: 'include', // Include credentials such as cookies
     });
