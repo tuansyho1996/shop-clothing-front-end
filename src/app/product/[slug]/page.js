@@ -32,6 +32,7 @@ export default async function Page({ params }) {
         { name: "Champagne", hex: "#F7E7CE" }, // Champagne
         { name: "Lavender Gray", hex: "#C4C3D0" }, // Lavender Gray
         { name: "Powder Blue", hex: "#B0E0E6" }, // Powder Blue
+
         { name: "Jet Black", hex: "#000000" }, // Jet Black
         { name: "Gunmetal", hex: "#2A3439" }, // Gunmetal
         { name: "Onyx", hex: "#353839" }, // Onyx
