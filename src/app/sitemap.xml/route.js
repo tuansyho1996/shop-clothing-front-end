@@ -7,7 +7,6 @@ export async function GET() {
     const domain = 'https://carnobon.com'
 
     const products = await getProduct()
-    console.log('Products fetched:', products)
     if (!products) {
         return new Response('Error fetching products', { status: 500 })
     }
