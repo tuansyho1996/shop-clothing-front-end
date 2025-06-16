@@ -178,8 +178,6 @@ export default async function Page({ params }) {
                                 <ReviewDisplay product_reviews={product?.product_reviews} />
                             </div>
                         </div>
-
-
                 }
 
             </main>
