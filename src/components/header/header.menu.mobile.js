@@ -55,7 +55,7 @@ const menu = [
                 child: [
                     { name: "Hoodie", href: '/category/asgardian-elegance&kid&hoodie' },
                     { name: "T-Shirt", href: '/category/asgardian-elegance&kid&t-shirt' },
-                    { name: "Sweatpant", href: '/category/asgardian-elegance&kid&sweatpant' },
+                    { name: "Pant", href: '/category/asgardian-elegance&kid&pant' },
                     { name: "Sweatshirt", href: '/category/asgardian-elegance&kid&sweatshirt' },
                     { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&kid&zip-hoodie' }
                 ]
@@ -90,7 +90,7 @@ const menu = [
                     { href: '/category/pharaoh-legacy&men&zip-hoodie', name: "Zip Up Hoodie" },
                     { href: '/category/pharaoh-legacy&men&t-shirt', name: "T-Shirt" },
                     { href: '/category/pharaoh-legacy&men&pant', name: "Pant" },
-                    { href: '/category/pharaoh-legacy&men&sweat-shirt', name: "Sweatshirt" },
+                    { href: '/category/pharaoh-legacy&men&sweatshirt', name: "Sweatshirt" },
                     { href: '/category/pharaoh-legacy&men&hooded-vest', name: "Hooded Vest" },
                     { href: '/category/pharaoh-legacy&men&short-pant', name: "Short Pant" },
                 ]
@@ -103,7 +103,7 @@ const menu = [
                     { href: '/category/pharaoh-legacy&women&zip-hoodie', name: "Zip Up Hoodie" },
                     { href: '/category/pharaoh-legacy&women&t-shirt', name: "T-Shirt" },
                     { href: '/category/pharaoh-legacy&women&pant', name: "Pant" },
-                    { href: '/category/pharaoh-legacy&women&sweat-shirt', name: "Sweatshirt" },
+                    { href: '/category/pharaoh-legacy&women&sweatshirt', name: "Sweatshirt" },
                     { href: '/category/pharaoh-legacy&women&hooded-vest', name: "Hooded Vest" },
                     { href: '/category/pharaoh-legacy&women&short-pant', name: "Short Pant" },
                 ]
@@ -115,7 +115,7 @@ const menu = [
                     { href: '/category/pharaoh-legacy&unisex&hoodie', name: "Hoodie" },
                     { href: '/category/pharaoh-legacy&unisex&zip-hoodie', name: "Zip Up Hoodie" },
                     { href: '/category/pharaoh-legacy&unisex&pant', name: "Pant" },
-                    { href: '/category/pharaoh-legacy&unisex&sweat-shirt', name: "Sweatshirt" },
+                    { href: '/category/pharaoh-legacy&unisex&sweatshirt', name: "Sweatshirt" },
                     { href: '/category/pharaoh-legacy&unisex&hooded-vest', name: "Hooded Vest" },
                     { href: '/category/pharaoh-legacy&unisex&short-pant', name: "Short Pant" },
                 ]

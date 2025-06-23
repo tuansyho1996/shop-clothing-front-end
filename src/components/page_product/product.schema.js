@@ -3,8 +3,8 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
     const color = colorsObject?.find(c => c.hex === product?.product_colors[0])?.name || "Unknown Color";
     const sizes = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))?.values?.join(', ');
     const variantId = typeof product?._id === 'string'
-        ? product._id.slice(-6).toUpperCase()
-        : product._id?.toString().slice(-6).toUpperCase();
+        ? product?._id.slice(-6).toUpperCase()
+        : product?._id?.toString().slice(-6).toUpperCase();
 
     let valueGender;
     if (product?.product_list_categories[1] === "kid") {
@@ -20,9 +20,9 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
-        "name": product.product_name,
-        "image": [product.product_images[0] || "https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a"],
-        "description": product.product_description,
+        "name": product?.product_name,
+        "image": [product?.product_images[0] || "https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a"],
+        "description": product?.product_description,
         "sku": `MYTHOLOGY-MAIN-${variantId}`,
         "brand": {
             "@type": "Brand",
@@ -34,7 +34,7 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
         "ageGroup": product?.product_list_categories[1] === "kid" ? "kid" : "adult",
         "offers": {
             "@type": "Offer",
-            "url": `https://carnobon.com/product/${product.product_slug}`,
+            "url": `https://carnobon.com/product/${product?.product_slug}`,
             "priceCurrency": "USD",
             "price": product?.product_price?.toFixed(2),
             "availability": "https://schema.org/InStock",
