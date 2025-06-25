@@ -11,6 +11,7 @@ import { getProductWithMetadata } from '@/lib/getProductWithMetadata';
 import RelatedProduct from '@/components/page_product/related.product';
 import ShareSocial from '@/components/page_product/product.share.social';
 import ProductSchema from '@/components/page_product/product.schema';
+import DetailProduct from '@/components/page_product/details/product.detail';
 export async function generateMetadata({ params }) {
     const { metadata } = await getProductWithMetadata(params.slug);
     return metadata;
@@ -160,6 +161,10 @@ export default async function Page({ params }) {
                                         <p className="text-gray-700 text-sm md:text-base">
                                             {product?.product_description}
                                         </p>
+                                        <DetailProduct
+                                            category={product?.product_list_categories_name[product?.product_list_categories_name.length - 1]}
+                                            category_2={product?.product_list_categories_name[1]}
+                                        />
                                     </div>
                                 </div>
                             </div>
