@@ -251,7 +251,7 @@ const MenuDesktop = () => {
                     menu?.map((el, index) => {
                         return (
                             <li
-                                className={` ${el.name === nameOpen ? 'text-accent-color border-accent-color' : ''} flex py-3 basis-1/3 justify-center items-center border-b-2 border-transparent hover:border-accent-color transition-all duration-300`}
+                                className={`${el.name === nameOpen ? 'text-accent-color !border-b-accent-color' : ''} flex py-3 basis-1/3 justify-center items-center border-b-2 border-x  border-white hover:border-b-accent-color transition-all duration-300 `}
                                 key={index}
                                 onClick={() => handleClickMenu(el.name)}
 
@@ -283,38 +283,40 @@ const MenuDesktop = () => {
                     ></div>
 
                     {/* Dropdown */}
-                    <div className="relative z-30 flex justify-between bg-white shadow-lg p-6">
-                        {
-                            // Tìm menu được mở theo nameOpen
-                            menu.find((m) => m.name === nameOpen)?.child?.map((item, id) => (
-                                <div key={id} className="mx-6">
-                                    <div className="text-center" onClick={handleClose}>
-                                        <CustomLink
-                                            href={item?.href || ''}
-                                            fontWeight="font-semibold"
-                                            underline={false}
-                                        >
-                                            {item.name}
-                                        </CustomLink>
+                    <div className="relative z-30  bg-white shadow-lg ">
+                        <div className="p-6 max-w-7xl mx-auto flex justify-between">
+                            {
+                                // Tìm menu được mở theo nameOpen
+                                menu.find((m) => m.name === nameOpen)?.child?.map((item, id) => (
+                                    <div key={id} className="mx-6">
+                                        <div className="text-center" onClick={handleClose}>
+                                            <CustomLink
+                                                href={item?.href || ''}
+                                                fontWeight="font-semibold"
+                                                underline={false}
+                                            >
+                                                {item.name}
+                                            </CustomLink>
+                                        </div>
+                                        <ul className="space-y-2 text-sm text-gray-600 border-t pt-2 mt-3 text-center">
+                                            {item.child.map((it, number) => (
+                                                <li key={number} onClick={handleClose}>
+                                                    <CustomLink
+                                                        href={it?.href || ''}
+                                                        fontWeight="font-medium"
+                                                        textTransform="capitalize"
+                                                        className="text-sm font-semibold border-b pb-2 mb-3"
+                                                        underline={false}
+                                                    >
+                                                        {it.name}
+                                                    </CustomLink>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
-                                    <ul className="space-y-2 text-sm text-gray-600 border-t pt-2 mt-3 text-center">
-                                        {item.child.map((it, number) => (
-                                            <li key={number} onClick={handleClose}>
-                                                <CustomLink
-                                                    href={it?.href || ''}
-                                                    fontWeight="font-medium"
-                                                    textTransform="capitalize"
-                                                    className="text-sm font-semibold border-b pb-2 mb-3"
-                                                    underline={false}
-                                                >
-                                                    {it.name}
-                                                </CustomLink>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))
-                        }
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
             )}

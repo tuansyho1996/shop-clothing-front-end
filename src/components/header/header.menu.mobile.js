@@ -335,13 +335,13 @@ const MenuMobile = () => {
                             }
                         </ul>
                     </nav>
-                    <p className="text-xs text-gray-500 mt-5">
+                    <div className="text-xs text-gray-500 mt-5">
                         <ul className='list-disc pl-5'>
                             <li>Tap the text to visit that category.</li>
                             <li>Tap the arrow or anywhere else on the button to expand or collapse subcategories.</li>
                         </ul>
 
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>
