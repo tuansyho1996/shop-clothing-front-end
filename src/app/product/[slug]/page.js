@@ -90,7 +90,7 @@ export default async function Page({ params }) {
             values: ["S", "M", "L", "XL", "2XL", "3XL",]
         },
     ]
-
+    console.log('Product:', product);
     return (
         <>
             <ProductSchema colorsObject={colorsObject} listSizes={listSizes} product={product} />

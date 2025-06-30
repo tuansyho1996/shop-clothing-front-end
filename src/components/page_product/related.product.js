@@ -12,9 +12,7 @@ const RelatedProduct = ({ category }) => {
     useEffect(() => {
         // Fetch related products based on the category
         const fetchRelatedProducts = async () => {
-            console.log(category)
             const { products } = await getProductsOfCategory(category);
-            console.log('Related Products:', products.length);
 
             if (products) {
                 setRelatedProducts(products);

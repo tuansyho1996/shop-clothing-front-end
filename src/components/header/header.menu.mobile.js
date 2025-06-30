@@ -275,14 +275,16 @@ const MenuMobile = () => {
                             {
                                 menu.map((el, index) => (
                                     <li key={index}>
-                                        <div className={`cursor-pointer flex justify-between uppercase items-center px-3 py-1 border-y border-gray-200 ${el.name === nameOpen ? 'text-accent-color' : ''}`}
+                                        <div className={`cursor-pointer flex justify-between uppercase items-center px-3 py-3 border-y border-gray-200 ${el.name === nameOpen ? 'text-accent-color border-accent-color border-y-2' : ''}`}
                                             onClick={() => handleClick(el.name)}
                                         >
-                                            <CustomLink href={el.href} setIsDrawerOpen={setIsDrawerOpen}>
+                                            <CustomLink href={el.href} setIsDrawerOpen={setIsDrawerOpen}
+                                                underline={false}
+                                            >
                                                 {el.name}
                                             </CustomLink>
                                             <div className='ml-auto'>
-                                                {el.name === nameOpen ? <KeyboardArrowDownIcon /> : <ChevronRightIcon />}
+                                                <ChevronRightIcon className={`${el.name === nameOpen && 'rotate-180'}`} />
                                             </div>
                                         </div>
 
@@ -293,13 +295,15 @@ const MenuMobile = () => {
                                                     el.child.map((item, index) =>
                                                     (
                                                         <li key={index} className='font-semibold '>
-                                                            <div className={`flex gap-4 items-center justify-between px-8 cursor-pointer py-2 ${item.name === nameChild2Open ? 'text-accent-color' : ''}`}
+                                                            <div className={`flex gap-4 items-center justify-between px-8 cursor-pointer py-2 ${item.name === nameChild2Open ? 'text-accent-color border-accent-color border-b-2' : ''}`}
                                                                 onClick={() => handleClick2(item.name)}>
-                                                                <CustomLink href={item.href} setIsDrawerOpen={setIsDrawerOpen}>
+                                                                <CustomLink href={item.href} setIsDrawerOpen={setIsDrawerOpen}
+                                                                    underline={false}
+                                                                >
                                                                     {item.name}
                                                                 </CustomLink>
                                                                 <div className='ml-auto'>
-                                                                    {item.name === nameChild2Open ? <KeyboardArrowDownIcon /> : <ChevronRightIcon />}
+                                                                    <ChevronRightIcon className={`${item.name === nameChild2Open && 'rotate-180'}`} />
                                                                 </div>
                                                             </div>
                                                             <div style={{ minWidth: '200px' }} className={`${item.name === nameChild2Open ? 'inline' : 'hidden'}`}>
@@ -309,7 +313,9 @@ const MenuMobile = () => {
                                                                         item.child.map((it, index) =>
                                                                         (
                                                                             <li key={index} className='font-semibold px-11 py-1'>
-                                                                                <CustomLink href={it.href} setIsDrawerOpen={setIsDrawerOpen} textTransform='capitalize'>
+                                                                                <CustomLink href={it.href} setIsDrawerOpen={setIsDrawerOpen} textTransform='capitalize'
+                                                                                    underline={false}
+                                                                                >
                                                                                     {it.name}
                                                                                 </CustomLink>
                                                                             </li>
@@ -329,6 +335,13 @@ const MenuMobile = () => {
                             }
                         </ul>
                     </nav>
+                    <p className="text-xs text-gray-500 mt-5">
+                        <ul className='list-disc pl-5'>
+                            <li>Tap the text to visit that category.</li>
+                            <li>Tap the arrow or anywhere else on the button to expand or collapse subcategories.</li>
+                        </ul>
+
+                    </p>
                 </div>
             </div>
         </div>

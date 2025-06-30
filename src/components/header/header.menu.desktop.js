@@ -1,8 +1,9 @@
 // components/MenDropdown.js
 'use client'
 
-import { useState } from "react";
+import { useState, } from "react";
 import CustomLink from "../ui/ui.custom.link";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 const menu = [
     {
         name: 'Asgardian Elegance',
@@ -227,64 +228,96 @@ const menu = [
 ]
 const MenuDesktop = () => {
     const [nameOpen, setNameOpen] = useState('')
+
     const handleOpen = (name) => {
         setNameOpen(name)
     }
     const handleClose = () => {
         setNameOpen('')
     }
+    const handleClickMenu = (name) => {
+        if (nameOpen === name) {
+            setNameOpen('')
+        } else {
+            setNameOpen(name)
+        }
+    }
     return (
-        <nav className="hidden lg:flex  bg-gray-200">
-            <ul className="flex relative flex justify-center w-full py-3 gap-4">
+
+        <nav className="hidden relative lg:flex  bg-gray-200">
+            <ul className="flex relative flex justify-between w-full "
+            >
                 {
                     menu?.map((el, index) => {
                         return (
                             <li
-                                className={`z-10 ${el.name === nameOpen ? 'text-accent-color' : ''} `}
-                                onMouseEnter={() => handleOpen(el.name)}
-                                onMouseLeave={handleClose}
+                                className={` ${el.name === nameOpen ? 'text-accent-color border-accent-color' : ''} flex py-3 basis-1/3 justify-center items-center border-b-2 border-transparent hover:border-accent-color transition-all duration-300`}
                                 key={index}
-                                onClick={() => handleClose()}
+                                onClick={() => handleClickMenu(el.name)}
+
+                            // ref={menuRef}
                             >
                                 <div className="relative" >
-                                    <div onClick={handleClose}>
-                                        <CustomLink href={el?.href || ''} fs='text-lg' fontWeight="font-semibold">
-                                            {el.name}
-                                        </CustomLink>
+                                    <div
+                                        className={`${el.name === nameOpen ? 'text-accent-color' : 'text-gray-700'} flex gap-1 items-center cursor-pointer relative px-4 font-semibold transition-all duration-300`}
+
+                                    >
+                                        {el.name}
+                                        <KeyboardArrowDownIcon className={`${el.name === nameOpen ? 'rotate-180' : ''}`} />
+
                                     </div>
-                                    <span className={`absolute top-full left-1/2 transform -translate-x-1/2 z-30 bg-gray-200 h-3 w-full`}>
-                                    </span>
-                                    <span className={`absolute top-full left-1/2 transform -translate-x-1/2 z-30 ${nameOpen === el.name ? 'visible' : 'hidden'}`}>
-                                        <div className="w-[0.75rem] h-[0.75rem] bg-gray-200 rotate-45 transform origin-center translate-y-1/2"></div>
-                                    </span>
+
                                 </div>
-                                <div className={` ${nameOpen === el.name ? 'visible' : 'hidden'} w-screen absolute top-full left-0 bg-white text-black shadow-lg p-6 z-20 flex justify-center`}>
-                                    <div className="grid grid grid-cols-4 gap-2 place-content-center w-full max-w-5xl">
-                                        {
-                                            el.child.map((item, id) => (
-                                                <div key={id}>
-                                                    <div className="text-center">
-                                                        <CustomLink href={item?.href || ''} fontWeight="font-semibold">{item.name}</CustomLink>
-                                                    </div>
-                                                    <ul className="space-y-2 text-sm text-gray-600 border-t pt-2 mt-3 text-center">
-                                                        {
-                                                            item.child.map((it, number) => (
-                                                                <li key={number} >
-                                                                    <CustomLink href={it?.href || ''} fontWeight="font-medium" textTransform='capitalize' className="text-sm font-semibold border-b pb-2 mb-3">{it.name}</CustomLink>
-                                                                </li>
-                                                            ))
-                                                        }
-                                                    </ul>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                </div>
+
                             </li>
                         )
                     })
                 }
             </ul>
+            {nameOpen && (
+                <div className="absolute top-full left-0 w-full z-10">
+                    {/* Overlay */}
+                    <div
+                        className="fixed inset-0 bg-black opacity-0 z-20"
+                        onClick={handleClose}
+                    ></div>
+
+                    {/* Dropdown */}
+                    <div className="relative z-30 flex justify-between bg-white shadow-lg p-6">
+                        {
+                            // Tìm menu được mở theo nameOpen
+                            menu.find((m) => m.name === nameOpen)?.child?.map((item, id) => (
+                                <div key={id} className="mx-6">
+                                    <div className="text-center" onClick={handleClose}>
+                                        <CustomLink
+                                            href={item?.href || ''}
+                                            fontWeight="font-semibold"
+                                            underline={false}
+                                        >
+                                            {item.name}
+                                        </CustomLink>
+                                    </div>
+                                    <ul className="space-y-2 text-sm text-gray-600 border-t pt-2 mt-3 text-center">
+                                        {item.child.map((it, number) => (
+                                            <li key={number} onClick={handleClose}>
+                                                <CustomLink
+                                                    href={it?.href || ''}
+                                                    fontWeight="font-medium"
+                                                    textTransform="capitalize"
+                                                    className="text-sm font-semibold border-b pb-2 mb-3"
+                                                    underline={false}
+                                                >
+                                                    {it.name}
+                                                </CustomLink>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            )}
         </nav>
     );
 };
