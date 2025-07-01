@@ -66,6 +66,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/track-order">
+                  <button className="text-gray-600 hover:text-gray-800">
+                    Track order
+                  </button>
+                </Link>
+              </li>
+              <li>
                 <Link href="/faqs">
                   <button className="text-gray-600 hover:text-gray-800">
                     FAQs
