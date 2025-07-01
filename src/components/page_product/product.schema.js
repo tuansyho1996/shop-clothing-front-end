@@ -41,8 +41,15 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
             "@type": "PropertyValue",
             "name": "Material",
             "value": product?.product_material || "Cotton"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": `https://carnobon.com/products/${product?.product_slug}`,
+            "priceCurrency": "USD", // hoặc USD nếu bán quốc tế
+            "price": product?.product_price || 0,
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock"
         }
-
     }
     return (
         <script
