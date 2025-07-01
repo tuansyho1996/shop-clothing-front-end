@@ -251,7 +251,7 @@ const MenuDesktop = () => {
                     menu?.map((el, index) => {
                         return (
                             <li
-                                className={`${el.name === nameOpen ? 'text-accent-color !border-b-accent-color' : ''} flex py-3 basis-1/3 justify-center items-center border-b-2 border-x  border-white hover:border-b-accent-color transition-all duration-300 `}
+                                className={`${el.name === nameOpen ? 'text-accent-color !border-b-accent-color ' : ''} cursor-pointer flex py-3 basis-1/3 justify-center items-center border-b-2 border-x  border-white hover:border-b-accent-color transition-all duration-300 `}
                                 key={index}
                                 onClick={() => handleClickMenu(el.name)}
 
@@ -259,7 +259,7 @@ const MenuDesktop = () => {
                             >
                                 <div className="relative" >
                                     <div
-                                        className={`${el.name === nameOpen ? 'text-accent-color' : 'text-gray-700'} flex gap-1 items-center cursor-pointer relative px-4 font-semibold transition-all duration-300`}
+                                        className={`${el.name === nameOpen ? 'text-accent-color' : 'text-gray-700'} flex gap-1 items-center relative px-4 font-semibold transition-all duration-300`}
 
                                     >
                                         {el.name}

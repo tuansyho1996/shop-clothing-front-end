@@ -32,90 +32,10 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
         "color": color,
         "size": sizes,
         "ageGroup": product?.product_list_categories[1] === "kid" ? "kid" : "adult",
-        "offers": {
-            "@type": "Offer",
-            "url": `https://carnobon.com/product/${product?.product_slug}`,
-            "priceCurrency": "USD",
-            "price": product?.product_price?.toFixed(2),
-            "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2026-12-31",
-            "shippingDetails": [
-                {
-                    "@type": "OfferShippingDetails",
-                    "shippingRate": {
-                        "@type": "MonetaryAmount",
-                        "value": 4.99,
-                        "currency": "USD"
-                    },
-                    "shippingLabel": "Standard Shipping (under $100)",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "priceCurrency": "USD",
-                        "eligibleTransactionVolume": {
-                            "@type": "PriceSpecification",
-                            "minPrice": 0,
-                            "maxPrice": 99.99
-                        }
-                    },
-                    "deliveryTime": {
-                        "@type": "ShippingDeliveryTime",
-                        "handlingTime": {
-                            "@type": "QuantitativeValue",
-                            "minValue": 0,
-                            "maxValue": 2,
-                            "unitCode": "d" // days
-                        },
-                        "transitTime": {
-                            "@type": "QuantitativeValue",
-                            "minValue": 10,
-                            "maxValue": 15,
-                            "unitCode": "d"
-                        }
-                    },
-                    "shippingWeight": {
-                        "@type": "QuantitativeValue",
-                        "value": 0.5,
-                        "unitCode": "kg" // hoặc "g" nếu bạn muốn gram
-                    }
-                },
-                {
-                    "@type": "OfferShippingDetails",
-                    "shippingRate": {
-                        "@type": "MonetaryAmount",
-                        "value": 0,
-                        "currency": "USD"
-                    },
-                    "shippingLabel": "Free Shipping (over $100)",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "priceCurrency": "USD",
-                        "eligibleTransactionVolume": {
-                            "@type": "PriceSpecification",
-                            "minPrice": 100
-                        }
-                    },
-                    "deliveryTime": {
-                        "@type": "ShippingDeliveryTime",
-                        "handlingTime": {
-                            "@type": "QuantitativeValue",
-                            "minValue": 0,
-                            "maxValue": 2,
-                            "unitCode": "d" // days
-                        },
-                        "transitTime": {
-                            "@type": "QuantitativeValue",
-                            "minValue": 10,
-                            "maxValue": 15,
-                            "unitCode": "d"
-                        }
-                    },
-                    "shippingWeight": {
-                        "@type": "QuantitativeValue",
-                        "value": 0.5,
-                        "unitCode": "kg" // hoặc "g" nếu bạn muốn gram
-                    }
-                },
-            ]
+        "shippingWeight": {
+            "@type": "QuantitativeValue",
+            "value": 0.5, // giả sử có trường này
+            "unitCode": "KG"
         },
         "additionalProperty": {
             "@type": "PropertyValue",
