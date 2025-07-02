@@ -51,7 +51,7 @@ export default function TrackOrderPage() {
             className="w-full p-2 border rounded"
             required
           />
-          <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+          <button type="submit" className="w-full bg-accent-color text-white p-2 rounded hover:bg-[var(--primary-color)] transition-colors">
             Track Order
           </button>
         </form>

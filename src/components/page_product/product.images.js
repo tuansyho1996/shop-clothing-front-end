@@ -22,7 +22,7 @@ export default function ImagesProduct({ product }) {
     }
     return (
         <div className="flex flex-col w-full md:w-1/2 gap-1">
-            <div className='relative w-full pt-[100%] flex-1 shadow-2xl'>
+            <div className='relative w-full pt-[100%] flex-1 shadow-2xl overflow-hidden rounded-lg'>
                 <Image
                     src={currentImageDetail ? currentImageDetail : product?.product_images[0]}
                     alt={product?.product_name}
@@ -31,9 +31,10 @@ export default function ImagesProduct({ product }) {
                     sizes="(max-width: 768px) 100w, 50w"
                     // loading="lazy"
                     priority={true}
+                    className="rounded-lg shadow-lg hover:scale-125 transition-transform duration-300"
                 />
             </div>
-            <div className="grid grid-cols-7 sm:grid-cols-9 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-1">
+            <div className="grid grid-cols-7 sm:grid-cols-9 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-1 overflow-x-auto scrollbar-hiden">
                 {
                     imagesProduct.length > 0 && imagesProduct.map((image, index) => (
                         <div className="sm:w-[60px]" key={index}>
