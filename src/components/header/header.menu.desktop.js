@@ -263,7 +263,7 @@ const MenuDesktop = () => {
 
                                     >
                                         {el.name}
-                                        <KeyboardArrowDownIcon className={`${el.name === nameOpen ? 'rotate-180' : ''}`} />
+                                        <KeyboardArrowDownIcon className={`${el.name === nameOpen ? 'rotate-180' : ''} transition-transform duration-300`} />
 
                                     </div>
 
@@ -275,7 +275,7 @@ const MenuDesktop = () => {
                 }
             </ul>
             {nameOpen && (
-                <div className="absolute top-full left-0 w-full z-10">
+                <div className="absolute top-full left-0 w-full z-10 ">
                     {/* Overlay */}
                     <div
                         className="fixed inset-0 bg-black opacity-0 z-20"
@@ -283,7 +283,7 @@ const MenuDesktop = () => {
                     ></div>
 
                     {/* Dropdown */}
-                    <div className="relative z-30  bg-white shadow-lg ">
+                    <div className={`relative z-30  bg-white shadow-lg transition-all duration-300 ${nameOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'}`}>
                         <div className="p-6 max-w-7xl mx-auto flex justify-between">
                             {
                                 // Tìm menu được mở theo nameOpen

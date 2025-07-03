@@ -270,7 +270,7 @@ const MenuMobile = () => {
                         <h2 className="text-xl font-bold">CATEGORIES</h2>
                         <CloseIcon onClick={() => setIsDrawerOpen(false)} />
                     </div>
-                    <nav className="w-full" role="navigation" onKeyDown={() => setIsDrawerOpen(false)}>
+                    <nav className="w-full transition-transform duration-300" role="navigation" onKeyDown={() => setIsDrawerOpen(false)}>
                         <ul>
                             {
                                 menu.map((el, index) => (
@@ -284,7 +284,7 @@ const MenuMobile = () => {
                                                 {el.name}
                                             </CustomLink>
                                             <div className='ml-auto'>
-                                                <ChevronRightIcon className={`${el.name === nameOpen && 'rotate-180'}`} />
+                                                <ChevronRightIcon className={`${el.name === nameOpen && 'rotate-180'} transition-transform duration-300`} />
                                             </div>
                                         </div>
 
@@ -303,7 +303,7 @@ const MenuMobile = () => {
                                                                     {item.name}
                                                                 </CustomLink>
                                                                 <div className='ml-auto'>
-                                                                    <ChevronRightIcon className={`${item.name === nameChild2Open && 'rotate-180'}`} />
+                                                                    <ChevronRightIcon className={`${item.name === nameChild2Open && 'rotate-180'} `} />
                                                                 </div>
                                                             </div>
                                                             <div style={{ minWidth: '200px' }} className={`${item.name === nameChild2Open ? 'inline' : 'hidden'}`}>
