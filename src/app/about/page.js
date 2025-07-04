@@ -1,5 +1,11 @@
 // pages/index.js
 
+export const metadata = {
+    title: 'Carnobon - Where History Meets Style',
+    description: 'Explore clothing inspired by Egyptian, Norse, and Greek mythology. Rediscover legends and redefine your style with Carnobon.',
+    keywords: 'mythology, clothing, Egyptian, Norse, Greek, fashion, history, culture, style',
+}
+
 export default function Home() {
     return (
         <>
