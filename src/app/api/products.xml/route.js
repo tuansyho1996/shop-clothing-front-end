@@ -96,7 +96,7 @@ export async function GET() {
             <g:id>${product._id}</g:id>
             <g:title><![CDATA[${product.product_name}]]></g:title>
             <g:description><![CDATA[${product.product_description}]]></g:description>
-            <g:link>https://carnobon.com/products/${product.product_slug}</g:link>
+            <g:link>https://carnobon.com/product/${product.product_slug}</g:link>
             <g:image_link>${product.product_images?.[0]}</g:image_link>
             <g:brand>Carnobon</g:brand>
             <g:price>${product.product_price} USD</g:price>
