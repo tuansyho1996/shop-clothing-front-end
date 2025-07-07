@@ -10,6 +10,8 @@ import Delivery from '@/components/checkout/checkout.delivery';
 import PayPalButton from '@/components/paypal';
 import { FormCheckoutProvider } from '@/context/context.form.checkout';
 import Link from 'next/link';
+import Web3Provider from '@/components/providers/web3.provider';
+import CryptoPayButton from '@/components/checkout/button.checkout';
 
 
 const SpinnerOverlay = () => {
@@ -46,7 +48,7 @@ export default function Checkout() {
   // }
 
   return (
-    <>
+    <Web3Provider>
       {loading && <SpinnerOverlay />}
       <FormCheckoutProvider>
         <div className="max-w-5xl 2xl:max-w-7xl mx-auto md:px-4 py-8 flex flex-col md:flex-row gap-4">
@@ -128,7 +130,8 @@ export default function Checkout() {
               </div>
               <hr className="border-t border-gray-300 mx-5" />
               <div className="bg-gray-100 p-5 rounded-lg space-y-4 md:mt-0">
-                <PayPalButton setLoading={setLoading} />
+                {/* <PayPalButton setLoading={setLoading} /> */}
+                <CryptoPayButton />
                 <p className="text-sm text-gray-600 mt-4">
                   Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our{' '}
                   <Link href="/shipping-and-policy" target='_blank' className="underline text-blue-600">Terms of Service</Link> and{' '}
@@ -140,6 +143,6 @@ export default function Checkout() {
           </div>
         </div>
       </FormCheckoutProvider>
-    </>
+    </Web3Provider>
   );
 }
