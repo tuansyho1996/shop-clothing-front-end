@@ -10,7 +10,6 @@ import Delivery from '@/components/checkout/checkout.delivery';
 import PayPalButton from '@/components/paypal';
 import { FormCheckoutProvider } from '@/context/context.form.checkout';
 import Link from 'next/link';
-import Web3Provider from '@/components/providers/web3.provider';
 import CryptoPayButton from '@/components/checkout/button.checkout';
 
 
@@ -48,7 +47,7 @@ export default function Checkout() {
   // }
 
   return (
-    <Web3Provider>
+    <>
       {loading && <SpinnerOverlay />}
       <FormCheckoutProvider>
         <div className="max-w-5xl 2xl:max-w-7xl mx-auto md:px-4 py-8 flex flex-col md:flex-row gap-4">
@@ -143,6 +142,6 @@ export default function Checkout() {
           </div>
         </div>
       </FormCheckoutProvider>
-    </Web3Provider>
+    </>
   );
 }

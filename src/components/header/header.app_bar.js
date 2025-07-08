@@ -14,7 +14,7 @@ const Header = async () => {
     <Web3Provider>
       <header className="w-full bg-white shadow">
         {/* Top Section */}
-        <div className="flex !text-back justify-between items-center p-1 gap-4 lg:gap-6">
+        <div className="flex !text-back justify-between items-center p-1 gap-4 lg:gap-6 py-2">
           {/* Left Section: Logo */}
           <div className="flex items-center ml-4">
             <Link href="/" className="text-3xl font-bold ">
@@ -28,21 +28,22 @@ const Header = async () => {
               />
             </Link>
           </div>
-          {/* Menu for mobile */}
-          <MenuMobile />
 
           {/* Center Section: Search Bar */}
           <SearchAppBar />
           {/* Right Section: Icons */}
-          <div className="flex items-center space-x-4">
-            <AccountMenu />
-            <CartHeader />
+          <div className="flex items-center space-x-2">
             <ConnectButton className="!text-back !bg-white !border-none !shadow-none !rounded-none !px-4 !py-2" />
             <div className="h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+            <AccountMenu />
+            <CartHeader />
           </div>
+          {/* Menu for mobile */}
+          <MenuMobile />
         </div>
         {/* Menu for desktop */}
         <MenuDesktop />
+        <SearchAppBar />
 
         {/* Bottom Section: Navigation Links */}
       </header>

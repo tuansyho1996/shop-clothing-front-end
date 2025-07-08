@@ -67,7 +67,7 @@ const SearchAppBar = () => {
 
     return (
         <>
-            <div className="flex-grow relative search-bar" ref={searchBarRef}>
+            <div className="hidden sm:flex flex-grow relative search-bar" ref={searchBarRef}>
                 <input
                     type="text"
                     placeholder="Search..."
