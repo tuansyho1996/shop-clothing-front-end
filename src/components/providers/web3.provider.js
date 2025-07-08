@@ -16,7 +16,6 @@ export default function Web3Provider({ children }) {
         chains: [mainnet, sepolia, bsc, arbitrum, optimism, base],
         transports: {
             [mainnet.id]: http(),
-            [sepolia.id]: http(),
             [bsc.id]: http(),
             [arbitrum.id]: http(),
             [optimism.id]: http(),

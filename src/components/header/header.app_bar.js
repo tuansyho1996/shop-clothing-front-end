@@ -33,16 +33,25 @@ const Header = async () => {
             <SearchAppBar />
           </div>
           {/* Right Section: Icons */}
-          <div className="flex space-x-2">
-            <ConnectButton className="!text-back !bg-white !border-none !shadow-none !rounded-none !px-4 !py-2" />
-            <div className="h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+          <div className="flex items-center justify-center space-x-4 lg:space-x-6 ">
+            <div className='min-[500px]:hidden max-[340px]:hidden'>
+              <SearchAppBar />
+            </div>
+            <div className="max-[500px]:hidden">
+              <ConnectButton className=" !text-back !bg-white !border-none !shadow-none !px-4 !py-2" />
+            </div>
+            {/* Divider Line */}
             <AccountMenu />
             <CartHeader />
           </div>
           {/* Menu for mobile */}
           <MenuMobile />
         </div>
-        <div className='md:hidden mb-2 mx-4'>
+
+        <div className="min-[500px]:hidden flex justify-center items-center p-1 gap-4 lg:gap-6 py-2">
+          <ConnectButton className=" !text-back !bg-white !border-none !shadow-none !rounded-none !px-4 !py-2" />
+        </div>
+        <div className=' md:hidden max-[500px]:hidden'>
           <SearchAppBar />
         </div>
         {/* Menu for desktop */}
