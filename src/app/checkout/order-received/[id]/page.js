@@ -1,7 +1,9 @@
+import PriceDisplay from "@/components/ui/display.price";
 import { fetchOrder } from "@/services/service.payment";
+import PriceDisplay from "@/components/ui/display.price";
 export default async function OrderRecieved({ params }) {
   const res = await fetchOrder(params.id)
-  const subtotal = res?.order_info_customer?.items.reduce((sum, el) => el.product_price * el.product_count + sum, 0)
+  const subtotal = res?.order_info_customer?.items.reduce((sum, el) => el.product_price_eth * el.product_count + sum, 0)
   return (
     <div className="container mx-auto p-4 min-h-[50vh]">
       <h2 className="text-2xl font-bold mb-4">Order details</h2>
@@ -22,14 +24,15 @@ export default async function OrderRecieved({ params }) {
                   return (
                     <tr key={index}>
                       <td className="p-2 border-b">{item.product_name} x {item.product_count} - {item.product_size} - {item.product_color}</td>
-                      <td className="p-2 border-b text-right font-bold">${item.product_price}</td>
+                      {/* <td className="p-2 border-b text-right font-bold">${item.product_price_eth}</td> */}
+                      <td><PriceDisplay currency="ETH" price={item.product_price_eth} font="font-semibold" /></td>
                     </tr>
                   )
                 })
               }
               <tr>
                 <td className="p-2">Subtotal:</td>
-                <td className="p-2 text-right font-bold">${subtotal.toFixed(2)}</td>
+                <td className="p-2 text-right font-bold">${subtotal.toFixed(6)}</td>
               </tr>
               <tr>
                 <td className="p-2">Shipping:</td>
@@ -41,7 +44,7 @@ export default async function OrderRecieved({ params }) {
               </tr>
               <tr>
                 <td className="p-2 font-bold">Total:</td>
-                <td className="p-2 text-right font-bold">${(subtotal + res?.order_info_customer?.shipping).toFixed(2)}</td>
+                <td className="p-2 text-right font-bold">${(subtotal + res?.order_info_customer?.shipping).toFixed(6)}</td>
               </tr>
             </tbody>
           </table>
@@ -90,7 +93,7 @@ export default async function OrderRecieved({ params }) {
               <strong>Email:</strong> {res?.order_info_customer?.emailAddress}
             </li>
             <li>
-              <strong>Total:</strong> ${(subtotal + res?.order_info_customer?.shipping).toFixed(2)}
+              <strong>Total:</strong> ${(subtotal + res?.order_info_customer?.shipping).toFixed(6)}
             </li>
             <li>
               <strong>Payment method:</strong> {res?.order_info?.payment_source?.paypal ? 'Paypal' : 'Credit card'}

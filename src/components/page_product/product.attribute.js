@@ -4,6 +4,7 @@ import { AppContext } from "@/context/context.app";
 import Modal from "@/components/page_product/product.modal.size.guide";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import PriceDisplay from "../ui/display.price";
 
 
 
@@ -81,7 +82,9 @@ const ProductAttribute = ({ product, listSizes, colorsObject }) => {
   //
   return (
     <>
-      <div className="text-[var(--accent-color)] text-xl font-bold">${product?.product_price}</div>
+      <div className="text-[var(--accent-color)] text-xl ">
+        <PriceDisplay price={product?.product_price_eth} currency='ETH' font='font-semibold' color='text-black' />
+      </div>
       <div className="mt-4">
         <span className="font-medium">Color: </span>
         <span className="text-gray-700">{selectedColor}</span>

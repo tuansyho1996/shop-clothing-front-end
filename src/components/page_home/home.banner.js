@@ -18,8 +18,11 @@ const Banner = async () => {
       <div className="relative z-0 flex flex-col justify-center items-center h-full space-y-4 px-4 text-center">
         {/* Mobile First Approach */}
         <h1 className="font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
-          Carnobon — Ancient Myths, Modern Comfort
+          Crypto-Inspired Streetwear
         </h1>
+        <p className="text-lg md:text-xl text-gray-600 mb-6">
+          Limited drops. Ethereum-native payments. Designed for builders, traders & true believers.
+        </p>
         <Link href="/shop">
           <button
             className="mt-4 px-4 pt-1 pb-2 md:px-8 md:pt-2 md:pb-3 font-bold text-md rounded-md md:text-xl bg-accent-color hover:text-black"

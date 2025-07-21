@@ -16,7 +16,7 @@ function App({ setLoading }) {
     "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
     "enable-funding": "venmo",
     'disable-funding': 'card',
-    currency: "USD",
+    currency: "ETH",
     "data-page-type": "product-details",
     components: "buttons,card-fields",
     "data-sdk-integration-source": "integrationbuilder",

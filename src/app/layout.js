@@ -17,17 +17,18 @@ const openSans = Open_Sans({
 export default function RootLayout({ children }) {
 
   return (
-    <AppProvider>
-      <html lang="en">
-        <body className={`${openSans.variable}`}>
-          <Web3Provider>
+    <html lang="en">
+
+      <body className={`${openSans.variable}`}>
+        <Web3Provider>
+          <AppProvider>
             <Header />
             {children}
             <Footer />
             <ToastContainer autoClose={1000} theme="colored" />
-          </Web3Provider>
-        </body>
-      </html>
-    </AppProvider>
+          </AppProvider>
+        </Web3Provider>
+      </body>
+    </html>
   );
 }

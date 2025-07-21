@@ -7,10 +7,10 @@ import Image from 'next/image';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Delivery from '@/components/checkout/checkout.delivery';
-import PayPalButton from '@/components/paypal';
 import { FormCheckoutProvider } from '@/context/context.form.checkout';
 import Link from 'next/link';
 import CryptoPayButton from '@/components/checkout/button.checkout';
+import PriceDisplay from '@/components/ui/display.price';
 
 
 const SpinnerOverlay = () => {
@@ -97,7 +97,7 @@ export default function Checkout() {
                             <p className="text-gray-500">{el.product_color} / {el.product_size}</p>
                           </div>
                         </div >
-                        <p className="flex-none">${el.product_price} USD</p>
+                        <PriceDisplay price={el.product_price_eth} currency='ETH' />
                       </div>
 
                     ))
@@ -116,20 +116,21 @@ export default function Checkout() {
                 </div>
                 <div className="flex justify-between items-center mt-4">
                   <p className="text-gray-600">Subtotal</p>
-                  <p>${subtotal?.toFixed(2)} USD</p>
+                  {/* <p>${subtotal?.toFixed(6)} ETH</p> */}
+                  <PriceDisplay price={subtotal} currency='ETH' />
                 </div>
                 <div className="flex justify-between items-center">
                   <p className="text-gray-600">Shipping</p>
-                  <p>${shipping?.toFixed(2)} USD</p>
+                  {/* <p>${shipping?.toFixed(6)} ETH</p> */}
+                  <PriceDisplay price={shipping} currency='ETH' />
                 </div>
                 <div className="flex justify-between items-center font-semibold text-lg">
                   <p>Total</p>
-                  <p>USD $ {(subtotal + shipping)?.toFixed(2)}</p>
+                  <PriceDisplay price={(subtotal + shipping)} currency='ETH' font='font-semibold' color='text-black' />
                 </div>
               </div>
               <hr className="border-t border-gray-300 mx-5" />
               <div className="bg-gray-100 p-5 rounded-lg space-y-4 md:mt-0">
-                {/* <PayPalButton setLoading={setLoading} /> */}
                 <CryptoPayButton />
                 <p className="text-sm text-gray-600 mt-4">
                   Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our{' '}

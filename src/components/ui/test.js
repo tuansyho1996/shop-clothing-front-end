@@ -22,7 +22,7 @@ export default function App() {
     "enable-funding": "venmo",
     "disable-funding": "",
     "buyer-country": "US",
-    currency: "USD",
+    currency: "ETH",
     "data-page-type": "product-details",
     components: "buttons,card-fields",
     "data-sdk-integration-source": "developer-studio",

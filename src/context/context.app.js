@@ -33,7 +33,7 @@ export function AppProvider({ children }) {
     }
   }, []);
   useEffect(() => {
-    const newSubTotal = productsInCart.reduce((acc, el) => acc + (el.product_count * el.product_price), 0)
+    const newSubTotal = productsInCart.reduce((acc, el) => acc + (el.product_count * el.product_price_eth), 0)
     setSubtotal(newSubTotal)
   }, [productsInCart])
 

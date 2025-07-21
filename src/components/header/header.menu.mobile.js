@@ -8,218 +8,123 @@ import CloseIcon from '@mui/icons-material/Close';
 import CustomLink from '../ui/ui.custom.link';
 const menu = [
     {
-        name: 'Asgardian Elegance',
-        href: '/category/asgardian-elegance',
+        name: 'OG Crypto Series',
+        href: '/category/og-crypto-series-honoring-the-pioneers-of-blockchain',
         child: [
             {
-                name: 'Men',
-                href: '/category/asgardian-elegance&men',
-                child: [
-                    { name: "Hoodie", href: '/category/asgardian-elegance&men&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&men&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/asgardian-elegance&men&t-shirt' },
-                    { name: "Pant", href: '/category/asgardian-elegance&men&pant' },
-                    { name: "Sweatshirt", href: '/category/asgardian-elegance&men&sweatshirt' },
-                    { name: "Hooded Vest", href: '/category/asgardian-elegance&men&hooded-vest' },
-                    { name: "Short Pant", href: '/category/asgardian-elegance&men&short-pant' },
-                ]
+                name: 'Hoodie',
+                href: '/category/og-crypto-series-honoring-the-pioneers-of-blockchain--hoodie',
             },
             {
-                name: 'Women',
-                href: '/category/asgardian-elegance&women',
-                child: [
-                    { name: "Hoodie", href: '/category/asgardian-elegance&women&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&women&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/asgardian-elegance&women&t-shirt' },
-                    { name: "Pant", href: '/category/asgardian-elegance&women&pant' },
-                    { name: "Sweatshirt", href: '/category/asgardian-elegance&women&sweatshirt' },
-                    { name: "Hooded Vest", href: '/category/asgardian-elegance&men&hooded-vest' },
-                    { name: "Short Pant", href: '/category/asgardian-elegance&women&short-pant' },
-                ]
+                name: 'Zip Hoodie',
+                href: '/category/og-crypto-series-honoring-the-pioneers-of-blockchain--zip-hoodie',
             },
             {
-                name: 'Unisex',
-                href: '/category/asgardian-elegance&unisex',
-                child: [
-                    { name: "Hoodie", href: '/category/asgardian-elegance&unisex&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&unisex&zip-hoodie' },
-                    { name: "Pant", href: '/category/asgardian-elegance&unisex&pant' },
-                    { name: "Sweatshirt", href: '/category/asgardian-elegance&unisex&sweatshirt' },
-                    { name: "Hooded Vest", href: '/category/asgardian-elegance&unisex&hooded-vest' },
-                    { name: "Short Pant", href: '/category/asgardian-elegance&unisex&short-pant' },
-                ]
+                name: 'Sweatshirt',
+                href: '/category/og-crypto-series-honoring-the-pioneers-of-blockchain--sweatshirt',
             },
             {
-                name: 'Kid',
-                href: '/category/asgardian-elegance&kid',
-                child: [
-                    { name: "Hoodie", href: '/category/asgardian-elegance&kid&hoodie' },
-                    { name: "T-Shirt", href: '/category/asgardian-elegance&kid&t-shirt' },
-                    { name: "Pant", href: '/category/asgardian-elegance&kid&pant' },
-                    { name: "Sweatshirt", href: '/category/asgardian-elegance&kid&sweatshirt' },
-                    { name: "Zip Up Hoodie", href: '/category/asgardian-elegance&kid&zip-hoodie' }
-                ]
+                name: 'Hooded Vest',
+                href: '/category/og-crypto-series-honoring-the-pioneers-of-blockchain--hooded-vest',
             },
-            // {
-            //     name: 'Accessory',
-            //     href: '/category/asgardian-elegance&accessory',
-            //     child: [
-            //         { name: "curved brim cap", href: '/category/asgardian-elegance&accessory&' },
-            //         { name: "Unisex Tie", href: '/category/asgardian-elegance&accessory&' },
-            //         { name: "Bucket Hat", href: '/category/asgardian-elegance&accessory&' },
-            //         { name: "Car Seat Cover", href: '/category/asgardian-elegance&accessory&' },
-            //         { name: "Tumbler", href: '/category/asgardian-elegance&accessory&' },
-            //         { name: "Silk Bandana", href: '/category/asgardian-elegance&accessory&' },
-            //         { name: "car mats", href: '/category/asgardian-elegance&accessory&' },
-            //         { name: "Car Stickers", href: '/category/asgardian-elegance&accessory&' },
-            //         { name: "Steering Wheel Cover", href: '/category/asgardian-elegance&accessory&' },
-            //         { name: "Windshield Sunshade", href: '/category/asgardian-elegance&accessory&' }
-            //     ]
-            // }
+            {
+                name: 'T-Shirt Men',
+                href: '/category/og-crypto-series-honoring-the-pioneers-of-blockchain--t-shirt-men',
+            },
+            {
+                name: 'T-Shirt Women',
+                href: '/category/og-crypto-series-honoring-the-pioneers-of-blockchain--t-shirt-women',
+            },
+            {
+                name: 'Short Pant',
+                href: '/category/og-crypto-series-honoring-the-pioneers-of-blockchain--short-pant',
+            },
+            {
+                name: 'Pant',
+                href: '/category/og-crypto-series-honoring-the-pioneers-of-blockchain--pant',
+            },
+
         ]
     },
     {
-        name: `Pharaoh's Legacy`,
-        href: '/category/pharaoh-legacy',
+        name: 'DeFi Culture ',
+        href: '/category/defi-culture-wear-the-protocols-that-power-web3',
         child: [
             {
-                name: 'Men',
-                href: '/category/pharaoh-legacy&men',
-                child: [
-                    { href: '/category/pharaoh-legacy&men&hoodie', name: "Hoodie" },
-                    { href: '/category/pharaoh-legacy&men&zip-hoodie', name: "Zip Up Hoodie" },
-                    { href: '/category/pharaoh-legacy&men&t-shirt', name: "T-Shirt" },
-                    { href: '/category/pharaoh-legacy&men&pant', name: "Pant" },
-                    { href: '/category/pharaoh-legacy&men&sweatshirt', name: "Sweatshirt" },
-                    { href: '/category/pharaoh-legacy&men&hooded-vest', name: "Hooded Vest" },
-                    { href: '/category/pharaoh-legacy&men&short-pant', name: "Short Pant" },
-                ]
+                name: 'Hoodie',
+                href: '/category/defi-culture-wear-the-protocols-that-power-web3--hoodie',
             },
             {
-                name: 'Women',
-                href: '/category/pharaoh-legacy&women',
-                child: [
-                    { href: '/category/pharaoh-legacy&women&hoodie', name: "Hoodie" },
-                    { href: '/category/pharaoh-legacy&women&zip-hoodie', name: "Zip Up Hoodie" },
-                    { href: '/category/pharaoh-legacy&women&t-shirt', name: "T-Shirt" },
-                    { href: '/category/pharaoh-legacy&women&pant', name: "Pant" },
-                    { href: '/category/pharaoh-legacy&women&sweatshirt', name: "Sweatshirt" },
-                    { href: '/category/pharaoh-legacy&women&hooded-vest', name: "Hooded Vest" },
-                    { href: '/category/pharaoh-legacy&women&short-pant', name: "Short Pant" },
-                ]
+                name: 'Zip Hoodie',
+                href: '/category/defi-culture-wear-the-protocols-that-power-web3--zip-hoodie',
             },
             {
-                name: 'Unisex',
-                href: '/category/pharaoh-legacy&unisex',
-                child: [
-                    { href: '/category/pharaoh-legacy&unisex&hoodie', name: "Hoodie" },
-                    { href: '/category/pharaoh-legacy&unisex&zip-hoodie', name: "Zip Up Hoodie" },
-                    { href: '/category/pharaoh-legacy&unisex&pant', name: "Pant" },
-                    { href: '/category/pharaoh-legacy&unisex&sweatshirt', name: "Sweatshirt" },
-                    { href: '/category/pharaoh-legacy&unisex&hooded-vest', name: "Hooded Vest" },
-                    { href: '/category/pharaoh-legacy&unisex&short-pant', name: "Short Pant" },
-                ]
+                name: 'Sweatshirt',
+                href: '/category/defi-culture-wear-the-protocols-that-power-web3--sweatshirt',
             },
             {
-                name: 'Kid',
-                href: '/category/pharaoh-legacy&kid',
-                child: [
-                    { href: '/category/pharaoh-legacy&kid&hoodie', name: "Hoodie" },
-                    { href: '/category/pharaoh-legacy&kid&t-shirt', name: "T-Shirt" },
-                    { href: '/category/pharaoh-legacy&kid&pant', name: "Pant" },
-                    { href: '/category/pharaoh-legacy&kid&sweatshirt', name: "Sweatshirt" },
-                    { href: '/category/pharaoh-legacy&kid&zip-hoodie', name: "Zip Up hoodie" }
-                ]
+                name: 'Hooded Vest',
+                href: '/category/defi-culture-wear-the-protocols-that-power-web3--hooded-vest',
             },
-            // {
-            //     name: 'Accessory',
-            //     href: '/category/pharaoh-legacy&accessory',
-            //     child: [
-            //         { href: '/category/pharaoh-legacy', name: "curved brim cap" },
-            //         { href: '/category/pharaoh-legacy', name: "Unisex Tie" },
-            //         { href: '/category/pharaoh-legacy', name: "Bucket Hat" },
-            //         { href: '/category/pharaoh-legacy', name: "Car Seat Cover" },
-            //         { href: '/category/pharaoh-legacy', name: "Tumbler" },
-            //         { href: '/category/pharaoh-legacy', name: "Silk Bandana" },
-            //         { href: '/category/pharaoh-legacy', name: "car mats" },
-            //         { href: '/category/pharaoh-legacy', name: "Car Stickers" },
-            //         { href: '/category/pharaoh-legacy', name: "Steering Wheel Cover" },
-            //         { href: '/category/pharaoh-legacy', name: "Windshield Sunshade" }
-            //     ]
-            // }
+            {
+                name: 'T-Shirt Men',
+                href: '/category/defi-culture-wear-the-protocols-that-power-web3--t-shirt-men',
+            },
+            {
+                name: 'T-Shirt Women',
+                href: '/category/defi-culture-wear-the-protocols-that-power-web3--t-shirt-women',
+            },
+            {
+                name: 'Short Pant',
+                href: '/category/defi-culture-wear-the-protocols-that-power-web3--short-pant',
+            },
+            {
+                name: 'Pant',
+                href: '/category/defi-culture-wear-the-protocols-that-power-web3--pant',
+            },
         ]
     },
     {
-        name: 'Olympian Thread',
-        href: '/category/olympian-thread',
+        name: 'Meme Coins',
+        href: '/categorymeme-coins-for-the-culture-for-the-chaos',
         child: [
             {
-                name: 'Men',
-                href: '/category/olympian-thread&men',
-                child: [
-                    { name: "Hoodie", href: '/category/olympian-thread&men&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/olympian-thread&men&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/olympian-thread&men&t-shirt' },
-                    { name: "Pant", href: '/category/olympian-thread&men&pant' },
-                    { name: "Sweatshirt", href: '/category/olympian-thread&men&sweatshirt' },
-                    { name: "Hooded Vest", href: '/category/olympian-thread&men&hooded-vest' },
-                    { name: "Short Pant", href: '/category/olympian-thread&men&short-pant' },
-                ]
+                name: 'Hoodie',
+                href: '/category/meme-coins-for-the-culture-for-the-chaos--hoodie',
             },
             {
-                name: 'Women',
-                href: '/category/olympian-thread&women',
-                child: [
-                    { name: "Hoodie", href: '/category/olympian-thread&women&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/olympian-thread&women&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/olympian-thread&women&t-shirt' },
-                    { name: "Pant", href: '/category/olympian-thread&women&pant' },
-                    { name: "Sweatshirt", href: '/category/olympian-thread&women&sweatshirt' },
-                    { name: "Hooded Vest", href: '/category/olympian-thread&women&hooded-vest' },
-                    { name: "Short Pant", href: '/category/olympian-thread&women&short-pant' },
-                ]
+                name: 'Zip Hoodie',
+                href: '/category/meme-coins-for-the-culture-for-the-chaos--zip-hoodie',
             },
             {
-                name: 'Unisex',
-                href: '/category/olympian-thread&unisex',
-                child: [
-                    { name: "Hoodie", href: '/category/olympian-thread&unisex&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/olympian-thread&unisex&zip-hoodie' },
-                    { name: "Pant", href: '/category/olympian-thread&unisex&pant' },
-                    { name: "Sweatshirt", href: '/category/olympian-thread&unisex&sweatshirt' },
-                    { name: "Hooded Vest", href: '/category/olympian-thread&unisex&hooded-vest' },
-                    { name: "Short Pant", href: '/category/olympian-thread&unisex&short-pant' },
-                ]
+                name: 'Sweatshirt',
+                href: '/category/meme-coins-for-the-culture-for-the-chaos--sweatshirt',
             },
             {
-                name: 'Kid',
-                href: '/category/olympian-thread&kid',
-                child: [
-                    { name: "Hoodie", href: '/category/olympian-thread&kid&hoodie' },
-                    { name: "Zip Up Hoodie", href: '/category/olympian-thread&kid&zip-hoodie' },
-                    { name: "T-Shirt", href: '/category/olympian-thread&kid&t-shirt' },
-                    { name: "Pant", href: '/category/olympian-thread&kid&pant' },
-                    { name: "Sweatshirt", href: '/category/olympian-thread&kid&sweatshirt' },
-                ]
+                name: 'Hooded Vest',
+                href: '/category/meme-coins-for-the-culture-for-the-chaos--hooded-vest',
             },
-            // {
-            //     name: 'Accessory',
-            //     href: 'olympian-thread&accessory',
-            //     child: [
-            //         { href: '/category/olympian-thread&accessory', name: "curved brim cap" },
-            //         { href: '/category/olympian-thread&accessory', name: "Unisex Tie" },
-            //         { href: '/category/olympian-thread&accessory', name: "Bucket Hat" },
-            //         { href: '/category/olympian-thread&accessory', name: "Car Seat Cover" },
-            //         { href: '/category/olympian-thread&accessory', name: "Tumbler" },
-            //         { href: '/category/olympian-thread&accessory', name: "Silk Bandana" },
-            //         { href: '/category/olympian-thread&accessory', name: "car mats" },
-            //         { href: '/category/olympian-thread&accessory', name: "Car Stickers" },
-            //         { href: '/category/olympian-thread&accessory', name: "Steering Wheel Cover" },
-            //         { href: '/category/olympian-thread&accessory', name: "Windshield Sunshade" }
-            //     ]
-            // }
+            {
+                name: 'T-Shirt Men',
+                href: '/category/meme-coins-for-the-culture-for-the-chaos--t-shirt-men',
+            },
+            {
+                name: 'T-Shirt Women',
+                href: '/category/meme-coins-for-the-culture-for-the-chaos--t-shirt-women',
+            },
+            {
+                name: 'Short Pant',
+                href: '/category/meme-coins-for-the-culture-for-the-chaos--short-pant',
+            },
+            {
+                name: 'Pant',
+                href: '/category/meme-coins-for-the-culture-for-the-chaos--pant',
+            },
         ]
+
     }
+
+
 ]
 
 
@@ -275,7 +180,7 @@ const MenuMobile = () => {
                             {
                                 menu.map((el, index) => (
                                     <li key={index}>
-                                        <div className={`cursor-pointer flex justify-between uppercase items-center px-3 py-3 border-y border-gray-200 ${el.name === nameOpen ? 'text-accent-color border-accent-color border-y-2' : ''}`}
+                                        <div className={`cursor-pointer flex justify-between uppercase items-center px-3 py-3 ${el.name === nameOpen ? 'text-accent-color border-accent-color border-b-2 bg-gray-100' : 'border-b-2 border-gray-200'}`}
                                             onClick={() => handleClick(el.name)}
                                         >
                                             <CustomLink href={el.href} setIsDrawerOpen={setIsDrawerOpen}
@@ -289,41 +194,23 @@ const MenuMobile = () => {
                                         </div>
 
                                         <div style={{ minWidth: '200px' }} className={`${el.name === nameOpen ? 'inline' : 'hidden'}`}>
-                                            <ul style={{ width: '100%' }}>
+                                            <ul style={{ width: '100%' }} className='flex flex-col px-8'>
                                                 {
                                                     el.child.length > 0 &&
                                                     el.child.map((item, index) =>
                                                     (
                                                         <li key={index} className='font-semibold '>
-                                                            <div className={`flex gap-4 items-center justify-between px-8 cursor-pointer py-2 ${item.name === nameChild2Open ? 'text-accent-color border-accent-color border-b-2' : ''}`}
-                                                                onClick={() => handleClick2(item.name)}>
-                                                                <CustomLink href={item.href} setIsDrawerOpen={setIsDrawerOpen}
-                                                                    underline={false}
-                                                                >
+                                                            <CustomLink href={item.href} setIsDrawerOpen={setIsDrawerOpen}
+                                                                underline={false}
+                                                            >
+                                                                <div className={`flex gap-4 items-center justify-between pl-2 cursor-pointer py-2 ${item.name === nameChild2Open ? 'text-accent-color border-accent-color border-b-2 bg-gray-100' : 'border-b-2 border-gray-200'}`}
+                                                                    onClick={() => handleClick2(item.name)}>
+
                                                                     {item.name}
-                                                                </CustomLink>
-                                                                <div className='ml-auto'>
-                                                                    <ChevronRightIcon className={`${item.name === nameChild2Open && 'rotate-180'} `} />
+
                                                                 </div>
-                                                            </div>
-                                                            <div style={{ minWidth: '200px' }} className={`${item.name === nameChild2Open ? 'inline' : 'hidden'}`}>
-                                                                <ul style={{ width: '100%' }}>
-                                                                    {
-                                                                        item.child.length > 0 &&
-                                                                        item.child.map((it, index) =>
-                                                                        (
-                                                                            <li key={index} className='font-semibold px-11 py-1'>
-                                                                                <CustomLink href={it.href} setIsDrawerOpen={setIsDrawerOpen} textTransform='capitalize'
-                                                                                    underline={false}
-                                                                                >
-                                                                                    {it.name}
-                                                                                </CustomLink>
-                                                                            </li>
-                                                                        )
-                                                                        )
-                                                                    }
-                                                                </ul>
-                                                            </div>
+                                                            </CustomLink>
+
                                                         </li>
                                                     )
                                                     )

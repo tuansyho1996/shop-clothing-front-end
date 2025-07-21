@@ -6,8 +6,8 @@ const ListCategory = async () => {
   const topCategories = await getTopCategory();
   return (
     <section className="container mx-auto">
-      <h2 className="mb-4 font-medium text-[1.5rem] px-4">
-        Top Categories
+      <h2 className="text-2xl font-semibold mb-4">
+        Categories
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {topCategories?.map((category, index) => (

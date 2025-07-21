@@ -8,13 +8,14 @@ import Image from 'next/image';
 import { AppContext } from '@/context/context.app';
 import { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
+import PriceDisplay from './ui/display.price';
 
 
 export default function Drawer({ isOpen, onClose, items }) {
   const { productsInCart, setProductsInCart, setDrawerOpen } = useContext(AppContext)
   const [subtotal, setSubtotal] = useState(0)
   useEffect(() => {
-    const newSubTotal = productsInCart.reduce((acc, el) => acc + (el.product_count * el.product_price), 0)
+    const newSubTotal = productsInCart.reduce((acc, el) => acc + (el.product_count * el.product_price_eth), 0)
     setSubtotal(newSubTotal)
   }, [productsInCart])
   const handleMinusItem = (index) => {
@@ -80,7 +81,11 @@ export default function Drawer({ isOpen, onClose, items }) {
                     </div>
                     <div className="basis-1/2 text-lg overflow-hidden">
                       <p className="font-semibold truncate-2-lines">{item.product_name}</p>
-                      <p className="">${item.product_price}<span style={{ color: '#999' }}> X {item.product_count}</span></p>
+                      {/* <p className="">${item.product_price_eth}<span style={{ color: '#999' }}> X {item.product_count}</span></p> */}
+                      <div className="flex items-center gap-1 text-gray-500">
+                        <PriceDisplay price={item.product_price_eth * item.product_count} currency='ETH' font='font-semibold' />
+                        <span className='pt-[2px]'>X {item.product_count}</span>
+                      </div>
                       <p className=" ">Color: {item.product_color}</p>
                       <p className=" ">Size: {item.product_size}</p>
                     </div>
@@ -95,7 +100,7 @@ export default function Drawer({ isOpen, onClose, items }) {
               <div className="mt-4 border-t pt-4">
                 <div className="flex justify-between text-lg font-bold">
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)} USD</span>
+                  <PriceDisplay price={subtotal} currency='ETH' font='font-bold' color='text-black' />
                 </div>
                 <Link href='/cart'>
                   <button className="mt-4 w-full bg-[var(--primary-color)] hover:text-black text-white py-2 rounded" onClick={() => setDrawerOpen(false)}>

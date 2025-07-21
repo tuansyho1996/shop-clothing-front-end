@@ -5,6 +5,7 @@ import { AppContext } from '@/context/context.app';
 import { useContext, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import PriceDisplay from '@/components/ui/display.price';
 
 export default function Cart() {
   const { productsInCart, setProductsInCart, subtotal } = useContext(AppContext)
@@ -50,7 +51,7 @@ export default function Cart() {
                   <div className=''>
                     <p className="font-semibold truncate-2-lines">{el.product_name}</p>
                     <p className="text-gray-500">{el.product_color} / {el.product_size}</p>
-                    <p className="text-gray-500">${el.product_price} USD</p>
+                    <PriceDisplay price={el.product_price_eth} currency='ETH' />
                     <button onClick={() => handleRemoveItem(index)} className="text-red-600 mt-2 text-sm">Remove</button>
                   </div>
                 </div>
@@ -66,7 +67,7 @@ export default function Cart() {
                       className="px-3 py-1 text-gray-600"
                     >+</button>
                   </div>
-                  <p className="font-semibold">${el.product_count * el.product_price} USD</p>
+                  <PriceDisplay price={(el.product_count * el.product_price_eth)} currency='ETH' font='font-semibold' />
                 </div>
               </div>
             ))
@@ -77,7 +78,7 @@ export default function Cart() {
 
         <div className="flex justify-between items-center mt-4">
           <p className="text-lg font-semibold">Subtotal</p>
-          <p className="text-lg font-bold">${subtotal} USD</p>
+          <PriceDisplay price={subtotal} currency='ETH' />
         </div>
         <p className="text-gray-500 text-sm text-right mt-1">
           Shipping calculated at checkout

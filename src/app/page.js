@@ -45,12 +45,34 @@ export default async function Page() {
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full">
       <Banner />
       <section className="container mx-auto ">
-        <h2 className="font-medium text-[1.5rem] px-4">Eco-Friendly Cotton Styles – Best Sellers</h2>
+        <h2 className="font-medium text-[1.5rem] px-4">Featured Drops</h2>
         <BestSelling />
+
+      </section>
+      <section className="container mx-auto  py-4 rounded-xl">
+        <h2 className="text-2xl font-semibold mb-4">Premium Materials</h2>
+        <p className="text-gray-700 text-lg mb-4 ">
+          At Carnobon, we believe that how something feels is just as important as how it looks.
+        </p>
+        <ul className="list-disc list-inside text-gray-700 space-y-2 px-5">
+          <li><strong>100% Cotton:</strong> We use soft, breathable cotton that’s built for everyday wear.</li>
+          <li><strong>Pre-shrunk & Fade-resistant:</strong> Made to keep shape and color, even after repeated washes.</li>
+          <li><strong>Ethically sourced:</strong> Responsibly manufactured with attention to comfort and sustainability.</li>
+        </ul>
       </section>
       <ListCategory />
+      <section className="container mx-auto  py-4">
+        <h2 className="text-2xl font-semibold mb-4">Why Carnobon?</h2>
+        <ul className="list-disc list-inside space-y-3 text-gray-700 px-5">
+          <li><strong>Pay with ETH:</strong> Native Ethereum support. Fast, secure, decentralized.</li>
+          <li><strong>One-time Drops:</strong> Limited editions. No restocks. True scarcity.</li>
+          <li><strong>Crypto-First Identity:</strong> Designs inspired by Web3 culture, memes, and protocols.</li>
+          <li><strong>Crafted for Comfort:</strong> Clean cuts, soft cotton, modern fits.</li>
+        </ul>
+      </section>
+
       <section id="new-products" className="container mx-auto mb-5">
-        <h2 className="font-medium text-[1.5rem] px-4">New Arrivals from Myth & Legend</h2>
+        <h2 className="text-2xl font-semibold mb-4">New Arrivals </h2>
         <ListNewProducts />
       </section>
     </main >

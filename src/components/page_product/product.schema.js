@@ -1,7 +1,6 @@
 'use client'
 const ProductSchema = ({ colorsObject, listSizes, product }) => {
     const color = colorsObject?.find(c => c.hex === product?.product_colors[0])?.name || "Unknown Color";
-    const sizes = listSizes.find(el => el.name.every(item => product?.product_list_categories.includes(item)))?.values?.join(', ');
     const variantId = typeof product?._id === 'string'
         ? product?._id.slice(-6).toUpperCase()
         : product?._id?.toString().slice(-6).toUpperCase();
@@ -23,18 +22,17 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
         "name": product?.product_name,
         "image": [product?.product_images[0] || "https://d2jfx0w9sp915a.cloudfront.net/541f795d750542d7e5c9e6fe3e68344a"],
         "description": product?.product_description,
-        "sku": `MYTHOLOGY-MAIN-${variantId}`,
+        "sku": `MYTHOLOGY-${variantId}`,
         "brand": {
             "@type": "Brand",
             "name": "Carnobon"
         },
         "gender": valueGender,
         "color": color,
-        "size": sizes,
         "ageGroup": product?.product_list_categories[1] === "kid" ? "kid" : "adult",
         "shippingWeight": {
             "@type": "QuantitativeValue",
-            "value": 0.5, // giả sử có trường này
+            "value": 0.5, // Assuming a default weight, adjust as necessary
             "unitCode": "KG"
         },
         "additionalProperty": {
@@ -45,8 +43,8 @@ const ProductSchema = ({ colorsObject, listSizes, product }) => {
         "offers": {
             "@type": "Offer",
             "url": `https://carnobon.com/products/${product?.product_slug}`,
-            "priceCurrency": "USD", // hoặc USD nếu bán quốc tế
-            "price": product?.product_price || 0,
+            "priceCurrency": "USD",
+            "price": product?.product_price,
             "itemCondition": "https://schema.org/NewCondition",
             "availability": "https://schema.org/InStock"
         }

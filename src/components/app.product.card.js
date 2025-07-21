@@ -1,6 +1,9 @@
 // components/ProductCard.js
 import Image from "next/image";
 import Link from "next/link";
+import PriceDisplay from "./ui/display.price";
+// import { TokenIcon } from '@web3icons/react'
+
 
 const ProductCard = ({ product }) => {
 
@@ -20,7 +23,7 @@ const ProductCard = ({ product }) => {
             />
           </div>
           <h3 className="text-lg truncate-3-lines">{product?.product_name}</h3>
-          <p className="text-gray-500">${product?.product_price.toFixed(2)}</p>
+          <PriceDisplay price={product?.product_price_eth} currency='ETH' font='font-semibold' color='text-black' />
         </div>
       </Link>
     </div>
