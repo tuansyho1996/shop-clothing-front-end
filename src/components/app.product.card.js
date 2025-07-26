@@ -8,10 +8,10 @@ import PriceDisplay from "./ui/display.price";
 const ProductCard = ({ product }) => {
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }} className="p-4 hover:shadow-2xl transition-shadow duration-300 shadow-md m-[10px] bg-[#f9f9f9] space-y-4">
+    <div style={{ display: 'flex', flexDirection: 'column' }} className=" hover:shadow-2xl transition-shadow duration-300 shadow-md rounded-md bg-[#f9f9f9] space-y-4">
       <Link href={`/product/${product?.product_slug}`} >
         <div className="rounded-lg flex flex-col items-center">
-          <div className="relative h-96 lg:h-80 w-full overflow-hidden rounded-lg shadow-lg">
+          <div className="relative h-96 lg:h-80 w-full rounded-t-md overflow-hidden shadow-lg">
             <Image
               src={product?.product_images[0]}
               alt={product?.product_name}
@@ -22,8 +22,10 @@ const ProductCard = ({ product }) => {
               className="hover:scale-125 transition-transform duration-300 rounded-"
             />
           </div>
-          <h3 className="text-lg truncate-3-lines">{product?.product_name}</h3>
-          <PriceDisplay price={product?.product_price_eth} currency='ETH' font='font-semibold' color='text-black' />
+          <div className="p-4 flex flex-col items-center space-y-2">
+            <h3 className="text-lg truncate-3-lines">{product?.product_name}</h3>
+            <PriceDisplay price={product?.product_price_eth} currency='ETH' font='font-semibold' color='text-black' />
+          </div>
         </div>
       </Link>
     </div>

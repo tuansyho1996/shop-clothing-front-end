@@ -1,9 +1,10 @@
 // components/MenDropdown.js
 'use client'
 
-import { useState, } from "react";
+import { useEffect, useState, } from "react";
 import CustomLink from "../ui/ui.custom.link";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Image from "next/image";
 const menu = [
     {
         name: 'OG Crypto Series',
@@ -45,7 +46,7 @@ const menu = [
         ]
     },
     {
-        name: 'DeFi Culture ',
+        name: 'DeFi Culture',
         href: '/category/defi-culture-wear-the-protocols-that-power-web3',
         child: [
             {
@@ -124,8 +125,24 @@ const menu = [
 
 
 ]
+const imagesCollectionObject = [
+    {
+        name: 'OG Crypto Series',
+        src: 'https://d2jfx0w9sp915a.cloudfront.net/4ec1bcec3f9aaf99bd087676ae39ab61',
+    },
+    {
+        name: 'DeFi Culture',
+        src: 'https://d2jfx0w9sp915a.cloudfront.net/d6a36c2a78e124a0ae04c54ded990ff8',
+    },
+    {
+        name: 'Meme Coins',
+        src: 'https://d2jfx0w9sp915a.cloudfront.net/9fa806e794387345b39a8e35a27c7b87',
+    },
+
+]
 const MenuDesktop = () => {
     const [nameOpen, setNameOpen] = useState('')
+    const [imageMenu, setImageMenu] = useState('')
 
     const handleOpen = (name) => {
         setNameOpen(name)
@@ -140,6 +157,15 @@ const MenuDesktop = () => {
             setNameOpen(name)
         }
     }
+    useEffect(() => {
+        // Tìm ảnh tương ứng với nameOpen
+        const image = imagesCollectionObject.find(item => item.name === nameOpen);
+        if (image) {
+            setImageMenu(image.src);
+        } else {
+            setImageMenu('');
+        }
+    }, [nameOpen]);
     return (
 
         <nav className="hidden relative lg:flex bg-gray-200">
@@ -181,10 +207,28 @@ const MenuDesktop = () => {
                     ></div>
 
                     {/* Dropdown */}
-                    <div className={`relative z-30  bg-white shadow-lg transition-all duration-300 ${nameOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'}`}>
-                        <div className="flex ">
-                            <div className="basis-1/3 bg-black"></div>
-                            <div className="p-1 flex-1 flex flex-col justify-between ">
+                    <div className={`relative z-30  bg-gray-100 shadow-lg transition-all duration-300 ${nameOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'}`}>
+                        <div className="flex shadow-lg">
+                            <div className="basis-1/3 relative bg-white">
+                                {
+                                    imageMenu ?
+                                        <Image
+                                            src={imageMenu}
+                                            alt="Menu Image"
+                                            fill
+                                            className="object-contain"
+                                        />
+                                        :
+                                        <button type="button" class="bg-indigo-500 ..." disabled>
+                                            <svg class="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24">
+
+                                            </svg>
+                                            Processing…
+                                        </button>
+                                }
+
+                            </div>
+                            <div className=" flex-1 flex flex-col shadow-lg">
                                 {
                                     // Tìm menu được mở theo nameOpen
                                     menu.find((m) => m.name === nameOpen)?.child?.map((item, id) => (
@@ -192,14 +236,13 @@ const MenuDesktop = () => {
                                             href={item?.href || ''}
                                             fontWeight="font-semibold"
                                             underline={false}
-                                            bgHover="bg-gray-100"
-                                            border="border-b-2 border-gray-200"
+                                            bgHover="bg-gray-200"
+                                            border="border-b-2 border-white"
                                         >
-                                            <div key={id} className="mx-6 p-5">
-                                                <div className="text-center" onClick={handleClose}>
+                                            <div key={id} className="mx-6 p-5" onClick={handleClose}>
+                                                <div className="text-center" >
                                                     {item.name}
                                                 </div>
-
                                             </div>
                                         </CustomLink>
 

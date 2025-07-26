@@ -72,7 +72,7 @@ const CryptoPayButton = () => {
                     return (
                         <button
                             onClick={!connected ? openConnectModal : handlePay}
-                            className={`w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors`}
+                            className={`w-full px-4 py-4 bg-[var(--accent-color)] text-white rounded-lg font-semibold hover:scale-[1.1] transition-colors`}
                         >
                             {!connected ? "Connect Wallet" : isConfirming ? "Confirming..." : isSuccess ? "Payment Successful" : "Pay with Crypto"}
                         </button>

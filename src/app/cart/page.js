@@ -48,14 +48,14 @@ export default function Cart() {
                       loadding='lazy'
                     />
                   </div>
-                  <div className=''>
+                  <div className='ml-2'>
                     <p className="font-semibold truncate-2-lines">{el.product_name}</p>
                     <p className="text-gray-500">{el.product_color} / {el.product_size}</p>
                     <PriceDisplay price={el.product_price_eth} currency='ETH' />
                     <button onClick={() => handleRemoveItem(index)} className="text-red-600 mt-2 text-sm">Remove</button>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 w-full md:w-auto">
+                <div className="flex items-center space-x-4 w-full md:w-auto ">
                   <div className="flex items-center border border-gray-300 rounded">
                     <button
                       onClick={() => handleMinusItem(index)}

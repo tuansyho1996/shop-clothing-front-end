@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useContext, useEffect } from "react";
 import { AppContext } from "@/context/context.app";
 import { getProductBestSelling } from "@/services/service.product";
+import { space } from "postcss/lib/list";
 export default function BestSelling() {
   const { bestProducts, setBestProducts } = useContext(AppContext);
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function BestSelling() {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 3,
+    spaceBetween: 10,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -53,17 +55,19 @@ export default function BestSelling() {
     ],
   };
   if (!bestProducts) {
-    return <p className="px-4">Loading best-selling products...</p>;
+    return <p className="px-2">Loading best-selling products...</p>;
   }
   if (bestProducts.length === 0) {
     return <p>No best-selling products available.</p>;
   }
   return (
-    <div className="w-full px-4 relative">
+    <div className="w-full px-2 relative">
       <Slider {...settings}>
         {bestProducts?.length > 0 ? (
           bestProducts?.map((product) => (
-            <ProductCard key={product._id} product={product} />
+            <div key={product._id} className="px-2">
+              <ProductCard key={product._id} product={product} />
+            </div>
           ))
         ) : (
           <p className="px-4">Loading best-selling products...</p>

@@ -7,7 +7,7 @@ const Banner = async () => {
   return (
     <div className="relative bg-gradient-to-r from-black to-gray-900 text-white h-[30vh] md:h-[50vh] lg:h-[75vh] w-full">
       <Image
-        src="https://d2jfx0w9sp915a.cloudfront.net/8c4b9a0533340b84e62db527ad166b14"
+        src="https://d2jfx0w9sp915a.cloudfront.net/7dada02c136620b42367674b376ed7f5"
         alt="Norse mythology inspired cotton t-shirt"
         fill
         className="object-contain"
