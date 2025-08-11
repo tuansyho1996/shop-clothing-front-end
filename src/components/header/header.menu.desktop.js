@@ -167,7 +167,6 @@ const MenuDesktop = () => {
         }
     }, [nameOpen]);
     return (
-
         <nav className="hidden relative lg:flex bg-gray-200">
             <ul className="flex relative flex justify-between w-full "
             >
@@ -175,7 +174,7 @@ const MenuDesktop = () => {
                     menu?.map((el, index) => {
                         return (
                             <li
-                                className={`${el.name === nameOpen ? 'text-accent-color !border-b-accent-color ' : ''} cursor-pointer flex py-3 basis-1/3 justify-center items-center border-b-2 border-x  border-white hover:border-b-accent-color transition-all duration-300 `}
+                                className={`${el.name === nameOpen ? 'text-accent-color !border-b-accent-color' : ''} cursor-pointer flex py-3 basis-1/3 justify-center items-center border-b-2 border-x  border-white hover:border-b-accent-color transition-all duration-300 `}
                                 key={index}
                                 onClick={() => handleClickMenu(el.name)}
 
@@ -184,11 +183,9 @@ const MenuDesktop = () => {
                                 <div className="relative" >
                                     <div
                                         className={`${el.name === nameOpen ? 'text-accent-color' : 'text-gray-700'} flex gap-1 items-center relative px-4 font-semibold transition-all duration-300`}
-
                                     >
                                         {el.name}
                                         <KeyboardArrowDownIcon className={`${el.name === nameOpen ? 'rotate-180' : ''} transition-transform duration-300`} />
-
                                     </div>
 
                                 </div>
@@ -202,7 +199,7 @@ const MenuDesktop = () => {
                 <div className="absolute top-full left-0 w-full z-10 ">
                     {/* Overlay */}
                     <div
-                        className="fixed inset-0 bg-black opacity-0 z-20"
+                        className="fixed inset-0 bg-black opacity-30 z-20"
                         onClick={handleClose}
                     ></div>
 
@@ -219,8 +216,8 @@ const MenuDesktop = () => {
                                             className="object-contain"
                                         />
                                         :
-                                        <button type="button" class="bg-indigo-500 ..." disabled>
-                                            <svg class="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24">
+                                        <button type="button" className="bg-indigo-500 ..." disabled>
+                                            <svg className="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24">
 
                                             </svg>
                                             Processing…
@@ -233,6 +230,7 @@ const MenuDesktop = () => {
                                     // Tìm menu được mở theo nameOpen
                                     menu.find((m) => m.name === nameOpen)?.child?.map((item, id) => (
                                         <CustomLink
+                                            key={id}
                                             href={item?.href || ''}
                                             fontWeight="font-semibold"
                                             underline={false}

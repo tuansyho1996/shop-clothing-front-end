@@ -37,7 +37,7 @@ const SearchAppBar = () => {
 
         if (products.length === 0) {
             // Chờ fetch xong
-            const response = await getProduct('all');
+            const response = await getProduct('all', 10);
             setProducts(response);
 
             const filtered = response.filter((product) =>

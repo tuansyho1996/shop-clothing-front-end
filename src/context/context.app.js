@@ -1,6 +1,8 @@
 'use client'
 import { getGlobal } from '@/services/service.global';
+import { connectUser } from '@/services/service.user';
 import { createContext, useState, useEffect, useRef } from 'react';
+import { useAccount } from 'wagmi';
 
 export const AppContext = createContext();
 
@@ -19,25 +21,18 @@ export function AppProvider({ children }) {
   const [reviews, setReviews] = useState('')
   const [globals, setGlobals] = useState([])
   const [bestProducts, setBestProducts] = useState(null)
-
+  const { address } = useAccount();
   useEffect(() => {
     //set cart
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
       setProductsInCart(JSON.parse(savedCart));
     }
-    //set user
-    const userLocal = localStorage.getItem('user');
-    if (userLocal) {
-      setUser(JSON.parse(userLocal));
-    }
   }, []);
   useEffect(() => {
     const newSubTotal = productsInCart.reduce((acc, el) => acc + (el.product_count * el.product_price_eth), 0)
     setSubtotal(newSubTotal)
   }, [productsInCart])
-
-
   useEffect(() => {
     shippingRef.current = shipping;
   }, [shipping]);
@@ -72,6 +67,20 @@ export function AppProvider({ children }) {
     }
     localStorage.setItem('cart', JSON.stringify(productsInCart));
   }, [productsInCart]);
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userData = await connectUser(address);
+      if (userData?.metadata?.user) {
+        setUser(userData?.metadata?.user);
+      }
+    }
+    if (address) {
+      fetchUser();
+    }
+    else {
+      setUser(null);
+    }
+  }, [address]);
   return (
     <AppContext.Provider value={{
       user, setUser, currentImageDetail, setCurrentImageDetail, currentColor, setCurrentColor, productsInCart, setProductsInCart, productsInCartRef,

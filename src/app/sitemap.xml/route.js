@@ -1,4 +1,4 @@
-import { getCategory } from "@/services/service.category"
+import { getCategory, getCategorySitemap } from "@/services/service.category"
 import { getProduct } from "@/services/service.product"
 
 export const dynamic = 'force-static'
@@ -10,14 +10,11 @@ export async function GET() {
     if (!products) {
         return new Response('Error fetching products', { status: 500 })
     }
-    const categories = await getCategory('all')
-    if (!categories) {
-        return new Response('Error fetching categories', { status: 500 })
-    }
+    const categories = await getCategorySitemap()
 
     const urls = [
         '',
-        ...products.map(product => `product/${encodeURIComponent(product.product_slug)}`),
+        // ...products.map(product => `product/${encodeURIComponent(product.product_slug)}`),
         ...categories.map(category => `category/${encodeURIComponent(category.category_slug)}`),
     ]
 

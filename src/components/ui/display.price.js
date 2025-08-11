@@ -11,7 +11,7 @@ const PriceDisplay = ({ price, currency = 'ETH', font = 'font-normal', color = '
                 <path fill="#202699" fillRule="evenodd" d="m12 15.429-5.625-3.263L12 3l5.625 9.166zM6.749 11.9l5.16-8.41v6.115zm-.077.23 5.238-2.327v5.364zm5.418-2.327v5.364l5.233-3.038zm0-.198 5.16 2.295-5.16-8.41z" clipRule="evenodd" />
                 <path fill="#202699" fillRule="evenodd" d="M12 16.406 6.375 13.21 12 21l5.625-7.79zm-4.995-2.633 4.905 2.79v4.005zm5.085 2.79v4.005l4.905-6.795z" clipRule="evenodd" />
             </svg>
-            <span className="pt-[2px]">{price.toFixed(6)}</span>
+            <span className="pt-[2px]">{price?.toFixed(6)}</span>
             <span className="pt-[2px] ml-1">{currency}</span>
         </div>
     );

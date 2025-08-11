@@ -30,7 +30,19 @@ const getTopCategory = async () => {
     console.error(error)
   }
 }
+const getCategorySitemap = async () => {
+  try {
+    const response = await fetcher('/api/category/sitemap', { cache: "no-cache" });
+    if (!response.status === 200) {
+      return []
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
 export {
   getCategory,
-  getTopCategory
+  getTopCategory,
+  getCategorySitemap
 }

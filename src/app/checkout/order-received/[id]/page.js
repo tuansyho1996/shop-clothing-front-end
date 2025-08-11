@@ -1,9 +1,10 @@
 import PriceDisplay from "@/components/ui/display.price";
 import { fetchOrder } from "@/services/service.payment";
-import PriceDisplay from "@/components/ui/display.price";
+import dayjs from "dayjs";
 export default async function OrderRecieved({ params }) {
   const res = await fetchOrder(params.id)
-  const subtotal = res?.order_info_customer?.items.reduce((sum, el) => el.product_price_eth * el.product_count + sum, 0)
+  console.log('res', res?.number_order)
+  // const res?.order_info?.subtotal = res?.order_info?.items.reduce((sum, el) => el.product_price_eth * el.product_count + sum, 0)
   return (
     <div className="container mx-auto p-4 min-h-[50vh]">
       <h2 className="text-2xl font-bold mb-4">Order details</h2>
@@ -20,31 +21,37 @@ export default async function OrderRecieved({ params }) {
             </thead>
             <tbody>
               {
-                res?.order_info_customer?.items.map((item, index) => {
+                res?.order_info?.items.map((item, index) => {
                   return (
                     <tr key={index}>
                       <td className="p-2 border-b">{item.product_name} x {item.product_count} - {item.product_size} - {item.product_color}</td>
                       {/* <td className="p-2 border-b text-right font-bold">${item.product_price_eth}</td> */}
-                      <td><PriceDisplay currency="ETH" price={item.product_price_eth} font="font-semibold" /></td>
+                      <td className="p-2 border-b text-right font-bold"><PriceDisplay currency="ETH" price={item.product_price_eth} font="font-semibold" /></td>
                     </tr>
                   )
                 })
               }
               <tr>
                 <td className="p-2">Subtotal:</td>
-                <td className="p-2 text-right font-bold">${subtotal.toFixed(6)}</td>
+                <td className="p-2 text-right font-bold">
+                  <PriceDisplay currency="ETH" price={parseFloat(res?.order_info?.subtotal)} font="font-semibold" />
+                </td>
               </tr>
               <tr>
                 <td className="p-2">Shipping:</td>
-                <td className="p-2 text-right font-bold">${res?.order_info_customer?.shipping}</td>
+                <td className="p-2 text-right font-bold">
+                  <PriceDisplay currency="ETH" price={parseFloat(res?.order_info?.shipping)} font="font-semibold" />
+                </td>
               </tr>
               <tr>
                 <td className="p-2">Payment method:</td>
-                <td className="p-2 text-right min-w-28 ">{res?.order_info?.payment_source?.paypal ? 'Paypala' : 'Credit card'}</td>
+                {/* <td className="p-2 text-right min-w-28 ">{res?.order_info?.payment_source?.paypal ? 'Paypala' : 'Credit card'}</td> */}
               </tr>
               <tr>
                 <td className="p-2 font-bold">Total:</td>
-                <td className="p-2 text-right font-bold">${(subtotal + res?.order_info_customer?.shipping).toFixed(6)}</td>
+                <td className="p-2 text-right font-bold">
+                  <PriceDisplay currency="ETH" price={parseFloat(res?.order_info?.subtotal + res?.order_info?.shipping)} font="font-semibold" />
+                </td>
               </tr>
             </tbody>
           </table>
@@ -53,22 +60,14 @@ export default async function OrderRecieved({ params }) {
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <h3 className="font-bold">Billing address</h3>
-              <p>{res?.order_info_customer?.givenName} {res?.order_info_customer?.surname}</p>
-              <p>{res?.order_info_customer?.addressLine1}</p>
-              <p>{res?.order_info_customer?.addressLine2}</p>
-              <p>{res?.order_info_customer?.adminArea2},{res?.order_info_customer?.adminArea1} {res?.order_info_customer?.postalCode}</p>
-              <p>{res?.order_info_customer?.countryCode}</p>
-              <p>{res?.order_info_customer?.nationalNumber}</p>
-              <p>{res?.order_info_customer?.emailAddress}</p>
+              <p>{res?.order_info?.firtName} {res?.order_info?.lastName}</p>
+              <p>{res?.order_info?.address}</p>
+              <p>{res?.order_info?.apartmentSuite},{res?.order_info?.city} {res?.order_info?.state}</p>
+              <p>{res?.order_info?.country}</p>
+              <p>{res?.order_info?.phone}</p>
+              <p>{res?.order_info?.email}</p>
             </div>
-            {/* <div>
-              <h3 className="font-bold">Shipping address</h3>
-              <p>John Doe</p>
-              <p>1st</p>
-              <p>ast</p>
-              <p>San Jose, AL 22222</p>
-              <p>United States (US)</p>
-            </div> */}
+
           </div>
         </div>
 
@@ -85,18 +84,20 @@ export default async function OrderRecieved({ params }) {
                 </li>
               )
             }
-
             <li>
-              <strong>Date:</strong> {res?.createdAt}
+              <strong>Txn Hash</strong> {res?.order_info?.txHash}
             </li>
             <li>
-              <strong>Email:</strong> {res?.order_info_customer?.emailAddress}
+              <strong>Date:</strong> {res?.createdAt && dayjs(res.createdAt).format("DD/MM/YYYY")}
             </li>
             <li>
-              <strong>Total:</strong> ${(subtotal + res?.order_info_customer?.shipping).toFixed(6)}
+              <strong>Email:</strong> {res?.order_info?.email}
             </li>
             <li>
-              <strong>Payment method:</strong> {res?.order_info?.payment_source?.paypal ? 'Paypal' : 'Credit card'}
+              <strong>Total:</strong> ${parseFloat(res?.order_info?.subtotal + res?.order_info?.shipping).toFixed(6)}
+            </li>
+            <li>
+              {/* <strong>Payment method:</strong> {res?.order_info?.payment_source?.paypal ? 'Paypal' : 'Credit card'} */}
             </li>
           </ul>
         </div>

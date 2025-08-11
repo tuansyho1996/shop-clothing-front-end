@@ -18,7 +18,23 @@ const fetchOrder = async (id = 'all') => {
     console.log(error)
   }
 }
+const completeOrder = async (data) => {
+  try {
+    const response = await fetcher('/api/payment/checkout/order-received/',
+      {
+        method: 'POST',
+        body: data,
+        cache: "no-cache"
+      }
+    );
+    return response;
+  } catch (error) {
+    console.error('Error in completeOrder:', error);
+    throw error;
+  }
+};
 
 export {
-  fetchOrder
+  fetchOrder,
+  completeOrder
 }

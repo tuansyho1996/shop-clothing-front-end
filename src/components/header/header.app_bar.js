@@ -1,19 +1,20 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import MenuDesktop from './header.menu.desktop';
 import MenuMobile from './header.menu.mobile';
 import CartHeader from './header.cart';
-import AccountMenu from '../ui/account.menu.destop';
 import SearchAppBar from '../search/search.products';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import ProfileButton from './header.profile';
 
 
-const Header = async () => {
+const Header = () => {
+
   return (
     <>
       <header className="w-full bg-white shadow pb-1 md:pb-0 ">
         {/* Top Section */}
-        <div className='px-2'>
+        <div className='px-1'>
           <div className="flex !text-back justify-between items-center p-1 gap-4 lg:gap-6 py-2">
             {/* Left Section: Logo */}
             <div className="flex items-center">
@@ -30,29 +31,30 @@ const Header = async () => {
             </div>
 
             {/* Center Section: Search Bar */}
-            <div className='hidden md:block flex-grow'>
+            <div className='hidden lg:block flex-grow'>
               <SearchAppBar />
             </div>
             {/* Right Section: Icons */}
             <div className="flex items-center justify-center space-x-4 lg:space-x-6 ">
-              <div className='min-[500px]:hidden max-[340px]:hidden'>
+              <div className='min-[750px]:hidden max-[340px]:hidden'>
                 <SearchAppBar />
               </div>
-              <div className="max-[500px]:hidden">
-                <ConnectButton className=" !text-back !bg-white !border-none !shadow-none !px-4 !py-2" />
+              <div className="max-[750px]:hidden !ml-0">
+                <ProfileButton />
               </div>
               {/* Divider Line */}
-              <AccountMenu />
+              {/* <AccountMenu /> */}
               <CartHeader />
             </div>
             {/* Menu for mobile */}
             <MenuMobile />
           </div>
 
-          <div className="min-[500px]:hidden flex justify-center items-center p-1 gap-4 lg:gap-6 py-2">
-            <ConnectButton className=" !text-back !bg-white !border-none !shadow-none !rounded-none !px-4 !py-2" />
+          <div className="min-[750px]:hidden flex justify-center items-center p-1 gap-4 lg:gap-6 py-2">
+            {/* <ConnectButton className=" !text-back !bg-white !border-none !shadow-none !rounded-none !px-4 !py-2" /> */}
+            <ProfileButton />
           </div>
-          <div className=' md:hidden max-[500px]:hidden'>
+          <div className='lg:hidden max-[750px]:hidden pb-2'>
             <SearchAppBar />
           </div>
         </div>

@@ -19,7 +19,6 @@ const postReview = async (formData) => {
     console.error(err);
     toast.error('Something went wrong. Please try again later.');
   }
-
 }
 const getReview = async (slug) => {
   try {

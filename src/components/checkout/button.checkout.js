@@ -2,13 +2,16 @@
 
 import { useSendTransaction, useWaitForTransactionReceipt, useAccount } from "wagmi";
 import { parseEther } from "viem";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { AppContext } from "@/context/context.app";
 import { FormCheckoutContext } from "@/context/context.form.checkout";
-
+import { completeOrder } from "@/services/service.payment";
+import { connectUser } from "@/services/service.user";
+import { useRouter } from 'next/navigation';
 const CryptoPayButton = () => {
-    const { subtotal, shipping } = useContext(AppContext);
+    const router = useRouter();
+    const { subtotal, shipping, productsInCart, setProductsInCart } = useContext(AppContext);
     const { firstName, lastName, address: addressForm, apartmentSuite, city, state, zip, country, phone, email, setFormErrors } = useContext(FormCheckoutContext);
     const [txHash, setTxHash] = useState("");
     const { address, isConnected } = useAccount();
@@ -16,6 +19,18 @@ const CryptoPayButton = () => {
     const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({
         hash: txHash,
     });
+
+
+
+    useEffect(() => {
+        const handleConnectUser = async () => {
+            if (isConnected && address) {
+                const userData = await connectUser(address);
+                console.log("User connected:", userData.metadata);
+            }
+        };
+        handleConnectUser();
+    }, [isConnected, address]);
     const validateForm = () => {
         const errors = {};
         // if (!email) errors.email = "Email is required.";
@@ -54,32 +69,57 @@ const CryptoPayButton = () => {
             {
                 onSuccess(data) {
                     setTxHash(data.hash);
+                    handleCompleteOrder()
                 },
             }
         );
     };
-
-
-
+    const handleCompleteOrder = async () => {
+        const formData = new FormData();
+        formData.append('firstName', firstName);
+        formData.append('lastName', lastName);
+        formData.append('address', addressForm);
+        formData.append('apartmentSuite', apartmentSuite);
+        formData.append('city', city);
+        formData.append('state', state);
+        formData.append('zip', zip);
+        formData.append('country', country);
+        formData.append('phone', phone);
+        formData.append('email', email);
+        formData.append('subtotal', subtotal);
+        formData.append('shipping', shipping);
+        formData.append('txHash', txHash);
+        formData.append('items', JSON.stringify(productsInCart));
+        formData.append('shippingFee', shipping);
+        formData.append('addressWallet', address);
+        formData.append('subtotalEth', parseFloat(subtotal + shipping).toFixed(6));
+        const res = await completeOrder(formData);
+        if (res.status === 201) {
+            setProductsInCart([]);
+            router.push(`/checkout/order-received/${res.metadata._id}`);
+        }
+    }
     return (
-        <div className="w-full">
-
+        <div className="w-full flex justify-center items-center">
             <ConnectButton.Custom>
-                {({ account, chain, openConnectModal, mounted }) => {
-                    const ready = mounted && account && chain;
-                    const connected = ready && isConnected;
-
+                {({ account, chain, openConnectModal, mounted, }) => {
+                    const ready = mounted;
+                    const connected = ready && account && chain;
                     return (
                         <button
                             onClick={!connected ? openConnectModal : handlePay}
-                            className={`w-full px-4 py-4 bg-[var(--accent-color)] text-white rounded-lg font-semibold hover:scale-[1.1] transition-colors`}
+                            className={`w-[96%] px-4 py-3 bg-[var(--accent-color)] text-white rounded-lg font-semibold hover:scale-[1.1] transition-transform duration-700 transition-colors`}
                         >
                             {!connected ? "Connect Wallet" : isConfirming ? "Confirming..." : isSuccess ? "Payment Successful" : "Pay with Crypto"}
                         </button>
                     );
                 }}
             </ConnectButton.Custom>
-
+            {/* <button className="w-[96%] px-4 py-3 bg-[var(--accent-color)] text-white rounded-lg font-semibold hover:scale-[1.1] transition-transform duration-700 transition-colors mt-4"
+                onClick={handleCompleteOrder}
+            >
+                testaa complete
+            </button> */}
         </div>
     );
 

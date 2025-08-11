@@ -8,10 +8,14 @@ const fetcher = async (endpoint, options = {}) => {
   return res.json();
 };
 
-
-const getProduct = async (slug = 'all') => {
+const getProduct = async (slug = 'all', limit, page, keyWord) => {
   try {
-    const response = await fetcher(`/api/product/${slug}`, { cache: "no-cache" });
+    const params = {};
+    if (limit) params.limit = limit;
+    if (page) params.page = page;
+    if (keyWord) params.keyWord = keyWord;
+    const query = new URLSearchParams(params).toString();
+    const response = await fetcher(`/api/product/${slug}?${query}`, { cache: "no-cache" });
     if (!response.status === 200) {
       return null
     }

@@ -112,3 +112,12 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+select {
+  appearance: none;
+  /* chuẩn */
+  -webkit-appearance: none;
+  /* Chrome, Safari */
+  -moz-appearance: none;
+  /* Firefox */
+}

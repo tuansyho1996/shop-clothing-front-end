@@ -5,16 +5,18 @@ import ProductCard from "@/components/app.product.card";
 
 const Page = ({ params }) => {
     const [products, setProducts] = useState([]);
+    const [page, setPage] = useState(1);
+
     useEffect(() => {
         const fetchProducts = async () => {
-            const products = await getProduct('all');
+            const products = await getProduct('all', 24, page, params.slug);
             const filteredProducts = products.filter((product) =>
                 product.product_name.toLowerCase().includes(params.slug.toLowerCase())
             );
             setProducts(filteredProducts);
         };
         fetchProducts();
-    }, [params.slug]);
+    }, [params.slug, page]);
 
     // Mock Product Data (Replace with actual data fetching)
 
@@ -31,6 +33,16 @@ const Page = ({ params }) => {
                         <p>No results found</p>
                     )}
                 </div>
+                {products?.length > 0 && (
+                    <div className="mt-6 flex justify-center">
+                        <button
+                            onClick={() => setPage(page + 1)}
+                            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                        >
+                            Load More
+                        </button>
+                    </div>
+                )}
             </div>
         </main>
 

@@ -1,24 +1,10 @@
 
 const fetcher = async (endpoint, options = {}) => {
-  try {
-    const res = await fetch(`${NEXT_PUBLIC_BACK_END_URL}${endpoint}`, {
-      ...options,
-      credentials: 'include', // Include credentials such as cookies
-    });
-
-    // Check for HTTP errors and handle response
-    if (!res.ok) {
-      const errorData = await res.json(); // Parse error response
-      const error = new Error(`Error ${res.status}: ${res.statusText}`);
-      error.status = res.status; // Attach status code
-      error.data = errorData; // Attach error response body
-      throw error; // Throw the error for the caller to handle
-    }
-    return await res.json(); // Return parsed JSON for successful responses
-  } catch (error) {
-    console.error('Fetcher Error:', error);
-    throw error; // Ensure errors are re-thrown to be caught by the caller
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACK_END_URL}${endpoint}`, options);
+  if (!res.ok) {
+    throw new Error('Network response was not ok');
   }
+  return res.json();
 };
 
 const createUser = async (data) => {
@@ -41,8 +27,13 @@ const login = async (data) => {
   });
   return response
 }
+const connectUser = async (address) => {
+  const response = await fetcher(`/api/user/connect/${address}`)
+  return response
+}
 
 export {
   createUser,
-  login
+  login,
+  connectUser
 }
