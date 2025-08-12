@@ -24,6 +24,17 @@ const getProduct = async (slug = 'all', limit, page, keyWord) => {
     console.error(error)
   }
 }
+const getProductSitemap = async () => {
+  try {
+    const response = await fetcher('/api/product/sitemap', { cache: "no-cache" });
+    if (!response.status === 200) {
+      return []
+    }
+    return response.metadata
+  } catch (error) {
+    console.error(error)
+  }
+}
 const getProductShop = async (page) => {
   try {
     const query = new URLSearchParams({ page }).toString();
@@ -66,6 +77,7 @@ export {
   getProductShop,
   getProduct,
   getProductsOfCategory,
-  getProductBestSelling
+  getProductBestSelling,
+  getProductSitemap
 }
 
