@@ -1,9 +1,12 @@
+import { getExplorerUrl, getNameChain } from "@/components/providers/network";
 import PriceDisplay from "@/components/ui/display.price";
 import { fetchOrder } from "@/services/service.payment";
 import dayjs from "dayjs";
+import Link from "next/link";
 export default async function OrderRecieved({ params }) {
   const res = await fetchOrder(params.id)
-  console.log('res', res?.number_order)
+  const nameChain = getNameChain(res?.order_info?.chainId);
+  const chainUrl = getExplorerUrl(res?.order_info?.chainId, res?.order_info?.txHash);
   // const res?.order_info?.subtotal = res?.order_info?.items.reduce((sum, el) => el.product_price_eth * el.product_count + sum, 0)
   return (
     <div className="container mx-auto p-4 min-h-[50vh]">
@@ -40,7 +43,7 @@ export default async function OrderRecieved({ params }) {
               <tr>
                 <td className="p-2">Shipping:</td>
                 <td className="p-2 text-right font-bold">
-                  <PriceDisplay currency="ETH" price={parseFloat(res?.order_info?.shipping)} font="font-semibold" />
+                  <PriceDisplay currency="ETH" price={parseFloat(res?.order_info?.shippingFee)} font="font-semibold" />
                 </td>
               </tr>
               <tr>
@@ -50,7 +53,7 @@ export default async function OrderRecieved({ params }) {
               <tr>
                 <td className="p-2 font-bold">Total:</td>
                 <td className="p-2 text-right font-bold">
-                  <PriceDisplay currency="ETH" price={parseFloat(res?.order_info?.subtotal + res?.order_info?.shipping)} font="font-semibold" />
+                  <PriceDisplay currency="ETH" price={parseFloat(res?.order_info?.subtotal) + parseFloat(res?.order_info?.shippingFee)} font="font-semibold" />
                 </td>
               </tr>
             </tbody>
@@ -85,7 +88,22 @@ export default async function OrderRecieved({ params }) {
               )
             }
             <li>
-              <strong>Txn Hash</strong> {res?.order_info?.txHash}
+              <strong>Chain:</strong> {nameChain}
+            </li>
+            <li className="flex items-center">
+              <strong>Txn Hash:</strong>
+              <Link href={chainUrl} target="_blank" className="text-blue-500 hover:underline ml-2 hidden sm:inline-block">
+                {res?.order_info?.txHash
+                  ? `${res.order_info.txHash.slice(0, 15)}...${res.order_info.txHash.slice(-15)}`
+                  : ""}
+              </Link>
+
+              {/* mobile: <500px */}
+              <Link href={chainUrl} target="_blank" className="text-blue-500 hover:underline ml-2 sm:hidden">
+                {res?.order_info?.txHash
+                  ? `${res.order_info.txHash.slice(0, 10)}...${res.order_info.txHash.slice(-10)}`
+                  : ""}
+              </Link>
             </li>
             <li>
               <strong>Date:</strong> {res?.createdAt && dayjs(res.createdAt).format("DD/MM/YYYY")}
@@ -93,8 +111,9 @@ export default async function OrderRecieved({ params }) {
             <li>
               <strong>Email:</strong> {res?.order_info?.email}
             </li>
-            <li>
-              <strong>Total:</strong> ${parseFloat(res?.order_info?.subtotal + res?.order_info?.shipping).toFixed(6)}
+            <li className="flex items-center">
+              <strong>Total:</strong>
+              <PriceDisplay currency="ETH" price={parseFloat(res?.order_info?.subtotal) + parseFloat(res?.order_info?.shippingFee)} font="font-semibold" />
             </li>
             <li>
               {/* <strong>Payment method:</strong> {res?.order_info?.payment_source?.paypal ? 'Paypal' : 'Credit card'} */}

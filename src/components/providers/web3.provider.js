@@ -1,6 +1,6 @@
 'use client'
 
-import { WagmiProvider, http } from 'wagmi'
+import { WagmiProvider } from 'wagmi'
 import { mainnet, arbitrum, optimism, base, polygon } from 'wagmi/chains'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RainbowKitProvider, getDefaultConfig } from '@rainbow-me/rainbowkit'
@@ -12,7 +12,7 @@ const queryClient = new QueryClient()
 export default function Web3Provider({ children }) {
     const config = useMemo(() => getDefaultConfig({
         appName: 'My Web3 App',
-        projectId: '600ff3ccff8155148627a3e3d0690701',
+        projectId: '600ff3ccff8155148627a3e3d069aaa1',
         chains: [mainnet, arbitrum, optimism, base, polygon],
     }), [])
 

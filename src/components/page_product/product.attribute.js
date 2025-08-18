@@ -52,7 +52,7 @@ const ProductAttribute = ({ product, listSizes, colorsObject }) => {
   }
   const handleAddToCart = () => {
     const isProductInCart = productsInCart.find(el => el.product_slug === product?.product_slug)
-    if (isProductInCart && isProductInCart.product_size === selectedSize && isProductInCart.product_color === colorsObject.find(el => el.hex === currentColor).name) {
+    if (isProductInCart && isProductInCart.product_size === selectedSize && isProductInCart.product_color === colorsObject.find(el => el.hex === currentColor)?.name) {
       const mutateProductsInCart = productsInCart.map(el => {
         if (el.product_slug === product?.product_slug) {
           el.product_count += quantity
