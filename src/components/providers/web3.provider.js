@@ -11,8 +11,8 @@ const queryClient = new QueryClient()
 
 export default function Web3Provider({ children }) {
     const config = useMemo(() => getDefaultConfig({
-        appName: 'My Web3 App',
-        projectId: '600ff3ccff8155148627a3e3d069aaa1',
+        appName: 'shop',
+        projectId: '72add62293285bf2c1c82553baf85108',
         chains: [mainnet, arbitrum, optimism, base, polygon],
     }), [])
 

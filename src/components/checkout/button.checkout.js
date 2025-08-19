@@ -1,6 +1,6 @@
 "use client";
 
-import { useSendTransaction, useWaitForTransactionReceipt, useAccount, useChainId } from "wagmi";
+import { useSendTransaction, useWaitForTransactionReceipt, useAccount, useChainId, useBalance } from "wagmi";
 import { parseEther } from "viem";
 import { useState, useContext, useEffect } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -20,6 +20,9 @@ const CryptoPayButton = () => {
         hash: txHash,
     });
     const chainId = useChainId();
+    const { data: balanceData, refetch } = useBalance({
+        watch: true,
+    });
     useEffect(() => {
         const handleConnectUser = async () => {
             if (isConnected && address) {
@@ -28,6 +31,14 @@ const CryptoPayButton = () => {
         };
         handleConnectUser();
     }, [isConnected, address]);
+    useEffect(() => {
+        if (isSuccess) {
+            refetch();
+        }
+    }, [isSuccess, refetch]);
+    useEffect(() => {
+        console.log("Balance updated:", balanceData);
+    }, [balanceData]);
     const validateForm = () => {
         const errors = {};
         // if (!email) errors.email = "Email is required.";
@@ -97,6 +108,7 @@ const CryptoPayButton = () => {
         };
         const res = await completeOrder(data);
         if (res) {
+            setProductsInCart([]);
             router.push(`/checkout/order-received/${res._id}`);
         }
     }

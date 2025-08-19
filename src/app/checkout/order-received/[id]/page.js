@@ -98,7 +98,6 @@ export default async function OrderRecieved({ params }) {
                   : ""}
               </Link>
 
-              {/* mobile: <500px */}
               <Link href={chainUrl} target="_blank" className="text-blue-500 hover:underline ml-2 sm:hidden">
                 {res?.order_info?.txHash
                   ? `${res.order_info.txHash.slice(0, 10)}...${res.order_info.txHash.slice(-10)}`

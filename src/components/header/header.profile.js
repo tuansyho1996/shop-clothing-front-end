@@ -45,13 +45,7 @@ export default function WalletDropdown() {
         address,
         watch: true,
     });
-    // const { data: blockNumber } = useBlockNumber({ watch: true });
 
-    // useEffect(() => {
-    //     if (address) {
-    //         refetch();
-    //     }
-    // }, [blockNumber, address, refetch]);
     useEffect(() => {
         setIsMounted(true);
     }, []);
