@@ -1,8 +1,6 @@
 import { getCategorySitemap } from "@/services/service.category"
 import { getProductSitemap } from "@/services/service.product"
 
-export const dynamic = 'force-dynamic' // hoặc bỏ hẳn
-
 export async function GET() {
     const domain = 'https://carnobon.com'
 
