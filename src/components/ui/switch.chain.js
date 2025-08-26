@@ -1,6 +1,7 @@
 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Img from 'next/image';
 
 export default function YourApp() {
     return (
@@ -67,10 +68,11 @@ export default function YourApp() {
                                                 }}
                                             >
                                                 {chain.iconUrl && (
-                                                    <img
+                                                    <Img
                                                         alt={chain.name ?? 'Chain icon'}
                                                         src={chain.iconUrl}
-                                                        style={{ width: 34, height: 34 }}
+                                                        width={34}
+                                                        height={34}
                                                     />
                                                 )}
                                             </div>
