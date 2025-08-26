@@ -34,7 +34,6 @@ ${urls
                 url => `<url>
   <loc>${domain}/${url.slug}</loc>
   <lastmod>${url.lastModified}</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>${url.priority}</priority>
 </url>`
             )
