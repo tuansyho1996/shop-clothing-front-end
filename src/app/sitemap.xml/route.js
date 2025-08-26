@@ -40,8 +40,10 @@ ${urls
 
     return new Response(xml, {
         headers: {
-            'Content-Type': 'application/xml',
-            'Cache-Control': 'no-store, no-cache, must-revalidate',
+            "Content-Type": "application/xml",
+            "Cache-Control": "no-store, no-cache, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
         },
     })
 }
