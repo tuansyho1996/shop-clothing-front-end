@@ -1,5 +1,4 @@
 import { getReview } from '../../services/service.review';
-import Image from 'next/image';
 import ReviewsCard from '@/components/review/review.card';
 const Reviews = async () => {
     const reviews = await getReview('all')

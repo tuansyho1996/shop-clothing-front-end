@@ -89,7 +89,7 @@ export default function WalletDropdown() {
                         <button
                             onClick={() => {
                                 setDropdownOpen(false);
-                                router.push('/profile');
+                                router.push('/profile/info');
                             }}
                             className="w-full text-left py-2 hover:bg-gray-100 text-sm px-2 rounded-full"
                         >
