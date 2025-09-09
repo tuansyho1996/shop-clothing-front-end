@@ -5,7 +5,6 @@ import { useContext } from "react"
 
 export default function OrdersPage() {
     const { user } = useContext(AppContext)
-    console.log('User in orders page:', user?.usr_orders)
     return (
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ul >
@@ -24,7 +23,7 @@ export default function OrdersPage() {
                                 <ul className="">
                                     {order?.order_info?.items.map((item, itemIndex) => (
                                         <li key={itemIndex}>
-                                            <Image src={item.product_images[0]} alt={item?.product_name} fill
+                                            <Image src={item.product_images[0]} alt={item?.product_name} width={150} height={150}
 
                                                 className="inline-block mr-2" />
                                         </li>

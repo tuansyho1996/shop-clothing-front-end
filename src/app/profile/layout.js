@@ -37,8 +37,8 @@ export default function Profile({ children }) {
                         </div>
                         <div className="flex items-center gap-2 mt-1">
                             <span className="text-xs px-2 py-0.5 rounded bg-gray-800 text-gray-200 font-mono">
-                                {user?.user?.usr_firtname ? user?.user?.usr_firtname : 'Unnamed User'}
-                                {user?.user?.usr_lastname ? ` ${user?.user?.usr_lastname}` : ''}
+                                {user?.user?.usr_info?.firstName ? user?.user?.usr_info?.firstName : 'Unnamed User'}
+                                {user?.user?.usr_info?.lastName ? ` ${user?.user?.usr_info?.lastName}` : ''}
                             </span>
                             <span className="text-xs px-2 py-0.5 rounded bg-gray-800 text-gray-200">
                                 {
