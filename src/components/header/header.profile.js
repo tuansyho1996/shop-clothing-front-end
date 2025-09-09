@@ -11,6 +11,7 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import LogoutIcon from '@mui/icons-material/Logout';
 import NetworkSwitcher from '../ui/switch.chain';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import CopyAddress from '../web3/web3.copy';
 
 const JazzAvatar = ({ address, diameter = 32 }) => {
     const ref = useRef();
@@ -84,13 +85,7 @@ export default function WalletDropdown() {
                         onClick={() => setDropdownOpen(false)}
                     ></div>
                     <div className="relative z-30">
-                        <button
-                            onClick={handleCopy}
-                            className="w-full flex items-center gap-1 py-2 hover:bg-gray-100 text-sm px-2 rounded-full"
-                        >
-                            <Copy size={16} />
-                            {copied ? 'Copied!' : 'Copy Address'}
-                        </button>
+                        <CopyAddress address={address} />
                         <button
                             onClick={() => {
                                 setDropdownOpen(false);

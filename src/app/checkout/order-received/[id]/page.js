@@ -5,8 +5,8 @@ import dayjs from "dayjs";
 import Link from "next/link";
 export default async function OrderRecieved({ params }) {
   const res = await fetchOrder(params.id)
-  const nameChain = getNameChain(res?.order_info?.chainId);
-  const chainUrl = getExplorerUrl(res?.order_info?.chainId, res?.order_info?.txHash);
+  const nameChain = getNameChain(res?.order_info?.chainId) || 'Unknown';
+  const chainUrl = getExplorerUrl(res?.order_info?.chainId, res?.order_info?.txHash) || '#';
   // const res?.order_info?.subtotal = res?.order_info?.items.reduce((sum, el) => el.product_price_eth * el.product_count + sum, 0)
   return (
     <div className="container mx-auto p-4 min-h-[50vh]">

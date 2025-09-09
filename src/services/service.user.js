@@ -1,6 +1,4 @@
-
 import axios from '../config/axios';
-
 
 // const createUser = async (data) => {
 //   const response = await fetcher(`/api/user`, {
@@ -22,6 +20,7 @@ import axios from '../config/axios';
 //   });
 //   return response
 // }
+
 const connectUser = async (address) => {
   const response = await axios.get(`/api/user/connect/${address}`);
   if (response.status !== 200) {
@@ -29,7 +28,15 @@ const connectUser = async (address) => {
   }
   return response.data;
 }
+const updateUser = async (address, data) => {
+  const response = await axios.put(`/api/user/info/${address}`, data);
+  if (response.status !== 200) {
+    return null;
+  }
+  return response.data;
+}
 
 export {
-  connectUser
+  connectUser,
+  updateUser
 }

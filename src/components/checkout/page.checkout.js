@@ -56,9 +56,7 @@ export default function Checkout() {
                         {/* Delivery Form */}
                         <div className='md:sticky md:top-4'>
                             <div className="text-xl font-semibold mb-4 uppercase ">Billing details</div>
-
                             <Delivery />
-
                         </div>
 
                     </div>

@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
 
-      <body className={`${openSans.variable}`}>
+      <body className={`${openSans.variable} bg-[var(--background)]`}>
         <Web3Provider>
           <AppProvider>
             <Header />

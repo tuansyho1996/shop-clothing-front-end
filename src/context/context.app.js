@@ -70,8 +70,8 @@ export function AppProvider({ children }) {
   useEffect(() => {
     const fetchUser = async () => {
       const userData = await connectUser(address);
-      if (userData?.metadata?.user) {
-        setUser(userData?.metadata?.user);
+      if (userData?.metadata) {
+        setUser(userData?.metadata);
       }
     }
     if (address) {
